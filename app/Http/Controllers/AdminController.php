@@ -76,7 +76,6 @@ return back()->with('success', 'User has Been in Archived .');
 public function listarch(){
 
      // Retrieve all users that have been soft deleted
-     this functio 
     $deletedUsers = User::onlyTrashed()->get();
     
     // Pass the deleted users to the view
