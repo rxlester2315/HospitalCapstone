@@ -24,9 +24,10 @@
                     <div class="card-body">
                         <div class="badges">
                             @if (Auth::user()->role_name=='Super Admin')
+                            <br>
                             <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
                             <hr>
-                            <span>Role Name:</span>
+                            <span>Role Names:</span>
                             <span class="badge bg-success">Super Admin</span>
                             @endif
 
@@ -34,7 +35,7 @@
                             <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
                             <hr>
                             <span>Role Name:</span>
-                            <span class="badge bg-info">Super Admin</span>
+                            <span class="badge bg-success">Super Admin</span>
                             @endif
                             @if (Auth::user()->role_name=='Normal User')
                             <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
@@ -83,11 +84,7 @@
                         <i class="bi bi-file-earmark-medical-fill"></i>
                         <span>Form Elements</span>
                     </a>
-                    <ul class="submenu">
-                        <li class="submenu-item active">
-                            <a href="">Staff Input</a>
-                        </li>
-                    </ul>
+
                 </li>
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
@@ -109,10 +106,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-item">
-                    <a href="" class='sidebar-link'>
-                        <i class="bi bi-lock-fill"></i>
-                        <span>Lock Screen</span>
-                    </a>
+
                 </li>
                 <li class="sidebar-item">
                     <a href="{{ route('logout') }}" class='sidebar-link'>

@@ -10,6 +10,7 @@ use App\Models\Employees;
 use Auth;
 use DB;
 use App\Models\User;
+use App\Models\EmployeeInfo;
 
 use Carbon\Carbon;
 use Session;
@@ -53,7 +54,7 @@ class LoginController extends Controller
         }elseif (Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Admin'])) {
             DB::table('activity_logs')->insert($activityLog);
             Toastr::success('Login successfully :)','Success');
-            return redirect()->intended('Ad');
+            return redirect()->intended('Admin');
         }elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Human Resources'])) {
             DB::table('activity_logs')->insert($activityLog);
             Toastr::success('Login successfully :)','Success');
@@ -173,8 +174,11 @@ class LoginController extends Controller
     }
 
     public function Docview(){
+         $userId = auth()->user()->id;
+            $doctor = EmployeeInfo::where('id', $userId)->first();
+            $hasRecord = $doctor !== null;
 
-        return view('Doctor.home');
+        return view('Doctor.home',compact('doctor','hasRecord'));
     }
 
       public function sadview(){

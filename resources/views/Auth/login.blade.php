@@ -27,8 +27,8 @@
                     </div>
                     {{-- message --}}
                     {!! Toastr::message() !!}
-                    <h1 class="auth-title">Log in.</h1>
-                    <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+                    <h1 class="auth-title">Login</h1>
+                    <p class="auth-subtitle mb-5">Log in with your Account that you entered during registration.</p>
                     @if(session()->has('error'))
                     <div class="text-danger text-center text-bold">
                         {{ session()->get('error') }}

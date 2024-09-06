@@ -81,7 +81,6 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item active">
-                            <a href="">Staff Input</a>
                         </li>
                     </ul>
                 </li>

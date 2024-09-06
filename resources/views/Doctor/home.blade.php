@@ -27,6 +27,36 @@
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
 
     <style>
+    .profile-container {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 300px;
+    }
+
+    .profile-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile-logo {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+        object-fit: cover;
+    }
+
+    .profile-name {
+        font-size: 1.5rem;
+        color: #333;
+        margin: 0;
+    }
+    </style>
+    <style>
     .circle-shape {
         display: inline-block;
         padding: 10px;
@@ -129,15 +159,7 @@
             <div class="container">
                 <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
 
-                <form action="#">
-                    <div class="input-group input-navbar">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username"
-                            aria-describedby="icon-addon1" />
-                    </div>
-                </form>
+
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
                     aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
@@ -152,27 +174,45 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
+
+                        @if($hasRecord)
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
+                            <a class="nav-link" href="{{ url('doc_profile', $doctor->id) }}">View Profile</a>
                         </li>
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('register_profile') }}">Register Profile</a>
+                        </li>
+                        @endif
+
                         <li class="nav-item">
                             <a class="nav-link" href="doctors.html">Doctors</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">News</a>
+                            <a class="nav-link" href="{{url('create_leave')}}">Request leave</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('send_ticket')}}">Contact</a>
                         </li>
 
                         <li class="nav-item">
+
                             <a class="nav-link" href="{{url('/listappoint')}}">My Appointment</a>
                         </li>
                         {{-- Check if user is authenticated to display appropriate button --}}
                         @auth
                         <li class="nav-item">
                             <a class="btn btn-primary ml-lg-3" href="{{ route('logout') }}">Logout</a>
+
                         </li>
+                        <div class="profile-container">
+                            <div class="profile-header">
+                                <img src="{{ asset('profiledoc/' . $doctor->avats) }}" alt="User Logo"
+                                    class="profile-logo">
+                                <h1 class="profile-name">Dr. {{ $doctor->fullName }}</h1>
+                            </div>
+                        </div>
+
 
                         </li>
                         @else
@@ -181,6 +221,7 @@
                         </li>
                         @endauth
                     </ul>
+
                 </div>
                 <!-- .navbar-collapse -->
             </div>
@@ -222,7 +263,9 @@
                             <div class="circle-shape bg-primary text-white">
                                 <span class="mai-shield-checkmark"></span>
                             </div>
-                            <p><span>One</span>-Health Protection</p>
+                            <a href="{{url('doc_sched')}}">
+                                <p style="color:black;">My Schedule</p>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-4 py-3 py-md-0">

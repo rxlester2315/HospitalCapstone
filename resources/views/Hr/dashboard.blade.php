@@ -344,11 +344,11 @@
                         <li class="submenu">
                             <a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span
                                     class="menu-arrow"></span></a>
-                            <ul style="display: none;">
+                            <!-- <ul style="display: none;">
                                 <li><a class="active" href="index.html">Admin Dashboard</a></li>
                                 <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
-                            </ul>
-                        </li>
+                            </ul> -->
+                            <!-- </li>
                         <li class="submenu">
                             <a href="#"><i class="la la-cube"></i> <span> Apps</span> <span
                                     class="menu-arrow"></span></a>
@@ -368,7 +368,7 @@
                                 <li><a href="inbox.html">Email</a></li>
                                 <li><a href="file-manager.html">File Manager</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="menu-title">
                             <span>Employees</span>
                         </li>
@@ -378,11 +378,10 @@
                             <ul style="display: none;">
                                 <li><a href="employees.html">All Employees</a></li>
                                 <li><a href="holidays.html">Holidays</a></li>
-                                <li><a href="leaves.html">Leaves (Admin) <span
+                                <li><a href="{{url('/leave-list')}}">Leaves <span
                                             class="badge badge-pill bg-primary float-right">1</span></a></li>
 
 
-                                <li><a href="leaves-employee.html">Leaves (Employee)</a></li>
 
 
                                 <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
@@ -390,16 +389,16 @@
                                 <li><a href="departments.html">Departments</a></li>
                                 <li><a href="designations.html">Designations</a></li>
                                 <li><a href="timesheet.html">Timesheet</a></li>
-                                <li><a href="shift-scheduling.html">Shift & Schedule</a></li>
+                                <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
                                 <li><a href="overtime.html">Overtime</a></li>
                             </ul>
                         </li>
 
 
                         <li>
-                            <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a>
+                            <!-- <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a> -->
                         </li>
-                        <li class="submenu">
+                        <!-- <li class="submenu">
                             <a href="#"><i class="la la-rocket"></i> <span> Projects</span> <span
                                     class="menu-arrow"></span></a>
                             <ul style="display: none;">
@@ -407,7 +406,7 @@
                                 <li><a href="tasks.html">Tasks</a></li>
                                 <li><a href="task-board.html">Task Board</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i> <span>Patient
                                     Request</span></a>
@@ -418,7 +417,7 @@
                         <li class="menu-title">
                             <span>HR</span>
                         </li>
-                        <li class="submenu">
+                        <!-- <li class="submenu">
                             <a href="#"><i class="la la-files-o"></i> <span> Sales </span> <span
                                     class="menu-arrow"></span></a>
                             <ul style="display: none;">
@@ -429,7 +428,7 @@
                                 <li><a href="provident-fund.html">Provident Fund</a></li>
                                 <li><a href="taxes.html">Taxes</a></li>
                             </ul>
-                        </li>
+                        </li> -->
 
                         <li class="submenu">
                             <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
@@ -442,9 +441,9 @@
                         </li>
 
 
-                        <li>
+                        <!-- <li>
                             <a href="policies.html"><i class="la la-file-pdf-o"></i> <span>Policies</span></a>
-                        </li>
+                        </li> -->
                         <li class="submenu">
                             <a href="#"><i class="la la-pie-chart"></i> <span> Reports </span> <span
                                     class="menu-arrow"></span></a>
@@ -496,7 +495,7 @@
                                 <span>Resignation</span></a></li>
                         <li><a href="termination.html"><i class="la la-times-circle"></i> <span>Termination</span></a>
                         </li>
-                        <li class="menu-title">
+                        <!-- <li  class="menu-title">
                             <span>Administration</span>
                         </li>
                         <li>
@@ -533,7 +532,7 @@
                         </li>
                         <li class="menu-title">
                             <span>Pages</span>
-                        </li>
+                        </li> -->
                         <li class="submenu">
                             <a href="#"><i class="la la-user"></i> <span> Profile </span> <span
                                     class="menu-arrow"></span></a>
@@ -581,7 +580,7 @@
                                 <li><a href="blank-page.html"> Blank Page </a></li>
                             </ul>
                         </li>
-                        <li class="menu-title">
+                        <!-- <li class="menu-title">
                             <span>UI Interface</span>
                         </li>
                         <li>
@@ -642,7 +641,7 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
@@ -811,7 +810,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-12 col-lg-12 col-xl-4 d-flex">
+                    <!-- <div class="col-md-12 col-lg-12 col-xl-4 d-flex">
                         <div class="card flex-fill dash-statistics">
                             <div class="card-body">
                                 <h5 class="card-title">Statistics</h5>
@@ -854,7 +853,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
                         <div class="card flex-fill">
                             <div class="card-body">
@@ -912,12 +911,12 @@
                                         <a href="profile.html" class="avatar"><img alt=""
                                                 src="hrs/assets/img/user.jpg"></a>
                                         <div class="media-body">
-                                            <div class="text-sm my-0">Martin Lewis</div>
+                                            <div class="text-sm my-0">Dr.Martin Lewis</div>
                                         </div>
                                     </div>
                                     <div class="row align-items-center mt-3">
                                         <div class="col-6">
-                                            <h6 class="mb-0">4 Sep 2019</h6>
+                                            <h6 class="mb-0">4 Sep 2024</h6>
                                             <span class="text-sm text-muted">Leave Date</span>
                                         </div>
                                         <div class="col-6 text-right">
@@ -930,12 +929,12 @@
                                         <a href="profile.html" class="avatar"><img alt=""
                                                 src="hrs/assets/img/user.jpg"></a>
                                         <div class="media-body">
-                                            <div class="text-sm my-0">Martin Lewis</div>
+                                            <div class="text-sm my-0">Dr.Carlo Guez</div>
                                         </div>
                                     </div>
                                     <div class="row align-items-center mt-3">
                                         <div class="col-6">
-                                            <h6 class="mb-0">4 Sep 2019</h6>
+                                            <h6 class="mb-0">4 Sep 2024</h6>
                                             <span class="text-sm text-muted">Leave Date</span>
                                         </div>
                                         <div class="col-6 text-right">
@@ -951,7 +950,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-6 d-flex">
                         <div class="card card-table flex-fill">
                             <div class="card-header">
@@ -1012,61 +1011,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 d-flex">
-                        <div class="card card-table flex-fill">
-                            <div class="card-header">
-                                <h3 class="card-title mb-0">Payments</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table custom-table table-nowrap mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>Invoice ID</th>
-                                                <th>Client</th>
-                                                <th>Payment Type</th>
-                                                <th>Paid Date</th>
-                                                <th>Paid Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><a href="invoice-view.html">#INV-0001</a></td>
-                                                <td>
-                                                    <h2><a href="#">Global Technologies</a></h2>
-                                                </td>
-                                                <td>Paypal</td>
-                                                <td>11 Mar 2019</td>
-                                                <td>$380</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="invoice-view.html">#INV-0002</a></td>
-                                                <td>
-                                                    <h2><a href="#">Delta Infotech</a></h2>
-                                                </td>
-                                                <td>Paypal</td>
-                                                <td>8 Feb 2019</td>
-                                                <td>$500</td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="invoice-view.html">#INV-0003</a></td>
-                                                <td>
-                                                    <h2><a href="#">Cream Inc</a></h2>
-                                                </td>
-                                                <td>Paypal</td>
-                                                <td>23 Jan 2019</td>
-                                                <td>$60</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <a href="payments.html">View all payments</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                </div> -->
                 <div class="row">
                     <div class="col-md-6 d-flex">
                         <div class="card card-table flex-fill">
@@ -1301,172 +1247,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 d-flex">
-                        <div class="card card-table flex-fill">
-                            <div class="card-header">
-                                <h3 class="card-title mb-0">Recent Projects</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table custom-table mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>Project Name </th>
-                                                <th>Progress</th>
-                                                <th class="text-right">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <h2><a href="project-view.html">Office Management</a></h2>
-                                                    <small class="block text-ellipsis">
-                                                        <span>1</span> <span class="text-muted">open tasks, </span>
-                                                        <span>9</span> <span class="text-muted">tasks completed</span>
-                                                    </small>
-                                                </td>
-                                                <td>
-                                                    <div class="progress progress-xs progress-striped">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            data-toggle="tooltip" title="65%" style="width: 65%"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle"
-                                                            data-toggle="dropdown" aria-expanded="false"><i
-                                                                class="material-icons">more_vert</i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                    class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                    class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h2><a href="project-view.html">Project Management</a></h2>
-                                                    <small class="block text-ellipsis">
-                                                        <span>2</span> <span class="text-muted">open tasks, </span>
-                                                        <span>5</span> <span class="text-muted">tasks completed</span>
-                                                    </small>
-                                                </td>
-                                                <td>
-                                                    <div class="progress progress-xs progress-striped">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            data-toggle="tooltip" title="15%" style="width: 15%"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle"
-                                                            data-toggle="dropdown" aria-expanded="false"><i
-                                                                class="material-icons">more_vert</i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                    class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                    class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h2><a href="project-view.html">Video Calling App</a></h2>
-                                                    <small class="block text-ellipsis">
-                                                        <span>3</span> <span class="text-muted">open tasks, </span>
-                                                        <span>3</span> <span class="text-muted">tasks completed</span>
-                                                    </small>
-                                                </td>
-                                                <td>
-                                                    <div class="progress progress-xs progress-striped">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            data-toggle="tooltip" title="49%" style="width: 49%"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle"
-                                                            data-toggle="dropdown" aria-expanded="false"><i
-                                                                class="material-icons">more_vert</i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                    class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                    class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h2><a href="project-view.html">Hospital Administration</a></h2>
-                                                    <small class="block text-ellipsis">
-                                                        <span>12</span> <span class="text-muted">open tasks, </span>
-                                                        <span>4</span> <span class="text-muted">tasks completed</span>
-                                                    </small>
-                                                </td>
-                                                <td>
-                                                    <div class="progress progress-xs progress-striped">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            data-toggle="tooltip" title="88%" style="width: 88%"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle"
-                                                            data-toggle="dropdown" aria-expanded="false"><i
-                                                                class="material-icons">more_vert</i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                    class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                    class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <h2><a href="project-view.html">Digital Marketplace</a></h2>
-                                                    <small class="block text-ellipsis">
-                                                        <span>7</span> <span class="text-muted">open tasks, </span>
-                                                        <span>14</span> <span class="text-muted">tasks completed</span>
-                                                    </small>
-                                                </td>
-                                                <td>
-                                                    <div class="progress progress-xs progress-striped">
-                                                        <div class="progress-bar" role="progressbar"
-                                                            data-toggle="tooltip" title="100%" style="width: 100%">
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-right">
-                                                    <div class="dropdown dropdown-action">
-                                                        <a href="#" class="action-icon dropdown-toggle"
-                                                            data-toggle="dropdown" aria-expanded="false"><i
-                                                                class="material-icons">more_vert</i></a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                    class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                            <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                    class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <a href="projects.html">View all projects</a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 

@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 use App\Models\Appointments;
 use App\Models\ticket;
 use App\Models\Employees;
+use App\Models\DayOff;
+use App\Models\PresentDay;
+use App\Models\EmployeeInfo;
+
+
+
 
 use App\Models\DocReciept;
 
@@ -21,7 +27,13 @@ use App\Notifications\TicketEmail;
 
 class DoctorController extends Controller
 {
-    
+
+ 
+
+ 
+
+
+
   public function listAppointment()
     {
     $userId = auth()->user()->id;
@@ -233,7 +245,7 @@ if($doctor){
 
                                     return view('Doctor.list_receipt', compact('data', 'doctor'));
 
-
+               
 
 }else {
         // Handle the case where no doctor is found
@@ -243,7 +255,167 @@ if($doctor){
 }
 
     
+public function make_sched(){
+       $userId = auth()->user()->id;
+
+    $doctor = Employees::where('id',$userId)->first();
 
 
+    return view('Doctor.makesched',compact('doctor'));
+}
+
+
+public function store_sched(Request $request) {
+    // Get the work days and days off from the request
+    $workDays = $request->input('present_days', []);
+    $daysOff = $request->input('day_off', []);
+     $shiftStartTime = $request->input('shift_start_time');
+    $shiftEndTime = $request->input('shift_end_time');
+
+    // Get the authenticated user's ID
+    $userId = auth()->user()->id;
+
+    // Find the doctor by ID
+    $doctor = Employees::where('id', $userId)->first();
+
+    if ($doctor) {
+        // Store the present days and days off in the doctor record
+        $doctor->present_days = json_encode($workDays);  // Store as JSON or a comma-separated string
+        $doctor->dayoff = json_encode($daysOff);  // Store as JSON or a comma-separated string
+        $doctor->shift_start_time = $shiftStartTime;
+        $doctor->shift_end_time = $shiftEndTime;
+        $doctor->save();
+
+        return redirect()->back()->with('success', 'Schedule updated successfully');
+    } else {
+        return redirect()->back()->with('error', 'Doctor not found');
+    }
+}
+  public function view_leaves(){
+
+        $userId = auth()->user()->id;
+
+
+    $doctor = Employees::where('id', $userId)->first();
+
+
+        return view('Doctor.doctor_leaves',compact('doctor'));
+    }
+
+    public function leave_store(Request $request){
+           $leaveStart = $request ->input('leave_start_date');
+    $leavesEnd = $request ->input('leave_end_date');
+    $reasontype = $request ->input('reason');
+    $leaveNote = $request ->input('addnote');
+
+
+
+
+         $userId = auth()->user()->id;
+    $doctor = Employees::where('id', $userId)->first();
+
+
+   
+
+    if($doctor){
+
+   $doctor->leave_start_date = $leaveStart;
+    $doctor->leave_end_date = $leavesEnd;
+    $doctor->reason = $reasontype;
+    $doctor->addnote =$leaveNote;
+    
+   
+        $doctor->save();
+                return redirect()->back()->with('success', 'Schedule updated successfully');
+
+
+    }  else {
+        return redirect()->back()->with('error', 'Doctor not found');
+    }
+
+
+    }
+
+
+public function profile(){
+    $userId = auth()->user()->id;
+    $doctor = EmployeeInfo::where('id', $userId)->first();
+    
+
+    return view('Doctor.profile',compact('doctor'));
+}
+
+public function edit_doc(){
+     $userId = auth()->user()->id;
+    $info = EmployeeInfo::where('id', $userId)->first();
+
+    return view('Doctor.profile_edit',compact('info'));
+}
+public function edit_store(Request $request)
+{
+    $request->validate([
+        'fullName' => 'required|string',
+        'email' => 'required|string|email',
+        'phoneNum' => 'required|digits_between:7,11',
+        'Department' => 'required|string',
+        'address' => 'required|string',
+        'file' => 'nullable|mimes:jpg,jpeg,png|max:2048'
+    ]);
+
+    $userId = auth()->user()->id;
+    $info = EmployeeInfo::where('id', $userId)->first();
+
+
+    if ($request->hasFile('file')) {
+        $avats = $request->file;
+        $imagename = time() . '.' . $avats->getClientOriginalExtension();
+        $request->file->move('profiledoc', $imagename);
+        $info->avats = $imagename;
+    }
+    
+    $info->fullName = $request->fullName;
+    $info->email = $request->email;
+    $info->phoneNum = $request->phoneNum;
+    $info->Department = $request->Department;
+    $info->address = $request->address;
+    $info->birthdate = $request->birthdate;
+
+    $info->save();
+    return redirect()->route('profiless', ['id' => $userId]);
+
+
+}
+
+public function register_prof(Request $request){
+     $userId = auth()->user()->id;
+    // Check if a record already exists for the authenticated user
+    $doctor = EmployeeInfo::where('id', $userId)->first();
+    
+
+
+    if (!$doctor) {
+        // If no record exists, create a new one
+        
+        $doctor = new EmployeeInfo();
+        $doctor->id = $userId; // Associate the new row with the authenticated user ID
+
+            if ($request->hasFile('file')) {
+        $avats = $request->file;
+        $imagename = time() . '.' . $avats->getClientOriginalExtension();
+        $request->file->move('profiledoc', $imagename);
+        $info->avats = $imagename;
+    }
+    $doctor->fullName = $request->fullName;
+    $doctor->email = $request->email;
+    $doctor->phoneNum = $request->phoneNum;
+    $doctor->Department = $request->Department;
+    $doctor->address = $request->address;
+    $doctor->birthdate = $request->birthdate;
+
+        $doctor->save();
+    }
+    return view('Doctor.profile', compact('doctor'));
+
+}
 
 }

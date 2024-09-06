@@ -1,0 +1,131 @@
+/* Basic styling for chatbox */
+#chatbox-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    /* Adjusted width */
+    height: 500px;
+    /* Adjusted height */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    display: none;
+    max-height: 500px;
+    /* Adjusted height */
+    overflow: hidden;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#chatbox-container.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#chat-header {
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    cursor: pointer;
+}
+
+#chat-body {
+    padding: 10px;
+    max-height: 400px;
+    /* Adjusted height */
+    overflow-y: auto;
+}
+
+#chat-form {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+#chat-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    /* Increased padding */
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#chat-form button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    /* Increased button size */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    color: #007bff;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+#chatbox-container {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #chatbox-container {
+        width: 90%;
+        right: 5%;
+    }
+
+    #chat-icon {
+        bottom: 10px;
+        right: 10px;
+        font-size: 35px;
+    }
+}
+
+/* Additional styling for chat messages */
+.chat-message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 80%;
+    clear: both;
+    position: relative;
+    display: inline-block;
+    word-break: break-word;
+}
+
+.chat-message.sender {
+    background-color: #007bff;
+    color: #fff;
+    float: right;
+    text-align: right;
+    border-radius: 8px 8px 0 8px;
+}
+
+.chat-message.receiver {
+    background-color: #f1f1f1;
+    color: #333;
+    float: left;
+    text-align: left;
+    border-radius: 8px 8px 8px 0;
+}
+
+.chat-message strong {
+    display: block;
+    margin-bottom: 5px;
+}

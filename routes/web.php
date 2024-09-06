@@ -7,6 +7,11 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HrController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\SuperAdController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ChatController;
+
+use App\Events\NewMessage;
+
 
 
 
@@ -89,7 +94,19 @@ Route::controller(HrController::class)->group(function(){
   Route::get('/attend',[HrController::class,'attendview']);
   Route::get('/dl_excell', [HrController::class, 'export']);
 
-    Route::get('/attendance',[HrController::class,'attendview']);
+  Route::get('/attendance',[HrController::class,'attendview']);
+  Route::get('/docsched',[HrController::class,'schedule_doc']);
+
+  Route::get('/leave-list',[HrController::class,'leavelist']);
+
+    Route::get('/leave_approved/{id}',[HrController::class,'leave_approved']);
+      
+
+  Route::get('/leave_canceled/{id}',[HrController::class,'leave_canceled']);
+
+    
+
+
 
 
 
@@ -136,6 +153,47 @@ Route::post('/store-receipt', [DoctorController::class, 'receipt_store'])->name(
 
 
   Route::get('/receipt_sent',[DoctorController::class,'list_sent_receipt']);
+ Route::get('/doc_sched',[DoctorController::class,'make_sched']);
+  Route::post('/doc_sched',[DoctorController::class,'store_sched'])->name('store_sched');
+
+
+Route::get('/create_leave',[DoctorController::class,'view_leaves']);
+Route::post('/create_leave',[DoctorController::class,'leave_store'])->name('leave-store');
+
+Route::get('/doc_profile/{id}',[DoctorController::class,'profile']);
+Route::get('/doc_edit/{id}',[DoctorController::class,'edit_doc']);
+Route::post('/doc_edit',[DoctorController::class,'edit_store'])->name('profile-store');
+
+Route::get('/doc_profile/{id}',[DoctorController::class,'profile'])->name('profiless');
+
+Route::get('/register_profile',[DoctorController::class,'register_prof']);
+
+
+
+
+Route::get('/Admin',[AdminController::class,'view']);
+Route::get('/users_manage',[AdminController::class,'usermanage'])->name('manage');
+Route::get('/users_edit/{id}',[AdminController::class,'editmanage'])->name('profiles');
+Route::put('/users_edit/{id}',[AdminController::class,'update_manage'])->name('store');
+
+Route::get('/users_edits/{id}', [AdminController::class, 'archive'])->name('archives');
+
+// Route::post('/users_edit',[AdminController::class,'archive_retrieve'])->name('retrieve-user');
+
+// Route::post('/viewonly/{id}', [AdminController::class, 'restoreUserById'])->name('testing');
+
+Route::get('/view_archives', [AdminController::class, 'listarch'])->name('list');
+Route::post('/view_archives/{id}', [AdminController::class, 'restoreUserById'])->name('restore');
+
+
+
+// Route::post('/chat/send', [ChatController::class, 'send']);
+
+
+
+
+
+
 
 
 
@@ -148,6 +206,20 @@ Route::post('/store-receipt', [DoctorController::class, 'receipt_store'])->name(
 
 
 });
+
+Route::post('/send-message', [ChatController::class, 'sendMessage']);
+
+
+// Route::post('/send-message', function (Request $request) {
+//     $message = $request->input('message');
+//     $user = 'guest'; // For non-authenticated users, use a generic identifier
+
+//     event(new MessageSent($message, $user));
+
+//     return ['status' => 'Message Sent!'];
+// });
+
+
 
 
 

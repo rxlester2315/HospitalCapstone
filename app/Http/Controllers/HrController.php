@@ -361,6 +361,58 @@ public function attendview(Request $request)
     }
 
 
+    public function schedule_doc(){
+
+            // Fetch all doctors with their schedule
+    $schedules = Employees::select('name', 'present_days', 'dayoff', 'shift_start_time', 'shift_end_time')->get()
+  ->map(function($schedule) {
+        $schedule->shift_start_time = date('h:i A', strtotime($schedule->shift_start_time));
+        $schedule->shift_end_time = date('h:i A', strtotime($schedule->shift_end_time));
+        return $schedule;
+    });
+
+    return view('Hr.Management.schedview', ['schedules' => $schedules]);
+    }
+
+public function leavelist(){
+        $emplo = Employees::select('name', 'id', 'specialty', 'reason', 'leave_start_date','leave_end_date','status')->get();
+
+
+
+
+
+    return view('Hr.Management.list_leave',compact('emplo'));
+}
+
+public function leave_approved($id){
+
+    $data=Employees::find($id);
+    $data->status='Approved';
+    $data->save();
+    return redirect()->back();
+
+}
+
+
+public function leave_canceled($id){
+
+    $data=Employees::find($id);
+    $data->status='Canceled';
+        $data->save();
+
+    return redirect()->back();
+
+
+
+
+}
+
+
+
+  
+
+
+
   
 
     
