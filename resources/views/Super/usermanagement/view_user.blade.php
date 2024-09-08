@@ -22,6 +22,7 @@
             <i class="bi bi-justify fs-3"></i>
         </a>
     </header>
+
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -39,7 +40,12 @@
                 </div>
             </div>
         </div>
+
+
         <div class="col-12">
+
+
+
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">User View Detial</h4>

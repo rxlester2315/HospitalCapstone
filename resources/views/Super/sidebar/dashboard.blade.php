@@ -71,6 +71,9 @@
                         <li class="submenu-item">
                             <a href="{{ route('activity/login/logout') }}">Activity Log</a>
                         </li>
+                        <li class="submenu-item">
+                            <a href="{{ route('archives-restore') }}">Restore Users</a>
+                        </li>
                     </ul>
 
 

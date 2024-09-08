@@ -244,9 +244,13 @@ Route::get('user/add/new', [SuperAdController::class, 'addNewUser'])->middleware
 Route::post('user/add/save', [SuperAdController::class, 'addNewUserSave'])->name('user/add/save');
 Route::get('view/detail/{id}', [SuperAdController::class, 'viewDetail']);
 
+Route::get('/listarchives/{id}',[SuperAdController::class,'setarchives'])->name('archives');
 Route::post('update', [SuperAdController::class, 'update'])->name('update');
 Route::get('delete_user/{id}', [SuperAdController::class, 'delete']);
 Route::get('activity/log', [SuperAdController::class, 'activityLog'])->middleware('auth')->name('activity/log');
 Route::get('activity/login/logout', [SuperAdController::class, 'activityLogInLogOut'])->middleware('auth')->name('activity/login/logout');
 Route::get('change/password', [SuperAdController::class, 'changePasswordView']);
 Route::post('change/password/db', [SuperAdController::class, 'changePasswordDB']);
+
+Route::get('/restore' , [SuperAdController::class,'listrestore'])->name('archives-restore');
+Route::post('/restores/{id}',[SuperAdController:: class,'restoreDelete'])->name('restore-users');

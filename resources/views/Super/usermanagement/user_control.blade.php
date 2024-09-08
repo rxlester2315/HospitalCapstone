@@ -3,6 +3,16 @@
 @extends('Super.sidebar.usermanagement')
 @endsection
 @section('content')
+
+<head>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+</head>
 < <div id="main">
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
@@ -26,13 +36,18 @@
                 </div>
             </div>
         </div>
-        {{-- message --}}
-        {!! Toastr::message() !!}
+
         <section class="section">
             <div class="card">
                 <div class="card-header">
                     User Datatable
                 </div>
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+                @endif
+
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
@@ -90,9 +105,12 @@
                                     <a href="{{ url('view/detail/'.$item->id) }}">
                                         <span class="badge bg-success"><i class="bi bi-pencil-square"></i></span>
                                     </a>
-                                    <a href="{{ url('delete_user/'.$item->id) }}"
-                                        onclick="return confirm('Are you sure to want to delete it?')"><span
-                                            class="badge bg-danger"><i class="bi bi-trash"></i></span></a>
+
+
+                                    <a href="{{route('archives', $item->id)}}" onclick="confirmation(event)"
+                                        class="badge bg-danger"><i class="bi-trash"></i></a>
+
+
                                 </td>
                             </tr>
                             @endforeach
@@ -106,3 +124,27 @@
     </div>
 
     @endsection
+
+    <script type="text/javascript">
+    function confirmation(ev) {
+        ev.preventDefault();
+        var urlToRedirect = ev.currentTarget.getAttribute('href');
+        console.log(urlToRedirect);
+
+        swal({
+                title: "Are you sure to delete this?",
+                text: "You can recover this in Archive!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+
+
+            })
+            .then((willCancel) => {
+                if (willCancel) {
+                    window.location.href = urlToRedirect;
+                }
+            });
+
+    }
+    </script>

@@ -18,19 +18,20 @@ class SuperAdController extends Controller
   
 
 
- public function index()
+public function index()
+{
+    if (Auth::user()->role_name == 'Super Admin')
     {
-        if (Auth::user()->role_name=='Super Admin')
-        {
-              $data = DB::table('users')->get();
-            return view('Super.usermanagement.user_control',compact('data'));
-        }
-        else
-        {
-            return redirect()->route('sadview');
-        }
-        
+        // Fetch only users that are not soft deleted
+        $data = DB::table('users')->whereNull('deleted_at')->get();
+        return view('Super.usermanagement.user_control', compact('data'));
     }
+    else
+    {
+        return redirect()->route('sadview');
+    }
+}
+
 
 
       public function viewDetail($id)
@@ -181,14 +182,39 @@ class SuperAdController extends Controller
         User::where('id',$request->id)->update($update);
 
 
-         Toastr::success('User updated successfully :)','Success');
-        return redirect()->route('userManagement');
+    return redirect()->route('userManagement')->with('success', 'User updated successfully.');
     }
 
     
 
 
+    public function setarchives($id){
+        
+        $data =User::find($id);
+
+   $data->delete();
+return back()->with('success', 'User has Been in Archived .');
+    }
+
+
+    public function listrestore(){
+         $deletedUsers = User::onlyTrashed()->get();
     
+    return view('Super.usermanagement.restore', ['deletedUsers' => $deletedUsers]);
+  
+
+    }
+
+    public function restoreDelete($id){
+
+            $user = User::onlyTrashed()->find($id);
+ if ($user) {
+        $user->restore();
+        return back()->with('success', 'User restored successfully.');
+    }
+
+     return redirect()->back();
+    }
 
 
 
