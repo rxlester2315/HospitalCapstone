@@ -157,7 +157,7 @@ class LoginController extends Controller
         return redirect();
     }
 } else {
-    // Authentication failed
+   
     return back()->withErrors(['email' => 'Invalid credentials']);
 }
 
