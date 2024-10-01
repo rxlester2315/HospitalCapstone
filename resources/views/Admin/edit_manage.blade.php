@@ -13,7 +13,7 @@
 
     <div class="container mt-5">
         <a href="{{url('users_manage')}}">
-            <h3>Back</h3>
+            <h3>Backs</h3>
         </a>
         <h2 class="mb-4">Edit User</h2>
 
