@@ -56,7 +56,7 @@
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->role_name }}</td>
                                 <td>{{ $item->edit_info }}</td>
-                                 <td>{{ $item->editor_id }}</td>
+                                <td>{{ $item->editor_id }}</td>
                                 <td>{{ $item->date_time }}</td>
                             </tr>
                             @endforeach
