@@ -208,6 +208,10 @@ Route::post('/create', [HomeController::class, 'create_account'])->name('makeapp
 Route::get('/changesPassword',[HomeController:: class,'change_password']);
 Route::post('/changesPassword',[HomeController:: class,'changepass_store']);
 
+Route::get('/appointcreated',[HomeController:: class,'aftersendingapp'])->name('success');
+
+
+
 
 
 //Guest 

@@ -130,19 +130,42 @@
                 @csrf
                 <div class="row mt-5">
                     <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-                        <input type="text" name="name" class="form-control" placeholder="Full Name" />
+                        <input type="text" id="name_input" name="name" class="form-control" placeholder="Full Name" />
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" id="fill_name" />
+                            <label class="form-check-label" for="fill_name">
+                                Fill with your profile name
+                            </label>
+                        </div>
                     </div>
+
+
+
+
                     <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-                        <input type="text" name="email" class="form-control" placeholder="Email Address.." />
+                        <input type="email" id="email_input" name="email" class="form-control"
+                            placeholder="Email Address.." />
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" id="fill_email" />
+                            <label class="form-check-label" for="fill_email">
+                                Fill with your profile email
+                            </label>
+                        </div>
                     </div>
                     <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
                         <input type="date" name="date" min="{{ date('Y-m-d') }}" class="form-control" />
                     </div>
 
 
-                    <div class="col-5 py-2 wow fadeInUp" data-wow-delay="300ms">
-                        <input type="text" name="number" class="form-control" placeholder="Phone Number.."
-                            maxlength="11" />
+                    <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+                        <input type="text" id="phone_input" name="number" class="form-control"
+                            placeholder="Phone Number.." maxlength="11" />
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" id="fill_phone" />
+                            <label class="form-check-label" for="fill_phone">
+                                Fill with your profile phone number
+                            </label>
+                        </div>
                     </div>
 
                     <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
@@ -235,9 +258,38 @@
     </script>
 
 
+    <script>
+    $(document).ready(function() {
+        var userName = "{{ Auth::user()->name }}";
+        var userEmail = "{{ Auth::user()->email }}";
+        var userPhone =
+            "{{ Auth::user()->phone_number }}";
 
+        $('#fill_name').change(function() {
+            if ($(this).is(':checked')) {
+                $('#name_input').val(userName);
+            } else {
+                $('#name_input').val('');
+            }
+        });
 
+        $('#fill_email').change(function() {
+            if ($(this).is(':checked')) {
+                $('#email_input').val(userEmail);
+            } else {
+                $('#email_input').val('');
+            }
+        });
 
+        $('#fill_phone').change(function() {
+            if ($(this).is(':checked')) {
+                $('#phone_input').val(userPhone);
+            } else {
+                $('#phone_input').val('');
+            }
+        });
+    });
+    </script>
 
 
 

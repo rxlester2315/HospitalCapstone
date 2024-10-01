@@ -88,7 +88,7 @@ class HomeController extends Controller
          $data->departments = $department->name;
         $data->employees = $employee->name;
 
-    
+
 
         if(Auth::id()){
 
@@ -101,8 +101,7 @@ class HomeController extends Controller
          event(new Sendnotif($data));
 
 
-        return redirect()->back()->with('message','Appointment Recorded Will Be Back Soon!');
-
+return redirect()->route('success');
         
 
 
@@ -367,6 +366,14 @@ public function changepass_store(Request $request){
     session()->flash('message', 'Password successfully changed. You will be redirected to the login page.');
 
     return redirect()->back();
+
+}
+
+
+public function aftersendingapp(){
+
+    return view('Normal.create-redirect');
+
 
 }
 
