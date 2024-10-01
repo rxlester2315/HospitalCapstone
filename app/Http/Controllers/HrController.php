@@ -58,32 +58,28 @@ return redirect()->back()->with('message','Doctor Added Successfully');
 
     public function viewappointment(){
 
-       $data=appointments::all();
+    $data = appointments::where('status', '!=', 'Approved')->get();
+
      return view('Hr.viewappointment',compact('data'));
    
 
 }
 
-public function approved($id){
-
-    $data=appointments::find($id);
-    $data->status='Approved';
+public function approved($id)
+{
+    $data = appointments::find($id);
+    $data->status = 'Approved';
     $data->save();
-    return redirect()->back();
 
+    return redirect()->back();
 }
 
+public function canceled($id)
+{
+    $data = appointments::find($id);
+    $data->delete();
 
-public function canceled($id){
-
-    $data=appointments::find($id);
-    $data->status='Canceled!!';
-   $data->delete();
     return redirect()->back();
-
-
-
-
 }
 
 
@@ -306,7 +302,7 @@ public function resolve_tix(Request $request, $id)
 
 Notification::route('mail', $dataz->email)->notify(new TicketResponse($dataz));
 
-    return redirect()->back();
+    return redirect()->back()->with('message','Message Ticket Sent Successfully');
 }
     
 
@@ -329,8 +325,14 @@ public function attendview(Request $request)
     $date = $request->input('date');
 
     if ($date) {
-        $formattedDate = Carbon::parse($date)->format('D, M d, Y');
-        $attend = Attend::where('date_time', 'LIKE', "%$formattedDate%")->orderBy('id', 'desc')->paginate(10);
+        // Parse the input date
+        $startOfDay = Carbon::parse($date)->startOfDay();
+        $endOfDay = Carbon::parse($date)->endOfDay();
+
+        // Filter the attendances by date
+        $attend = Attend::whereBetween('date_time', [$startOfDay, $endOfDay])
+                        ->orderBy('id', 'desc')
+                        ->paginate(10);
     } else {
         $attend = Attend::orderBy('id', 'desc')->paginate(10);
     }
@@ -342,23 +344,39 @@ public function attendview(Request $request)
 
 
 
- public function export(Request $request) 
-    {
+public function export(Request $request) 
+{
     $date = $request->input('date');
 
+    // Query to get attendance records
     $attend = Attend::query();
 
     if ($date) {
-        $formattedDate = Carbon::parse($date)->format('D, M d, Y');
-        $attend->where('date_time', 'LIKE', "%$formattedDate%");
+        // Get start and end of the selected date
+        $startOfDay = Carbon::parse($date)->startOfDay();
+        $endOfDay = Carbon::parse($date)->endOfDay();
+
+        // Filter attendance records by the date range
+        $attend->whereBetween('date_time', [$startOfDay, $endOfDay]);
     }
 
+    // Fetch the filtered records
     $attendData = $attend->orderBy('id', 'desc')->get();
 
-    $filename = 'TodayAttendance.xlsx';
-
-    return Excel::download(new AttendanceExport($attendData), $filename);
+    // Check if there is any data to export
+    if ($attendData->isEmpty()) {
+        return back()->withErrors(['date' => 'No data found for the selected date']);
     }
+
+    // Filename for the Excel file
+    $filename = 'Attendance_' . Carbon::now()->format('Y_m_d_His') . '.xlsx';
+
+    // Return the Excel file as a download
+    return Excel::download(new AttendanceExport($attendData), $filename);
+}
+
+
+
 
 
     public function schedule_doc(){

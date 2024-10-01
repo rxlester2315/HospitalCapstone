@@ -15,17 +15,11 @@
     </div>
     <div class="container">
         <div class="row justify-content-center mt-4">
-
             <div class="col-md-10 d-flex justify-content-end">
                 <a href="{{url('/HR')}}" class="btn btn-primary" style="margin-right:50px;">Back Dashboard</a>
-
-
-
-
-
             </div>
-
         </div>
+
         <div class="row d-flex justify-content-center">
             @if (Session::has('success'))
             <div class="col-md-10 mt-4">
@@ -34,6 +28,7 @@
                 </div>
             </div>
             @endif
+
             <div class="col-md-10">
                 <div class="card borde-0 shadow-lg my-4">
                     <div class="card-header bg-dark">
@@ -48,6 +43,7 @@
                                 <th>Status</th>
                                 <th>Unit Orders</th>
                                 <th>Unit Stock</th>
+                                <th>Stock Alert</th>
                                 <th>Created at</th>
                             </tr>
                             @if ($products->isNotEmpty())
@@ -56,7 +52,7 @@
                                 <td>{{ $product->id }}</td>
                                 <td>
                                     @if ($product->imagez != "")
-                                    <img width="50" src="{{asset('uploads/products/'.$product->imagez) }}" alt="">
+                                    <img width="50" src="{{ asset('uploads/products/' . $product->imagez) }}" alt="">
                                     @endif
                                 </td>
                                 <td>{{ $product->ProductName }}</td>
@@ -64,22 +60,24 @@
                                 <td>{{ $product->UnitOrders }}</td>
                                 <td>{{ $product->UnitStock }}</td>
 
+                                <!-- Display Low Stock Alert -->
+                                <td>
+                                    @if ($product->UnitStock < 10) <span class="badge bg-danger">Low Stock</span>
+                                        @else
+                                        <span class="badge bg-success">In Stock</span>
+                                        @endif
+                                </td>
+
                                 <td>{{ \Carbon\Carbon::parse($product->created_at)->format('d M, Y') }}</td>
-
-
                             </tr>
                             @endforeach
-
                             @endif
-
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

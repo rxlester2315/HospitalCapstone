@@ -24,7 +24,7 @@
                     <h1 class="auth-title">Sign Up</h1>
                     <p class="auth-subtitle mb-5">Input your data to register to our website.</p>
 
-                    <form method="POST" action="{{ route('register') }}" class="md-float-material">
+                    <form method="POST" action="{{ route('registerAccount') }}" class="md-float-material">
                         @csrf
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="text" class="form-control form-control-lg @error('name') is-invalid @enderror"
@@ -62,7 +62,9 @@
                                     <option value="Super Admin">Super Admin</option>
                                     <option value="Admin">Admin</option>
                                     <option value="Human Resources">Human Resources</option>
+                                    <option value="Front Desk">Front Desk</option>
                                     <option value="Doctor">Doctor</option>
+                                    <option value="Nurse">Nurse</option>
                                     <option value="Normal User">Normal User</option>
                                 </select>
                                 <div class="form-control-icon">

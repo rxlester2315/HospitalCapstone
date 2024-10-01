@@ -95,7 +95,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-3" href="{{url('/login')}}">Login / Register</a>
+                            <a class="btn btn-primary ml-lg-3" href="{{url('/login')}}">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -110,7 +110,7 @@
             <div class="container text-center wow zoomIn">
                 <span class="subhead">Let's make your life happier</span>
                 <h1 class="display-4">Healthy Living</h1>
-                <a href="{{url('create_appointment')}}" class="btn btn-primary">Make An Appointment</a>
+                <a href="{{url('guessaccount')}}" class="btn btn-primary">Make An Account to chat us</a>
             </div>
         </div>
     </div>

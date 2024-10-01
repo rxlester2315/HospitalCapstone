@@ -41,7 +41,8 @@
                                 <th>Phone Number</th>
                                 <th>Status</th>
                                 <th>Role Name</th>
-                                <th>Modify</th>
+                                <th>Edit Info</th>
+                                <th>Modify ID</th>
                                 <th>Date Time</th>
                             </tr>
                         </thead>
@@ -54,7 +55,8 @@
                                 <td>{{ $item->phone_number }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->role_name }}</td>
-                                <td>{{ $item->modify_user }}</td>
+                                <td>{{ $item->edit_info }}</td>
+                                 <td>{{ $item->editor_id }}</td>
                                 <td>{{ $item->date_time }}</td>
                             </tr>
                             @endforeach

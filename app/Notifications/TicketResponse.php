@@ -44,7 +44,8 @@ class TicketResponse extends Notification
                     ->line('Status: ' . $this->dataz->status)
                     ->line('Our Response: ' . $this->dataz->reply)
                     ->line('We will keep you updated with further details.')
-                    ->line('Thank you!');
+                    ->line('Thank you!')
+                    ->salutation('Best regards, Your Support Team');
     }
 
     /**

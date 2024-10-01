@@ -20,3 +20,25 @@ window.Echo.channel("messages").listen("Sendnotif", (e) => {
 window.Echo.channel("notifmess").listen("NotifMessage", (e) => {
     console.log(e);
 });
+
+
+window.Echo.channel("chat").listen("GuessMessage", (e) => {
+    console.log(e);
+});
+
+window.Echo.private('private-chat-' + window.userId)
+    .listen('chat-message', (e) => {
+        document.getElementById('messages').innerHTML += `<p><strong>User:</strong> ${e.message}</p>`;
+    });
+
+
+
+
+
+
+
+
+
+
+
+

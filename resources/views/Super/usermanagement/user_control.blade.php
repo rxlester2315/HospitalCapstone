@@ -28,25 +28,40 @@
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('sadview') }}">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">User Mangement</li>
+
+
                         </ol>
+
                     </nav>
+
                 </div>
+
             </div>
         </div>
 
         <section class="section">
+
+
             <div class="card">
                 <div class="card-header">
                     User Datatable
                 </div>
+
+                <a style="margin-left:1350px;" href="{{ route('user/add/new') }}">
+                    <h3 class="btn btn-primary">Add New User</h3>
+                </a>
                 @if(session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
                 </div>
                 @endif
+
+
+
 
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
@@ -89,9 +104,19 @@
                                 @if($item->role_name =='Super Admin')
                                 <td class="role_name"><span class="badge bg-info">{{ $item->role_name }}</span></td>
                                 @endif
+                                @if($item->role_name =='Front Desk')
+                                <td class="role_name"><span class="badge bg-success">{{ $item->role_name }}</span></td>
+                                @endif
+                                @if($item->role_name =='Nurse')
+                                <td class="role_name"><span class="badge bg-info">{{ $item->role_name }}</span></td>
+                                @endif
                                 @if($item->role_name =='Human Resources')
                                 <td class="role_name"><span class="badge bg-success">{{ $item->role_name }}</span></td>
                                 @endif
+                                @if($item->role_name =='Guess')
+                                <td class="role_name"><span class="badge bg-danger">{{ $item->role_name }}</span></td>
+                                @endif
+
                                 @if($item->role_name =='Doctor')
                                 <td class="role_name"><span class="badge bg-success">{{ $item->role_name }}</span></td>
                                 @endif
@@ -99,9 +124,7 @@
                                 <td class="role_name"><span class=" badge bg-warning">{{ $item->role_name }}</span></td>
                                 @endif
                                 <td class="text-center">
-                                    <a href="{{ route('user/add/new') }}">
-                                        <span class="badge bg-info"><i class="bi bi-person-plus-fill"></i></span>
-                                    </a>
+
                                     <a href="{{ url('view/detail/'.$item->id) }}">
                                         <span class="badge bg-success"><i class="bi bi-pencil-square"></i></span>
                                     </a>
@@ -109,6 +132,11 @@
 
                                     <a href="{{route('archives', $item->id)}}" onclick="confirmation(event)"
                                         class="badge bg-danger"><i class="bi-trash"></i></a>
+
+                                    <a href="{{ url('userspw/'.$item->id) }}" class="badge bg-info">
+                                        <i class="bi bi-pen-fill"></i>
+                                    </a>
+
 
 
                                 </td>

@@ -11,7 +11,9 @@ use App\Models\Employees;
 use App\Models\DayOff;
 use App\Models\PresentDay;
 use App\Models\EmployeeInfo;
+use App\Models\User;
 
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -34,26 +36,40 @@ class DoctorController extends Controller
 
 
 
-  public function listAppointment()
-    {
+public function listAppointment()
+{
     $userId = auth()->user()->id;
+    $doctor = Employees::find($userId);
+    $doctorName = $doctor->name;
 
-        $doctor = Employees::find($userId);
+    // Get only appointments that are approved and not completed
+    $data = Appointments::where('status', 'Approved') // Filter by approved status if needed
+                        ->where('employees', $doctorName) // Filter by doctor name
+                        ->where('completed', 'Observation') 
+                        ->get();
 
-            $doctorName = $doctor->name;
-
-             $data = Appointments::where('status', 'Approved')
-                                ->where('employees', $doctorName)
-                                ->get();
-
-
-
-  
-
-    // Return the view with the appointments
+    // Return the view with the filtered appointments
     return view('Doctor.listappoint', compact('data', 'doctor'));
+}
 
-    }
+
+
+
+public function completeAppointment($id)
+{
+    // Find the appointment by its ID
+    $appointment = Appointments::findOrFail($id);
+
+    // Update the 'completed' field to mark as completed
+    $appointment->completed = 'Completed'; // Set completed to true (1)
+
+    // Save the changes to the database
+    $appointment->save();
+
+    // Redirect back to the list or show a success message
+    return redirect()->back()->with('success', 'Appointment marked as completed.');
+}
+
 
 
     public function sendticket(){
@@ -79,7 +95,7 @@ $data->save();
 Notification::route('mail', $data->email)->notify(new TicketEmail($data));
 
 
-return redirect()->back();
+return redirect()->back()->with('message','Message Ticket Sent Successfully');
 
 }
 
@@ -104,19 +120,23 @@ public function create_receipt(){
   //   }
 
 
-  public function showCreateForm($id){
+public function showCreateForm($id)
+{
+    $data = Appointments::find($id);
 
-$data=Appointments::find($id);
-
-
-   if (!$data) {
+    if (!$data) {
         return redirect()->back()->with('error', 'Appointment not found.');
     }
 
-return view('Doctor.receipt',compact('data'));
-
-
+    return view('Doctor.receipt', compact('data')); // No message or redirection here
 }
+
+
+
+
+
+
+
 
 
 
@@ -132,6 +152,7 @@ return view('Doctor.receipt',compact('data'));
 
  public function receipt_store(Request $request)
 {
+    
     // Validation rules
     $request->validate([
         'date_receipt' => 'required|date',
@@ -168,7 +189,7 @@ return view('Doctor.receipt',compact('data'));
         $receipt->save();
 
      
-        return redirect()->back()->with('success', 'Receipt updated successfully.');
+        return redirect()->back()->with('message', 'Receipt is sent to the Patient.');
  
    
     }
@@ -417,5 +438,80 @@ public function register_prof(Request $request){
     return view('Doctor.profile', compact('doctor'));
 
 }
+
+
+public function todayappointview(){
+
+
+
+        return view('Doctor.today-appointment',['appointment' => null]);
+
+}
+
+public function todayappointments(Request $request){
+
+      $request->validate([
+        'filter_date' => 'required|date',
+    ]);
+     $filterDate = $request->input('filter_date');
+     $appointment = Appointments::whereDate('date', $filterDate)
+                                 ->where('status', 'Approved')
+                                 ->get();
+
+
+
+
+    return view('Doctor.today-appointment',compact('appointment'));
+}
+
+
+public function record_complete(){
+
+    $completed = Appointments::where('completed','completed')->get();
+
+    return view('Doctor.record-complete',compact('completed'));
+    
+}
+
+
+
+public function change_passwordDoc(){
+    $userId = auth()->user()->id;
+    $change = User::findOrFail($userId);
+    return view('Doctor.change-password', compact('change'));
+}
+
+
+public function changepass_storeDoc(Request $request)
+{
+    // Validate the input
+    $validatedData = $request->validate([
+        'password' => 'required|string|max:255',
+        'Newpass' => 'required|string|min:8|confirmed',
+    ], [
+        'Newpass.confirmed' => 'The new password and confirmation password must match.',
+    ]);
+
+    // Get the authenticated user
+    $user = auth()->user();
+
+    // Check if the current password matches
+    if (!Hash::check($request->password, $user->password)) {
+        return back()->withErrors(['password' => 'Your current password is incorrect.']);
+    }
+
+    // Hash the new password and save it
+    $user->password = Hash::make($request->Newpass);
+    $user->save();
+
+    // Flash a success message
+    session()->flash('message', 'Password successfully changed. You will be redirected to the login page.');
+
+    return redirect()->back();
+}
+
+
+
+
 
 }

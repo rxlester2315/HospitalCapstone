@@ -76,6 +76,10 @@
         /Doc
    @elseif(Auth::user()->role_name == 'Normal User')
         /User
+   @elseif(Auth::user()->role_name == 'Nurse')
+        /Nurse
+    @elseif(Auth::user()->role_name == 'Front Desk')
+        /Front
    
     @endif
 ">

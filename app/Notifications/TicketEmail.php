@@ -44,7 +44,9 @@ class TicketEmail extends Notification
                     ->line('Subject: ' . $this->ticket->subject)
                     ->line('Description: ' . $this->ticket->description)
                     ->line('Priority: ' . $this->ticket->priority)
-                    ->line('We will get back to you shortly.');
+                    ->line('We will get back to you shortly.')
+                     ->salutation('Best regards, Your Support Team');
+
     }
 
     /**

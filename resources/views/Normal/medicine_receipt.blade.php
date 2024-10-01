@@ -70,22 +70,33 @@
             </thead>
             <tbody>
                 @foreach($receipts as $data)
+                @if($data->date_receipt || $data->note_med_receipts)
                 <tr>
                     <td>{{$data->employees}}</td>
-                    <td>{{$data->date_receipt}}</td>
-                    <td>{{$data->note_med_receipts}}</td>
-
-
+                    <td>
+                        @if($data->date_receipt)
+                        {{$data->date_receipt}}
+                        @else
+                        <span>No Date Available</span>
+                        @endif
+                    </td>
+                    <td>
+                        @if($data->note_med_receipts)
+                        {{$data->note_med_receipts}}
+                        @else
+                        <span>No Notes Available</span>
+                        @endif
+                    </td>
                     <td>
                         <a href="{{url('view',$data->id)}}" class="btn btn-view">View</a>
                         <a href="{{url('dl_medicine',$data->id)}}" class="btn btn-download">Download PDF</a>
+                        <a href="{{route('archivemed', $data->id)}}" class="btn btn-danger">Archive</a>
                     </td>
                 </tr>
-
+                @endif
                 @endforeach
-
-                <!-- Add more rows as needed -->
             </tbody>
+
         </table>
     </div>
 

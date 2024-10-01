@@ -26,6 +26,7 @@ class User extends Authenticatable
         'email',
         'role_name',
         'password',
+        'status',
     ];
 
      public function hasRole($role)
@@ -61,6 +62,25 @@ class User extends Authenticatable
            $count = ChMessage::where('to_id',auth()->id())->where('seen','0')->count();
            return $count;
         }
+        
+        
         return 0;
     }
+
+
+ public function activityLogs()
+    {
+        return $this->hasMany(UserActivityLog::class, 'editor_id');
+    }
+
+    // User.php (Model)
+public function patientInfo()
+{
+    return $this->hasOne(PatientInfo::class, 'user_id'); // Assuming user_id is the foreign key
+}
+
+ 
+
+
+
 }

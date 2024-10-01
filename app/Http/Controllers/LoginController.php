@@ -12,6 +12,8 @@ use DB;
 use App\Models\User;
 use App\Models\EmployeeInfo;
 
+use App\Models\PatientInfo;
+
 use Carbon\Carbon;
 use Session;
 use Brian2694\Toastr\Facades\Toastr;
@@ -37,41 +39,66 @@ class LoginController extends Controller
 
         $email= $request->email;
         $password = $request->password;
-          $dt         = Carbon::now();
+        $dt = Carbon::now('Asia/Manila');
         $todayDate  = $dt->toDayDateTimeString();
 
          $activityLog = [
 
             'name'        => $email,
             'email'       => $email,
-            'description' => 'Has Login',
-            'date_time'   => $todayDate,
+            'description' => 'Login',
+            'date_time'   => $dt,
         ];
  if (Auth::attempt(['email'=>$email,'password'=>$password,'status'=>'Active','role_name'=>'Super Admin'])) {
             DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully :)','Success');
+            Toastr::success('Login successfully ','Success');
             return redirect()->intended('Superad');
         }elseif (Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Admin'])) {
             DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully :)','Success');
+            Toastr::success('Login successfully ','Success');
             return redirect()->intended('Admin');
         }elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Human Resources'])) {
             DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully :)','Success');
+            Toastr::success('Login successfully ','Success');
             return redirect()->intended('HR');
 
-        }elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Doctor'])) {
+        }
+          elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Front Desk'])) {
             DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully :)','Success');
+            Toastr::success('Login successfully ','Success');
+            return redirect()->intended('Front');
+
+        }
+
+        elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Nurse'])) {
+            DB::table('activity_logs')->insert($activityLog);
+            Toastr::success('Login successfully ','Success');
+            return redirect()->intended('Nurse');
+
+        }
+        
+        elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Doctor'])) {
+            DB::table('activity_logs')->insert($activityLog);
+            Toastr::success('Login successfully ','Success');
             return redirect()->intended('Doc');
 
         }elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Normal User'])) {
 
-            Toastr::success('Hi Welcome Back Patient :)','Success');
+            Toastr::success('Hi Welcome Back Patient ','Success');
 
             return redirect()->intended('User');
 
         }
+
+         elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Guess'])) {
+
+            Toastr::success('Hi Welcome Back  ','Success');
+
+            return redirect()->intended('Guess');
+
+        }
+
+   
         
         else{
             Toastr::error('fail, WRONG USERNAME OR PASSWORD :)','Error');
@@ -109,6 +136,20 @@ class LoginController extends Controller
         return redirect('Superad');
 
     }
+    else if($user->hasRole('Guess')){
+        return redirect('Guess');
+    }
+
+     else if($user->hasRole('Front Desk')){
+        return redirect('Front');
+    }
+
+       else if($user->hasRole('Nurse')){
+        return redirect('Nurse');
+    }
+    
+
+    
     
 
     else {
@@ -132,7 +173,8 @@ class LoginController extends Controller
 
          $name       = $user->name;
         $email      = $user->email;
-        $dt         = Carbon::now();
+        $dt = Carbon::now('Asia/Manila');
+
         $todayDate  = $dt->toDayDateTimeString();
 
         
@@ -140,31 +182,40 @@ class LoginController extends Controller
 
             'name'        => $name,
             'email'       => $email,
-            'description' => 'Has Logged out',
-            'date_time'   => $todayDate,
+            'description' => 'Logout',
+            'date_time'   => $dt,
         ];
 
        DB::table('activity_logs')->insert($activityLog);
         Auth::logout();
-        Toastr::success('Logout successfully :)','Success');
+        Toastr::success('Logout successfully ','Success');
         return redirect('/login');
 
     }
 
    
 
-     public function Normaluser(){
+    public function Normaluser()
+{
+    $doctor = employees::all();
 
+    // Get logged-in user ID
+    $userId = auth()->user()->id;
 
-        $doctor=employees::all();
-    
+    // Fetch the patient information where user_id matches logged-in user's ID
+    $data = PatientInfo::where('user_id', $userId)->first();
 
-        return view('Normal.home',compact('doctor'));
-    }
+    // Check if a record exists
+    $hasRecord = $data !== null;
+
+    // Pass data to the view
+    return view('Normal.home', compact('data', 'doctor', 'hasRecord'));
+}
+
 
     public function Adminuser(){
 
-        return view('Admin.dashboard');
+        return view('Admin.home');
     }
 
      public function hruser(){
@@ -185,4 +236,31 @@ class LoginController extends Controller
 
         return view('Super.home');
     }
+
+
+    public function guview(){
+        $doctor=employees::all();
+
+    $userId = auth()->user()->id;
+    $guess = User::where('id', $userId)->first();
+    
+
+        return view('home.guess.guess_index',compact('doctor','guess'));
+
+    }
+
+
+    public function frontdeskview(){
+
+        return view('Front-desk.home');
+    }
+
+
+
+    public function nurseview(){
+
+        return view('Nurse.home');
+    }
+
+
 }

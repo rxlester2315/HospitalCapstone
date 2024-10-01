@@ -20,6 +20,12 @@ return Application::configure(basePath: dirname(__DIR__))
         'user' =>\App\Http\Middleware\User::class,
          'doc' =>\App\Http\Middleware\Doctor::class,
         'super' =>\App\Http\Middleware\SuperAd::class,
+        'front' =>\App\Http\Middleware\FrontDesk::class,
+         'nurse' =>\App\Http\Middleware\Nurse::class,
+        'admin' =>\App\Http\Middleware\Admin::class,
+         'guest' =>\App\Http\Middleware\Guest::class,
+
+
 
 
        ]);

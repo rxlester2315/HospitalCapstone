@@ -96,9 +96,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="doctors.html">Doctors</a>
                         </li>
+
+                        @if($hasRecord)
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">News</a>
+                            <a class="nav-link" href="{{ url('profile') }}">View Profile</a>
                         </li>
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('view.normal.prof') }}">Register Profile</a>
+                        </li>
+                        @endif
+
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
@@ -106,20 +114,31 @@
                             <a class="nav-link" href="{{url('myappointment')}}">View Appointment</a>
                         </li>
 
-                        {{-- Check if user is authenticated to display appropriate button --}}
+
+
+
+                        <!-- Inside the collapse navbar-collapse -->
                         @auth
-                        <li class="nav-item">
-
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-3" href="{{ route('logout') }}">Logout</a>
-                        </li>
-
-                        </li>
-                        @else
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                                <!-- Display the authenticated user name -->
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="{{ route('view.normal.prof') }}">My Profile</a>
+                                <a class="dropdown-item" href="{{ url('settings') }}">Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="btn btn-primary ml-lg-3" href="{{ route('logout') }}">Logout</a>
+                            </div>
                         </li>
                         @endauth
+
+
+
+
+
+
 
 
 
@@ -137,7 +156,7 @@
             <div class="container text-center wow zoomIn">
                 <span class="subhead">Let's make your life happier</span>
                 <h1 class="display-4">Healthy Living</h1>
-                <a href="{{url('create_appointment')}}" class="btn btn-primary">Make An Appointment</a>
+                <a href="{{url('create_appointmentsss')}}" class="btn btn-primary">Make An Appointment</a>
             </div>
         </div>
     </div>

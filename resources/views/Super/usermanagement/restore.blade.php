@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>soengsouy.com</title>
+    <title>Restore User</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -443,9 +443,18 @@
                                         <td>{{$info->email}}</td>
                                         <td>{{$info->phone_number}}</td>
                                         <td>{{$info->role_name}}</td>
-                                        <td>
+                                        <td>{{ $info->status }}</td>
+                                         <td>
+                                            @if($info->status === 'Active')
                                             <span class="badge bg-success">Active</span>
-                                        </td>
+
+                                            @else
+                                             <span class="badge bg-danger">Disable</span>
+
+                                            @endif
+                                           </td>
+
+                                    
                                         <td>
                                         <td>
                                             <form action="{{ route('restore-users', $info->id) }}" method="POST">

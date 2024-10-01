@@ -139,48 +139,75 @@
 
     <!-- Custom JS to Handle Checkbox Selection Logic -->
     <script>
-    $(document).ready(function() {
-        // Handle day off limit and disable corresponding present day checkboxes
-        $('.day-off').on('change', function() {
-            var dayOffChecked = $('.day-off:checked');
-            var dayOffCount = dayOffChecked.length;
+   $(document).ready(function() {
+    // Maximum workdays allowed
+    const maxWorkDays = 5;
 
-            // Limit to 2 days off
-            if (dayOffCount > 2) {
-                $(this).prop('checked', false);
-                alert('You can only select up to 2 days off.');
+    // Function to automatically select remaining days as "Day Off"
+    function autoSelectDayOff() {
+        const workdaysChecked = $('.present-day:checked');
+        const selectedDays = workdaysChecked.map(function() {
+            return $(this).val();
+        }).get();
+
+        // Automatically select remaining days as "Day Off"
+        $('.day-off').each(function() {
+            const day = $(this).val();
+            if (!selectedDays.includes(day)) {
+                $(this).prop('checked', true);  // Automatically select remaining day off
+                $(this).attr('readonly', true); // Prevent changes but ensure the value is sent
+            } else {
+                $(this).prop('checked', false); // Uncheck day offs matching workdays
+                $(this).removeAttr('readonly'); // Enable for other changes if needed
             }
-
-            // Disable corresponding present day checkboxes
-            $('.present-day').each(function() {
-                var day = $(this).val();
-                if (dayOffChecked.map(function() {
-                        return $(this).val();
-                    }).get().includes(day)) {
-                    $(this).prop('disabled', true);
-                } else {
-                    $(this).prop('disabled', false);
-                }
-            });
         });
+    }
 
-        // Handle present day selection and disable corresponding day off checkboxes
-        $('.present-day').on('change', function() {
-            var presentChecked = $('.present-day:checked').map(function() {
-                return $(this).val();
-            }).get();
+    // Function to disable all checkboxes if max workdays are selected
+    function disableRemainingCheckBoxes() {
+        const workdaysChecked = $('.present-day:checked').length;
 
-            // Disable corresponding day off checkboxes
-            $('.day-off').each(function() {
-                var day = $(this).val();
-                if (presentChecked.includes(day)) {
-                    $(this).prop('disabled', true).prop('checked', false);
-                } else {
-                    $(this).prop('disabled', false);
-                }
-            });
-        });
+        if (workdaysChecked === maxWorkDays) {
+            // Disable unchecked present day checkboxes
+            $('.present-day:not(:checked)').prop('disabled', true);
+        } else {
+            // Re-enable all checkboxes if less than 5 days are selected
+            $('.present-day').prop('disabled', false);
+        }
+    }
+
+    // Limit selection to 5 workdays and auto-select the remaining as "Day Off"
+    $('.present-day').on('change', function() {
+        const workdaysChecked = $('.present-day:checked');
+        const selectedCount = workdaysChecked.length;
+
+        // Prevent selecting more than 5 workdays
+        if (selectedCount > maxWorkDays) {
+            $(this).prop('checked', false);
+            alert('You can only select up to 5 workdays.');
+        }
+
+        // Automatically handle "Day Off" selection when exactly 5 workdays are selected
+        if (selectedCount === maxWorkDays) {
+            autoSelectDayOff();
+            disableRemainingCheckBoxes(); // Disable any unchecked workday checkboxes
+        } else {
+            // Re-enable day off checkboxes if less than 5 workdays are selected
+            $('.day-off').prop('checked', false).removeAttr('readonly');
+            disableRemainingCheckBoxes(); // Ensure checkboxes are not disabled when under 5
+        }
     });
+
+    // Prevent manually unchecking auto-selected "Day Off" checkboxes
+    $('.day-off').on('click', function() {
+        if ($(this).attr('readonly')) {
+            alert("This day is automatically selected as a day off and cannot be changed.");
+            return false; // Prevent unchecking
+        }
+    });
+});
+
+
     </script>
 
 </body>

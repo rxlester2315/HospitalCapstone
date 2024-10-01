@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Medicine Receipt</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+
+
     <style>
     /* styles.css */
 
@@ -120,8 +131,11 @@
 
 <body>
 
+
     <div class="form-container">
+
         <h2>Patient Medicine Receipt</h2>
+
         <form action="{{ route('get.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
@@ -149,7 +163,8 @@
             <br>
             <div>
                 <label>Doctor Signature</label>
-                <input type="file" name="file" id="signatureImage" accept="image/*" onchange="previewSignature(event)">
+                <input type="file" name="file" id="signatureImage" accept="image/*" onchange="previewSignature(event)"
+                    required>
             </div>
             <div id="signaturePreviewContainer" style="margin-top: 10px;">
                 <img id="signaturePreview" src="#" alt="Signature Preview" style="max-width: 200px; display: none;" />
@@ -189,7 +204,22 @@
             </table>
 
         </form>
+        @if(Session::has('message'))
+        <script>
+        swal("Success", "{{ Session::get('message') }}", "success", {
+            button: "Okay",
+            timer: 3000,
+        });
+        </script>
+        @endif
+
+
     </div>
+
+
+
+    </div>
+
 
     <script>
     document.getElementById('add-medicine-btn').addEventListener('click', function() {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -121,10 +121,11 @@
 
 
     <div class="page-section">
+
         <div class="container">
             <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
 
-            <form class="main-form" action="{{url('appointment')}}" method="POST">
+            <form class="main-form" action="{{ route('createguess') }}" method="POST">
 
                 @csrf
                 <div class="row mt-5">
@@ -251,4 +252,4 @@
     <script src="../assets/js/theme.js"></script>
 </body>
 
-</html>
+</html> -->

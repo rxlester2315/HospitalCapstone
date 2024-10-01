@@ -87,6 +87,19 @@
         z-index: 1;
         /* Ensures the badge is on top of the icon */
     }
+
+
+    .sub-menu {
+        display: none;
+        /* Hide by default */
+        position: absolute;
+        /* Position it accordingly */
+    }
+
+    .nav-item:hover .sub-menu {
+        display: block;
+        /* Show on hover */
+    }
     </style>
 
 
@@ -186,7 +199,7 @@
                         @endif
 
                         <li class="nav-item">
-                            <a class="nav-link" href="doctors.html">Doctors</a>
+                            <a class="nav-link" href="doctors.html">Doctorss</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('create_leave')}}">Request leave</a>
@@ -195,31 +208,45 @@
                             <a class="nav-link" href="{{url('send_ticket')}}">Contact</a>
                         </li>
 
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="{{url('/listappoint')}}">My Appointment</a>
-                        </li>
-                        {{-- Check if user is authenticated to display appropriate button --}}
-                        @auth
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-3" href="{{ route('logout') }}">Logout</a>
-
-                        </li>
-                        <div class="profile-container">
-                            <div class="profile-header">
-                                <img src="{{ asset('profiledoc/' . $doctor->avats) }}" alt="User Logo"
-                                    class="profile-logo">
-                                <h1 class="profile-name">Dr. {{ $doctor->fullName }}</h1>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="" id="appointmentDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                My Appointment
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="appointmentDropdown">
+                                <a class="dropdown-item" href="{{url('/listappoint')}}">View List Appointments</a>
+                                <a class="dropdown-item" href="{{route('view.date')}}">Today Appointment</a>
+                                <a class="dropdown-item" href="{{url('recordcomplete ')}}">Appointment Completed</a>
                             </div>
-                        </div>
-
-
                         </li>
-                        @else
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login</a>
-                        </li>
-                        @endauth
+
+                        {{-- Check if user is authenticated to display appropriate button --}}
+                        <ul class="navbar-nav ml-auto">
+                            @auth
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="{{ asset('profiledoc/' . $doctor->avats) }}" alt="User Logo"
+                                        class="profile-logo"
+                                        style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;">
+                                    Dr. {{ $doctor->fullName }}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="{{ url('doc_profile', $doctor->id) }}">My Profile</a>
+                                    <a class="dropdown-item" href="chat">View Message</a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+
+                                </div>
+                            </li>
+                            @else
+                            <li class="nav-item">
+                                <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login</a>
+                            </li>
+                            @endauth
+                        </ul>
+
                     </ul>
 
                 </div>

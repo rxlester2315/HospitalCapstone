@@ -40,7 +40,8 @@ class EmailNotification extends Notification
                     ->action($this->details['action_text'],
                     $this->details['action_url' ])
                     ->line($this->details['body'])
-                    ->line($this->details['endline']);
+                    ->line($this->details['endline'])
+                     ->salutation('Best regards, Your Support Team');
     }
 
     /**

@@ -65,7 +65,7 @@
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
                                                 <input type="text" class="form-control" placeholder="Name"
-                                                    id="first-name-icon" name="fullName" value="{{ $data[0]->name }}">
+                                                    id="first-name-icon" name="fullName" value="{{ $data[0]->name }}" >
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-person"></i>
                                                 </div>
@@ -85,7 +85,7 @@
                                                     <img src="{{ URL::to('/images/'. $data[0]->avatars) }}">
                                                 </div>
                                                 <input type="hidden" name="hidden_image"
-                                                    value="{{ $data[0]->avatars }}">
+                                                    value="{{ $data[0]->avatars }}" >
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +97,7 @@
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
                                                 <input type="email" class="form-control" placeholder="Email"
-                                                    id="first-name-icon" name="email" value="{{ $data[0]->email }}">
+                                                    id="first-name-icon" name="email" value="{{ $data[0]->email }}" >
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-envelope"></i>
                                                 </div>

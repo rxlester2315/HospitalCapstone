@@ -119,6 +119,8 @@
 
                 <th style="padding:20px; color:white;">Other</th>
                 <th style="padding:20px; color:white;">Receipt</th>
+                <th style="padding:20px; color:white;">Status</th>
+
 
 
 
@@ -147,9 +149,18 @@
                 </td>
 
                 <td style="padding: 5px;">
-                    <a style="padding: 5px 10px; font-size: 12px;" class="btn btn-primary btn-sm"
+                    <a style="padding: 5px 10px; font-size: 12px;" class="btn btn-info btn-sm"
                         href="{{url('create-receipt')}}">Note</a>
                 </td>
+
+                <td style="padding: 5px;">
+                    <a style="padding: 5px 10px; font-size: 12px;" class="btn btn-primary btn-sm"
+                        href="{{ route('complete.appointment', $appoint->id) }}">
+                        Complete
+                    </a>
+                </td>
+
+
 
 
 

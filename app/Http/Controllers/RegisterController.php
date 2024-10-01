@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 class RegisterController extends Controller
 {
-    public function register(){
+    public function MainLogin(){
 
 
         return view('Auth.register');
@@ -19,7 +19,7 @@ class RegisterController extends Controller
 
     }
 
-       public function storeUser(Request $request)
+       public function storeRegister(Request $request)
     {
         $request->validate([
             'name'      => 'required|string|max:255',
