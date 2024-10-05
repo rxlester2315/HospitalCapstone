@@ -24,6 +24,9 @@ return Application::configure(basePath: dirname(__DIR__))
          'nurse' =>\App\Http\Middleware\Nurse::class,
         'admin' =>\App\Http\Middleware\Admin::class,
          'guest' =>\App\Http\Middleware\Guest::class,
+          'nonuser' => \App\Http\Middleware\NonUserMiddleware::class,
+
+
 
 
 

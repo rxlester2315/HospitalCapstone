@@ -13,8 +13,9 @@ use App\Models\PatientInfo;
 use App\Models\ChatSession;
 use App\Events\MessageSent;
 
-
+use App\Notifications\VerifiedNotification;
 use App\Notifications\TicketEmail;
+
 
 class FrontDeskController extends Controller
 {
@@ -65,7 +66,7 @@ public function patient_record() {
 
     public function unverified(){
 
-        $guestuser = User::where('role_name','Guess')->get();
+        $guestuser = User::where('role_name','Guests')->get();
 
         return view('Front-desk.unverified-patient',compact('guestuser'));
     }
@@ -158,14 +159,14 @@ public function listChats()
 {
     $message = Messagess::create([
         'chat_session_id' => $sessionId,
-        'user_id' => $request->user_id,  // Correctly capture the user_id from the request
+        'user_id' => $request->user_id,  // kinukuha yung user id
         'message' => $request->message,
         'from_admin' => true,
     ]);
 
     $adminId = auth()->id();
     
-    // Broadcasting the message to others, passing both adminId and userId
+    // nag send ng message sa brodcasting
     broadcast(new MessageSent($message, $adminId, $request->user_id))->toOthers();
 
     return response()->json(['status' => 'Message sent!']);
@@ -186,7 +187,7 @@ public function listChats()
 public function req_unverified(){
 
    $unverified = PatientInfo::whereHas('user', function($query) {
-        $query->where('role_name', '!=', 'Normal User'); // Adjust role name comparison as needed
+        $query->where('role_name', '!=', 'Normal User'); // yung mga hinde user or mga guest andito
     })->get();
   return view('Front-desk.list-unverified',compact('unverified')); 
 
@@ -195,20 +196,24 @@ public function req_unverified(){
 
 public function verifyUser($id)
 {
-    // Find the patient by ID
+    // hinahanap yung id or kinukuha
+
+
+    // hinahanap yung id or kinukuha
     $patient = PatientInfo::findOrFail($id);
 
     // Find the related user through the relationship
-    $user = $patient->user; // This retrieves the associated User model
+    $user = $patient->user; //kinukuha yung current user base sa id
+    $sendemail = $user->email;
 
-    // Check if the user exists and update the role_name
+// check if nag exist ba yung user
     if ($user) {
-        $user->role_name = 'Normal User'; // Update role_name
-        $user->save(); // Save the user to persist the changes
+        $user->role_name = 'Normal User'; 
+        $user->save(); // save to sa database
         
     }
+Notification::route('mail', $sendemail)->notify(new VerifiedNotification($user->name));
 
-    // Redirect back with a success message
     return redirect()->back()->with('success', 'User verified successfully.');
 }
 

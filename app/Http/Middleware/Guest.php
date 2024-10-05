@@ -17,11 +17,11 @@ class Guest
      */
 public function handle(Request $request, Closure $next): Response
     {
-          if(Auth::user()->role_name=='Guess'){
+          if(Auth::user()->role_name=='Guests'){
         return $next($request);
 
         }
 
-        return redirect('/Guess');
+        return redirect('/Guests');
     }
 }

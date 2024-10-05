@@ -12,6 +12,8 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\GuessController;
 use App\Http\Controllers\FrontDeskController;
 use App\Http\Controllers\NurseController;
+use App\Http\Controllers\DashboardController;
+
 
 use App\Events\NewMessage;
 use App\Events\GuessMessage;
@@ -157,11 +159,12 @@ Route::get('/complete-appointment/{id}', [DoctorController::class, 'completeAppo
 Route::get('recordcomplete', [DoctorController::class, 'record_complete']);
 Route::get('/changesPasswordDoc',[DoctorController:: class,'change_passwordDoc']);
 Route::post('/changesPasswordDoc',[DoctorController:: class,'changepass_storeDoc']);
+Route::get('/listrecord',[DoctorController::class,'recordview']);
+Route::get('/sendmessage/{id}',[DoctorController::class,'sendmessage'])->name('sendmessage');
 
+Route::post('/sendmessage/{id}', [DoctorController::class, 'sendmessage']);
 
-
-
-
+Route::post('/doctor/sendmessage/{id}', [DoctorController::class, 'sendmessage'])->name('doctor.sendmessage');
 
 
 //Nurse 
@@ -182,6 +185,7 @@ Route::get('patienttm/{id}', [NurseController::class, 'patient_time']);
 Route::post('patienttm/{id}', [NurseController::class, 'submittime_arrive'])->name('submit.arrive');
 Route::get('recordPatient', [NurseController::class, 'recordPatientView']);
 
+Route::get('viewpatientlist', [NurseController::class, 'patient_listss']);
 
 
 
@@ -204,11 +208,27 @@ Route::post('edit_normal_prof',[HomeController::class,'NormalEditStore'])->name(
 Route::get('view_update_normal',[HomeController::class,'updateNormalView'])->name('update.normal');
 Route::post('view_update_normal',[HomeController::class,'updateNormal'])->name('update.Store');
 Route::get('/create_appointmentsss',[HomeController:: class,'create_view_appoint']);
-Route::post('/create', [HomeController::class, 'create_account'])->name('makeappoint');
 Route::get('/changesPassword',[HomeController:: class,'change_password']);
 Route::post('/changesPassword',[HomeController:: class,'changepass_store']);
 
 Route::get('/appointcreated',[HomeController:: class,'aftersendingapp'])->name('success');
+
+Route::get('/services',[HomeController::class,'displaying_services']);
+
+Route::get('/mydoctor',[HomeController::class,'view_mydoc']);
+
+Route::get('/chatdoc/{id}',[HomeController::class,'chatwithdoctor']);
+Route::post('patient/send-message', [HomeController::class, 'patientSendMessage'])->name('patient.sendmessage');
+
+Route::get('/getUserAppointments/{userId}',[HomeController::class,'getUserAppointments']);
+
+
+
+
+
+
+
+
 
 
 
@@ -223,7 +243,7 @@ Route::post('register_Guest',[GuessController::class,'UpdatestoreGuest'])->name(
 Route::get('chatss', [GuessController::class, 'startChat']);
 Route::post('/user/chat/{sessionId}/send', [GuessController::class, 'sendMessage']);
 Route::get('/user/chat/{sessionId}/messages', [GuessController::class, 'fetchMessages']);
-Route::get('/guessaccount', [GuessController::class, 'guessregister']);
+
 Route::post('/create', [GuessController::class, 'create_account'])->name('createguess');
 Route::get('guessprof',[GuessController::class,'guessproff']);
 
@@ -231,15 +251,16 @@ Route::get('/changesPasswordGuest',[GuessController:: class,'change_passwordGues
 Route::post('/changesPasswordGuest',[GuessController:: class,'changepass_storeGuest']);
 
 
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 
 });
 
 
   //Login
   
-  Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/Guess', [LoginController::class, 'guview'])->name('Guess')->middleware(['auth','guest']);
+Route::get('/Guests', [LoginController::class, 'guview'])->name('Guests')->middleware(['auth','guest']);
 Route::get('/Admin', [LoginController::class, 'Adminuser'])->middleware(['auth','admin']);
 Route::get('/HR', [LoginController::class, 'hruser'])->middleware(['auth','hr']);
 Route::get('/User', [LoginController::class, 'Normaluser'])->middleware(['auth','user']);
@@ -247,9 +268,6 @@ Route::get('/Doc', [LoginController::class, 'Docview'])->middleware(['auth','doc
 Route::get('/Superad', [LoginController::class, 'sadview'])->middleware(['auth','super'])->name('sadview');
 Route::get('/Front', [LoginController::class, 'frontdeskview'])->middleware(['auth','front']);
 Route::get('/Nurse', [LoginController::class, 'nurseview'])->middleware(['auth','nurse']);
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 //Register
@@ -258,3 +276,26 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::post('/registerAccount', [RegisterController::class, 'storeRegister'])->name('register');
 Route::get('/registerAccount', [RegisterController::class, 'MainLogin'])->name('registerAccount');
+
+Route::get('/guessaccount', [GuessController::class, 'guessregister']);
+Route::post('/guessaccount', [GuessController::class, 'create_account'])->name('createguess');
+
+
+//dashboard
+
+Route::get('/', function () {
+    if (Auth::check()) {
+        // User is authenticated, redirect to their dashboard
+        return redirect()->action([DashboardController::class, 'index']);
+    }
+
+    // User is not authenticated, show the landing page
+    return app(HomeController::class)->index();
+});
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+
+
+   Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate']);

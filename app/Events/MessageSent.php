@@ -46,8 +46,7 @@ class MessageSent implements ShouldBroadcastNow
         return 'chat-message';
     }
 
-    public function broadcastWith()
-{
+    public function broadcastWith(){
     return [
         'message' => [
             'from_admin' => $this->message->from_admin,

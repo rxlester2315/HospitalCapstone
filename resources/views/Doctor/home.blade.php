@@ -25,6 +25,14 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script>
+    if (window.history && window.history.pushState) {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function() {
+            window.history.pushState(null, null, window.location.href);
+        };
+    }
+    </script>
 
     <style>
     .profile-container {
@@ -229,7 +237,7 @@
                                     <img src="{{ asset('profiledoc/' . $doctor->avats) }}" alt="User Logo"
                                         class="profile-logo"
                                         style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;">
-                                    Dr. {{ $doctor->fullName }}
+                                    <span class="badge badge-info">Doctor</span>| {{ $doctor->fullName }}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="{{ url('doc_profile', $doctor->id) }}">My Profile</a>

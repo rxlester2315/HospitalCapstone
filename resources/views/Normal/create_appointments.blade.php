@@ -21,8 +21,13 @@
 
     <link rel="stylesheet" href="../assets/css/theme.css" />
 
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <style>
     .alert-success {
@@ -100,24 +105,28 @@
     </header>
 
 
-
+   <!-- SweetAlert for Success and Error Messages -->
     @if(session()->has('message'))
-    <div class="alert alert-success">
-
-
-        {{session()->get('message')}}
-    </div>
-
-
-
-
-
-
-
-
-
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: "{{ session()->get('message') }}",
+            confirmButtonText: 'OK'
+        });
+    </script>
     @endif
 
+    @if(session()->has('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: "{{ session()->get('error') }}",
+            confirmButtonText: 'Try Again'
+        });
+    </script>
+    @endif
 
 
     <div class="page-section">
@@ -210,6 +219,49 @@
     </div>
 
     @endif
+
+    <script>
+    $(document).ready(function() {
+        var userId = "{{ Auth::id() }}"; // Get current user ID
+        var disabledDates = []; // Initialize array to hold dates that will be disabled
+
+        // Fetch existing appointments for the logged-in user
+        $.ajax({
+            url: '/getUserAppointments/' + userId, // Make sure you have a route for this
+            type: 'get',
+            dataType: 'json',
+            success: function(response) {
+                if (response['appointments'] != null) {
+                    disabledDates = response['appointments'].map(function(appointment) {
+                        return appointment.date; // Add appointment dates to disabledDates array
+                    });
+
+                    // Disable dates in the date picker
+                    $('input[name="date"]').attr('min', "{{ date('Y-m-d') }}");
+                    $('input[name="date"]').datepicker({
+                        dateFormat: 'yy-mm-dd',
+                        beforeShowDay: function(date) {
+                            var formattedDate = $.datepicker.formatDate('yy-mm-dd', date);
+                            return [disabledDates.indexOf(formattedDate) === -1]; // Disable if date is in disabledDates array
+                        }
+                    });
+                }
+            }
+        });
+        // Show an alert if user selects a disabled date
+        $('input[name="date"]').on('change', function() {
+            var selectedDate = $(this).val();
+            if (disabledDates.indexOf(selectedDate) !== -1) {
+               Swal.fire({
+                        icon: 'error',
+                        title: 'Unavailable Date',
+                        text: 'This date is already booked. Please select another date.',
+                    });
+            }
+        });
+    });
+</script>
+
 
 
 

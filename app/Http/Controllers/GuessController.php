@@ -15,7 +15,6 @@ use App\Events\MessageSent;
 use App\Models\PatientInfo;
 
 
-
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Http\Request;
@@ -26,29 +25,34 @@ class GuessController extends Controller
         return view('home.guess_account');
     }
 
-       public function create_account(Request $request)
-    {
-        // Validate the input
-        $request->validate([
-            'name'      => 'required|string|max:255',
-            'email'     => 'required|string|email|max:255|unique:users',
-            'password'  => 'required|string|min:8|confirmed',
-            'password_confirmation' => 'required',
-        ]);
 
-        // Create a new user with 'Active' status
-        User::create([
-            'name'      => $request->name,
-            'email'     => $request->email,
-            'role_name' => 'Guess',  
-            'password'  => Hash::make($request->password),
-            'status'    => 'Active', 
-             
-        ]);
 
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Guest Account Created');
-    }
+public function create_account(Request $request)
+{
+    // Validate the input
+    $request->validate([
+        'name'      => 'required|string|max:255',
+        'email'     => 'required|string|email|max:255|unique:users',
+        'password'  => 'required|string|min:8|confirmed',
+        'password_confirmation' => 'required',
+    ]);
+
+    // Create a new user with 'Active' status
+    $user = User::create([
+        'name'      => $request->name,
+        'email'     => $request->email,
+        'role_name' => 'Guests',  
+        'password'  => Hash::make($request->password),
+        'status'    => 'Active', 
+    ]);
+
+    // Log in the newly registered user
+    Auth::login($user);
+
+    // Redirect to the guest account/dashboard or wherever you want
+    return redirect()->route('Guests')->with('success', 'Guest Account Created and Logged In');
+}
+
 
 
 
@@ -201,7 +205,7 @@ public function registerGuest(Request $request){
     $data->address = $request->address;
     $data->save();
 
-return redirect()->route('Guess');
+return redirect()->route('Guests');
 
 
 

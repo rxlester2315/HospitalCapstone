@@ -27,6 +27,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
 
+    <script>
+    if (window.history && window.history.pushState) {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function() {
+            window.history.pushState(null, null, window.location.href);
+        };
+    }
+    </script>
+
 </head>
 
 <body>
@@ -66,15 +75,16 @@
             <div class="container">
                 <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
 
-                <form action="#">
-                    <div class="input-group input-navbar">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username"
-                            aria-describedby="icon-addon1" />
-                    </div>
-                </form>
+                <div class="container">
+                    <a href="{{url('services')}}">
+                        <h3 style="margin-left:100px;" class="btn btn-info">View Services</h3>
+                    </a>
+
+
+
+                </div>
+
+
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
                     aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,7 +132,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ Auth::user()->name }}
+                                <span class="badge badge-success">Patient</span>
+                                | {{ Auth::user()->name }}
                                 <!-- Display the authenticated user name -->
                             </a>
                             <div class="dropdown-menu" aria-labelledby="userDropdown">
@@ -172,7 +183,10 @@
                             <div class="circle-shape bg-secondary text-white">
                                 <span class="mai-chatbubbles-outline"></span>
                             </div>
-                            <p><span>Chat</span> with a doctors</p>
+                            <a href="{{url('mydoctor')}}">
+                                <p><span>Chat</span> with a doctors</p>
+                            </a>
+
                         </div>
                     </div>
                     <div class="col-md-4 py-3 py-md-0">

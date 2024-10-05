@@ -90,11 +90,11 @@ class LoginController extends Controller
 
         }
 
-         elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Guess'])) {
+         elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Guests'])) {
 
             Toastr::success('Hi Welcome Back  ','Success');
 
-            return redirect()->intended('Guess');
+            return redirect()->intended('Guests');
 
         }
 
@@ -136,8 +136,8 @@ class LoginController extends Controller
         return redirect('Superad');
 
     }
-    else if($user->hasRole('Guess')){
-        return redirect('Guess');
+    else if($user->hasRole('Guests')){
+        return redirect('Guests');
     }
 
      else if($user->hasRole('Front Desk')){

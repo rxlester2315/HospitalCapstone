@@ -101,7 +101,7 @@ public function arrive_time(Request $request)
     $filterDate = $request->input('filter_date');
 
     // Query appointments based on the date, approved status, and null time_arrive and ampm
-    $appointments = Appointments::whereDate('date', $filterDate)
+    $appointment = Appointments::whereDate('date', $filterDate)
                                 ->where('status', 'Approved')
                                 ->whereNull('time_arrive') // Only show those who haven't arrived yet
                                 ->whereNull('ampm')
@@ -157,6 +157,13 @@ public function recordPatientView(){
 
 
 
+public function patient_listss(){
+
+    $patient = User::where('role_name','Normal User')->get();
+
+
+    return view('Nurse.patient-list',compact('patient'));
+}
  
 
 

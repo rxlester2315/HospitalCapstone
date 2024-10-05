@@ -79,6 +79,14 @@ public function patientInfo()
     return $this->hasOne(PatientInfo::class, 'user_id'); // Assuming user_id is the foreign key
 }
 
+
+
+  public function appointments()
+    {
+        return $this->hasMany(Appointments::class, 'userid');
+    }
+
+
  
 
 

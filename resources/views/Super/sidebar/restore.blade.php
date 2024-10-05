@@ -54,12 +54,12 @@
                     </div>
                 </li>
 
-                <li class="sidebar-item">
+                <!-- <li class="sidebar-item">
                     <a href="" class='sidebar-link'>
                         <i class="bi bi-shield-lock"></i>
                         <span>Changes Password</span>
                     </a>
-                </li>
+                </li> -->
 
                 @if (Auth::user()->role_name=='Super Admin')
                 <li class="sidebar-title">Page &amp; Controller</li>
@@ -76,7 +76,7 @@
                             <a href="{{ route('activity/log') }}">User Activity Log</a>
                         </li>
                         <li class="submenu-item">
-                            <a href="{{ route('activity/login/logout') }}">Activity Log</a>
+                            <a href="{{ route('activity/login/logout') }}">User Logins</a>
                         </li>
                         <li class="submenu-item">
                             <a href="{{ route('archives-restore') }}">Restore Users</a>
@@ -88,36 +88,8 @@
 
                 @endif
 
-                <li class="sidebar-title">Forms &amp; Tables</li>
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-file-earmark-medical-fill"></i>
-                        <span>Form Elements</span>
-                    </a>
+          
 
-                </li>
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-grid-1x2-fill"></i>
-                        <span>View Record</span>
-                    </a>
-                    <ul class="submenu">
-                        <li class="submenu-item">
-                            <a href="{{ route('userManagement') }}">User Control</a>
-                        </li>
-
-                        <li class="submenu-item">
-                            <a href="{{ route('activity/log') }}">User Activity Log</a>
-                        </li>
-
-                        <li class="submenu-item">
-                            <a href="{{ route('activity/login/logout') }}">Activity Logsssssssssss</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-
-                </li>
                 <li class="sidebar-item">
                     <a href="{{ route('logout') }}" class='sidebar-link'>
                         <i class="bi bi-box-arrow-right"></i>

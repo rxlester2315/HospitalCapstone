@@ -11,7 +11,13 @@ use App\Models\Employees;
 use App\Models\DayOff;
 use App\Models\PresentDay;
 use App\Models\EmployeeInfo;
+use App\Models\Employee;
+use Auth;
 use App\Models\User;
+use App\Models\ChatSession;
+use App\Models\ChatSessionss;
+use App\Models\patientsmessagess;
+use Pusher\Pusher;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -24,6 +30,7 @@ use Illuminate\Support\Str;
 use Notification;
 
 use App\Notifications\TicketEmail;
+
 
 
 
@@ -152,6 +159,8 @@ public function showCreateForm($id)
 
  public function receipt_store(Request $request)
 {
+    
+
     
     // Validation rules
     $request->validate([
@@ -465,13 +474,13 @@ public function todayappointments(Request $request){
 }
 
 
-public function record_complete(){
-
-    $completed = Appointments::where('completed','completed')->get();
+public function record_complete() {
+     $completed = Appointments::where('completed','completed')->get();
 
     return view('Doctor.record-complete',compact('completed'));
-    
 }
+
+
 
 
 
@@ -509,6 +518,96 @@ public function changepass_storeDoc(Request $request)
 
     return redirect()->back();
 }
+
+public function recordview() {
+   // Get the authenticated user's name
+   $authUserName = Auth::user()->name;
+
+
+   // Query to get appointments where employee matches the authenticated user's name
+   $completed = Appointments::where('status', 'Approved')
+                             ->where('completed', 'Completed')
+                             ->where('employees', $authUserName)  // Match employee with auth user's name
+                             ->with('employee')
+                             ->get();  // Fetch the results
+
+    return view('Doctor.appointment-complete', compact('completed'));
+}
+
+
+public function sendmessage(Request $request, $id)
+{
+
+
+  // hinahanap yung id specific sa appointment
+    $appointment = Appointments::with('user')->find($id);
+
+// checking appointent if nag exist ba sya
+    if (!$appointment) {
+        return redirect()->back()->with('error', 'Appointment not found.');
+    }
+  // kinukuha yung  id base appointment 
+    $userId = $appointment->user->id; 
+
+    // Get the message details from the request
+    $message = $request->input('message', 'Hello Gooday'); 
+
+    // checcking auth ng user auth
+    $authUserId = auth()->id();
+
+    // finifectch niya yung data intod database 
+    $authUser = User::find($authUserId); // once na fetch niya na yung database it will automtacily save it from database
+
+    // pag hinde naka authenticated yung user na gumamit neto hinde niya marerecive message na send
+    if (!$authUser) {
+        return redirect()->back()->with('error', 'Authenticated user not found.');
+    }
+
+// finetch lang yung data from userid and then pinasa yung id and then convert yung data into name and pass into view detail
+    $patientName = $appointment->user->name;
+    
+// yung pusher eto yung nag handle brodcasting the message between doctor and patients 
+    $pusher = new Pusher(
+        env('PUSHER_APP_KEY'),
+        env('PUSHER_APP_SECRET'),
+        env('PUSHER_APP_ID'),
+        ['cluster' => env('PUSHER_APP_CLUSTER'), 'useTLS' => true]
+    );
+
+    // pinasa yung data sa database kung saan yung from to para current authenticated user and then yung user eto yung reciever nung message
+
+    $data = [
+        'from' => $authUserId,// eto yung current user or auhtneitcated user na gumagamit 
+        'message' => $message,// eto naman yung message na pinasa or nilalaman
+        'to' => $userId, // eto yung reciever nung message na pinasa from db
+        'doctor_name' => $authUser->name, // kinuha yung name ni doctor or yung reicever and then pass it into  front-end
+        'senderName' =>auth()->user()->name// same procedure lang ang ginawa dito is kincomvert lang yung name ni patient and then pass it into front-end
+    ];
+
+    // dito brodcast na yung mga data sa channel name chat-channel and then yung event yung message-sent kasama na yung data sa taas
+    $pusher->trigger('chat-channel', 'message-sent', $data);
+
+    // nag return view blade kasama yung data, tapos yung appointment na variable and then pinasa frontend and same with the userid convert niya lang
+
+    return view('Doctor.chat-patient', [
+        'appointment' => $appointment,
+        'userId' => $appointment->user->id,
+     
+
+    ]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

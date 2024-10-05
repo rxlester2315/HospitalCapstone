@@ -14,7 +14,8 @@ use App\Models\Doctors;
 use App\Models\Appointments;
 use App\Models\Employees;
 use App\Models\PatientInfo;
-
+use App\Models\patientsmessagess;
+use Pusher\Pusher;
 
 
 use Pdf;
@@ -65,53 +66,63 @@ class HomeController extends Controller
         return response()->json($empData);
       
     }
+public function appointments(Request $request)
+{
+    // Check if the user already has an appointment on the selected date
+    $existingAppointment = appointments::where('userid', Auth::id())
+        ->where('date', $request->date)
+        ->first();
 
-       public function appointments(Request $request){
+    if ($existingAppointment) {
+        // Redirect back with an error message if an appointment already exists for the date
+        return redirect()->back()->with('error', 'You already have an appointment on this date.');
+    }
+
+    $employee = Employees::findOrFail($request->sel_emp);
+    $department = Departments::findOrFail($request->sel_depart);
+
+    $data = new appointments;
+    $data->name = $request->name;
+    $data->email = $request->email;
+    $data->date = $request->date;
+    $data->time = $request->time;
+    $data->departments = $department->name;
+    $data->employees = $employee->name;
+    $data->phone = $request->number;
+    $data->message = $request->message;
+    $data->status = 'Pending';
+    $data->completed = 'Observation';
+
+    if (Auth::id()) {
+        $data->userid = Auth::user()->id;
+    }
+
+    $data->save();
+    event(new Sendnotif($data));
+
+    return redirect()->route('success');
+}
+public function getUserAppointments($userId)
+{
+    // Get all appointments for the logged-in user
+    $appointments = appointments::where('userid', $userId)->get(['date']); // Only select date column
+    return response()->json(['appointments' => $appointments]);
+}
 
 
 
-        $employee = Employees::findOrFail($request->sel_emp);
-        $department = Departments::findOrFail($request->sel_depart);
-         $data = new appointments;
-         $data ->name=$request->name;
-         $data ->email=$request->email;
-         $data ->date=$request->date;
-         $data ->time=$request->time;
-         $data ->departments=$request->sel_depart;
-         $data ->employees=$request->sel_emp;
-         $data ->phone=$request->number;
-         $data ->message=$request->message;
-         $data ->status='Pending';
-         $data ->completed='Observation';
-
-
-         $data->departments = $department->name;
-        $data->employees = $employee->name;
 
 
 
-        if(Auth::id()){
-
-            $data->userid=Auth::user()->id;
 
 
-        }
-
-        $data->save();
-         event(new Sendnotif($data));
 
 
-return redirect()->route('success');
-        
 
 
- 
- 
- 
 
- 
 
-    } 
+
 
 
 
@@ -376,6 +387,95 @@ public function aftersendingapp(){
 
 
 }
+
+public function displaying_services(){
+
+    return view('Normal.services-offer');
+}
+
+
+public function view_mydoc(){
+
+        $user = auth()->user();
+
+   $appointments = Appointments::where('userid', $user->id)
+        ->with('doctor') // Load the related doctor data via the relationship
+        ->get();
+
+    return view('Normal.chat-with-doc',compact('appointments'));
+
+}
+
+
+public function chatwithdoctor($id) {
+    // Get the authenticated user
+    $user = Auth::user();
+
+    // Check if the user is authenticated
+    if (!$user) {
+        // Handle the case where the user is not authenticated
+        return redirect()->route('login'); // Redirect to login or handle as needed
+    }
+
+    $appointments = Appointments::where('userid', $user->id)
+        ->with('doctor') // Load the related doctor data via the relationship
+        ->get();
+
+    return view('Normal.chat', compact('appointments'));
+}
+
+
+
+public function patientSendMessage(Request $request)
+{
+    
+    $patientId = auth()->user()->id;
+
+    // kinuha yung id gamit appointment table
+    $appointment = Appointments::where('userid', $patientId)
+                                ->with('doctor') // Ensure you are loading the doctor relationship
+                                ->first();
+
+    // check if nag exist yung appointment
+    if (!$appointment) {
+        return response()->json(['status' => 'Appointment not found.'], 404);
+    }
+
+    // kinuha yung id doctor and also yung name
+    $doctorId = $appointment->doctor->id;
+    $doctorName = $appointment->doctor->name;
+
+    // sinave yung mga data sa database ng patientmessages
+    $chatMessage = new patientsmessagess();
+    $chatMessage->from = $patientId;
+    $chatMessage->to = $doctorId;
+    $chatMessage->message = $request->message;
+    $chatMessage->save();
+
+    // Step 5: brodcast yung data gamit yung pusher
+    $pusher = new Pusher(
+        env('PUSHER_APP_KEY'),
+        env('PUSHER_APP_SECRET'),
+        env('PUSHER_APP_ID'),
+        ['cluster' => env('PUSHER_APP_CLUSTER'), 'useTLS' => true]
+    );
+
+    // eto yung data
+    $data = [
+        'from' => $patientId,
+        'message' => $request->message,
+        'to' => $doctorId,
+        'doctor_name' => $doctorName,
+        'senderName'=> auth()->user()->name
+    ];
+
+    // nilagay sa pusher and then pass it into channel
+    $pusher->trigger('chat-channel', 'message-sent', $data);
+
+    return response()->json(['status' => 'Message sent successfully']);
+}
+
+
 
 
 

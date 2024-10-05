@@ -111,20 +111,22 @@
     </header>
 
 
+
     <div align="center" style="padding:70px;">
         <table>
             <tr style="background-color:black;">
 
                 <th style="padding:20px; color:white;">Name of Patient </th>
+                <th style="padding:20px; color:white;">Phone Number</th>
                 <th style="padding:20px; color:white;">Email Address</th>
 
                 <th style="padding:20px; color:white;">Date</th>
-
-                <th style="padding:20px; color:white;">Message</th>
+               
+                <th style="padding:20px; color:white;">View Profile</th>
                 <th style="padding:20px; color:white;">Status</th>
+                 <th style="padding:20px; color:white;">ID</th>
 
-                <th style="padding:20px; color:white;">Receipt</th>
-                <th style="padding:20px; color:white;">Status</th>
+
 
 
 
@@ -133,34 +135,30 @@
 
 
             </tr>
-            @foreach($data as $appoint)
+            @foreach($completed as $suc)
             <tr>
 
-                <td style="padding:20px; color:black; ">{{$appoint->name}}</td>
-                <td style="padding:20px; color:black;">{{$appoint->email}}</td>
+                <td style="padding:20px; color:black; ">{{$suc->name}}</td>
+                <td style="padding:20px; color:black; ">{{$suc->phone}}</td>
+                <td style="padding:20px; color:black; ">{{$suc->email}}</td>
+                <td style="padding:20px; color:black; ">{{$suc->date}}</td>
 
 
+                <td style="padding:20px; color:black; ">
+                    <h3 class="badge badge-success">
+                        {{$suc->completed}}
+                    </h3>
+                </td>
+                <td style="padding:5px; color:black; ">
+                    <a href="{{ url('sendmessage/'.$suc->id) }}" class="btn btn-success">Send Message</a>
 
-
-                <td style="padding:20px; color:black;">{{$appoint->date}}</td>
-
-                <td style="padding:20px; color:black;">{{$appoint->message}}</td>
-                <td style="padding:20px; color:black;">{{$appoint->status}}</td>
-
-
-
-
-                <td style="padding: 5px;">
-                    <a style="padding: 10px 15px; font-size: 12px;" class="btn btn-info btn-sm"
-                        href="{{url('create-receipt')}}">Note</a>
                 </td>
 
-                <td style="padding: 5px;">
-                    <a style="padding: 5px 10px; font-size: 12px;" class="btn btn-primary btn-sm"
-                        href="{{ route('complete.appointment', $appoint->id) }}">
-                        Complete
-                    </a>
-                </td>
+
+
+
+
+
 
 
 
@@ -168,10 +166,12 @@
 
 
             </tr>
-            @endforeach
 
+            @endforeach
         </table>
     </div>
+
+
 
     <script src="../assets/js/jquery-3.5.1.min.js"></script>
 
