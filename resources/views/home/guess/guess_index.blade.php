@@ -95,28 +95,34 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            @auth
-                            @if(Auth::user()->role_name !== 'Normal User')
 
-                            <a href="{{route('guest_view')}}">
-                                <h4 class="page-title pull-left"><span class="unverifieds">Unverified</span> </h4>
-                            </a>
-                            @endif
+
 
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="index.html">Home</a></li>
                                 <li><span>New Account</span></li>
                             </ul>
                         </div>
-                        @endauth
+
                     </div>
                     <div class="col-sm-6 clearfix">
                         <div class="user-profile pull-right">
                             <img class="avatar user-thumb" src="main_alls/everythingzz/assets/images/author/avatar.png">
+                            @auth
+                            @if(Auth::user()->role_name !== 'Normal User')
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
+                                Unverified| Rex Lester Bastaoang
+                                <i class="fa fa-angle-down"></i>
+                            </h4>
+                            @else
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
                                 Patient| Rex Lester Bastaoang
                                 <i class="fa fa-angle-down"></i>
                             </h4>
+                            @endif
+
+                            @endauth
+
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Message</a>
                                 <a class="dropdown-item" href="{{ route('guest_view') }}">View Profile</a>

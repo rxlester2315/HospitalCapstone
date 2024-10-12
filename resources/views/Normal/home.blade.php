@@ -148,6 +148,7 @@
 
 
             <div class="custom-slider">
+
                 <div class="custom-slides">
                     <!-- Radio buttons for manual navigation -->
                     <input type="radio" name="radio-btn" id="radio1" checked>

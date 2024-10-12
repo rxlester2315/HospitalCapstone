@@ -109,6 +109,7 @@
     width: 280px;
     overflow: hidden;
     background: #fafafa;
+    border-radius: 4px;
     box-shadow: -4px 10px 2px 9px rgba(0, 0, 0, 0.33);
     -webkit-box-shadow: -4px 10px 2px 9px rgba(0, 0, 0, 0.33);
     -moz-box-shadow: -4px 10px 2px 9px rgba(0, 0, 0, 0.33);
@@ -162,12 +163,12 @@
 .metismenu li a {
     position: relative;
     display: block;
-    color: #0c0cd3;
+    color: #070707;
     font-size: 15px;
     text-transform: capitalize;
     padding: 15px 15px;
     letter-spacing: 0;
-    font-weight: 400;
+    font-weight: 700;
 }
 /* logo color */
 .metismenu li a i {
@@ -214,7 +215,10 @@
 .metismenu > li:hover > a,
 .metismenu > li.active > a {
     color: black;
-    background: #c40404;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
     transform: scale(1.05);
 }
 
@@ -708,15 +712,28 @@ ul.breadcrumbs {
     padding: 0; /* Remove default padding */
     margin: 10px 0; /* Add some margin for spacing */
     width: 100%; /* Ensure it takes full width */
+    color: black;
+}
+
+.bread-middle a {
+    color: black;
 }
 
 .bread-middle li {
-    padding: 10px 15px; /* Base padding */
+    padding: 15px 15px; /* Base padding */
     font-size: 16px; /* Base font size */
     font-family: Arial, Helvetica, sans-serif;
     text-align: center; /* Center text within each item */
     flex: 0 1 auto; /* Allow items to grow and shrink, but not take full width */
     margin: 0 5px; /* Add some margin between items */
+    color: black;
+    border: 3px solid black; /* Add border */
+    border-radius: 8px; /* Optional: round the corners */
+
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
 }
 
 /* Media query for larger screens */
@@ -827,6 +844,19 @@ ul.breadcrumbs {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+
+    padding: 17px 38px;
+    position: relative;
 }
 
 .user-name i {
@@ -1015,7 +1045,10 @@ table.dbkit-table {
 
 table.dbkit-table tbody tr:hover {
     border-color: #101010;
-    background-color: rgb(26, 165, 77); /* Change background color */
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
     transform: scale(1.05); /* Zoom in effect */
     transition: all 0.3s ease-in-out; /* Smooth transition effect */
 }
@@ -2674,7 +2707,10 @@ table.dataTable thead td {
 }
 
 .prc-head h4 {
-    background: #058adc;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
     color: #fff;
     padding: 28px;
     letter-spacing: 0;
@@ -2695,14 +2731,13 @@ table.dataTable thead td {
 }
 
 .prc-list li.bold {
-    font-weight: 600;
     margin-top: 20px;
 }
 
 .prc-list > a {
     display: inline-block;
     margin-top: 40px;
-    background: #c21818;
+    background: #e7d910;
     color: #fff;
     padding: 11px 20px;
     border-radius: 40px;
@@ -3142,27 +3177,35 @@ table.dataTable thead td {
 }
 
 .options .list-options .chat {
-    background-color: lightblue;
-    color: rgb(14, 57, 197);
-    border-color: blue;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    border-bottom: 3px solid #343e50;
 }
 
 .options .list-options .book {
-    background-color: lightyellow;
-    color: black;
-    border-color: yellow;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    border-bottom: 3px solid #343e50;
 }
 
 .options .list-options .appoint {
-    background-color: lightgreen;
-    color: white;
-    border-color: green;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    border-bottom: 3px solid #343e50;
 }
 
 .options .list-options .doctor {
-    background-color: lightpink;
-    color: white;
-    border-color: pink;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    border-bottom: 3px solid #343e50;
 }
 
 /* Hover effect */
