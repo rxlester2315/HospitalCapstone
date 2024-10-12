@@ -428,31 +428,28 @@ public function chatwithdoctor($id) {
 
 public function patientSendMessage(Request $request)
 {
-    
     $patientId = auth()->user()->id;
 
-    // kinuha yung id gamit appointment table
     $appointment = Appointments::where('userid', $patientId)
-                                ->with('doctor') // Ensure you are loading the doctor relationship
+                                ->with('doctor')
                                 ->first();
 
-    // check if nag exist yung appointment
     if (!$appointment) {
         return response()->json(['status' => 'Appointment not found.'], 404);
     }
 
-    // kinuha yung id doctor and also yung name
     $doctorId = $appointment->doctor->id;
-    $doctorName = $appointment->doctor->name;
 
-    // sinave yung mga data sa database ng patientmessages
+    // Save the message
     $chatMessage = new patientsmessagess();
-    $chatMessage->from = $patientId;
-    $chatMessage->to = $doctorId;
+    $chatMessage->from = $patientId;  // Patient is the sender
+    $chatMessage->to = $doctorId;     // Doctor is the receiver
     $chatMessage->message = $request->message;
+    $chatMessage->doctor_id = $doctorId;  // Explicitly set doctor_id
+    $chatMessage->patient_id = $patientId; // Explicitly set patient_id
     $chatMessage->save();
 
-    // Step 5: brodcast yung data gamit yung pusher
+    // Broadcast using Pusher
     $pusher = new Pusher(
         env('PUSHER_APP_KEY'),
         env('PUSHER_APP_SECRET'),
@@ -460,20 +457,33 @@ public function patientSendMessage(Request $request)
         ['cluster' => env('PUSHER_APP_CLUSTER'), 'useTLS' => true]
     );
 
-    // eto yung data
     $data = [
         'from' => $patientId,
         'message' => $request->message,
         'to' => $doctorId,
-        'doctor_name' => $doctorName,
-        'senderName'=> auth()->user()->name
+        'doctor_name' => $appointment->doctor->name,
+        'senderName' => auth()->user()->name
     ];
 
-    // nilagay sa pusher and then pass it into channel
     $pusher->trigger('chat-channel', 'message-sent', $data);
 
     return response()->json(['status' => 'Message sent successfully']);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

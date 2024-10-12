@@ -44,7 +44,7 @@ Route::get('userManagement', [SuperAdController::class, 'index'])->middleware('a
 Route::get('user/add/new', [SuperAdController::class, 'addNewUser'])->middleware('auth')->name('user/add/new');
 Route::post('user/add/save', [SuperAdController::class, 'addNewUserSave'])->name('user/add/save');
 Route::get('view/detail/{id}', [SuperAdController::class, 'viewDetail']);
-Route::get('/listarchives/{id}',[SuperAdController::class,'setarchives'])->name('archives');
+Route::get('/listarchives/{id}',[SuperAdController::class,'setarchives'])->name('archivead');
 Route::post('update', [SuperAdController::class, 'update'])->name('update');
 Route::get('delete_user/{id}', [SuperAdController::class, 'delete']);
 Route::get('activity/log', [SuperAdController::class, 'activityLog'])->middleware('auth')->name('activity/log');
@@ -52,7 +52,7 @@ Route::get('activity/login/logout', [SuperAdController::class, 'activityLogInLog
 Route::get('change/password', [SuperAdController::class, 'changePasswordView']);
 Route::post('change/password/db', [SuperAdController::class, 'changePasswordDB']);
 Route::get('/restore' , [SuperAdController::class,'listrestore'])->name('archives-restore');
-Route::post('/restores/{id}',[SuperAdController:: class,'restoreDelete'])->name('restore-users');
+Route::post('/restores/{id}',[SuperAdController:: class,'restoreDeleteAd'])->name('restore-users');
 
 Route::get('userspw/{id}',[SuperAdController::class,'updatepasswordview'])->name('user.reset');  
 Route::post('users/{id}/update',[SuperAdController::class,'updatepassword'])->name('users.update-password');
@@ -165,6 +165,32 @@ Route::get('/sendmessage/{id}',[DoctorController::class,'sendmessage'])->name('s
 Route::post('/sendmessage/{id}', [DoctorController::class, 'sendmessage']);
 
 Route::post('/doctor/sendmessage/{id}', [DoctorController::class, 'sendmessage'])->name('doctor.sendmessage');
+Route::get('/doctor/chat-history/{appointmentId}', [DoctorController::class, 'loadChatHistory'])->name('doctor.chat.history');
+
+
+
+
+Route::get('/doctor/chat/{id}', [DoctorController::class, 'loadMessages']);
+Route::get('/patient/chat', [HomeController::class, 'loadMessages']);
+
+
+
+
+
+Route::get('showchat/{id}', [HomeController::class, 'showChat']);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Nurse 
@@ -186,7 +212,6 @@ Route::post('patienttm/{id}', [NurseController::class, 'submittime_arrive'])->na
 Route::get('recordPatient', [NurseController::class, 'recordPatientView']);
 
 Route::get('viewpatientlist', [NurseController::class, 'patient_listss']);
-
 
 
 

@@ -1,394 +1,796 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="zxx">
 
 <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Site keywords here">
+    <meta name="description" content="">
+    <meta name='copyright' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title -->
+    <title>Comprehensive Care Medical Clinic</title>
 
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <meta name="copyright" content="MACode ID, https://macodeid.com/" />
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png">
 
-    <title>One Health - Medical Center HTML5 Template</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/css/maicons.css" />
 
-    <link rel="stylesheet" href="../assets/css/bootstrap.css" />
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-    <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="landing/css/bootstrap.min.css">
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="landing/css/nice-select.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="landing/css/font-awesome.min.css">
+    <!-- icofont CSS -->
+    <link rel="stylesheet" href="landing/css/icofont.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" href="landing/css/slicknav.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="landing/css/owl-carousel.css">
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="landing/css/datepicker.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="landing/css/animate.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="landing/css/magnific-popup.css">
 
-    <link rel="stylesheet" href="../assets/vendor/animate/animate.css" />
+    <!-- Medipro CSS -->
+    <link rel="stylesheet" href="landing/css/normalize.css">
+    <link rel="stylesheet" href="landing/style.css">
+    <link rel="stylesheet" href="landing/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="../assets/css/theme.css" />
 
-    @include('home.css')
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 </head>
 
 <body>
 
-    <header>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-outter"></div>
+            <div class="loader-inner"></div>
+
+            <div class="indicator">
+                <svg width="16px" height="12px">
+                    <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+
+    <!-- Get Pro Button -->
+
+
+    <!-- Header Area -->
+    <header class="header">
+        <!-- Topbar -->
         <div class="topbar">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-8 text-sm">
-                        <div class="site-info">
-                            <a href="#"><span class="mai-call text-primary"></span>
-                                +00 123 4455 777</a>
-                            <span class="divider">|</span>
-                            <a href="#"><span class="mai-mail text-primary"></span>
-                                mail@example.com</a>
-                        </div>
+                    <div class="col-lg-6 col-md-5 col-12">
+                        <!-- Contact -->
+                        <ul class="top-link">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Doctors</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                        <!-- End Contact -->
                     </div>
-                    <div class="col-sm-4 text-right text-sm">
-                        <div class="social-mini-button">
-                            <a href="#"><span class="mai-logo-facebook-f"></span></a>
-                            <a href="#"><span class="mai-logo-twitter"></span></a>
-                            <a href="#"><span class="mai-logo-dribbble"></span></a>
-                            <a href="#"><span class="mai-logo-instagram"></span></a>
-                        </div>
+                    <div class="col-lg-6 col-md-7 col-12">
+                        <!-- Top Contact -->
+                        <ul class="top-contact">
+                            <li><i class="fa fa-phone"></i>+880 1234 56789</li>
+                            <li><i class="fa fa-envelope"></i><a
+                                    href="mailto:support@yourmail.com">support@yourmail.com</a></li>
+                        </ul>
+                        <!-- End Top Contact -->
                     </div>
                 </div>
-                <!-- .row -->
             </div>
-            <!-- .container -->
         </div>
-        <!-- .topbar -->
-
-        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <!-- End Topbar -->
+        <!-- Header Inner -->
+        <div class="header-inner">
             <div class="container">
-                <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
+                <div class="inner">
+                    <div class="row align-items-center">
+                        <!-- Add this to align logo and menu vertically -->
+                        <!-- Logo and Main Menu in the same column -->
+                        <div class="col-lg-9 col-md-9 col-12 d-flex justify-content-between">
+                            <!-- Start Logo -->
+                            <div class="logo">
+                                <a href="index.html"><img src="landing/img/logo.png" alt="ComCare"></a>
+                            </div>
+                            <!-- End Logo -->
 
-                <form action="#">
-                    <div class="input-group input-navbar">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
+                            <!-- Main Menu -->
+                            <div class="main-menu">
+                                <nav class="navigation">
+                                    <ul class="nav menu">
+                                        <li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
+                                        </li>
+                                        <li><a href="#">Doctos </a></li>
+                                        <li><a href="#">Services </a></li>
+                                        <li><a href="#">About Us </a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="{{url('/login')}}">Login</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!--/ End Main Menu -->
                         </div>
-                        <input type="text" class="form-control" placeholder="Enter keyword.." aria-label="Username"
-                            aria-describedby="icon-addon1" />
+
+                        <!-- Optional: Extra contact information or mobile nav in another column -->
+                        <div class="col-lg-3 col-md-3 col-12">
+                            <div class="mobile-nav"></div>
+                        </div>
                     </div>
-                </form>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
-                    aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupport">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="doctors.html">Doctors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="blog.html">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-3" href="{{url('/login')}}">Login</a>
-                        </li>
-                    </ul>
                 </div>
-                <!-- .navbar-collapse -->
             </div>
-            <!-- .container -->
-        </nav>
+        </div>
+
+        <!--/ End Header Inner -->
     </header>
+    <!-- End Header Area -->
 
-    <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg)">
-        <div class="hero-section">
-            <div class="container text-center wow zoomIn">
-                <span class="subhead">Let's make your life happier</span>
-                <h1 class="display-4">Healthy Living</h1>
-                <a href="{{url('guessaccount')}}" class="btn btn-primary">Make An Account to chat us</a>
+    <!-- Slider Area -->
+    <section class="slider">
+        <div class="hero-slider">
+            <!-- Start Single Slider -->
+
+            <!-- End Single Slider -->
+            <!-- Start Single Slider -->
+            <div class="single-slider" style="background-image:url('landing/img/slider.jpg')">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="text">
+                                <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl
+                                    pellentesque, faucibus libero eu, gravida quam. </p>
+                                <div class="button">
+                                    <a href="{{url('guessaccount')}}" class="btn">Get Appointment</a>
+                                    <a href="{{url('guessaccount')}}" class="btn primary">Contact</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start End Slider -->
+            <!-- Start Single Slider -->
+            <div class="single-slider" style="background-image:url('landing/img/slider3.jpg')">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="text">
+                                <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl
+                                    pellentesque, faucibus libero eu, gravida quam. </p>
+                                <div class="button">
+                                    <a href="{{url('guessaccount')}}" class="btn">Get Appointment</a>
+                                    <a href="{{url('guessaccount')}}" class="btn primary">Contact Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Single Slider -->
+        </div>
+    </section>
+    <!--/ End Slider Area -->
+
+    <!-- Start Schedule Area -->
+    <section class="schedule">
+        <div class="container">
+            <div class="schedule-inner">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12 ">
+                        <!-- single-schedule -->
+                        <div class="single-schedule first">
+                            <div class="inner">
+                                <div class="icon">
+                                    <i class="fa fa-ambulance"></i>
+                                </div>
+                                <div class="single-content">
+                                    <span>Lorem Amet</span>
+                                    <h4>Emergency Cases</h4>
+                                    <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus
+                                        convallis sodales.</p>
+                                    <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- single-schedule -->
+                        <div class="single-schedule middle">
+                            <div class="inner">
+                                <div class="icon">
+                                    <i class="icofont-prescription"></i>
+                                </div>
+                                <div class="single-content">
+                                    <span>Fusce Porttitor</span>
+                                    <h4>Doctors Timetable</h4>
+                                    <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus
+                                        convallis sodales.</p>
+                                    <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-12">
+                        <!-- single-schedule -->
+                        <div class="single-schedule last">
+                            <div class="inner">
+                                <div class="icon">
+                                    <i class="icofont-ui-clock"></i>
+                                </div>
+                                <div class="single-content">
+                                    <span>Donec luctus</span>
+                                    <h4>Opening Hours</h4>
+                                    <ul class="time-sidual">
+                                        <li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
+                                        <li class="day">Saturday <span>9.00-18.30</span></li>
+                                        <li class="day">Monday - Thusday <span>9.00-15.00</span></li>
+                                    </ul>
+                                    <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+    <!--/End Start schedule Area -->
+
+    <!-- Start Feautes -->
+    <section class="Feautes section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <div class="container">
+                            <h2><span class="auto-type"> </span></h2>
+                            <img src="landing/img/section-img.png" alt="#">
+                            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                        </div>
+
+
+                        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+                        <script>
+                        var typed = new Typed(".auto-type", {
+                            strings: ["We Are Always", "Ready to Help You", "& Your Family"],
+                            typeSpeed: 50, // Faster typing speed
+                            backSpeed: 100, // Adjust back speed if desired
+                            loop: true
+                        });
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-12">
+                    <!-- Start Single features -->
+                    <div class="single-features">
+                        <div class="signle-icon">
+                            <i class="icofont icofont-ambulance-cross"></i>
+                        </div>
+                        <h3>Emergency Help</h3>
+                        <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                    </div>
+                    <!-- End Single features -->
+                </div>
+                <div class="col-lg-4 col-12">
+                    <!-- Start Single features -->
+                    <div class="single-features">
+                        <div class="signle-icon">
+                            <i class="icofont icofont-medical-sign-alt"></i>
+                        </div>
+                        <h3>Enriched Pharmecy</h3>
+                        <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                    </div>
+                    <!-- End Single features -->
+                </div>
+                <div class="col-lg-4 col-12">
+                    <!-- Start Single features -->
+                    <div class="single-features last">
+                        <div class="signle-icon">
+                            <i class="icofont icofont-stethoscope"></i>
+                        </div>
+                        <h3>Medical Treatment</h3>
+                        <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                    </div>
+                    <!-- End Single features -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ End Feautes -->
+
+    <!-- Start Fun-facts -->
+
+
+    <!--/ End Fun-facts -->
+
+
+    <!-- Start Why choose -->
+
+    <!--/ End Why choose -->
+
+    <!-- Start Call to action -->
+
+    <!--/ End Call to action -->
+
+    <!-- Start portfolio -->
+    <section class="portfolio section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>We Maintain Cleanliness Rules Inside Our Hospital</h2>
+                        <img src="landing/img/section-img.png" alt="#">
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-12">
+                    <div class="owl-carousel portfolio-slider">
+                        <div class="single-pf">
+                            <img src="landing/img/2.jpg" alt="#">
+                            <a href="portfolio-details.html" class="btn">View Details</a>
+                        </div>
+                        <div class="single-pf">
+                            <img src="landing/img/3.jpg" alt="#">
+                            <a href="portfolio-details.html" class="btn">View Details</a>
+                        </div>
+                        <div class="single-pf">
+                            <img src="landing/img/4.jpg" alt="#">
+                            <a href="portfolio-details.html" class="btn">View Details</a>
+                        </div>
+                        <div class="single-pf">
+                            <img src="landing/img/5.jpg" alt="#">
+                            <a href="portfolio-details.html" class="btn">View Details</a>
+                        </div>
+                        <div class="single-pf">
+                            <img src="landing/img/2.jpg" alt="#">
+                            <a href="portfolio-details.html" class="btn">View Details</a>
+                        </div>
+                        <div class="single-pf">
+                            <img src="landing/img/3.jpg" alt="#">
+                            <a href="portfolio-details.html" class="btn">View Details</a>
+                        </div>
+                        <div class="single-pf">
+                            <img src="landing/img/4.jpg" alt="#">
+                            <a href="portfolio-details.html" class="btn">View Details</a>
+                        </div>
+                        <div class="single-pf">
+                            <img src="landing/img/4.jpg" alt="#">
+                            <a href="portfolio-details.html" class="btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ End portfolio -->
+
+    <!-- Start service -->
+    <section class="services section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>We Offer Different Services To Improve Your Health</h2>
+                        <img src="landing/img/section-img.png" alt="#">
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="icofont icofont-patient-bed"></i>
+                        <h4><a href="service-details.html">General Treatment</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
+                            imperdiet. </p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+
+
+
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="icofont-injection-syringe"></i>
+                        <h4><a href="service-details.html">Clinical Microscopy/a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
+                            imperdiet. </p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="icofont icofont-blood"></i>
+                        <h4><a href="service-details.html">Blood Transfusion</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
+                            imperdiet. </p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="iconfont icofont-surgeon"></i>
+                        <h4><a href="service-details.html">Blood Chemistry</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
+                            imperdiet. </p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="icofont-medical-sign"></i>
+                        <h4><a href="service-details.html">Histopathology</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
+                            imperdiet. </p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="icofont icofont-stethoscope"></i>
+                        <h4><a href="service-details.html">Tumor Makers</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
+                            imperdiet. </p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="icofont-injection-syringe"></i>
+                        <h4><a href="service-details.html">Hepatitis</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
+                            imperdiet. </p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="icofont-operation-theater"></i>
+                        <h4><a href="service-details.html">Xray</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
+                            imperdiet. </p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="icofont-dna"></i>
+                        <h4><a href="service-details.html">ULTRASOUND</a></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
+                            imperdiet. </p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+
+            </div>
+
+
+
+        </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="alldoctors">
+        <div class="sliders">
+            @foreach($doctor as $doctors)
+
+            <div class="product">
+                <div class="image">
+                    <img src="doctorsimage/{{$doctors->image}}" alt="">
+
+                </div>
+                <div class="information">
+                    <div class="title"><b>Rex Lester Bastaoang</b> </div>
+                    <div class="price">Cardiology </div>
+                </div>
+
+                <div class="social-media">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-solid fa-envelope"></i>
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+            </div>
+
+            @endforeach
+
+
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="location-map">
+        <div class="container">
+            <div class="box">
+                <h1 class="h1">Our Location</h1>
+                <p class="p">San Jose Del Monte Bulacan, Bulacan </p>
+            </div>
+        </div>
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.592177507925!2d121.00877907510986!3d14.791986385717347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b384b13e99f9%3A0xe211be6c05f4ae86!2sCOMCARE%20DIAGNOSTIC%20AND%20MEDICAL%20CLINIC!5e0!3m2!1sen!2sph!4v1728275754438!5m2!1sen!2sph"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </div>
 
 
-    <div class="bg-light">
-        <div class="page-section py-3 mt-md-n5 custom-index">
+
+
+
+
+
+    <!-- End Blog Area -->
+
+    <!-- Start clients -->
+
+
+
+    <!-- Footer Area -->
+    <footer id="footer" class="footer ">
+        <!-- Footer Top -->
+        <div class="footer-top">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-4 py-3 py-md-0">
-                        <div class="card-service wow fadeInUp">
-                            <div class="circle-shape bg-secondary text-white">
-                                <span class="mai-chatbubbles-outline"></span>
-                            </div>
-                            <p><span>Chat</span> with a doctors</p>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-footer">
+                            <h2>About Us</h2>
+                            <p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut
+                                labore dolore magna.</p>
+                            <!-- Social -->
+                            <ul class="social">
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-google-plus"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-vimeo"></i></a></li>
+                                <li><a href="#"><i class="icofont-pinterest"></i></a></li>
+                            </ul>
+                            <!-- End Social -->
                         </div>
                     </div>
-                    <div class="col-md-4 py-3 py-md-0">
-                        <div class="card-service wow fadeInUp">
-                            <div class="circle-shape bg-primary text-white">
-                                <span class="mai-shield-checkmark"></span>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-footer f-link">
+                            <h2>Quick Links</h2>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our
+                                                Cases</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other
+                                                Links</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-caret-right"
+                                                    aria-hidden="true"></i>Consuling</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-caret-right"
+                                                    aria-hidden="true"></i>Testimonials</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
+                                        <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact
+                                                Us</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <p><span>One</span>-Health Protection</p>
                         </div>
                     </div>
-                    <div class="col-md-4 py-3 py-md-0">
-                        <div class="card-service wow fadeInUp">
-                            <div class="circle-shape bg-accent text-white">
-                                <span class="mai-basket"></span>
-                            </div>
-                            <p><span>One</span>-Health Pharmacy</p>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-footer">
+                            <h2>Open Hours</h2>
+                            <p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
+                            <ul class="time-sidual">
+                                <li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
+                                <li class="day">Saturday <span>9.00-18.30</span></li>
+                                <li class="day">Monday - Thusday <span>9.00-15.00</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-footer">
+                            <h2>Newsletter</h2>
+                            <p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit
+                                amet, consectetur adipisicing elit,</p>
+                            <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+                                <input name="email" placeholder="Email Address" class="common-input"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'"
+                                    required="" type="email">
+                                <button class="button"><i class="icofont icofont-paper-plane"></i></button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- .page-section -->
-
-        <div class="page-section pb-0">
+        <!--/ End Footer Top -->
+        <!-- Copyright -->
+        <div class="copyright">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 py-3 wow fadeInUp">
-                        <h1>
-                            Welcome to Your Health <br />
-                            Center
-                        </h1>
-                        <p class="text-grey mb-4">
-                            Lorem ipsum dolor sit amet, consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut labore et dolore magna aliquyam
-                            erat, sed diam voluptua. At vero eos et accusam
-                            et justo duo dolores et ea rebum. Accusantium
-                            aperiam earum ipsa eius, inventore nemo labore
-                            eaque porro consequatur ex aspernatur.
-                            Explicabo, excepturi accusantium! Placeat
-                            voluptates esse ut optio facilis!
-                        </p>
-                        <a href="about.html" class="btn btn-primary">Learn More</a>
-                    </div>
-                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
-                        <div class="img-place custom-img-1">
-                            <img src="../assets/img/bg-doctor.png" alt="" />
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <div class="copyright-content">
+                            <p>© Copyright 2024 | All Rights Reserved by Comcare
+                                </a> </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- .bg-light -->
-    </div>
-    <!-- .bg-light -->
-
-    <div class="page-section">
-        <div class="container">
-            <h1 class="text-center mb-5 wow fadeInUp">Our Doctors</h1>
-
-            <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
-
-                @foreach($doctor as $doctors)
-
-
-
-                <div class="item">
-                    <div class="card-doctor">
-                        <div class="header">
-                            <img height="300px;" src="doctorsimage/{{$doctors->image}}" alt="">
-                            <div class="meta">
-                                <a href="#"><span class="mai-call"></span></a>
-                                <a href="#"><span class="mai-logo-whatsapp"></span></a>
-                            </div>
-                        </div>
-                        <div class="body">
-                            <p class="text-xl mb-0">{{$doctors->name}}</p>
-                            <span class="text-sm text-grey">{{$doctors->specialty}}</span>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-                @endforeach
-
-            </div>
-        </div>
-    </div>
-
-    <div class="page-section bg-light">
-        <div class="container">
-            <h1 class="text-center wow fadeInUp">Latest News</h1>
-            <div class="row mt-5">
-                <div class="col-lg-4 py-2 wow zoomIn">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-category">
-                                <a href="#">Covid19</a>
-                            </div>
-                            <a href="blog-details.html" class="post-thumb">
-                                <img src="../assets/img/blog/blog_1.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title">
-                                <a href="blog-details.html">List of Countries without Coronavirus
-                                    case</a>
-                            </h5>
-                            <div class="site-info">
-                                <div class="avatar mr-2">
-                                    <div class="avatar-img">
-                                        <img src="../assets/img/person/person_1.jpg" alt="" />
-                                    </div>
-                                    <span>Roger Adams</span>
-                                </div>
-                                <span class="mai-time"></span> 1 week ago
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 py-2 wow zoomIn">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-category">
-                                <a href="#">Covid19</a>
-                            </div>
-                            <a href="blog-details.html" class="post-thumb">
-                                <img src="../assets/img/blog/blog_2.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title">
-                                <a href="blog-details.html">Recovery Room: News beyond the
-                                    pandemic</a>
-                            </h5>
-                            <div class="site-info">
-                                <div class="avatar mr-2">
-                                    <div class="avatar-img">
-                                        <img src="../assets/img/person/person_1.jpg" alt="" />
-                                    </div>
-                                    <span>Roger Adams</span>
-                                </div>
-                                <span class="mai-time"></span> 4 weeks ago
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 py-2 wow zoomIn">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-category">
-                                <a href="#">Covid19</a>
-                            </div>
-                            <a href="blog-details.html" class="post-thumb">
-                                <img src="../assets/img/blog/blog_3.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title">
-                                <a href="blog-details.html">What is the impact of eating too much
-                                    sugar?</a>
-                            </h5>
-                            <div class="site-info">
-                                <div class="avatar mr-2">
-                                    <div class="avatar-img">
-                                        <img src="../assets/img/person/person_2.jpg" alt="" />
-                                    </div>
-                                    <span>Diego Simmons</span>
-                                </div>
-                                <span class="mai-time"></span> 2 months ago
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 text-center mt-4 wow zoomIn">
-                    <a href="blog.html" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- .page-section -->
-
-
-    <!-- .page-section -->
-
-
-    <!-- .banner-home -->
-
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row px-md-3">
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>Company</h5>
-                    <ul class="footer-menu">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Career</a></li>
-                        <li><a href="#">Editorial Team</a></li>
-                        <li><a href="#">Protection</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>More</h5>
-                    <ul class="footer-menu">
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Advertise</a></li>
-                        <li><a href="#">Join as Doctors</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>Our partner</h5>
-                    <ul class="footer-menu">
-                        <li><a href="#">One-Fitness</a></li>
-                        <li><a href="#">One-Drugs</a></li>
-                        <li><a href="#">One-Live</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>Contact</h5>
-                    <p class="footer-link mt-2">
-                        351 Willow Street Franklin, MA 02038
-                    </p>
-                    <a href="#" class="footer-link">701-573-7582</a>
-                    <a href="#" class="footer-link">healthcare@temporary.net</a>
-
-                    <h5 class="mt-3">Social Media</h5>
-                    <div class="footer-sosmed mt-3">
-                        <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-google-plus-g"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-linkedin"></span></a>
-                    </div>
-                </div>
-            </div>
-
-            <hr />
-
-            <p id="copyright">
-                Copyright &copy; 2020
-                <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved
-            </p>
-        </div>
+        <!--/ End Copyright -->
     </footer>
+    <!--/ End Footer Area -->
 
-    @include('home.script')
+    <!-- jquery Min JS -->
+    <script src="landing/js/jquery.min.js"></script>
+    <!-- jquery Migrate JS -->
+    <script src="landing/js/jquery-migrate-3.0.0.js"></script>
+    <!-- jquery Ui JS -->
+    <script src="landing/js/jquery-ui.min.js"></script>
+    <!-- Easing JS -->
+    <script src="landing/js/easing.js"></script>
+    <!-- Color JS -->
+    <script src="landing/js/colors.js"></script>
+    <!-- Popper JS -->
+    <script src="landing/js/popper.min.js"></script>
+    <!-- Bootstrap Datepicker JS -->
+    <script src="landing/js/bootstrap-datepicker.js"></script>
+    <!-- Jquery Nav JS -->
+    <script src="landing/js/jquery.nav.js"></script>
+    <!-- Slicknav JS -->
+    <script src="landing/js/slicknav.min.js"></script>
+    <!-- ScrollUp JS -->
+    <script src="landing/js/jquery.scrollUp.min.js"></script>
+    <!-- Niceselect JS -->
+    <script src="landing/js/niceselect.js"></script>
+    <!-- Tilt Jquery JS -->
+    <script src="landing/js/tilt.jquery.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="landing/js/owl-carousel.js"></script>
+    <!-- counterup JS -->
+    <script src="landing/js/jquery.counterup.min.js"></script>
+    <!-- Steller JS -->
+    <script src="landing/js/steller.js"></script>
+    <!-- Wow JS -->
+    <script src="landing/js/wow.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="landing/js/jquery.magnific-popup.min.js"></script>
+    <!-- Counter Up CDN JS -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="landing/js/bootstrap.min.js"></script>
+    <!-- Main JS -->
+    <script src="landing/js/main.js"></script>
 
-    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    <script src="landing/js/docslider.js"></script>
 
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
 
-    <script src="../assets/vendor/wow/wow.min.js"></script>
-
-    <script src="../assets/js/theme.js"></script>
 
 </body>
 

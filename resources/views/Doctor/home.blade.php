@@ -1,516 +1,436 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <meta name="copyright" content="MACode ID, https://macodeid.com/" />
-
-    <title>One Health - Medical Center HTML5 Template</title>
-
-    <link rel="stylesheet" href="../assets/css/maicons.css" />
-
-    <link rel="stylesheet" href="../assets/css/bootstrap.css" />
-
-    <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css" />
-
-    <link rel="stylesheet" href="../assets/vendor/animate/animate.css" />
-
-    <link rel="stylesheet" href="../assets/css/theme.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
-    <script>
-    if (window.history && window.history.pushState) {
-        window.history.pushState(null, null, window.location.href);
-        window.onpopstate = function() {
-            window.history.pushState(null, null, window.location.href);
-        };
-    }
-    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Comcare Clinic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="main_alls/everythingzz/assets/images/icon/favicon.ico">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/metisMenu.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
+        media="all" />
+    <!-- others css -->
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/typography.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/default-css.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/styles.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/responsive.css">
+    <!-- modernizr css -->
+    <script src="main_alls/everythingzz/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
     <style>
-    .profile-container {
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        text-align: center;
-        width: 300px;
-    }
-
-    .profile-header {
+    .container-ssx {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
-    .profile-logo {
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        margin-right: 15px;
-        object-fit: cover;
+    .box {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
+        flex: 1 1 calc(30% - 20px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, background 0.3s ease;
+        /* Add transition */
     }
 
-    .profile-name {
-        font-size: 1.5rem;
-        color: #333;
-        margin: 0;
-    }
-    </style>
-    <style>
-    .circle-shape {
-        display: inline-block;
-        padding: 10px;
-        /* Adjust padding as needed */
-        border-radius: 50%;
-        /* Makes the shape circular */
-        position: relative;
+    .box:hover {
+        transform: scale(1.05);
+        /* Zoom in effect */
+        background: #94b9ff;
+        /* Change background color on hover */
     }
 
-    .mai-chatbubbles-outline {
-        font-size: 40px;
-        /* Adjust the icon size as needed */
-        position: relative;
-        /* Necessary for the badge to position correctly */
+    .box i {
+        font-size: 30px;
     }
 
-    .unread_notification {
-        position: absolute;
-        top: -10px;
-        /* Adjust this value to position the badge vertically */
-        right: -10px;
-        /* Adjust this value to position the badge horizontally */
-        background-color: red;
-        color: white;
-        border-radius: 50%;
-        padding: 2px 6px;
-        font-size: 12px;
-        z-index: 1;
-        /* Ensures the badge is on top of the icon */
+    h3 {
+        margin: 10px 0;
     }
 
-
-    .sub-menu {
-        display: none;
-        /* Hide by default */
-        position: absolute;
-        /* Position it accordingly */
+    p {
+        color: black;
+        font-size: 30px;
     }
 
-    .nav-item:hover .sub-menu {
-        display: block;
-        /* Show on hover */
+    i {
+        font-size: 30px;
+    }
+
+    @media (max-width: 768px) {
+        .box {
+            flex: 1 1 calc(45% - 20px);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .box {
+            flex: 1 1 100%;
+        }
     }
     </style>
-
-
-
-
-
-
-    <!-- SCRIPT FOR UPDATED NUMBER MESSAGES -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
-    <script>
-    Pusher.logToConsole = true;
-
-    var pusher = new Pusher('eaecfdbcb5ca2fba8266', {
-        cluster: 'ap1'
-    });
-
-    var channel = pusher.subscribe('notifmess');
-    channel.bind('my-event', function(data) {
-        $.ajax({
-            url: "{{route('unreadcount')}}",
-            method: "GET",
-            success: function(data) {
-                $('.unread_notification').html(data.count);
-            },
-        });
-
-
-    });
-    </script>
-
 
 </head>
 
 <body>
-    <!-- Back to top button -->
-    <div class="back-to-top"></div>
-
-    <header>
-        <div class="topbar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 text-sm">
-                        <div class="site-info">
-                            <a href="#"><span class="mai-call text-primary"></span>
-                                +00 123 4455 6666</a>
-                            <span class="divider">|</span>
-                            <a href="#"><span class="mai-mail text-primary"></span>
-                                mail@example.com</a>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 text-right text-sm">
-                        <div class="social-mini-button">
-                            <a href="#"><span class="mai-logo-facebook-f"></span></a>
-                            <a href="#"><span class="mai-logo-twitter"></span></a>
-                            <a href="#"><span class="mai-logo-dribbble"></span></a>
-                            <a href="#"><span class="mai-logo-instagram"></span></a>
-                        </div>
-                    </div>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <div class="sidebar-menu">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <a href="index.html"><img src="main_alls/everythingzz/assets/images/icon/logo.png" alt="logo"></a>
                 </div>
-                <!-- .row -->
             </div>
-            <!-- .container -->
-        </div>
-        <!-- .topbar -->
+            <div class="main-menu">
+                <div class="menu-inner">
 
-        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
+                    <nav>
+                        <ul class="metismenu" id="menu">
 
 
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
-                    aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                {{-- message --}}
-                {!! Toastr::message() !!}
-                <div class="collapse navbar-collapse" id="navbarSupport">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-
-                        @if($hasRecord)
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('doc_profile', $doctor->id) }}">View Profile</a>
-                        </li>
-                        @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('register_profile') }}">Register Profile</a>
-                        </li>
-                        @endif
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="doctors.html">Doctorss</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('create_leave')}}">Request leave</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('send_ticket')}}">Contact</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="" id="appointmentDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                My Appointment
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="appointmentDropdown">
-                                <a class="dropdown-item" href="{{url('/listappoint')}}">View List Appointments</a>
-                                <a class="dropdown-item" href="{{route('view.date')}}">Today Appointment</a>
-                                <a class="dropdown-item" href="{{url('recordcomplete ')}}">Appointment Completed</a>
-                            </div>
-                        </li>
-
-                        {{-- Check if user is authenticated to display appropriate button --}}
-                        <ul class="navbar-nav ml-auto">
-                            @auth
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="{{ asset('profiledoc/' . $doctor->avats) }}" alt="User Logo"
-                                        class="profile-logo"
-                                        style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;">
-                                    <span class="badge badge-info">Doctor</span>| {{ $doctor->fullName }}
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="{{ url('doc_profile', $doctor->id) }}">My Profile</a>
-                                    <a class="dropdown-item" href="chat">View Message</a>
-
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
-
-                                </div>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i
+                                        class="ti-pie-chart"></i><span>Patient Appointments</span></a>
+                                <ul class="collapse">
+                                    <li><a href="barchart.html">bar chart</a></li>
+                                    <li><a href="linechart.html">line Chart</a></li>
+                                    <li><a href="piechart.html">pie chart</a></li>
+                                </ul>
                             </li>
-                            @else
-                            <li class="nav-item">
-                                <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login</a>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>My
+                                        Information</span></a>
+                                <ul class="collapse">
+                                    @if($hasRecord)
+                                    <li><a href="{{ url('doc_profile', $doctor->id) }}">View Profile</a></li>
+
+                                    @else
+
+                                    <li><a href="{{ url('register_profile') }}">Register Profile</a></li>
+
+                                    @endif
+
+                                    <li><a href="alert.html">Change Password</a></li>
+
+                                </ul>
                             </li>
-                            @endauth
+
+
+                            <li><a href="maps.html"><i class="ti-map-alt"></i> <span>Chat with Patients</span></a></li>
+                            <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Send Ticket Request</span></a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i
+                                        class="fa fa-exclamation-triangle"></i>
+                                    <span>Error</span></a>
+                                <ul class="collapse">
+                                    <li><a href="404.html">Error 404</a></li>
+                                    <li><a href="403.html">Error 403</a></li>
+                                    <li><a href="500.html">Error 500</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i>
+                                    <span>Multi
+                                        level menu</span></a>
+                                <ul class="collapse">
+                                    <li><a href="#">Item level (1)</a></li>
+                                    <li><a href="#">Item level (1)</a></li>
+                                    <li><a href="#" aria-expanded="true">Item level (1)</a>
+                                        <ul class="collapse">
+                                            <li><a href="#">Item level (2)</a></li>
+                                            <li><a href="#">Item level (2)</a></li>
+                                            <li><a href="#">Item level (2)</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Item level (1)</a></li>
+                                </ul>
+                            </li>
                         </ul>
-
-                    </ul>
-
-                </div>
-                <!-- .navbar-collapse -->
-            </div>
-            <!-- .container -->
-        </nav>
-    </header>
-
-    <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg)">
-        <div class="hero-section">
-            <div class="container text-center wow zoomIn">
-                <span class="subhead">Let's make your life happier</span>
-                <h1 class="display-4">Healthy Living</h1>
-                <a href="#" class="btn btn-primary">Let's Consult</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-light">
-        <div class="page-section py-3 mt-md-n5 custom-index">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-4 py-3 py-md-0">
-                        <div class="card-service wow fadeInUp">
-                            <div class="circle-shape bg-secondary text-white">
-                                <a href="chat" class="position-relative">
-                                    <i class="mai-chatbubbles-outline"></i>
-                                    <span
-                                        class="badge badge-pill unread_notification">{{ auth()->user()->getMessageCount() }}</span>
-                                </a>
-                            </div>
-
-                            <p>View Messages </p>
-
-
-                        </div>
-                    </div>
-                    <div class="col-md-4 py-3 py-md-0">
-                        <div class="card-service wow fadeInUp">
-                            <div class="circle-shape bg-primary text-white">
-                                <span class="mai-shield-checkmark"></span>
-                            </div>
-                            <a href="{{url('doc_sched')}}">
-                                <p style="color:black;">My Schedule</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 py-3 py-md-0">
-                        <div class="card-service wow fadeInUp">
-                            <div class="circle-shape bg-accent text-white">
-                                <span class="mai-basket"></span>
-                            </div>
-                            <p><span>One</span>-Health Pharmacy</p>
-                        </div>
-                    </div>
+                    </nav>
                 </div>
             </div>
         </div>
-        <!-- .page-section -->
-
-        <div class="page-section pb-0">
-            <div class="container">
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <div class="header-area">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 py-3 wow fadeInUp">
-                        <h1>
-                            Welcome to Your Health <br />
-                            Center
-                        </h1>
-                        <p class="text-grey mb-4">
-                            Lorem ipsum dolor sit amet, consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor
-                            invidunt ut labore et dolore magna aliquyam
-                            erat, sed diam voluptua. At vero eos et accusam
-                            et justo duo dolores et ea rebum. Accusantium
-                            aperiam earum ipsa eius, inventore nemo labore
-                            eaque porro consequatur ex aspernatur.
-                            Explicabo, excepturi accusantium! Placeat
-                            voluptates esse ut optio facilis!
-                        </p>
-                        <a href="about.html" class="btn btn-primary">Learn More</a>
+                    <!-- nav and search button -->
+                    <div class="col-md-6 col-sm-8 clearfix">
+                        <div class="nav-btn pull-left">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
                     </div>
-                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
-                        <div class="img-place custom-img-1">
-                            <img src="../assets/img/bg-doctor.png" alt="" />
+                    <!-- profile info & task notification -->
+                    <div class="col-md-6 col-sm-4 clearfix">
+                        <ul class="notification-area pull-right">
+                            <li class="dropdown">
+
+
+                            </li>
+                            <li class="dropdown">
+                                <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span>3</span></i>
+                                <div class="dropdown-menu notify-box nt-enveloper-box">
+                                    <span class="notify-title">You have 3 new notifications <a href="#">view
+                                            all</a></span>
+
+                                </div>
+                            </li>
+                            <li class="settings-btn">
+                                <i class="ti-settings"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- header area end -->
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left">Dashboard</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><a href="index.html">Home</a></li>
+                                <li><span>Dashboard</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 clearfix">
+                        <div class="user-profile pull-right">
+                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Kumkum Rai <i
+                                    class="fa fa-angle-down"></i></h4>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Message</a>
+                                <a class="dropdown-item" href="#">Settings</a>
+                                <a class="dropdown-item" href="#">Log Out</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- page title area end -->
+            <div class="main-content-inner">
+
+
+
+
+                <div class="custom-slider">
+                    <div class="custom-slides">
+                        <!-- Radio buttons for manual navigation -->
+                        <input type="radio" name="radio-btn" id="radio1" checked>
+                        <input type="radio" name="radio-btn" id="radio2">
+                        <input type="radio" name="radio-btn" id="radio3">
+                        <input type="radio" name="radio-btn" id="radio4">
+
+                        <!-- Slide images -->
+                        <div class="custom-slide first">
+                            <img src="main_alls/everythingzz/assets/images/slider/brooz.jpg" alt="Image 1">
+                        </div>
+                        <div class="custom-slide">
+                            <img src="main_alls/everythingzz/assets/images/slider/brooz2.jpg" alt="Image 2">
+                        </div>
+                        <div class="custom-slide">
+                            <img src="main_alls/everythingzz/assets/images/slider/brooz3.jpg" alt="Image 3">
+                        </div>
+                        <div class="custom-slide">
+                            <img src="main_alls/everythingzz/assets/images/slider/brooz.jpg" alt="Image 4">
+                        </div>
+
+                        <!-- Automatic navigation dots -->
+                        <div class="custom-navigation-auto">
+                            <div class="auto-btn1"></div>
+                            <div class="auto-btn2"></div>
+                            <div class="auto-btn3"></div>
+                            <div class="auto-btn4"></div>
+                        </div>
+                    </div>
+
+                    <!-- Manual navigation dots -->
+                    <div class="custom-navigation-manual">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                        <label for="radio4" class="manual-btn"></label>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+                <!-- sales report area start -->
+                <div class="container-ssx">
+                    <div class="box">
+                        <i class="fa fa-users"></i>
+                        <h3>Total Patient</h3>
+                        <p>32</p>
+                    </div>
+                    <div class="box">
+                        <i class="fa fa-user"></i>
+                        <h3>Patient Incoming</h3>
+                        <p>13</p>
+                    </div>
+                    <div class="box">
+                        <i class="fa fa-check-square-o"></i>
+                        <h3>Appointment Completed</h3>
+                        <p>23</p>
+                    </div>
+                </div>
+
+                <!-- visitor graph area end -->
+                <!-- order list area start -->
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h4 class="header-title">Todays Appointment</h4>
+                        <div class="table-responsive">
+                            <table class="dbkit-table">
+                                <tbody>
+                                    <tr class="heading-td">
+                                        <td>Patient Name</td>
+                                        <td>Message </td>
+                                        <td>Phone Number</td>
+                                        <td>Date Schedule</td>
+                                        <td>Status</td>
+                                        <td>Other</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>John Carlo</td>
+                                        <td><a href="" class="btn btn-success">View Message</a></td>
+                                        <td><span class="pending_dot">Pending</span></td>
+                                        <td>01976 74 92 00</td>
+                                        <td>September 08,2024</td>
+                                        <td><a href="" class="btn btn-warning">Pending</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Client godinez</td>
+                                        <td><a href="" class="btn btn-success">View Message</a></td>
+                                        <td><span class="pending_dot">Pending</span></td>
+                                        <td>01976 74 92 00</td>
+                                        <td>September 08,2024</td>
+                                        <td><a href="" class="btn btn-warning">Pending</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Jerome Baros</td>
+                                        <td><a href="" class="btn btn-success">View Message</a></td>
+                                        <td><span class="pending_dot">Pending</span></td>
+                                        <td>01976 74 92 00</td>
+                                        <td>September 08,2024</td>
+                                        <td><a href="" class="btn btn-warning">Pending</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Isaac Canlas</td>
+                                        <td><a href="" class="btn btn-success">View Message</a></td>
+                                        <td><span class="pending_dot">Pending</span></td>
+                                        <td>01976 74 92 00</td>
+                                        <td>September 08,2024</td>
+                                        <td><a href="" class="btn btn-warning">Pending</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Rex Lester</td>
+                                        <td><a href="" class="btn btn-success">View Message</a></td>
+                                        <td><span class="pending_dot">Pending</span></td>
+                                        <td>01976 74 92 00</td>
+                                        <td>September 08,2024</td>
+                                        <td><a href="" class="btn btn-warning">Pending</a></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pagination_area pull-right mt-5">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- order list area end -->
+
+            </div>
         </div>
-        <!-- .bg-light -->
+        <!-- main content area end -->
+        <!-- footer area start-->
+        <footer>
+            <div class="footer-area">
+                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                </p>
+            </div>
+        </footer>
+        <!-- footer area end-->
     </div>
-    <!-- .bg-light -->
+    <!-- page container area end -->
+    <!-- offset area start -->
 
+    <!-- offset area end -->
+    <!-- jquery latest version -->
+    <script src="main_alls/everythingzz/assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="main_alls/everythingzz/assets/js/popper.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/bootstrap.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/owl.carousel.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/metisMenu.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/jquery.slimscroll.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/jquery.slicknav.min.js"></script>
 
-
-    <div class="page-section bg-light">
-        <div class="container">
-            <h1 class="text-center wow fadeInUp">Latest News</h1>
-            <div class="row mt-5">
-                <div class="col-lg-4 py-2 wow zoomIn">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-category">
-                                <a href="#">Covid19</a>
-                            </div>
-                            <a href="blog-details.html" class="post-thumb">
-                                <img src="../assets/img/blog/blog_1.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title">
-                                <a href="blog-details.html">List of Countries without Coronavirus
-                                    case</a>
-                            </h5>
-                            <div class="site-info">
-                                <div class="avatar mr-2">
-                                    <div class="avatar-img">
-                                        <img src="../assets/img/person/person_1.jpg" alt="" />
-                                    </div>
-                                    <span>Roger Adams</span>
-                                </div>
-                                <span class="mai-time"></span> 1 week ago
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 py-2 wow zoomIn">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-category">
-                                <a href="#">Covid19</a>
-                            </div>
-                            <a href="blog-details.html" class="post-thumb">
-                                <img src="../assets/img/blog/blog_2.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title">
-                                <a href="blog-details.html">Recovery Room: News beyond the
-                                    pandemic</a>
-                            </h5>
-                            <div class="site-info">
-                                <div class="avatar mr-2">
-                                    <div class="avatar-img">
-                                        <img src="../assets/img/person/person_1.jpg" alt="" />
-                                    </div>
-                                    <span>Roger Adams</span>
-                                </div>
-                                <span class="mai-time"></span> 4 weeks ago
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 py-2 wow zoomIn">
-                    <div class="card-blog">
-                        <div class="header">
-                            <div class="post-category">
-                                <a href="#">Covid19</a>
-                            </div>
-                            <a href="blog-details.html" class="post-thumb">
-                                <img src="../assets/img/blog/blog_3.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div class="body">
-                            <h5 class="post-title">
-                                <a href="blog-details.html">What is the impact of eating too much
-                                    sugar?</a>
-                            </h5>
-                            <div class="site-info">
-                                <div class="avatar mr-2">
-                                    <div class="avatar-img">
-                                        <img src="../assets/img/person/person_2.jpg" alt="" />
-                                    </div>
-                                    <span>Diego Simmons</span>
-                                </div>
-                                <span class="mai-time"></span> 2 months ago
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 text-center mt-4 wow zoomIn">
-                    <a href="blog.html" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row px-md-3">
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>Company</h5>
-                    <ul class="footer-menu">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Career</a></li>
-                        <li><a href="#">Editorial Team</a></li>
-                        <li><a href="#">Protection</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>More</h5>
-                    <ul class="footer-menu">
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Advertise</a></li>
-                        <li><a href="#">Join as Doctors</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>Our partner</h5>
-                    <ul class="footer-menu">
-                        <li><a href="#">One-Fitness</a></li>
-                        <li><a href="#">One-Drugs</a></li>
-                        <li><a href="#">One-Live</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-3 py-3">
-                    <h5>Contact</h5>
-                    <p class="footer-link mt-2">
-                        351 Willow Street Franklin, MA 02038
-                    </p>
-                    <a href="#" class="footer-link">701-573-7582</a>
-                    <a href="#" class="footer-link">healthcare@temporary.net</a>
-
-                    <h5 class="mt-3">Social Media</h5>
-                    <div class="footer-sosmed mt-3">
-                        <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-google-plus-g"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
-                        <a href="#" target="_blank"><span class="mai-logo-linkedin"></span></a>
-                    </div>
-                </div>
-            </div>
-
-            <hr />
-
-            <p id="copyright">
-                Copyright &copy; 2020
-                <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved
-            </p>
-        </div>
-    </footer>
-
-    <script src="../assets/js/jquery-3.5.1.min.js"></script>
-
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-
-    <script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
-
-    <script src="../assets/vendor/wow/wow.min.js"></script>
-
-    <script src="../assets/js/theme.js"></script>
+    <!-- start chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- start highcharts js -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- start zingchart js -->
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script>
+    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+    </script>
+    <!-- all line chart activation -->
+    <script src="main_alls/everythingzz/assets/js/line-chart.js"></script>
+    <!-- all bar chart activation -->
+    <script src="main_alls/everythingzz/assets/js/bar-chart.js"></script>
+    <!-- all pie chart -->
+    <script src="main_alls/everythingzz/assets/js/pie-chart.js"></script>
+    <!-- others plugins -->
+    <script src="main_alls/everythingzz/assets/js/plugins.js"></script>
+    <script src="main_alls/everythingzz/assets/js/scripts.js"></script>
 </body>
 
 </html>

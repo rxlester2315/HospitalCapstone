@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="admins/assets/css/bootstrap.css">
@@ -22,8 +24,8 @@
         <div class="row h-100">
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
-                    <div class="auth-logo">
-                        <a href="{{url('/')}}"><img src="assets/images/logo/logo.png" alt="Logo"></a>
+                    <div class="auth-logo" style="width:10vh;">
+                        <a href="{{url('/')}}"><img src="admins/assets/images/logo/logo.png" alt="Comcare"></a>
                     </div>
                     {{-- message --}}
                     {!! Toastr::message() !!}
@@ -66,7 +68,7 @@
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">
-                        <p class="text-gray-600">Don't have an account? <a href="{{route('registerAccount')}}"
+                        <p class="text-gray-600">Don't have an account? <a href="{{url('guessaccount')}}"
                                 class="font-bold">Sign
                                 up</a>.</p>
                         <p><a class="font-bold" href="">Forgot password?</a>.</p>
@@ -75,6 +77,36 @@
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">
+
+
+                    <div class="info">
+                        <h2><span class="auto-type"> </span></h2>
+
+                    </div>
+
+                    <div class="logos">
+
+
+                        <img src="admins/assets/images/logo/logo.png" alt="Comcare">
+
+
+
+                    </div>
+                    <!-- <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+                    <script>
+                    var typed = new Typed(".auto-type", {
+                        strings: ["Welcome to Comcare ", "Your Health is Our Priority"],
+                        typeSpeed: 50, // Faster typing speed
+                        backSpeed: 100, // Adjust back speed if desired
+                        loop: true
+                    });
+                    </script> -->
+
+
+
+
+
                 </div>
             </div>
         </div>

@@ -242,7 +242,7 @@ public function setarchives($id)
 
     }
 
-    public function restoreDelete($id){
+    public function restoreDeleteAd($id){
 
             $user = User::onlyTrashed()->find($id);
  if ($user) {

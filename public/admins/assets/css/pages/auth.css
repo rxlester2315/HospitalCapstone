@@ -1,15 +1,29 @@
 body {
     background-color: #fff;
+    margin: 0; /* Remove default margin */
 }
+
 #auth {
     height: 100vh;
     overflow-x: hidden;
 }
 #auth #auth-right {
-    height: 100%;
-    background: url(../../images/bg/4853433.jpg),
-        linear-gradient(90deg, #d6dae4, #44b39a);
+    height: 100vh; /* Use viewport height for better responsiveness */
+    background: linear-gradient(
+            rgba(44, 174, 152, 0.5),
+            rgba(44, 174, 152, 0.5)
+        ),
+        /* Light green overlay */ url(../../images/bg/jack.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensures the background image covers the container */
+    background-position: center; /* Centers the background image */
+    display: flex; /* Ensure the contents are centered */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+
+    height: 1300px;
 }
+
 #auth #auth-left {
     padding: 5rem 8rem;
 }
@@ -32,4 +46,28 @@ body {
     #auth #auth-left {
         padding: 5rem;
     }
+}
+
+.logos {
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    padding-left: 150px;
+}
+
+h2 {
+    font-size: 80px;
+    position: absolute;
+    top: 150px;
+    text-align: center;
+    justify-content: center;
+    font-style: oblique;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    color: #352b2b;
+}
+
+#auth-right {
+    display: flex;
+    justify-content: center; /* Center vertically */
+    align-items: center;
 }

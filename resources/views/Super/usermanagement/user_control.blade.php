@@ -130,7 +130,7 @@
                                     </a>
 
 
-                                    <a href="{{route('archives', $item->id)}}" onclick="confirmation(event)"
+                                    <a href="{{route('archivead', $item->id)}}" onclick="confirmation(event)"
                                         class="badge bg-danger"><i class="bi-trash"></i></a>
 
                                     <a href="{{ url('userspw/'.$item->id) }}" class="badge bg-info">

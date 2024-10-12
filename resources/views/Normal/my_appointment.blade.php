@@ -5,164 +5,331 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 
-    <meta name="copyright" content="MACode ID, https://macodeid.com/" />
-
-    <title>One Health - Medical Center HTML5 Template</title>
-
-    <link rel="stylesheet" href="../assets/css/maicons.css" />
-
-    <link rel="stylesheet" href="../assets/css/bootstrap.css" />
-
-    <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css" />
-
-    <link rel="stylesheet" href="../assets/vendor/animate/animate.css" />
-
-    <link rel="stylesheet" href="../assets/css/theme.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="main_alls/everythingzz/assets/images/icon/favicon.ico">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/metisMenu.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
+        media="all" />
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/typography.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/default-css.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/styles.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/responsive.css">
+    <script src="main_alls/everythingzz/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
         integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
+
+
+
+
+
+
+
+
+
+    <style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .appointment-table {
+        margin: 50px auto;
+        width: 90%;
+        max-width: 1200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+    .table-header {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+    }
+
+    .table-header h3 {
+        padding: 20px;
+        margin: 0;
+    }
+
+    .table-container {
+        padding: 20px;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .table-container {
+            padding: 10px;
+        }
+
+        .table-header h3 {
+            padding: 10px;
+        }
+
+        .appointment-table {
+            margin: 20px auto;
+            width: 95%;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+
+        table th,
+        table td {
+            font-size: 12px;
+        }
+
+        .btn-danger {
+            font-size: 12px;
+            padding: 5px 10px;
+        }
+    }
+    </style>
+
+
+
+
+
+
+
+
 </head>
 
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="{{url('/User')}}"><span class="text-primary">One</span>-Health</a>
-
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
-                aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupport">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('view_doctor_receipt')}}">Doctor Medicine Receipt</a>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('myappointment')}}">View Appointment</a>
-                    </li>
-
-                    {{-- Check if user is authenticated to display appropriate button --}}
-                    @auth
-
-                    <li class="nav-item">
-                        <a class="btn btn-primary ml-lg-3" href="{{ route('logout') }}">Logout</a>
-                    </li>
-                    </li>
-                    @else
-                    <li class="nav-item">
-                        <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login</a>
-                    </li>
-                    @endauth
+<body class="body-bg">
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- main wrapper start -->
+    <div class="horizontal-main-wrapper">
+        <!-- main header area start -->
+        <div class="mainheader-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="index.html"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
+                                    alt="logo"></a>
+                        </div>
+                    </div>
+                    <!-- profile info & task notification -->
+                    <div class="col-md-9 clearfix text-right">
+                        <div class="d-md-inline-block d-block mr-md-4">
+                            <ul class="notification-area">
 
 
 
-                </ul>
+                        </div>
+                        <div class="clearfix d-md-inline-block d-block">
+                            <div class="user-profile m-0">
+                                <img class="avatar user-thumb"
+                                    src="main_alls/everythingzz/assets/images/author/avatar.png" alt="avatar">
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Rex Lester Bastaoang <i
+                                        class="fa fa-angle-down"></i></h4>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Message</a>
+                                    <a class="dropdown-item" href="#">Settings</a>
+                                    <a class="dropdown-item" href="#">Log Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-
-
-            <!-- .navbar-collapse -->
         </div>
-        <!-- .container -->
-    </nav>
+        <!-- main header area end -->
+        <!-- header area start -->
+        <div class="header-area header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-9  d-none d-lg-block">
+                        <div class="horizontal-menu">
+                            <nav>
+                                <ul id="nav_menu">
+
+
+                                    <li><a href="{{url('User')}}"><i class="fa fa-home"></i> <span>Homes</span></a>
+                                    </li>
+                                    <li><a href="maps.html"><i class="fa fa-briefcase"></i> <span>View
+                                                Appointment</span></a>
+                                    </li>
+                                    <li><a href="maps.html"><i class="fa fa-comments"></i> <span>Chat
+                                                Front-desk</span></a>
+                                    </li>
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- nav and search button -->
+
+                    <!-- mobile_menu -->
+                    <div class="col-12 d-block d-lg-none">
+                        <div id="mobile_menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container appointment-table">
+            <div class="table-header">
+                <h3>My Appointments</h3>
+            </div>
+            <div class="table-container">
+                <table class="table table-striped table-hover">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>#</th>
+                            <th>Date</th>
+                            <th>Doctor Name</th>
+                            <th>Specialty</th>
+                            <th>Status</th>
+                            <th>Cancel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($appoint as $appoints)
+
+                        <tr>
+                            <td>{{$appoints->id}}</td>
+
+                            <td>{{$appoints->date}}</td>
+                            <td>{{$appoints->employees}}</td>
+                            <td>{{$appoints->departments}}</td>
+                            <td>{{$appoints->status}}</td>
+
+                            <td>
+                                <a onclick="confirmation(event)" class="btn btn-danger"
+                                    href="{{url('cancel_appointment',$appoints->id)}}">Cancel</a>
+                            </td>
 
 
 
-    <div align="center" style="padding:70px;">
-        <table>
-            <tr style="background-color:black;">
 
-                <th style="padding:20px; color:white;">Name</th>
-                <th style="padding:20px; color:white;">Doctor</th>
-                <th style="padding:20px; color:white;">Specialty Select</th>
+                        </tr>
 
-                <th style="padding:20px; color:white;">Message</th>
-                <th style="padding:20px; color:white;">Date</th>
-                <th style="padding:20px; color:white;">Number</th>
-                <th style="padding:20px; color:white;">Email</th>
-                <th style="padding:20px; color:white;">Status</th>
+                        @endforeach
+
+                    </tbody>
+                </table>
 
 
 
-            </tr>
 
-            @foreach($appoint as $appoints)
-            <tr>
-                <td style="padding:20px;">{{$appoints->name}}</td>
-                <td style="padding:20px;">{{$appoints->employees}}</td>
-                <td style="padding:20px;">{{$appoints->departments}}</td>
+            </div>
+        </div>
 
-                <td style="padding:20px;">{{$appoints->message}}</td>
-                <td style="padding:20px;">{{$appoints->date}}</td>
-                <td style="padding:20px;">{{$appoints->phone}}</td>
-                <td style="padding:20px;">{{$appoints->email}}</td>
-                <td style="padding:10px;">{{$appoints->status}}</td>
-                <td>
-                    <a onclick="confirmation(event)" class="bt btn-danger"
-                        href="{{url('cancel_appointment',$appoints->id)}}">Cancel</a>
-                </td>
-
-                @endforeach
-
-            </tr>
-
-        </table>
     </div>
 
-    <script src="../assets/js/jquery-3.5.1.min.js"></script>
-
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-
-    <script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
-
-    <script src="../assets/vendor/wow/wow.min.js"></script>
 
 
-    <script src="../assets/js/theme.js"></script>
 
 
-    <script type="text/javascript">
-    function confirmation(ev) {
-        ev.preventDefault();
-        var urlToRedirect = ev.currentTarget.getAttribute('href');
-        console.log(urlToRedirect);
-
-        swal({
-                title: "Do you want to Cancel",
-                text: "You can't Recover this!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
 
 
-            })
-            .then((willCancel) => {
-                if (willCancel) {
-                    window.location.href = urlToRedirect;
-                }
-            });
 
-    }
-    </script>
+
+
+
+    <!-- main content area end -->
+    <!-- footer area start-->
+    <footer>
+        <div class="footer-area">
+            <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.
+            </p>
+        </div>
+    </footer>
+    <!-- footer area end-->
+    </div>
+    <!-- main wrapper start -->
+    <!-- offset area start -->
+    <div class="offset-area">
+        <div class="offset-close"><i class="ti-close"></i></div>
+        <ul class="nav offset-menu-tab">
+            <li><a class="active" data-toggle="tab" href="#activity">Activity</a></li>
+            <li><a data-toggle="tab" href="#settings">Settings</a></li>
+        </ul>
+
+    </div>
+
+
+
+
+
+    <!-- offset area end -->
+    <!-- jquery latest version -->
+    <script src="main_alls/everythingzz/assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="main_alls/everythingzz/assets/js/popper.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/bootstrap.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/owl.carousel.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/metisMenu.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/jquery.slimscroll.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- start chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- start highcharts js -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <!-- start amcharts -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+    <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <!-- all line chart activation -->
+    <script src="main_alls/everythingzz/assets/js/line-chart.js"></script>
+    <!-- all pie chart -->
+    <script src="main_alls/everythingzz/assets/js/pie-chart.js"></script>
+    <!-- all bar chart -->
+    <script src="main_alls/everythingzz/assets/js/bar-chart.js"></script>
+    <!-- all map chart -->
+    <script src="main_alls/everythingzz/assets/js/maps.js"></script>
+    <!-- others plugins -->
+    <script src="main_alls/everythingzz/assets/js/plugins.js"></script>
+    <script src="main_alls/everythingzz/assets/js/scripts.js"></script>
+
+
+
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
 
 
 
 </body>
-
-
 
 </html>

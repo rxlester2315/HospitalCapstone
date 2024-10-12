@@ -5,355 +5,461 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <meta name="copyright" content="MACode ID, https://macodeid.com/" />
-
-    <title>One Health - Medical Center HTML5 Template</title>
-
-    <link rel="stylesheet" href="../assets/css/maicons.css" />
-
-    <link rel="stylesheet" href="../assets/css/bootstrap.css" />
-
-    <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css" />
-
-    <link rel="stylesheet" href="../assets/vendor/animate/animate.css" />
-
-    <link rel="stylesheet" href="../assets/css/theme.css" />
-
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="main_alls/everythingzz/assets/images/icon/favicon.ico">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/metisMenu.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
+        media="all" />
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/typography.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/default-css.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/styles.css">
+    <link rel="stylesheet" href="main_alls/everythingzz/assets/css/responsive.css">
+    <script src="main_alls/everythingzz/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+
+
+
+
+
+
 
 
     <style>
-    .alert-success {
-        font-size: 70px;
-        text-align: center;
+    .appointment-form {
+        background-color: #d4eef5;
+        padding: 30px;
+        border-radius: 15px;
+        max-width: 800px;
+        margin: 50px auto;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
     }
 
-    .close {
+    .form-title {
         font-size: 24px;
-        margin: auto;
-        display: block;
+        text-align: center;
+        font-family: 'Georgia', serif;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .form-control,
+    .form-select {
+        background-color: #f5f9fc;
+        border: 1px solid #ccc;
+    }
+
+    .form-control::placeholder {
+        color: #888;
+    }
+
+    .btn-submit {
+        background-color: #57c1a6;
+        color: #fff;
+        border: none;
+    }
+
+    .btn-cancel {
+        background-color: #f7f7f7;
+        color: #333;
+        border: 1px solid #ccc;
+    }
+
+    .btn-cancel:hover,
+    .btn-submit:hover {
+        opacity: 0.8;
+    }
+
+    .form-footer {
+        text-align: center;
     }
     </style>
 
 
+
+
 </head>
 
-<body>
-    <!-- Back to top button -->
-    <div class="back-to-top"></div>
-
-
-    <header>
-        <div class="topbar">
+<body class="body-bg">
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- main wrapper start -->
+    <div class="horizontal-main-wrapper">
+        <!-- main header area start -->
+        <div class="mainheader-area">
             <div class="container">
-                <div class="row">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="index.html"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
+                                    alt="logo"></a>
+                        </div>
+                    </div>
+                    <!-- profile info & task notification -->
+                    <div class="col-md-9 clearfix text-right">
+                        <div class="d-md-inline-block d-block mr-md-4">
+                            <ul class="notification-area">
 
 
+
+                        </div>
+                        <div class="clearfix d-md-inline-block d-block">
+                            <div class="user-profile m-0">
+                                <img class="avatar user-thumb"
+                                    src="main_alls/everythingzz/assets/images/author/avatar.png" alt="avatar">
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Rex Lester Bastaoang <i
+                                        class="fa fa-angle-down"></i></h4>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Message</a>
+                                    <a class="dropdown-item" href="#">Settings</a>
+                                    <a class="dropdown-item" href="#">Log Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- .row -->
         </div>
-        <!-- .container -->
-        </div>
-        <!-- .topbar -->
-
-        <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <!-- main header area end -->
+        <!-- header area start -->
+        <div class="header-area header-bottom">
             <div class="container">
-                <a class="navbar-brand" href="{{url('User')}}"><span class="text-primary">One</span>-Health</a>
+                <div class="row align-items-center">
+                    <div class="col-lg-9  d-none d-lg-block">
+                        <div class="horizontal-menu">
+                            <nav>
+                                <ul id="nav_menu">
 
 
+                                    <li><a href="{{url('Guests')}}"><i class="fa fa-home"></i> <span>Home</span></a>
+                                    </li>
+                                    <li><a href="maps.html"><i class="fa fa-briefcase"></i> <span>View
+                                                Appointment</span></a>
+                                    </li>
+                                    <li><a href="maps.html"><i class="fa fa-comments"></i> <span>Chat
+                                                Front-desk</span></a>
+                                    </li>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport"
-                    aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupport">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{url('User')}}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="doctors.html">Doctors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="blog.html">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- nav and search button -->
 
-                    </ul>
+                    <!-- mobile_menu -->
+                    <div class="col-12 d-block d-lg-none">
+                        <div id="mobile_menu"></div>
+                    </div>
                 </div>
-                <!-- .navbar-collapse -->
-
             </div>
-            <!-- .container -->
+        </div>
+        <!-- header area end -->
+        <!-- page title area end -->
 
-
-        </nav>
-    </header>
-
-
-   <!-- SweetAlert for Success and Error Messages -->
-    @if(session()->has('message'))
-    <script>
+        @if(session()->has('message'))
+        <script>
         Swal.fire({
             icon: 'success',
             title: 'Success',
             text: "{{ session()->get('message') }}",
             confirmButtonText: 'OK'
         });
-    </script>
-    @endif
+        </script>
+        @endif
 
-    @if(session()->has('error'))
-    <script>
+        @if(session()->has('error'))
+        <script>
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: "{{ session()->get('error') }}",
             confirmButtonText: 'Try Again'
         });
-    </script>
-    @endif
+        </script>
+        @endif
 
 
-    <div class="page-section">
-
-        <div class="container">
-            <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
-
-            <form class="main-form" action="{{ route('makeappointments') }}" method="POST">
-
+        <div class="appointment-form">
+            <h2 class="form-title">APPOINTMENT</h2>
+            <form action="{{ route('makeappointments') }}" method="POST">
                 @csrf
-                <div class="row mt-5">
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-                        <input type="text" id="name_input" name="name" class="form-control" placeholder="Full Name" />
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="checkbox" id="fill_name" />
-                            <label class="form-check-label" for="fill_name">
-                                Fill with your profile name
-                            </label>
-                        </div>
+                <div class="row">
+                    <!-- Full Name -->
+                    <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" name="name" placeholder="Full Name" required>
                     </div>
 
-
-
-
-                    <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-                        <input type="email" id="email_input" name="email" class="form-control"
-                            placeholder="Email Address.." />
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="checkbox" id="fill_email" />
-                            <label class="form-check-label" for="fill_email">
-                                Fill with your profile email
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                        <input type="date" name="date" min="{{ date('Y-m-d') }}" class="form-control" />
-                    </div>
-
-
-                    <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-                        <input type="text" id="phone_input" name="number" class="form-control"
-                            placeholder="Phone Number.." maxlength="11" />
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="checkbox" id="fill_phone" />
-                            <label class="form-check-label" for="fill_phone">
-                                Fill with your profile phone number
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-                        <label for="sel_depart" class="form-label">Please Select Specialty::</label>
-                        <select id="sel_depart" name="sel_depart" class="form-select form-control-lg">
+                    <!-- Specialty (Dropdown from code 1) -->
+                    <div class="col-md-6 mb-3">
+                        <select class="form-select" name="sel_depart" id="sel_depart" required>
                             <option value="0">-- Select Specialty --</option>
                             @foreach($departmentData['data'] as $department)
                             <option value="{{ $department->id }}">{{ $department->name }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-                        <label for="sel_emp" class="form-label">Please Select Doctor:</label>
-                        <select id="sel_emp" name="sel_emp" class="form-select form-control-lg">
+                </div>
+
+                <div class="row">
+                    <!-- Email Address -->
+                    <div class="col-md-6 mb-3">
+                        <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+                    </div>
+
+                    <!-- Doctor (Dropdown from code 1) -->
+                    <div class="col-md-6 mb-3">
+                        <select class="form-select" name="sel_emp" id="sel_emp" required>
                             <option value="0">-- Select Doctor --</option>
                         </select>
                     </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                        <label for="time">Prefer Time:</label>
-                        <input type="time" name="time" class="form-control" />
+                </div>
+
+                <div class="row">
+                    <!-- Date -->
+                    <div class="col-md-6 mb-3">
+                        <input type="date" class="form-control" name="date" min="{{ date('Y-m-d') }}" required>
                     </div>
 
-                    <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                        <textarea name="message" id="message" class="form-control" rows="6"
-                            placeholder="Enter Message.."></textarea>
+                    <!-- Contact Number -->
+                    <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" name="number" placeholder="Contact No." maxlength="11"
+                            required>
                     </div>
                 </div>
 
+                <div class="row">
+                    <!-- Message -->
+                    <div class="col-md-12 mb-3">
+                        <textarea class="form-control" name="message" rows="3" placeholder="Enter Message..."
+                            required></textarea>
+                    </div>
+                </div>
 
-                <button type="submit" class="btn btn-primary mt-3 wow zoomIn">
-                    Submit Request
-                </button>
+                <div class="form-footer">
+                    <button type="button" class="btn btn-cancel me-3">Cancel</button>
+                    <button type="submit" class="btn btn-submit">Submit</button>
+                </div>
             </form>
         </div>
-    </div>
-    @if(session()->has('message'))
-    <div class="alert alert-success">
 
-        <button style="background-color:Green;" type="button" class="close" data-dismiss="alert">
-            ✔</button>
-        {{session()->get('message')}}
-    </div>
 
-    @endif
 
-    <script>
-    $(document).ready(function() {
-        var userId = "{{ Auth::id() }}"; // Get current user ID
-        var disabledDates = []; // Initialize array to hold dates that will be disabled
+        <script>
+        $(document).ready(function() {
+            var userId = "{{ Auth::id() }}"; // Get current user ID
+            var disabledDates = []; // Initialize array to hold dates that will be disabled
 
-        // Fetch existing appointments for the logged-in user
-        $.ajax({
-            url: '/getUserAppointments/' + userId, // Make sure you have a route for this
-            type: 'get',
-            dataType: 'json',
-            success: function(response) {
-                if (response['appointments'] != null) {
-                    disabledDates = response['appointments'].map(function(appointment) {
-                        return appointment.date; // Add appointment dates to disabledDates array
-                    });
+            // Fetch existing appointments for the logged-in user
+            $.ajax({
+                url: '/getUserAppointments/' + userId, // Make sure you have a route for this
+                type: 'get',
+                dataType: 'json',
+                success: function(response) {
+                    if (response['appointments'] != null) {
+                        disabledDates = response['appointments'].map(function(appointment) {
+                            return appointment
+                                .date; // Add appointment dates to disabledDates array
+                        });
 
-                    // Disable dates in the date picker
-                    $('input[name="date"]').attr('min', "{{ date('Y-m-d') }}");
-                    $('input[name="date"]').datepicker({
-                        dateFormat: 'yy-mm-dd',
-                        beforeShowDay: function(date) {
-                            var formattedDate = $.datepicker.formatDate('yy-mm-dd', date);
-                            return [disabledDates.indexOf(formattedDate) === -1]; // Disable if date is in disabledDates array
-                        }
-                    });
+                        // Disable dates in the date picker
+                        $('input[name="date"]').attr('min', "{{ date('Y-m-d') }}");
+                        $('input[name="date"]').datepicker({
+                            dateFormat: 'yy-mm-dd',
+                            beforeShowDay: function(date) {
+                                var formattedDate = $.datepicker.formatDate('yy-mm-dd',
+                                    date);
+                                return [disabledDates.indexOf(formattedDate) === -
+                                    1
+                                ]; // Disable if date is in disabledDates array
+                            }
+                        });
+                    }
                 }
-            }
-        });
-        // Show an alert if user selects a disabled date
-        $('input[name="date"]').on('change', function() {
-            var selectedDate = $(this).val();
-            if (disabledDates.indexOf(selectedDate) !== -1) {
-               Swal.fire({
+            });
+            // Show an alert if user selects a disabled date
+            $('input[name="date"]').on('change', function() {
+                var selectedDate = $(this).val();
+                if (disabledDates.indexOf(selectedDate) !== -1) {
+                    Swal.fire({
                         icon: 'error',
                         title: 'Unavailable Date',
                         text: 'This date is already booked. Please select another date.',
                     });
-            }
-        });
-    });
-</script>
-
-
-
-
-
-
-
-
-
-
-    <script type='text/javascript'>
-    $(document).ready(function() {
-
-        $('#sel_depart').change(function() {
-            // Department id
-            var id = $(this).val();
-
-            // Empty the dropdown
-            $('#sel_emp').find('option').not(':first').remove();
-
-            // AJAX request 
-            $.ajax({
-                url: 'getEmployees/' + id,
-                type: 'get',
-                dataType: 'json',
-                success: function(response) {
-                    var len = 0;
-                    if (response['data'] != null) {
-                        len = response['data'].length;
-                    }
-
-                    if (len > 0) {
-                        // Read data and create <option >
-                        for (var i = 0; i < len; i++) {
-                            var id = response['data'][i].id;
-                            var name = response['data'][i].name;
-                            var option = "<option value='" + id + "'>" + name + "</option>";
-                            $("#sel_emp").append(option);
-
-
-                        }
-                    }
                 }
             });
         });
-    });
-    </script>
+        </script>
 
 
-    <script>
-    $(document).ready(function() {
-        var userName = "{{ Auth::user()->name }}";
-        var userEmail = "{{ Auth::user()->email }}";
-        var userPhone =
-            "{{ Auth::user()->phone_number }}";
 
-        $('#fill_name').change(function() {
-            if ($(this).is(':checked')) {
-                $('#name_input').val(userName);
-            } else {
-                $('#name_input').val('');
-            }
+
+        <script type='text/javascript'>
+        $(document).ready(function() {
+
+            $('#sel_depart').change(function() {
+                // Department id
+                var id = $(this).val();
+
+                // Empty the dropdown
+                $('#sel_emp').find('option').not(':first').remove();
+
+                // AJAX request 
+                $.ajax({
+                    url: 'getEmployees/' + id,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(response) {
+                        var len = 0;
+                        if (response['data'] != null) {
+                            len = response['data'].length;
+                        }
+
+                        if (len > 0) {
+                            // Read data and create <option >
+                            for (var i = 0; i < len; i++) {
+                                var id = response['data'][i].id;
+                                var name = response['data'][i].name;
+                                var option = "<option value='" + id + "'>" + name +
+                                    "</option>";
+                                $("#sel_emp").append(option);
+
+
+                            }
+                        }
+                    }
+                });
+            });
         });
+        </script>
 
-        $('#fill_email').change(function() {
-            if ($(this).is(':checked')) {
-                $('#email_input').val(userEmail);
-            } else {
-                $('#email_input').val('');
-            }
+
+        <script>
+        $(document).ready(function() {
+            var userName = "{{ Auth::user()->name }}";
+            var userEmail = "{{ Auth::user()->email }}";
+            var userPhone =
+                "{{ Auth::user()->phone_number }}";
+
+            $('#fill_name').change(function() {
+                if ($(this).is(':checked')) {
+                    $('#name_input').val(userName);
+                } else {
+                    $('#name_input').val('');
+                }
+            });
+
+            $('#fill_email').change(function() {
+                if ($(this).is(':checked')) {
+                    $('#email_input').val(userEmail);
+                } else {
+                    $('#email_input').val('');
+                }
+            });
+
+            $('#fill_phone').change(function() {
+                if ($(this).is(':checked')) {
+                    $('#phone_input').val(userPhone);
+                } else {
+                    $('#phone_input').val('');
+                }
+            });
         });
-
-        $('#fill_phone').change(function() {
-            if ($(this).is(':checked')) {
-                $('#phone_input').val(userPhone);
-            } else {
-                $('#phone_input').val('');
-            }
-        });
-    });
-    </script>
+        </script>
 
 
 
 
 
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
 
-    <script src="../assets/vendor/wow/wow.min.js"></script>
 
-    <script src="../assets/js/theme.js"></script>
+        <!-- main content area end -->
+        <!-- footer area start-->
+        <footer>
+            <div class="footer-area">
+                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                </p>
+            </div>
+        </footer>
+        <!-- footer area end-->
+    </div>
+    <!-- main wrapper start -->
+    <!-- offset area start -->
+    <div class="offset-area">
+        <div class="offset-close"><i class="ti-close"></i></div>
+        <ul class="nav offset-menu-tab">
+            <li><a class="active" data-toggle="tab" href="#activity">Activity</a></li>
+            <li><a data-toggle="tab" href="#settings">Settings</a></li>
+        </ul>
+
+    </div>
+
+
+
+
+
+    <!-- offset area end -->
+    <!-- jquery latest version -->
+    <script src="main_alls/everythingzz/assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="main_alls/everythingzz/assets/js/popper.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/bootstrap.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/owl.carousel.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/metisMenu.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/jquery.slimscroll.min.js"></script>
+    <script src="main_alls/everythingzz/assets/js/jquery.slicknav.min.js"></script>
+
+    <!-- start chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- start highcharts js -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <!-- start amcharts -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+    <script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <!-- all line chart activation -->
+    <script src="main_alls/everythingzz/assets/js/line-chart.js"></script>
+    <!-- all pie chart -->
+    <script src="main_alls/everythingzz/assets/js/pie-chart.js"></script>
+    <!-- all bar chart -->
+    <script src="main_alls/everythingzz/assets/js/bar-chart.js"></script>
+    <!-- all map chart -->
+    <script src="main_alls/everythingzz/assets/js/maps.js"></script>
+    <!-- others plugins -->
+    <script src="main_alls/everythingzz/assets/js/plugins.js"></script>
+    <script src="main_alls/everythingzz/assets/js/scripts.js"></script>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="script.js"></script>
 </body>
 
 </html>
