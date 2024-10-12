@@ -112,7 +112,7 @@
                                 <a href="javascript:void(0)" aria-expanded="true"><i
                                         class="ti-pie-chart"></i><span>Patient Appointments</span></a>
                                 <ul class="collapse">
-                                    <li><a href="barchart.html">bar chart</a></li>
+                                    <li><a href="barchart.html"></a></li>
                                     <li><a href="linechart.html">line Chart</a></li>
                                     <li><a href="piechart.html">pie chart</a></li>
                                 </ul>
