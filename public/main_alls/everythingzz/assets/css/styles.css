@@ -145,7 +145,6 @@
     background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
     background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
     background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    border-bottom: 3px solid #343e50;
 }
 
 .sidebar-menu .logo {
@@ -162,12 +161,12 @@
 .metismenu li a {
     position: relative;
     display: block;
-    color: #0c0cd3;
+    color: #030303;
     font-size: 15px;
     text-transform: capitalize;
     padding: 15px 15px;
     letter-spacing: 0;
-    font-weight: 400;
+    font-weight: 700;
 }
 /* logo color */
 .metismenu li a i {
@@ -213,8 +212,10 @@
 
 .metismenu > li:hover > a,
 .metismenu > li.active > a {
-    color: black;
-    background: #c40404;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
     transform: scale(1.05);
 }
 
@@ -705,18 +706,32 @@ ul.breadcrumbs {
     align-items: center; /* Center items vertically */
     flex-wrap: wrap; /* Allow items to wrap */
     list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
+    /* Remove default padding */
     margin: 10px 0; /* Add some margin for spacing */
     width: 100%; /* Ensure it takes full width */
 }
 
 .bread-middle li {
-    padding: 10px 15px; /* Base padding */
+    padding: 100px 15px; /* Base padding */
     font-size: 16px; /* Base font size */
     font-family: Arial, Helvetica, sans-serif;
     text-align: center; /* Center text within each item */
     flex: 0 1 auto; /* Allow items to grow and shrink, but not take full width */
     margin: 0 5px; /* Add some margin between items */
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    border: 3px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    transition: transform 0.3s ease; /* Transition effect */
+}
+
+.bread-middle li:hover {
+    transform: scale(1.05); /* Zoom in effect */
 }
 
 /* Media query for larger screens */
@@ -800,13 +815,14 @@ ul.breadcrumbs {
     align-items: center;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    background: -webkit-linear-gradient(
-        left,
-        #160cd4 0%,
-        rgb(52, 21, 178) 100%
-    );
-    background: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
     padding: 17px 38px;
+    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
     position: relative;
 }
 
@@ -2674,16 +2690,25 @@ table.dataTable thead td {
 }
 
 .prc-head h4 {
-    background: #058adc;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
     color: #fff;
     padding: 28px;
     letter-spacing: 0;
     font-family: "lato", sans-serif;
     font-weight: 500;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .prc-list {
     padding: 30px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .prc-list li a {
@@ -2702,10 +2727,21 @@ table.dataTable thead td {
 .prc-list > a {
     display: inline-block;
     margin-top: 40px;
-    background: #c21818;
+    background: #d6b80d;
     color: #fff;
     padding: 11px 20px;
     border-radius: 40px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.pricing-list {
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.pricing-list:hover {
+    transform: scale(1.05); /* Zoom in effect */
 }
 
 .prc-list > a:hover {
@@ -2973,6 +3009,11 @@ table.dataTable thead td {
     height: 500px;
     position: relative;
     overflow: hidden;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+
+    border-radius: 8px;
 }
 
 /* Slides Wrapper */
@@ -3142,27 +3183,43 @@ table.dataTable thead td {
 }
 
 .options .list-options .chat {
-    background-color: lightblue;
-    color: rgb(14, 57, 197);
-    border-color: blue;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .options .list-options .book {
-    background-color: lightyellow;
-    color: black;
-    border-color: yellow;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .options .list-options .appoint {
-    background-color: lightgreen;
-    color: white;
-    border-color: green;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .options .list-options .doctor {
-    background-color: lightpink;
-    color: white;
-    border-color: pink;
+    background: #cdffd8;
+    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 /* Hover effect */
