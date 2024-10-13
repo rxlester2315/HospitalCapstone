@@ -77,6 +77,16 @@
         margin: 4px 0 0;
         /* Adjusted margin */
     }
+
+
+
+    .card-body {
+
+        background: #cdffd8;
+        background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+        background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+        background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+    }
     </style>
 </head>
 
@@ -133,6 +143,9 @@
         <!-- page title area end -->
 
 
+
+
+
         <div class="container mt-5">
             <div class="card">
                 <div class="card-header text-center">
@@ -181,6 +194,9 @@
                         </div>
                         <center>
                             <button type="submit" class="btn btn-secondary">Edit Profile</button>
+                            <a href="{{ url('view_normal_prof') }}">
+                                <span class="btn btn-info">Back</span>
+                            </a>
                         </center>
                     </form>
 
@@ -192,17 +208,6 @@
 
 
 
-
-
-        <!-- main content area end -->
-        <!-- footer area start-->
-        <footer>
-            <div class="footer-area">
-                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                </p>
-            </div>
-        </footer>
-        <!-- footer area end-->
     </div>
     <!-- main wrapper start -->
     <!-- offset area start -->
@@ -215,6 +220,7 @@
 
     </div>
 
+
     @if(Session::has('message'))
     <script>
     swal("Success", "{{Session::get('message')}}", 'success', {
@@ -226,9 +232,6 @@
     });
     </script>
     @endif
-
-
-
 
 
 

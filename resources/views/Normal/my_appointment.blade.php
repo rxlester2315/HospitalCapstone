@@ -51,8 +51,10 @@
     }
 
     .table-header {
-        background-color: #007bff;
-        color: #fff;
+        background: #cdffd8;
+        background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+        background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+        background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
         text-align: center;
     }
 
@@ -260,12 +262,7 @@
 
     <!-- main content area end -->
     <!-- footer area start-->
-    <footer>
-        <div class="footer-area">
-            <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.
-            </p>
-        </div>
-    </footer>
+
     <!-- footer area end-->
     </div>
     <!-- main wrapper start -->

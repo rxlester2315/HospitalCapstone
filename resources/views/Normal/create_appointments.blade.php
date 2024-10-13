@@ -151,7 +151,7 @@
                                 <ul id="nav_menu">
 
 
-                                    <li><a href="{{url('Guests')}}"><i class="fa fa-home"></i> <span>Home</span></a>
+                                    <li><a href="{{url('User')}}"><i class="fa fa-home"></i> <span>Home</span></a>
                                     </li>
                                     <li><a href="maps.html"><i class="fa fa-briefcase"></i> <span>View
                                                 Appointment</span></a>
@@ -257,8 +257,8 @@
                 </div>
 
                 <div class="form-footer">
-                    <button type="button" class="btn btn-cancel me-3">Cancel</button>
-                    <button type="submit" class="btn btn-submit">Submit</button>
+                    <button type="button" class="btn btn-danger ">Cancel</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </div>
             </form>
         </div>
@@ -396,12 +396,7 @@
 
         <!-- main content area end -->
         <!-- footer area start-->
-        <footer>
-            <div class="footer-area">
-                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                </p>
-            </div>
-        </footer>
+
         <!-- footer area end-->
     </div>
     <!-- main wrapper start -->

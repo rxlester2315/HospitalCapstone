@@ -22,7 +22,7 @@
                         <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo"></a>
                     </div>
                     <h1 class="auth-title">Sign Up</h1>
-                    <p class="auth-subtitle mb-5">Input your data to register to our website.</p>
+                    <p class="auth-subtitle mb-5">Please input Basic information to proceed Appointment/Inquire</p>
 
                     <form method="POST" action="{{ route('registerAccount') }}" class="md-float-material">
                         @csrf

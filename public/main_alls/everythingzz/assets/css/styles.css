@@ -2215,9 +2215,13 @@ div.dataTables_wrapper div.dataTables_length select {
 
 /* datatable-primary */
 
+
+
 .datatable-primary thead {
-    background: #4336fb;
-    color: #fff;
+    background: #cdffd8;
+    background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+    background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+    background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
@@ -2264,6 +2268,17 @@ table.dataTable thead td {
     background-color: #f9f9f9;
     border-color: #c9c6f5;
 }
+
+
+.header-chatz{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 20px;
+    border: 3px solid black;
+}
+
+
 
 /* datatable-dark */
 
