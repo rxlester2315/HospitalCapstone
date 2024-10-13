@@ -129,7 +129,7 @@
                                     <ul class="nav menu">
                                         <li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
                                         </li>
-                                        <li><a href="#">Doctos </a></li>
+                                        <li><a href="#">Doctor </a></li>
                                         <li><a href="#">Services </a></li>
                                         <li><a href="#">About Us </a></li>
                                         <li><a href="contact.html">Contact Us</a></li>
