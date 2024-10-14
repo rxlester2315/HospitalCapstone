@@ -62,6 +62,10 @@
         /* Adjusted margin-top */
     }
 
+    .card-header {
+        background:white;
+    }
+
 
     .note h2 {
         font-size: 15px;
@@ -76,6 +80,14 @@
         color: #333;
         margin: 4px 0 0;
         /* Adjusted margin */
+    }
+
+     .card-body {
+
+        background: #cdffd8;
+        background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+        background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+        background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
     }
     </style>
 </head>

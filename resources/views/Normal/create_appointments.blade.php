@@ -41,7 +41,10 @@
 
     <style>
     .appointment-form {
-        background-color: #d4eef5;
+        background: #cdffd8;
+background: linear-gradient(90deg,#cdffd8 0%, #94b9ff 80%);
+background: -webkit-linear-gradient(90deg,#cdffd8 0%, #94b9ff 80%);
+background: -moz-linear-gradient(90deg,#cdffd8 0%, #94b9ff 80%);
         padding: 30px;
         border-radius: 15px;
         max-width: 800px;
@@ -207,7 +210,15 @@
                 <div class="row">
                     <!-- Full Name -->
                     <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control" name="name" placeholder="Full Name" required>
+                        <input type="text" class="form-control"  id="name_input" name="name" placeholder="Full Name" required>
+                         <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" id="fill_name" />
+                            <label class="form-check-label" for="fill_name">
+                                Fill with your profile name
+                            </label>
+                        </div>
+
+
                     </div>
 
                     <!-- Specialty (Dropdown from code 1) -->
@@ -224,7 +235,13 @@
                 <div class="row">
                     <!-- Email Address -->
                     <div class="col-md-6 mb-3">
-                        <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+                        <input type="email" class="form-control" id="email_input" name="email" placeholder="Email Address" required>
+                          <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" id="fill_email" />
+                            <label class="form-check-label" for="fill_email">
+                                Fill with your profile email
+                            </label>
+                        </div>
                     </div>
 
                     <!-- Doctor (Dropdown from code 1) -->
@@ -243,8 +260,14 @@
 
                     <!-- Contact Number -->
                     <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control" name="number" placeholder="Contact No." maxlength="11"
+                        <input type="text" class="form-control" id="phone_input" name="number" placeholder="Contact No." maxlength="11"
                             required>
+                                 <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" id="fill_phone" />
+                            <label class="form-check-label" for="fill_phone">
+                                Fill with your profile phone number
+                            </label>
+                        </div>
                     </div>
                 </div>
 
@@ -358,8 +381,8 @@
         $(document).ready(function() {
             var userName = "{{ Auth::user()->name }}";
             var userEmail = "{{ Auth::user()->email }}";
-            var userPhone =
-                "{{ Auth::user()->phone_number }}";
+            var userPhone ="{{ Auth::user()->phone_number}}";
+                
 
             $('#fill_name').change(function() {
                 if ($(this).is(':checked')) {

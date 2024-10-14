@@ -55,7 +55,7 @@
                             </li>
                             <li><a href="{{ route('guest_view') }}"><i class="fa fa-user"></i> <span>My
                                         Profile</span></a></li>
-                            <li><a href=" invoice.html"><i class="fa fa-comments"></i> <span>Chat with
+                            <li><a href="{{url('chatss')}}"><i class="fa fa-comments"></i> <span>Chat with
                                         Front-desk</span></a>
                             </li>
 
