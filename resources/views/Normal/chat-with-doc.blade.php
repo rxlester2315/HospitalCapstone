@@ -62,7 +62,8 @@
                         <nav>
                             <ul class="metismenu" id="menu">
 
-
+                                <li><a href="{{url('User')}}"><i class="fa fa-comments"></i> <span>Home</span></a>
+                                </li>
 
                                 <li><a href="{{url('myappointment')}}"><i class="fa fa-briefcase"></i> <span>View
                                             Appointment</span></a>
@@ -164,6 +165,7 @@
 
 
                 <div class="main-content-inner">
+                    
                     <div class="container">
                         <center>
                             <h1>My Doctor List</h1>

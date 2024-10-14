@@ -41,7 +41,10 @@
 }
 
 .patient-info {
-    background-color: #E3E6F5;
+    background: #cdffd8;
+background: linear-gradient(90deg,#cdffd8 0%, #94b9ff 80%);
+background: -webkit-linear-gradient(90deg,#cdffd8 0%, #94b9ff 80%);
+background: -moz-linear-gradient(90deg,#cdffd8 0%, #94b9ff 80%);
     border-right: 1px solid #ccc;
     padding: 20px;
 }
@@ -60,13 +63,16 @@
 }
 
 .chat-area {
-    background-color: #F0F4FF;
+ background: #cdffd8;
+background: linear-gradient(0deg,#cdffd8 0%, #94b9ff 20%);
+background: -webkit-linear-gradient(0deg,#cdffd8 0%, #94b9ff 20%);
+background: -moz-linear-gradient(0deg,#cdffd8 0%, #94b9ff 20%);
     border-radius: 10px;
     padding-top: 100px;
 }
 
 .chat-box {
-    height: 300px;
+    height: 500px;
     overflow-y: scroll;
     background-color: white;
     padding: 15px;
@@ -125,7 +131,9 @@
 
 
 
-   <div class="page-container">
+   <div class="page-container"
+   
+   >
             <!-- sidebar menu area start -->
             <div class="sidebar-menu">
                 <div class="sidebar-header">
@@ -139,7 +147,8 @@
 
                         <nav>
                             <ul class="metismenu" id="menu">
-
+                                <li><a href="{{url('Doc')}}"><i class="ti-receipt"></i> <span>Home</span></a>
+                                </li>
 
                                 <li>
                                     <a href="javascript:void(0)" aria-expanded="true"><i
@@ -239,11 +248,10 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="breadcrumbs-area clearfix">
-                                <h4 class="page-title pull-left">Dashboard</h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><span>Dashboard</span></li>
-                                </ul>
+                                <a href="{{url('Doc')}}">
+                                    <h4 class="page-title pull-left">Home</h4>
+                                </a>
+                               
                             </div>
                         </div>
                         <div class="col-sm-6 clearfix">
@@ -352,23 +360,38 @@
         chatBox.scrollTop = chatBox.scrollHeight;
     });
 
-    $('#send').click(function() {
+    // Function to send message via AJAX
+    function sendMessage() {
         var message = $('#message').val();
 
-        $.ajax({
-            url: '{{ url("sendmessage", $appointment->id) }}',
-            method: 'POST',
-            data: {
-                message: message,
-                _token: '{{ csrf_token() }}'
-            },
-            success: function(response) {
-                $('#message').val('');
-            }
-        });
+        if (message.trim() !== '') {
+            $.ajax({
+                url: '{{ url("sendmessage", $appointment->id) }}',
+                method: 'POST',
+                data: {
+                    message: message,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    $('#message').val('');  // Clear the input after sending
+                }
+            });
+        }
+    }
+
+    // Send message on button click
+    $('#send').click(function() {
+        sendMessage();
+    });
+
+    // Send message on Enter key press
+    $('#message').keydown(function(e) {
+        if (e.keyCode === 13) { // Check if Enter key is pressed
+            e.preventDefault();  // Prevent form submission on Enter
+            sendMessage();
+        }
     });
 </script>
-
 
 <script src="main_alls/everythingzz/assets/js/vendor/jquery-2.2.4.min.js"></script>
         <!-- bootstrap 4 js -->

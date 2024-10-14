@@ -40,6 +40,10 @@
             background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
         }
 
+.chat-form {
+    padding-top:175px;
+    
+}
 
         .profile-container {
             text-align: center;
@@ -151,15 +155,13 @@
         .chat-area {
             background-color: #F0F4FF;
             border-radius: 10px;
-            margin-top: 120px;
+            
+           
+           
 
         }
 
-        .chat-header {
-            background-color: white;
-            padding: 15px;
-            border-bottom: 1px solid #ccc;
-        }
+  
 
         .chat-box {
              background-color: #F0F4FF;
@@ -251,7 +253,8 @@
                         <nav>
                             <ul class="metismenu" id="menu">
 
-
+                              <li><a href="{{url('User')}}"><i class="fa fa-comments"></i> <span>Home</span></a>
+                                </li>
 
                                 <li><a href="{{url('myappointment')}}"><i class="fa fa-briefcase"></i> <span>View
                                             Appointment</span></a>
@@ -312,8 +315,13 @@
                                 </a>
                                 @endif
 
-
-
+                               <a href="{{url('User')}}">
+                                <h4 class="page-title pull-left">Home</h4>
+                               </a>
+                                <ul class="breadcrumbs pull-left">
+                                    <li><a href="index.html">Information</a></li>
+                                    <li><span>List</span></li>
+                                </ul>
 
                             </div>
                             @endauth
@@ -346,9 +354,7 @@
     <div class="col-md-4 col-12 doctor-list py-4">
         <div class="search-bar mb-3">
             <select id="doctor-select" class="form-control">
-                @foreach($appointments as $appointment)
-                <option value="{{ $appointment->doctor->id }}">{{ $appointment->doctor->name }}</option>
-                @endforeach
+               
             </select>
         </div>
 
@@ -356,8 +362,9 @@
             <div class="profile-image">
                 <img src="{{asset('doctorsimage/1721432436.jpg')}}" alt="Doctor Name">
             </div>
-            <h2 class="doctor-name">Dr. John Doe</h2>
-            <p class="department">Cardiology</p>
+            <h2 class="doctor-name">{{ $appointment->employee->name }}</h2>
+                  <p>Department: {{ $appointment->employee->department }}</p>
+
         </div>
     </div>
     
@@ -368,9 +375,10 @@
         </div>
         <form class="chat-form mt-3">
             @csrf
-            <input type="hidden" name="doctor_id" id="doctor-id" value="{{ $appointments[0]->doctor->id }}">
+            <input type="hidden" name="doctor_id" id="doctor-id">
             <div class="input-group">
-                <textarea name="message" class="form-control" placeholder="Type your message here..." required></textarea>
+              <input type="text" id="message"  name="message" class="form-control" placeholder="Type your message..." required />
+
                 <button type="submit" class="btn btn-primary">Send</button>
             </div>
         </form>
@@ -588,7 +596,7 @@
         </div>
 
 
-       <script>
+ <script>
 // Update hidden input with selected doctor ID
 document.getElementById('doctor-select').addEventListener('change', function() {
     document.getElementById('doctor-id').value = this.value;
@@ -624,38 +632,61 @@ channel.bind('message-sent', function (data) {
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom when new message arrives
 });
 
-// Handle form submission for sending a message to the doctor
+// Function to send the message via AJAX
+function sendMessage() {
+    let message = document.querySelector('input[name="message"]').value;
+    let doctorId = document.querySelector('input[name="doctor_id"]').value;
+
+    if (message.trim() !== '') {
+        // Send message to the server via AJAX
+        $.ajax({
+            url: '{{ route("patient.sendmessage") }}',
+            type: 'POST',
+            data: {
+                message: message,
+                doctor_id: doctorId,
+                _token: '{{ csrf_token() }}' // CSRF Token
+            },
+            success: function(response) {
+                // Clear the message field
+                document.querySelector('input[name="message"]').value = '';
+
+                // Display the message as 'You'
+                let chatBox = document.getElementById('chat-box');
+                let newMessage = `
+                    <div class="message patient">
+                        <div class="message-bubble">
+                            <strong>You:</strong> ${message}
+                            <div class="timestamp">${response.timestamp || ''}</div>
+                        </div>
+                    </div>
+                `;
+                chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom when new message arrives
+            },
+            error: function(xhr) {
+                alert('Error sending message.');
+            }
+        });
+    }
+}
+
+// Send message on form submission
 document.querySelector('.chat-form').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent the form's default submission
+    sendMessage();
+});
 
-    let message = this.querySelector('textarea[name="message"]').value;
-    let doctorId = this.querySelector('input[name="doctor_id"]').value;
-
-    // Send message to the server via AJAX
-    $.ajax({
-    url: '{{ route("patient.sendmessage") }}',
-    type: 'POST',
-    data: {
-        message: message,
-        doctor_id: doctorId,
-        _token: '{{ csrf_token() }}' // CSRF Token
-    },
-    success: function(response) {
-        // Clear message field
-        document.querySelector('textarea[name="message"]').value = '';
-
-        // Display the message as 'You'
-        let chatBox = document.getElementById('chat-box');
-       
-        chatBox.innerHTML += newMessage;
-        chatBox.scrollTop = chatBox.scrollHeight;
-    },
-    error: function(xhr) {
-        alert('Error sending message.');
+// Send message on "Enter" key press in the textarea
+document.querySelector('input[name="message"]').addEventListener('keydown', function(e) {
+    if (e.keyCode === 13 && !e.shiftKey) { // Enter key without Shift
+        e.preventDefault(); // Prevent default form submission
+        sendMessage();
     }
 });
+</script>
 
-});
+
+
 </script>
 
         <!-- offset area end -->

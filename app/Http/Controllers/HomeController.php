@@ -406,22 +406,30 @@ public function view_mydoc(){
 
 }
 
-
-public function chatwithdoctor($id) {
+public function chatwithdoctor($id)
+{
     // Get the authenticated user
     $user = Auth::user();
 
     // Check if the user is authenticated
     if (!$user) {
-        // Handle the case where the user is not authenticated
         return redirect()->route('login'); // Redirect to login or handle as needed
     }
 
-    $appointments = Appointments::where('userid', $user->id)
-        ->with('doctor') // Load the related doctor data via the relationship
-        ->get();
+    // Retrieve the appointment associated with the given employee ID (doctor)
+    $appointment = Appointments::where('userid', $user->id)
+        ->whereHas('employee', function ($query) use ($id) {
+            $query->where('id', $id);
+        })
+        ->with('employee') // Load the related employee data
+        ->first();
 
-    return view('Normal.chat', compact('appointments'));
+    if (!$appointment) {
+        return redirect()->route('view_mydoc'); // Redirect if no appointment found
+    }
+
+    // Pass the specific appointment to the chat view
+    return view('Normal.chat', compact('appointment'));
 }
 
 

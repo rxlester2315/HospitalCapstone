@@ -93,6 +93,8 @@
                         <nav>
                             <ul class="metismenu" id="menu">
 
+                                  <li><a href="{{url('User')}}"><i class="ti-receipt"></i> <span>Home</span></a>
+                                </li>
 
                                 <li>
                                     <a href="javascript:void(0)" aria-expanded="true"><i
@@ -113,6 +115,8 @@
                                 <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Send Ticket
                                             Request</span></a>
                                 </li>
+
+                            
 
                                 <li>
                                     <a href="javascript:void(0)" aria-expanded="true"><i
