@@ -71,7 +71,7 @@
                         <p class="text-gray-600">Don't have an account? <a href="{{url('guessaccount')}}"
                                 class="font-bold">Sign
                                 up</a>.</p>
-                        <p><a class="font-bold" href="">Forgot password?</a>.</p>
+                        <p><a class="font-bold" href="{{url('forgotpassword')}}">Forgot password?</a>.</p>
                     </div>
                 </div>
             </div>
