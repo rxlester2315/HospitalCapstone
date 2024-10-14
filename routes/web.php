@@ -13,6 +13,7 @@ use App\Http\Controllers\GuessController;
 use App\Http\Controllers\FrontDeskController;
 use App\Http\Controllers\NurseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ForgotPasswordController;
 
 
 use App\Events\NewMessage;
@@ -324,3 +325,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 
    Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
+
+   Route::get('/forgotpassword', [ForgotPasswordController::class, 'forgot_pass'])->name('forgotpw');
+   Route::post('/forgotpassword', [ForgotPasswordController::class, 'forgetpass_post'])->name('forgotpass');
+   Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'resetpw'])->name('reset');
+   Route::post('/reset-password', [ForgotPasswordController::class, 'resetPwpost'])->name('reset.post');

@@ -310,7 +310,7 @@ button:hover {
 
 
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="{{url('Guests')}}">Home</a></li>
                                 <li><span>New Account</span></li>
                             </ul>
                         </div>

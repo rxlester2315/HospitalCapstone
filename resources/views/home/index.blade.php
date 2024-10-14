@@ -57,7 +57,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-</head>
+
+
 
 <body>
 
@@ -526,8 +527,11 @@
 
 
 
-
+<div class="header-doctors" style="text-align: center;  justify-content: center;" >
+    <h1 style="font-size:50px;">List of Doctors </h1>
+</div>
     <section id="alldoctors">
+        
         <div class="sliders">
             @foreach($doctor as $doctors)
 

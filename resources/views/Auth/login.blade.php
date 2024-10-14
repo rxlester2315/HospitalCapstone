@@ -87,7 +87,7 @@
                     <div class="logos">
 
 
-                        <img src="admins/assets/images/logo/logo.png" alt="Comcare">
+                        <img  width="300px;"src="admins/assets/images/logo/logo.png" alt="Comcare">
 
 
 
