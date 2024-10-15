@@ -114,7 +114,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-3">
                             <div class="logo">
-                                <a href="{{url('User')}}"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
+                                <a href="index.html"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
                                         alt="logo"></a>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
 
                             </div>
                             <div class="clearfix d-md-inline-block d-block">
-                                <div class="user-profile pull-right">
+                                <div class="user-profile m-0">
                                     <img class="avatar user-thumb"
                                         src="main_alls/everythingzz/assets/images/author/avatar.png">
                                     @auth
@@ -143,12 +143,10 @@
                                     @endif
 
                                     @endauth
-
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#">Message</a>
-                                        <a class="dropdown-item" href="{{ route('guest_view') }}">View Profile</a>
-                                        <a class="dropdown-item" href="{{ route('logout') }}">Log
-                                            Out</a>
+                                        <a class="dropdown-item" href="#">Settings</a>
+                                        <a class="dropdown-item" href="{{url('logout')}}">Log Out</a>
                                     </div>
                                 </div>
                             </div>
@@ -167,10 +165,9 @@
                                     <ul id="nav_menu">
 
 
-                                        <li><a href="{{url('User')}}"><i class="fa fa-home"></i> <span>Home</span></a>
+                                        <li><a href="{{url('Guests')}}"><i class="fa fa-home"></i> <span>Home</span></a>
                                         </li>
-                                        <li><a href="{{url('myappointment')}}"><i class="fa fa-briefcase"></i>
-                                                <span>View
+                                        <li><a href="{{url('Guessappoint')}}"><i class="fa fa-briefcase"></i> <span>View
                                                     Appointment</span></a>
                                         </li>
                                         <li><a href="{{url('chatss')}}"><i class="fa fa-comments"></i> <span>Chat
@@ -398,7 +395,7 @@
             $(document).ready(function() {
                 var userName = "{{ Auth::user()->name }}";
                 var userEmail = "{{ Auth::user()->email }}";
-                var userPhone = "{{ Auth::user()->phone_number }}";
+                var userPhone = "{{ Auth::user()->phone_number}}";
 
 
                 $('#fill_name').change(function() {

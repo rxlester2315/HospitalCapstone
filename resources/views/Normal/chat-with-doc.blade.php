@@ -53,7 +53,7 @@
             <div class="sidebar-menu">
                 <div class="sidebar-header">
                     <div class="logo">
-                        <a href="index.html"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
+                        <a href="{{url('User')}}"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
                                 alt="logo"></a>
                     </div>
                 </div>
@@ -79,9 +79,7 @@
                                             An Appointment</span></a>
                                 </li>
 
-                                <li><a href=" invoice.html"><i class="fa fa-comments"></i> <span>Chat with my
-                                            Doctor</span></a>
-                                </li>
+
 
 
 
@@ -133,13 +131,23 @@
                             <div class="user-profile pull-right">
                                 <img class="avatar user-thumb"
                                     src="main_alls/everythingzz/assets/images/author/avatar.png">
+                                @auth
+                                @if(Auth::user()->role_name !== 'Normal User')
                                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-                                    Patient| Rex Lester Bastaoang
+                                    Unverified|{{ Auth::user()->name }}<i class="fa fa-angle-down"></i>
+                                </h4>
+                                @else
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
+                                    Patient| {{ Auth::user()->name }}
                                     <i class="fa fa-angle-down"></i>
                                 </h4>
+                                @endif
+
+                                @endauth
+
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Message</a>
-                                    <a class="dropdown-item" href="{{ route('view.normal.prof')}}">View Profile</a>
+                                    <a class="dropdown-item" href="{{ route('guest_view') }}">View Profile</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">Log
                                         Out</a>
                                 </div>
@@ -165,7 +173,7 @@
 
 
                 <div class="main-content-inner">
-                    
+
                     <div class="container">
                         <center>
                             <h1>My Doctor List</h1>

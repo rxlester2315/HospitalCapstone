@@ -276,6 +276,10 @@ Route::get('guessprof',[GuessController::class,'guessproff']);
 Route::get('/changesPasswordGuest',[GuessController:: class,'change_passwordGuest']);
 Route::post('/changesPasswordGuest',[GuessController:: class,'changepass_storeGuest']);
 
+Route::POST('/Guessappoint',[GuessController:: class,'guestappointments'])->name('guest.appointment');
+Route::get('/Guessappoint',[GuessController:: class,'guestappointz']);
+Route::get('/create_guest_appointment',[GuessController:: class,'create_appoint_guestz']);
+
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 

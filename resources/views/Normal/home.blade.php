@@ -60,7 +60,7 @@
                                 </li>
                                 <li><a href="{{ url('view_normal_prof') }}"><i class="fa fa-user"></i> <span>My
                                             Profile</span></a></li>
-                                <li><a href=" invoice.html"><i class="fa fa-comments"></i> <span>Chat with
+                                <li><a href="{{url('chatss')}}"><i class="fa fa-comments"></i> <span>Chat with
                                             Front-desk</span></a>
                                 </li>
 
@@ -114,15 +114,15 @@
                                 @endif
 
                                 <ul class="breadcrumbs pull-left">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><span>New Account</span></li>
+                                    <li><a href="{{url('User')}}">Home</a></li>
+                                    <li><span>Patient Account</span></li>
                                 </ul>
 
 
                                 <ul class="bread-middle">
-                                    <li><a href="index.html">View Appointment</a></li>
-                                    <li><a href="index.html">Chat with Doctor</a></li>
-                                    <li><a href="index.html">View Profile</a></li>
+                                    <li><a href="{{url('myappointment')}}">View Appointment</a></li>
+                                    <li><a href="{{url('mydoctor')}}">Chat with Doctor</a></li>
+                                    <li><a href="{{url('view_normal_prof')}}">View Profile</a></li>
 
                                 </ul>
 
@@ -132,15 +132,26 @@
                         </div>
                         <div class="col-sm-6 clearfix">
                             <div class="user-profile pull-right">
+
                                 <img class="avatar user-thumb"
                                     src="main_alls/everythingzz/assets/images/author/avatar.png">
+                                @auth
+                                @if(Auth::user()->role_name !== 'Normal User')
                                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-                                    Patient| Rex Lester Bastaoang
+                                    Unverified|{{ Auth::user()->name }}<i class="fa fa-angle-down"></i>
+                                </h4>
+                                @else
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
+                                    Patient| {{ Auth::user()->name }}
                                     <i class="fa fa-angle-down"></i>
                                 </h4>
+                                @endif
+
+                                @endauth
+
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Message</a>
-                                    <a class="dropdown-item" href="{{ route('view.normal.prof')}}">View Profile</a>
+                                    <a class="dropdown-item" href="{{ route('guest_view') }}">View Profile</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">Log
                                         Out</a>
                                 </div>
@@ -200,23 +211,33 @@
                     <div class="list-options">
                         <div class="chat">
                             <span class="fa fa-commenting"></span>
-                            <p>Chat with <span>Us</span></p>
+                            <a href="{{url('chatss')}}">
+                                <p>Chat with <span>Us</span></p>
+                            </a>
                         </div>
 
 
                         <div class="book">
                             <span class="fa fa-book"></span>
-                            <p>Book us <span>Now</span></p>
+                            <a href="{{url('create_appointmentsss')}}">
+                                <p>Book us <span>Now</span></p>
+
+                            </a>
                         </div>
 
                         <div class="appoint">
                             <span class="fa fa-book"></span>
-                            <p>Create Appointment</span></p>
+                            <a href="{{url('create_appointmentsss')}}">
+                                <p>Create Appointment</span></p>
+                            </a>
                         </div>
 
-                        <div class="doctor">
+                        <div class=" doctor">
                             <span class="fa fa-user "></span>
-                            <p>My Doctors</span></p>
+                            <a href="{{url('mydoctor')}}">
+                                <p>My Doctors</span></p>
+                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -255,33 +276,33 @@
                                         <td>Warlyn Bangongon</td>
                                         <td>September 23,2024</td>
                                         <td>
-                                            <a href="" class="btn btn-info">View Message</a>
+                                            <a href="#" class="btn btn-info">View Message</a>
                                         </td>
                                         <td>September 18,2024</td>
                                         <td>
-                                            <a href="" class="btn btn-success">Completed</a>
+                                            <a href="#" class="btn btn-success">Completed</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Warlyn Bangongon</td>
                                         <td>September 23,2024</td>
                                         <td>
-                                            <a href="" class="btn btn-info">View Message</a>
+                                            <a href="#" class="btn btn-info">View Message</a>
                                         </td>
                                         <td>September 18,2024</td>
                                         <td>
-                                            <a href="" class="btn btn-success">Completed</a>
+                                            <a href="#" class="btn btn-success">Completed</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Rex Lester Bastaoang</td>
                                         <td>September 23,2024</td>
                                         <td>
-                                            <a href="" class="btn btn-info">View Message</a>
+                                            <a href="#" class="btn btn-info">View Message</a>
                                         </td>
                                         <td>September 18,2024</td>
                                         <td>
-                                            <a href="" class="btn btn-success">Completed</a>
+                                            <a href="#" class="btn btn-success">Completed</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -333,7 +354,7 @@
                                             <li><a href="#">ALBUMIN</a></li>
                                             <li class="bold"><a href="#">1 SALT/year</a></li>
                                         </ul>
-                                        <a href="#">More Info</a>
+                                        <a href="{{url('chatss')}}">More Info</a>
                                     </div>
                                 </div>
                             </div>
@@ -356,7 +377,7 @@
                                             <li><a href="#">PHOSPHORUS </a></li>
                                             <li class="bold"><a href="#">PHOCALICITION</a></li>
                                         </ul>
-                                        <a href="#">More info</a>
+                                        <a href="{{url('chatss')}}">More info</a>
                                     </div>
                                 </div>
                             </div>
@@ -378,7 +399,7 @@
                                             <li><a href="#">CA-19-9 (PANCREAS)</a></li>
 
                                         </ul>
-                                        <a href="#">More Info</a>
+                                        <a href="{{url('chatss')}}">More Info</a>
                                     </div>
                                 </div>
                             </div>
@@ -405,7 +426,7 @@
                                             <li class="bold"><a href="#">Hepa A & B profile</a>
                                             </li>
                                         </ul>
-                                        <a href="#">Buy Package</a>
+                                        <a href="{{url('chatss')}}">More Info</a>
                                     </div>
                                 </div>
                             </div>
@@ -434,7 +455,7 @@
         <!-- footer area start-->
         <footer>
             <div class="footer-area">
-                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                <p>© Copyright 2018. All right reserved.</p>.
                 </p>
             </div>
         </footer>

@@ -9,6 +9,8 @@ use App\Models\Messagez;
 use App\Models\ChatSession;
 
 use App\Models\Messagess;
+use App\Models\appointments;
+use App\Models\Departments;
 
 use Auth;
 use App\Events\MessageSent;
@@ -307,6 +309,87 @@ public function changepass_storeGuest(Request $request){
     return redirect()->back();
 
 }
+
+
+
+  public function guestappointz(){
+
+        if(Auth::id()){
+
+            $user_id=Auth::user()->id;
+
+            $appoint=appointments::where('userid',$user_id)->get();
+             return view('home.guess.guests_appoint',compact('appoint'));
+        }
+
+
+
+
+
+
+        else{
+            return redirect()->back();
+        }
+
+
+
+
+       
+    }
+
+
+    public function guestappointments(Request $request)
+{
+    // Check if the user already has an appointment on the selected date
+    $existingAppointment = appointments::where('userid', Auth::id())
+        ->where('date', $request->date)
+        ->first();
+
+    if ($existingAppointment) {
+        // Redirect back with an error message if an appointment already exists for the date
+        return redirect()->back()->with('error', 'You already have an appointment on this date.');
+    }
+
+    $employee = Employees::findOrFail($request->sel_emp);
+    $department = Departments::findOrFail($request->sel_depart);
+
+    $data = new appointments;
+    $data->name = $request->name;
+    $data->email = $request->email;
+    $data->date = $request->date;
+    $data->time = $request->time;
+    $data->departments = $department->name;
+    $data->employees = $employee->name;
+    $data->phone = $request->number;
+    $data->message = $request->message;
+    $data->status = 'Pending';
+    $data->completed = 'Observation';
+
+    if (Auth::id()) {
+        $data->userid = Auth::user()->id;
+    }
+
+    $data->save();
+    event(new Sendnotif($data));
+
+    return redirect()->route('success');
+}
+
+
+     public function create_appoint_guestz(){
+
+        
+        $departmentData['data'] = Departments::orderby("name","asc")
+           ->select('id','name')
+           ->get();
+ 
+        // Load index view
+        return view('home.guess.create_appoint_guest')->with("departmentData",$departmentData);
+
+    }
+
+
+
 
 
 
