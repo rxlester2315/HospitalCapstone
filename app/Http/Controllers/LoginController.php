@@ -227,7 +227,7 @@ public function hruser()
     $completedAppointments = Appointments::where('status', 'Completed')->count();
     $alldoctor = employees::count();
 
-    return view('HR.dashboard', compact('totalAppointments', 'pendingAppointments', 'approvedAppointments', 'completedAppointments','alldoctor'));
+    return view('Hr.dashboard', compact('totalAppointments', 'pendingAppointments', 'approvedAppointments', 'completedAppointments','alldoctor'));
 }
 
 
