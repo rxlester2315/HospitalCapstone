@@ -95,11 +95,12 @@
         <!-- preloader area end -->
         <!-- page container area start -->
         <div class="page-container">
+
             <!-- sidebar menu area start -->
             <div class="sidebar-menu">
                 <div class="sidebar-header">
                     <div class="logo">
-                        <a href="index.html"><img src="main_alls/everythingzz/assets/images/icon/logo.png"
+                        <a href="{{url('Doc')}}"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
                                 alt="logo"></a>
                     </div>
                 </div>
@@ -107,22 +108,25 @@
                     <div class="menu-inner">
 
                         <nav>
+
+
                             <ul class="metismenu" id="menu">
 
 
                                 <li>
                                     <a href="javascript:void(0)" aria-expanded="true"><i
-                                            class="ti-pie-chart"></i><span>Patient Appointments</span></a>
+                                            class="fa fa-users"></i><span>Patient Appointments</span></a>
                                     <ul class="collapse">
-                                        <li><a href="barchart.html"></a></li>
-                                        <li><a href="linechart.html">line Chart</a></li>
-                                        <li><a href="piechart.html">pie chart</a></li>
+                                        <li><a href="{{url('/listappoint')}}">List of Appointment</a></li>
+                                        <li><a href="{{route('view.date')}}">Today Appointment</a></li>
+                                        <li><a href="{{url('listrecord')}}">Appointment Completed</a></li>
                                     </ul>
                                 </li>
+
                                 <li>
-                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>My
+                                    <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-male"></i><span>My
                                             Information</span></a>
-                                    <ul class="collapse">
+                                    <ul class=" collapse">
                                         @if($hasRecord)
                                         <li><a href="{{ url('doc_profile', $doctor->id) }}">View Profile</a></li>
 
@@ -132,45 +136,18 @@
 
                                         @endif
 
-                                        <li><a href="alert.html">Change Password</a></li>
+                                        <li><a href="{{url('changesPasswordDoc')}}">Change Password</a></li>
 
                                     </ul>
                                 </li>
 
 
-                                <li><a href="{{url('listrecord')}}"><i class="ti-map-alt"></i> <span>Chat with
+                                <li><a href="{{url('listrecord')}}"><i class="fa fa-commenting-o"></i> <span>Chat with
                                             Patients</span></a></li>
                                 <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Send Ticket
                                             Request</span></a>
                                 </li>
 
-                                <li>
-                                    <a href="javascript:void(0)" aria-expanded="true"><i
-                                            class="fa fa-exclamation-triangle"></i>
-                                        <span>Error</span></a>
-                                    <ul class="collapse">
-                                        <li><a href="404.html">Error 404</a></li>
-                                        <li><a href="403.html">Error 403</a></li>
-                                        <li><a href="500.html">Error 500</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i>
-                                        <span>Multi
-                                            level menu</span></a>
-                                    <ul class="collapse">
-                                        <li><a href="#">Item level (1)</a></li>
-                                        <li><a href="#">Item level (1)</a></li>
-                                        <li><a href="#" aria-expanded="true">Item level (1)</a>
-                                            <ul class="collapse">
-                                                <li><a href="#">Item level (2)</a></li>
-                                                <li><a href="#">Item level (2)</a></li>
-                                                <li><a href="#">Item level (2)</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Item level (1)</a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -199,10 +176,9 @@
 
                                 </li>
                                 <li class="dropdown">
-                                    <i class="fa fa-envelope-o dropdown-toggle"
-                                        data-toggle="dropdown"><span>3</span></i>
+                                    <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span></span></i>
                                     <div class="dropdown-menu notify-box nt-enveloper-box">
-                                        <span class="notify-title">You have 3 new notifications <a href="#">view
+                                        <span class="notify-title">Check Message<a href="chat">view
                                                 all</a></span>
 
                                     </div>
@@ -229,9 +205,11 @@
                         </div>
                         <div class="col-sm-6 clearfix">
                             <div class="user-profile pull-right">
-                                <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Doctor| Warlyn Bangongon<i
-                                        class="fa fa-angle-down"></i></h4>
+
+                                <img class="avatar user-thumb" src="{{ asset('profiledoc/' . $doctor->avats) }}"
+                                    alt="avatar">
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Doctor|
+                                    {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Message</a>
                                     <a class="dropdown-item" href="#">Settings</a>

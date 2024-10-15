@@ -150,7 +150,7 @@
                                 @endauth
 
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Message</a>
+                                    <a class="dropdown-item" href="{{url('changesPassword')}}">Change Password</a>
                                     <a class="dropdown-item" href="{{ route('guest_view') }}">View Profile</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">Log
                                         Out</a>

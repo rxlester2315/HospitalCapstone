@@ -389,6 +389,12 @@ public function changepass_storeGuest(Request $request){
     }
 
 
+    public function succes_message(){
+
+        return view("home.guess.success-redirect");
+    }
+
+
 
 
 
