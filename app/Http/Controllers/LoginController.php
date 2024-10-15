@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Models\EmployeeInfo;
 
 use App\Models\PatientInfo;
+use App\Models\Appointments;
 
 use Carbon\Carbon;
 use Session;
@@ -218,11 +219,17 @@ class LoginController extends Controller
         return view('Admin.home');
     }
 
-     public function hruser(){
+public function hruser()
+{
+    $totalAppointments = Appointments::count();
+    $pendingAppointments = Appointments::where('status', 'Pending')->count();
+    $approvedAppointments = Appointments::where('status', 'Approved')->count();
+    $completedAppointments = Appointments::where('status', 'Completed')->count();
+    $alldoctor = employees::count();
 
-        return view('HR.dashboard');
+    return view('HR.dashboard', compact('totalAppointments', 'pendingAppointments', 'approvedAppointments', 'completedAppointments','alldoctor'));
+}
 
-    }
 
     public function Docview(){
          $userId = auth()->user()->id;
