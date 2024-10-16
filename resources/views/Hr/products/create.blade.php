@@ -347,42 +347,40 @@
                             <span>Admin</span>
                         </a>
                         <div class="dropdown-menu">
-                    <li><a href="{{url('products/viewlist')}}" target="_blank">View List</a></li>
-                    <li><a href="{{url('Hr/products/create')}}" target="_blank">Create</a></li>
-                    <li><a href="{{url('products')}}" target="_blank">Edit</a></li>
-            </div>
-            </li>
-            </ul>
+
+                        </div>
+                    </li>
+                </ul>
 
 
-            <div class="dropdown mobile-user-menu">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
-                        class="fa fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="settings.html">Settings</a>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                <div class="dropdown mobile-user-menu">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                            class="fa fa-ellipsis-v"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="profile.html">My Profile</a>
+                        <a class="dropdown-item" href="settings.html">Settings</a>
+                        <a class="dropdown-item" href="login.html">Logout</a>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
 
-
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-                <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
-                        <li class="menu-title">
-                            <span>Main</span>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span
-                                    class="menu-arrow"></span></a>
-                            <!-- <ul style="display: none;">
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-inner slimscroll">
+                    <div id="sidebar-menu" class="sidebar-menu">
+                        <ul>
+                            <li class="menu-title">
+                                <span>Main</span>
+                            </li>
+                            <li class="submenu">
+                                <a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span
+                                        class="menu-arrow"></span></a>
+                                <!-- <ul style="display: none;">
                                 <li><a class="active" href="index.html">Admin Dashboard</a></li>
                                 <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
                             </ul> -->
-                            <!-- </li>
+                                <!-- </li>
                         <li class="submenu">
                             <a href="#"><i class="la la-cube"></i> <span> Apps</span> <span
                                     class="menu-arrow"></span></a>
@@ -403,34 +401,34 @@
                                 <li><a href="file-manager.html">File Manager</a></li>
                             </ul>
                         </li> -->
-                        <li class="menu-title">
-                            <span>Employees</span>
-                        </li>
-                        <li class="submenu">
-                            <a href="#" class="noti-dot"><i class="la la-user"></i> <span> Employees</span>
-                                <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
+                            <li class="menu-title">
+                                <span>Employees</span>
+                            </li>
+                            <li class="submenu">
+                                <a href="#" class="noti-dot"><i class="la la-user"></i> <span> Employees</span>
+                                    <span class="menu-arrow"></span></a>
+                                <ul style="display: none;">
 
-                                <li><a href="{{url('/leave-list')}}">Leaves <span
-                                            class="badge badge-pill bg-primary float-right">1</span></a></li>
-
-
+                                    <li><a href="{{url('/leave-list')}}">Leaves <span
+                                                class="badge badge-pill bg-primary float-right">1</span></a></li>
 
 
-                                <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
-                                <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-                                <li><a href="departments.html">Departments</a></li>
-                                <li><a href="timesheet.html">Timesheet</a></li>
-                                <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
-
-                            </ul>
-                        </li>
 
 
-                        <li>
-                            <!-- <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a> -->
-                        </li>
-                        <!-- <li class="submenu">
+                                    <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
+                                    <li><a href="{{url('attend')}}">Employee Attendance </a></li>
+                                    <li><a href="departments.html">Departments</a></li>
+                                    <li><a href="timesheet.html">Timesheet</a></li>
+                                    <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
+
+                                </ul>
+                            </li>
+
+
+                            <li>
+                                <!-- <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a> -->
+                            </li>
+                            <!-- <li class="submenu">
                             <a href="#"><i class="la la-rocket"></i> <span> Projects</span> <span
                                     class="menu-arrow"></span></a>
                             <ul style="display: none;">
@@ -439,19 +437,19 @@
                                 <li><a href="task-board.html">Task Board</a></li>
                             </ul>
                         </li> -->
-                        <li>
-                            <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i>
-                                <span>Patient
-                                    Request</span></a>
-                        </li>
-                        <li>
-                            <a href="{{url('view_tickets')}}"><i class="la la-ticket"></i>
-                                <span>Tickets</span></a>
-                        </li>
-                        <li class="menu-title">
-                            <span>HR</span>
-                        </li>
-                        <!-- <li class="submenu">
+                            <li>
+                                <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i>
+                                    <span>Patient
+                                        Request</span></a>
+                            </li>
+                            <li>
+                                <a href="{{url('view_tickets')}}"><i class="la la-ticket"></i>
+                                    <span>Tickets</span></a>
+                            </li>
+                            <li class="menu-title">
+                                <span>HR</span>
+                            </li>
+                            <!-- <li class="submenu">
                             <a href="#"><i class="la la-files-o"></i> <span> Sales </span> <span
                                     class="menu-arrow"></span></a>
                             <ul style="display: none;">
@@ -464,113 +462,114 @@
                             </ul>
                         </li> -->
 
-                        <li class="submenu">
-                            <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="{{url('products/viewlist')}}">View List</a></li>
-                                <li><a href="{{url('Hr/products/create')}}">Create</a></li>
-                                <li><a href="{{url('products')}}">Edit</a></li>
-                            </ul>
-                        </li>
+                            <li class="submenu">
+                                <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
+                                        class="menu-arrow"></span></a>
+                                <ul style="display: none;">
+                                    <li><a href="{{url('products/viewlist')}}" target="_blank">View List</a></li>
+                                    <li><a href="{{url('Hr/products/create')}}" target="_blank">Create</a></li>
+                                    <li><a href="{{url('products')}}" target="_blank">Edit</a></li>
+                                </ul>
+                            </li>
 
 
 
-                </div>
-            </div>
-        </div>
-
-
-        <div class="page-wrapper">
-            <div class="content container-fluid">
-
-
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-10">
-                        <div class="card borde-0 shadow-lg my-4">
-                            <div class="card-header bg-dark">
-                                <h3 class="text-white">Create Product</h3>
-                            </div>
-                            <form enctype="multipart/form-data" action="{{ route('Hr.products.store') }}" method="post">
-                                @csrf
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label h5">Product Name</label>
-                                        <input value="{{ old('ProductName') }}" type="text"
-                                            class="@error('ProductName') is-invalid @enderror form-control-lg form-control"
-                                            placeholder="ProductName" name="ProductName">
-                                        @error('ProductName')
-                                        <p class="invalid-feedback">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="status" class="form-label h5">Status</label>
-                                        <select name="Status" id="status"
-                                            class="@error('Status') is-invalid @enderror form-control form-control-lg">
-                                            <option value="">Select Status</option>
-                                            <option value="Available"
-                                                {{ old('Status') == 'Available' ? 'selected' : '' }}>
-                                                Available</option>
-                                            <option value="Low-stock"
-                                                {{ old('Status') == 'Low-stock' ? 'selected' : '' }}>
-                                                Low-stock</option>
-                                        </select>
-                                        @error('Status')
-                                        <p class="invalid-feedback">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="" class="form-label h5">Unit Orders</label>
-                                        <input value="{{ old('UnitOrders') }}" type="number"
-                                            class="@error('UnitOrders') is-invalid @enderror form-control form-control-lg"
-                                            placeholder="UnitOrders" name="UnitOrders">
-                                        @error('UnitOrders')
-                                        <p class="invalid-feedback">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="" class="form-label h5">Unit Stock</label>
-                                        <input value="{{ old('UnitStock') }}" type="number"
-                                            class="@error('UnitStock') is-invalid @enderror form-control form-control-lg"
-                                            placeholder="UnitStock" name="UnitStock">
-                                        @error('UnitStock')
-                                        <p class="invalid-feedback">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="" class="form-label h5">Image</label>
-                                        <input type="file" class="form-control form-control-lg" placeholder="Price"
-                                            name="imagez">
-                                    </div>
-                                    <div class="d-grid">
-                                        <button class="btn btn-lg btn-info">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-
-                            @if(Session::has('message'))
-                            <script>
-                            swal("Message", "{{Session::get('message')}}", 'success', {
-                                button: true,
-                                button: "Okay",
-                                timer: 3000,
-
-
-                            });
-                            </script>
-                            @endif
-                        </div>
                     </div>
                 </div>
-
             </div>
 
 
+            <div class="page-wrapper">
+                <div class="content container-fluid">
 
 
-        </div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-10">
+                            <div class="card borde-0 shadow-lg my-4">
+                                <div class="card-header bg-dark">
+                                    <h3 class="text-white">Create Product</h3>
+                                </div>
+                                <form enctype="multipart/form-data" action="{{ route('Hr.products.store') }}"
+                                    method="post">
+                                    @csrf
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label h5">Product Name</label>
+                                            <input value="{{ old('ProductName') }}" type="text"
+                                                class="@error('ProductName') is-invalid @enderror form-control-lg form-control"
+                                                placeholder="ProductName" name="ProductName">
+                                            @error('ProductName')
+                                            <p class="invalid-feedback">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="status" class="form-label h5">Status</label>
+                                            <select name="Status" id="status"
+                                                class="@error('Status') is-invalid @enderror form-control form-control-lg">
+                                                <option value="">Select Status</option>
+                                                <option value="Available"
+                                                    {{ old('Status') == 'Available' ? 'selected' : '' }}>
+                                                    Available</option>
+                                                <option value="Low-stock"
+                                                    {{ old('Status') == 'Low-stock' ? 'selected' : '' }}>
+                                                    Low-stock</option>
+                                            </select>
+                                            @error('Status')
+                                            <p class="invalid-feedback">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="" class="form-label h5">Unit Orders</label>
+                                            <input value="{{ old('UnitOrders') }}" type="number"
+                                                class="@error('UnitOrders') is-invalid @enderror form-control form-control-lg"
+                                                placeholder="UnitOrders" name="UnitOrders">
+                                            @error('UnitOrders')
+                                            <p class="invalid-feedback">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label h5">Unit Stock</label>
+                                            <input value="{{ old('UnitStock') }}" type="number"
+                                                class="@error('UnitStock') is-invalid @enderror form-control form-control-lg"
+                                                placeholder="UnitStock" name="UnitStock">
+                                            @error('UnitStock')
+                                            <p class="invalid-feedback">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="" class="form-label h5">Image</label>
+                                            <input type="file" class="form-control form-control-lg" placeholder="Price"
+                                                name="imagez">
+                                        </div>
+                                        <div class="d-grid">
+                                            <button class="btn btn-lg btn-info">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                @if(Session::has('message'))
+                                <script>
+                                swal("Message", "{{Session::get('message')}}", 'success', {
+                                    button: true,
+                                    button: "Okay",
+                                    timer: 3000,
+
+
+                                });
+                                </script>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
 
         </div>
 

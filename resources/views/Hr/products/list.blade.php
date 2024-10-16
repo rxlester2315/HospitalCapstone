@@ -347,42 +347,40 @@
                             <span>Admin</span>
                         </a>
                         <div class="dropdown-menu">
-                    <li><a href="{{url('products/viewlist')}}" target="_blank">View List</a></li>
-                    <li><a href="{{url('Hr/products/create')}}" target="_blank">Create</a></li>
-                    <li><a href="{{url('products')}}" target="_blank">Edit</a></li>
-            </div>
-            </li>
-            </ul>
+
+                        </div>
+                    </li>
+                </ul>
 
 
-            <div class="dropdown mobile-user-menu">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
-                        class="fa fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="settings.html">Settings</a>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                <div class="dropdown mobile-user-menu">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                            class="fa fa-ellipsis-v"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="profile.html">My Profile</a>
+                        <a class="dropdown-item" href="settings.html">Settings</a>
+                        <a class="dropdown-item" href="login.html">Logout</a>
+                    </div>
                 </div>
+
             </div>
 
-        </div>
 
-
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-                <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
-                        <li class="menu-title">
-                            <span>Main</span>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span
-                                    class="menu-arrow"></span></a>
-                            <!-- <ul style="display: none;">
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-inner slimscroll">
+                    <div id="sidebar-menu" class="sidebar-menu">
+                        <ul>
+                            <li class="menu-title">
+                                <span>Main</span>
+                            </li>
+                            <li class="submenu">
+                                <a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span
+                                        class="menu-arrow"></span></a>
+                                <!-- <ul style="display: none;">
                                 <li><a class="active" href="index.html">Admin Dashboard</a></li>
                                 <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
                             </ul> -->
-                            <!-- </li>
+                                <!-- </li>
                         <li class="submenu">
                             <a href="#"><i class="la la-cube"></i> <span> Apps</span> <span
                                     class="menu-arrow"></span></a>
@@ -403,34 +401,34 @@
                                 <li><a href="file-manager.html">File Manager</a></li>
                             </ul>
                         </li> -->
-                        <li class="menu-title">
-                            <span>Employees</span>
-                        </li>
-                        <li class="submenu">
-                            <a href="#" class="noti-dot"><i class="la la-user"></i> <span> Employees</span>
-                                <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
+                            <li class="menu-title">
+                                <span>Employees</span>
+                            </li>
+                            <li class="submenu">
+                                <a href="#" class="noti-dot"><i class="la la-user"></i> <span> Employees</span>
+                                    <span class="menu-arrow"></span></a>
+                                <ul style="display: none;">
 
-                                <li><a href="{{url('/leave-list')}}">Leaves <span
-                                            class="badge badge-pill bg-primary float-right">1</span></a></li>
-
-
+                                    <li><a href="{{url('/leave-list')}}">Leaves <span
+                                                class="badge badge-pill bg-primary float-right">1</span></a></li>
 
 
-                                <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
-                                <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-                                <li><a href="departments.html">Departments</a></li>
-                                <li><a href="timesheet.html">Timesheet</a></li>
-                                <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
-
-                            </ul>
-                        </li>
 
 
-                        <li>
-                            <!-- <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a> -->
-                        </li>
-                        <!-- <li class="submenu">
+                                    <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
+                                    <li><a href="{{url('attend')}}">Employee Attendance </a></li>
+                                    <li><a href="departments.html">Departments</a></li>
+                                    <li><a href="timesheet.html">Timesheet</a></li>
+                                    <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
+
+                                </ul>
+                            </li>
+
+
+                            <li>
+                                <!-- <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a> -->
+                            </li>
+                            <!-- <li class="submenu">
                             <a href="#"><i class="la la-rocket"></i> <span> Projects</span> <span
                                     class="menu-arrow"></span></a>
                             <ul style="display: none;">
@@ -439,19 +437,19 @@
                                 <li><a href="task-board.html">Task Board</a></li>
                             </ul>
                         </li> -->
-                        <li>
-                            <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i>
-                                <span>Patient
-                                    Request</span></a>
-                        </li>
-                        <li>
-                            <a href="{{url('view_tickets')}}"><i class="la la-ticket"></i>
-                                <span>Tickets</span></a>
-                        </li>
-                        <li class="menu-title">
-                            <span>HR</span>
-                        </li>
-                        <!-- <li class="submenu">
+                            <li>
+                                <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i>
+                                    <span>Patient
+                                        Request</span></a>
+                            </li>
+                            <li>
+                                <a href="{{url('view_tickets')}}"><i class="la la-ticket"></i>
+                                    <span>Tickets</span></a>
+                            </li>
+                            <li class="menu-title">
+                                <span>HR</span>
+                            </li>
+                            <!-- <li class="submenu">
                             <a href="#"><i class="la la-files-o"></i> <span> Sales </span> <span
                                     class="menu-arrow"></span></a>
                             <ul style="display: none;">
@@ -464,104 +462,104 @@
                             </ul>
                         </li> -->
 
-                        <li class="submenu">
-                            <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="{{url('products/viewlist')}}">View List</a></li>
-                                <li><a href="{{url('Hr/products/create')}}">Create</a></li>
-                                <li><a href="{{url('products')}}">Edit</a></li>
-                            </ul>
-                        </li>
-
-
-
-                </div>
-            </div>
-        </div>
-
-
-        <div class="page-wrapper">
-            <div class="content container-fluid">
-
-                <div class="container">
-                    <div class="row justify-content-center mt-4">
+                            <li class="submenu">
+                                <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
+                                        class="menu-arrow"></span></a>
+                                <ul style="display: none;">
+                                    <li><a href="{{url('products/viewlist')}}" target="_blank">View List</a></li>
+                                    <li><a href="{{url('Hr/products/create')}}" target="_blank">Create</a></li>
+                                    <li><a href="{{url('products')}}" target="_blank">Edit</a></li>
+                                </ul>
+                            </li>
 
 
 
                     </div>
-                    <div class="row d-flex justify-content-center">
-                        @if (Session::has('success'))
-                        <div class="col-md-10 mt-4">
-                            <div class="alert alert-success">
-                                {{ Session::get('success') }}
-                            </div>
-                        </div>
-                        @endif
-                        <div class="col-md-10">
-                            <div class="card borde-0 shadow-lg my-4">
-                                <div class="card-header bg-dark">
-                                    <h3 class="text-white">Products</h3>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <tr>
-                                            <th style="color:white;">ID</th>
-                                            <th style="color:white;">Product Name</th>
-                                            <th style="color:white;">Status</th>
-                                            <th style="color:white;">Unit Orders</th>
-                                            <th style="color:white;">Unit Stock</th>
-                                            <th style="color:white;">Created at</th>
-                                            <th style="color:white;">Action</th>
-                                        </tr>
-                                        @if ($products->isNotEmpty())
-                                        @foreach ($products as $product)
-                                        <tr>
-                                            <td>{{ $product->id }}</td>
-                                            <td>
-                                                @if ($product->imagez != "")
-                                                <img width="50" src="{{('uploads/products/'.$product->imagez) }}"
-                                                    alt="">
-                                                @endif
-                                            </td>
-                                            <td style="color:white;">{{ $product->ProductName }}</td>
-                                            <td style="color:white;">{{ $product->Status }}</td>
-                                            <td style="color:white;">{{ $product->UnitOrders }}</td>
-                                            <td style="color:white;">{{ $product->UnitStock }}</td>
-
-                                            <td style="color:white;">
-                                                {{ \Carbon\Carbon::parse($product->created_at)->format('d M, Y') }}
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('Hr.products.edit',$product->id) }}"
-                                                    class="btn btn-dark">Edit</a>
-                                                <a onclick="confirmation(event)" class="btn btn-danger"
-                                                    href="{{url('delete',$product->id)}}">Delete</a>
-
-
-
-
-                                            </td>
-
-                                        </tr>
-                                        @endforeach
-
-                                        @endif
-
-                                    </table>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
             </div>
 
 
+            <div class="page-wrapper">
+                <div class="content container-fluid">
+
+                    <div class="container">
+                        <div class="row justify-content-center mt-4">
 
 
-        </div>
+
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            @if (Session::has('success'))
+                            <div class="col-md-10 mt-4">
+                                <div class="alert alert-success">
+                                    {{ Session::get('success') }}
+                                </div>
+                            </div>
+                            @endif
+                            <div class="col-md-10">
+                                <div class="card borde-0 shadow-lg my-4">
+                                    <div class="card-header bg-dark">
+                                        <h3 class="text-white">Products</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table">
+                                            <tr>
+                                                <th style="color:white;">ID</th>
+                                                <th style="color:white;">Product Name</th>
+                                                <th style="color:white;">Status</th>
+                                                <th style="color:white;">Unit Orders</th>
+                                                <th style="color:white;">Unit Stock</th>
+                                                <th style="color:white;">Created at</th>
+                                                <th style="color:white;">Action</th>
+                                            </tr>
+                                            @if ($products->isNotEmpty())
+                                            @foreach ($products as $product)
+                                            <tr>
+                                                <td>{{ $product->id }}</td>
+                                                <td>
+                                                    @if ($product->imagez != "")
+                                                    <img width="50" src="{{('uploads/products/'.$product->imagez) }}"
+                                                        alt="">
+                                                    @endif
+                                                </td>
+                                                <td style="color:white;">{{ $product->ProductName }}</td>
+                                                <td style="color:white;">{{ $product->Status }}</td>
+                                                <td style="color:white;">{{ $product->UnitOrders }}</td>
+                                                <td style="color:white;">{{ $product->UnitStock }}</td>
+
+                                                <td style="color:white;">
+                                                    {{ \Carbon\Carbon::parse($product->created_at)->format('d M, Y') }}
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('Hr.products.edit',$product->id) }}"
+                                                        class="btn btn-dark">Edit</a>
+                                                    <a onclick="confirmation(event)" class="btn btn-danger"
+                                                        href="{{url('delete',$product->id)}}">Delete</a>
+
+
+
+
+                                                </td>
+
+                                            </tr>
+                                            @endforeach
+
+                                            @endif
+
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
 
         </div>
         <script type="text/javascript">
