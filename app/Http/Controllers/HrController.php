@@ -27,8 +27,9 @@ class HrController extends Controller
     
     public function addview(){
 
+        $doctor=employees::all();
 
-        return view('HR.add_doctor');
+        return view('HR.add_doctor',compact('doctor'));
 
 
     }
@@ -159,7 +160,6 @@ return redirect()->back();
             $imagez->move(public_path('uploads/products'),$imageName);
             $product->imagez = $imageName;
             $product->save();
-            return redirect()->route('Hr.products.create')->with('message','Product added successfully.');
 
 
         
@@ -170,6 +170,7 @@ return redirect()->back();
             }
 
 
+            return redirect()->route('Hr.products.create')->with('message','Product added successfully .');
 
 
     }

@@ -9,7 +9,7 @@
             content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
-        <title>Admin Dashboard</title>
+        <title>Human Resources Dashboard</title>
 
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -362,31 +362,7 @@
                             <li class="submenu">
                                 <a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span
                                         class="menu-arrow"></span></a>
-                                <!-- <ul style="display: none;">
-                                <li><a class="active" href="index.html">Admin Dashboard</a></li>
-                                <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
-                            </ul> -->
-                                <!-- </li>
-                        <li class="submenu">
-                            <a href="#"><i class="la la-cube"></i> <span> Apps</span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="chat.html">Chat</a></li>
-                                <li class="submenu">
-                                    <a href="#"><span> Calls</span> <span class="menu-arrow"></span></a>
-                                    <ul style="display: none;">
-                                        <li><a href="voice-call.html">Voice Call</a></li>
-                                        <li><a href="video-call.html">Video Call</a></li>
-                                        <li><a href="outgoing-call.html">Outgoing Call</a></li>
-                                        <li><a href="incoming-call.html">Incoming Call</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="events.html">Calendar</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
-                                <li><a href="inbox.html">Email</a></li>
-                                <li><a href="file-manager.html">File Manager</a></li>
-                            </ul>
-                        </li> -->
+
                             <li class="menu-title">
                                 <span>Employees</span>
                             </li>
@@ -411,18 +387,7 @@
                             </li>
 
 
-                            <li>
-                                <!-- <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a> -->
-                            </li>
-                            <!-- <li class="submenu">
-                            <a href="#"><i class="la la-rocket"></i> <span> Projects</span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="projects.html">Projects</a></li>
-                                <li><a href="tasks.html">Tasks</a></li>
-                                <li><a href="task-board.html">Task Board</a></li>
-                            </ul>
-                        </li> -->
+
                             <li>
                                 <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i> <span>Patient
                                         Request</span></a>
@@ -433,26 +398,15 @@
                             <li class="menu-title">
                                 <span>HR</span>
                             </li>
-                            <!-- <li class="submenu">
-                            <a href="#"><i class="la la-files-o"></i> <span> Sales </span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="estimates.html">Estimates</a></li>
-                                <li><a href="invoices.html">Invoices</a></li>
-                                <li><a href="payments.html">Payments</a></li>
-                                <li><a href="expenses.html">Expenses</a></li>
-                                <li><a href="provident-fund.html">Provident Fund</a></li>
-                                <li><a href="taxes.html">Taxes</a></li>
-                            </ul>
-                        </li> -->
+
 
                             <li class="submenu">
                                 <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
                                         class="menu-arrow"></span></a>
                                 <ul style="display: none;">
-                                    <li><a href="{{url('products/viewlist')}}">View List</a></li>
-                                    <li><a href="{{url('Hr/products/create')}}">Create</a></li>
-                                    <li><a href="{{url('products')}}">Edit</a></li>
+                                    <li><a href="{{url('products/viewlist')}}" target="_blank">View List</a></li>
+                                    <li><a href="{{url('Hr/products/create')}}" target="_blank">Create</a></li>
+                                    <li><a href="{{url('products')}}" target="_blank">Edit</a></li>
                                 </ul>
                             </li>
 
