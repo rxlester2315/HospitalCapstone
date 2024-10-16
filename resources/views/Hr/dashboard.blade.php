@@ -4,10 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <meta name="description" content="Smarthr - Bootstrap Admin Template">
-        <meta name="keywords"
-            content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
-        <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+
         <meta name="robots" content="noindex, nofollow">
         <title>Human Resources Dashboard</title>
 
@@ -168,43 +165,14 @@
 
                 <ul class="nav user-menu">
 
-                    <li class="nav-item">
-                        <div class="top-nav-search">
-                            <a href="javascript:void(0);" class="responsive-search">
-                                <i class="fa fa-search"></i>
-                            </a>
-                            <form action="search.html">
-                                <input class="form-control" type="text" placeholder="Search here">
-                                <button class="btn" type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                    </li>
 
 
-                    <li class="nav-item dropdown has-arrow flag-nav">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                            <img src="hrs/assets/img/flags/us.png" alt="" height="20"> <span>English</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/us.png" alt="" height="16"> English
-                            </a>
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/fr.png" alt="" height="16"> French
-                            </a>
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/es.png" alt="" height="16"> Spanish
-                            </a>
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/de.png" alt="" height="16"> German
-                            </a>
-                        </div>
-                    </li>
+
+
 
 
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i> <span class="badge badge-pill">3</span>
                         </a>
                         <div class="dropdown-menu notifications">
                             <div class="topnav-dropdown-header">
@@ -326,7 +294,7 @@
 
                     <li class="nav-item dropdown has-arrow main-drop">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="hrs/assets/img/profiles/avatar-21.jpg" alt="">
+                            <span class="user-img"><img src="hrs/assets/img/profiles/hr.png" alt="">
                                 <span class="status online"></span></span>
                             <span>Admin</span>
                         </a>
@@ -343,9 +311,8 @@
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
                             class="fa fa-ellipsis-v"></i></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-                        <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+
+                        <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
                     </div>
                 </div>
 

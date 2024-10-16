@@ -339,10 +339,9 @@
                     </li>
 
 
-                    <li class=" nav-item dropdown has-arrow main-drop">
+                    <li class="nav-item dropdown has-arrow main-drop">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="{{ asset('hrs/assets/img/profiles/avatar-21.jpg')}}"
-                                    alt="">
+                            <span class="user-img"><img src="hrs/assets/img/profiles/hr.png" alt="">
                                 <span class="status online"></span></span>
                             <span>Admin</span>
                         </a>
