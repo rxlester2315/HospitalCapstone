@@ -67,7 +67,7 @@ public function update_manage(Request $request, $id)
 
     // Save the updated user data
     if ($user->save()) {
-        return redirect()->route('profiles',['id' =>$id])->with('success', 'User updated successfully');
+        return redirect()->route('profiles',['id' =>$id])->with('message', 'User updated successfully');
     } else {
         return redirect()->back()->with('error', 'Failed to update user');
     }

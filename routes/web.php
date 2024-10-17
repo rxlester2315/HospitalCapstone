@@ -81,7 +81,7 @@ Route::post('/mail/{id}',[AdminController::class,'mail']);
 Route::get('/userlog',[AdminController::class,'user_logins']);
 Route::get('/changepw_user',[AdminController::class,'changepw']);
 Route::get('/changepw_userss/{id}',[AdminController::class,'updatepw'])->name('pass.change');
-Route::post('/changepw_pws/{id}',[AdminController::class,'updatepw_request'])->name('changepw.posts');
+Route::post('/changepw_pws/{id}', [AdminController::class, 'updatepw_request'])->name('changepw.posts');
 
 
 

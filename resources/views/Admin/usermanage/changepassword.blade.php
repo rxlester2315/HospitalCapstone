@@ -3,18 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <meta name="description" content="Smarthr - Bootstrap Admin Template">
-        <meta name="keywords"
-            content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
-        <meta name="author" content="Dreamguys - Bootstrap Admin Template">
-        <meta name="robots" content="noindex, nofollow">
+
         <title>User Management</title>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer">
-        </script>
-        <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.png')}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('adminz/assets/img/logo.jpg')}}">
 
         <link rel="stylesheet" href="{{asset('adminz/assets/css/bootstrap.min.css')}}">
 
@@ -26,11 +18,12 @@
 
         <link rel="stylesheet" href="{{asset('adminz/assets/css/style.css')}}">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
 
-        <!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.min.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
+
     </head>
 
     <body>
@@ -41,7 +34,7 @@
 
                 <div class="header-left">
                     <a href="{{ url('Admin') }}" class="logo">
-                        <img src="adminz/assets/img/logo.png" width="40" height="40" alt="">
+                        <img src="{{asset('adminz/assets/img/logo.jpg')}}" width="70px" height="60px" alt="">
                     </a>
                 </div>
 
@@ -60,7 +53,6 @@
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
 
                 <ul class="nav user-menu">
-
 
 
 
@@ -304,7 +296,7 @@
 
                     <li class="nav-item dropdown has-arrow main-drop">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="{{asset('adminz/assets/img/profiles/adminimg.jpg)}}"
+                            <span class="user-img"><img src="{{asset('adminz/assets/img/profiles/adminimg.jpg')}}"
                                     alt="">
                                 <span class="status online"></span></span>
                             <span>Admin</span>
@@ -359,7 +351,7 @@
                             </li>
 
                             <li>
-                                <a href="{{url('/changepw_user')}}"><i class="la la-users"></i> <span>Account Reset
+                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>Account Reset
                                         Password</span></a>
                             </li>
 
@@ -384,56 +376,44 @@
             <div class="page-wrapper" style="min-height: 667px;">
                 <div class="content container-fluid">
 
+                    <div class="card-body">
+                        <form action="{{ route('changepw.posts', $selectuser->id) }}" method="POST">
+                            @csrf
+                            <!-- Include CSRF token -->
 
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title mb-0">Basic Form</h4>
-                                </div>
-                                <div class="card-body">
-                                    <form action="{{ route('changepw.posts', $selectuser->id) }}" method="POST">
-                                        @csrf
-                                        <!-- Include CSRF token -->
-
-                                        <div class="form-group">
-                                            <label>Account ID</label>
-                                            <input type="text" class="form-control"
-                                                value="{{ old('account_id', $selectuser->id ?? '') }}" readonly />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Account Name</label>
-                                            <input type="text" class="form-control"
-                                                value="{{ old('account_name', $selectuser->name ?? '') }}" readonly />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Change Password</label>
-                                            <input type="password" class="form-control" name="password" required />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Confirm Password</label>
-                                            <input type="password" class="form-control" name="password_confirmation"
-                                                required />
-                                        </div>
-
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                        <!-- Change button type to submit -->
-                                    </form>
-                                </div>
-
+                            <div class="form-group">
+                                <label>Account ID</label>
+                                <input type="text" class="form-control"
+                                    value="{{ old('account_id', $selectuser->id ?? '') }}" readonly />
                             </div>
-                        </div>
 
+                            <div class="form-group">
+                                <label>Account Name</label>
+                                <input type="text" class="form-control"
+                                    value="{{ old('account_name', $selectuser->name ?? '') }}" readonly />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Change Password</label>
+                                <input type="password" class="form-control" name="password" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" class="form-control" name="password_confirmation" required />
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <!-- Change button type to submit -->
+                        </form>
                     </div>
 
                 </div>
             </div>
 
         </div>
+
+
         @if(Session::has('message'))
         <script>
         swal("Message", "{{Session::get('message')}}", 'success', {
@@ -445,7 +425,6 @@
         });
         </script>
         @endif
-
         <script src="{{asset('adminz/assets/js/jquery-3.5.1.min.js')}}"></script>
 
         <script src="{{asset('adminz/assets/js/popper.min.js')}}"></script>

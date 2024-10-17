@@ -3,14 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <meta name="description" content="Smarthr - Bootstrap Admin Template">
-        <meta name="keywords"
-            content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
-        <meta name="author" content="Dreamguys - Bootstrap Admin Template">
-        <meta name="robots" content="noindex, nofollow">
+
         <title>User Management</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/logo.jpg">
 
         <link rel="stylesheet" href="adminz/assets/css/bootstrap.min.css">
 
@@ -19,7 +15,10 @@
         <link rel="stylesheet" href="adminz/assets/css/line-awesome.min.css">
 
         <link rel="stylesheet" href="adminz/assets/css/dataTables.bootstrap4.min.css">
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
         <link rel="stylesheet" href="adminz/assets/css/style.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -37,7 +36,7 @@
 
                 <div class="header-left">
                     <a href="{{ url('Admin') }}" class="logo">
-                        <img src="adminz/assets/img/logo.png" width="40" height="40" alt="">
+                        <img src="{{asset('adminz/assets/img/logo.jpg')}}" width="70px" height="60px" alt="">
                     </a>
                 </div>
 
@@ -478,10 +477,10 @@
                                                                         <button type="button"
                                                                             class="btn btn-info">Edit</button>
                                                                     </a>
-                                                                    <a href="{{ route('archives', $datas->id) }}">
-                                                                        <button type="button"
-                                                                            class="btn btn-danger">Archive</button>
-                                                                    </a>
+                                                                    <a href="{{ route('archives', $datas->id) }}"
+                                                                        onclick="confirmation(event)"
+                                                                        class="btn btn-danger">Archived</a>
+
                                                                 </td>
                                                             </tr>
                                                             @endforeach
@@ -508,7 +507,26 @@
             </div>
 
         </div>
+        <script type="text/javascript">
+        function confirmation(ev) {
+            ev.preventDefault();
+            var urlToRedirect = ev.currentTarget.getAttribute('href');
+            console.log(urlToRedirect);
 
+            swal({
+                    title: "Do you want to Archived this?",
+                    text: "You can still  recover this!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willCancel) => {
+                    if (willCancel) {
+                        window.location.href = urlToRedirect;
+                    }
+                });
+        }
+        </script>
 
         <script src="adminz/assets/js/jquery-3.5.1.min.js"></script>
 

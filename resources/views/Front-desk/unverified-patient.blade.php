@@ -414,28 +414,32 @@
                                             <th>Email</th>
                                             <th>Status</th>
                                             <th>Date Created</th>
+                                            <th>Role </th>
 
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($verifieduser as $verified)
+                                        @foreach($guestuser as $gues)
 
                                         <tr>
+
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a href="profile.html" class="avatar"><img alt=""
                                                             src="assets/img/profiles/avatar-09.jpg" /></a>
-                                                    <a href="#">{{ $verified->name}}
-                                                        <span>{{ $verified->role_name}}</span></a>
+                                                    <a href="#">{{ $gues->name}}
+                                                        <span>{{$gues->role_name}}</span></a>
                                                 </h2>
                                             </td>
-                                            <td>{{ $verified->email}}</td>
-                                            <td>
-                                                <span class="badge badge-success">{{ $verified->status}}</span>
-                                            </td>
-                                            <td>{{ $verified->created_at}}</td>
 
+                                            <td>{{ $gues->email}}</td>
+                                            <td>
+                                                <span class="badge badge-warning">{{$gues->status}}</span>
+                                            </td>
+                                            </td>
+                                            <td>{{ $gues->created_at}}</td>
+                                            <td>{{ $gues->role_name}}</td>
 
                                         </tr>
                                         @endforeach
