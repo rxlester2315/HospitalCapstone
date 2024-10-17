@@ -8,19 +8,23 @@
             content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
-        <title>Data Tables - HRMS admin template</title>
+        <title>User Management</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.png')}}">
 
-        <link rel="stylesheet" href="adminz/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{asset('adminz/assets/css/bootstrap.min.css')}}">
 
-        <link rel="stylesheet" href="adminz/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{asset('adminz/assets/css/font-awesome.min.css')}}">
 
-        <link rel="stylesheet" href="adminz/assets/css/line-awesome.min.css">
+        <link rel="stylesheet" href="{{asset('adminz/assets/css/line-awesome.min.css')}}">
 
-        <link rel="stylesheet" href="adminz/assets/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="{{asset('adminz/assets/css/dataTables.bootstrap4.min.css')}}">
 
-        <link rel="stylesheet" href="adminz/assets/css/style.css">
+        <link rel="stylesheet" href="{{asset('adminz/assets/css/style.css')}}">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
         <!--[if lt IE 9]>
@@ -62,6 +66,7 @@
 
 
 
+
                     <li class="nav-item dropdown">
 
                         <div class="dropdown-menu notifications">
@@ -75,7 +80,8 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="adminz/assets/img/profiles/avatar-02.jpg">
+                                                    <img alt=""
+                                                        src="{{asset('adminz/assets/img/profiles/avatar-02.jpg')}}">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">John Doe</span>
@@ -94,7 +100,8 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="adminz/assets/img/profiles/avatar-03.jpg">
+                                                    <img alt=""
+                                                        src="{{asset('adminz/assets/img/profiles/avatar-03.jpg')}}">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Tarah
@@ -113,7 +120,8 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="adminz/assets/img/profiles/avatar-06.jpg">
+                                                    <img alt=""
+                                                        src="{{asset('adminz/assets/img/profiles/avatar-06.jpg')}}">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Misty Tison</span>
@@ -131,7 +139,8 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="adminz/assets/img/profiles/avatar-17.jpg">
+                                                    <img alt=""
+                                                        src="{{asset('adminz/assets/img/profiles/avatar-17.jpg')}}">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Rolland
@@ -149,7 +158,8 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="adminz/assets/img/profiles/avatar-13.jpg">
+                                                    <img alt=""
+                                                        src="{{asset('adminz/assets/img/profiles/avatar-13.jpg')}}">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Bernardo
@@ -189,7 +199,8 @@
                                             <div class="list-item">
                                                 <div class="list-left">
                                                     <span class="avatar">
-                                                        <img alt="" src="adminz/assets/img/profiles/avatar-09.jpg">
+                                                        <img alt=""
+                                                            src="{{asset('adminz/assets/img/profiles/avatar-09.jpg')}}">
                                                     </span>
                                                 </div>
                                                 <div class="list-body">
@@ -208,7 +219,8 @@
                                             <div class="list-item">
                                                 <div class="list-left">
                                                     <span class="avatar">
-                                                        <img alt="" src="adminz/assets/img/profiles/avatar-02.jpg">
+                                                        <img alt=""
+                                                            src="{{asset('adminz/assets/img/profiles/avatar-02.jpg')}}">
                                                     </span>
                                                 </div>
                                                 <div class="list-body">
@@ -227,7 +239,8 @@
                                             <div class="list-item">
                                                 <div class="list-left">
                                                     <span class="avatar">
-                                                        <img alt="" src="adminz/assets/img/profiles/avatar-03.jpg">
+                                                        <img alt=""
+                                                            src="{{asset('adminz/assets/img/profiles/avatar-03.jpg')}}">
                                                     </span>
                                                 </div>
                                                 <div class="list-body">
@@ -246,7 +259,8 @@
                                             <div class="list-item">
                                                 <div class="list-left">
                                                     <span class="avatar">
-                                                        <img alt="" src="adminz/assets/img/profiles/avatar-05.jpg">
+                                                        <img alt=""
+                                                            src="{{asset('adminz/assets/img/profiles/avatar-05.jpg')}}">
                                                     </span>
                                                 </div>
                                                 <div class="list-body">
@@ -265,7 +279,8 @@
                                             <div class="list-item">
                                                 <div class="list-left">
                                                     <span class="avatar">
-                                                        <img alt="" src="adminz/assets/img/profiles/avatar-08.jpg">
+                                                        <img alt=""
+                                                            src="{{asset('adminz/assets/img/profiles/avatar-08.jpg')}}">
                                                     </span>
                                                 </div>
                                                 <div class="list-body">
@@ -289,7 +304,8 @@
 
                     <li class="nav-item dropdown has-arrow main-drop">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="adminz/assets/img/profiles/adminimg.jpg" alt="">
+                            <span class="user-img"><img src="{{asset('adminz/assets/img/profiles/adminimg.jpg)}}"
+                                    alt="">
                                 <span class="status online"></span></span>
                             <span>Admin</span>
                         </a>
@@ -330,9 +346,25 @@
 
 
 
+
+
                             <li>
-                                <a href="{{url('users_manage')}}"><i class="la la-user-plus"></i> <span>Back</span></a>
+                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
+                                        Login</span></a>
                             </li>
+
+                            <li>
+                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>Archived
+                                        User</span></a>
+                            </li>
+
+                            <li>
+                                <a href="{{url('/changepw_user')}}"><i class="la la-users"></i> <span>Account Reset
+                                        Password</span></a>
+                            </li>
+
+
+
 
 
 
@@ -347,154 +379,84 @@
             </div>
 
 
+
+
             <div class="page-wrapper" style="min-height: 667px;">
                 <div class="content container-fluid">
 
-                    <div class="page-header">
-                        <div class="row">
-                            <div class="col">
-                                <h3 class="page-title">Data Tables</h3>
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Data Tables</li>
-                                </ul>
-                                <br>
-                                <div>
-                                    <a href="{{url('/users_manage')}}">
-                                        <h3 class="btn btn-primary">Back</h3>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                    @endif
 
-                    @if(session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                    @endif
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="card mb-0">
-
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <div id="DataTables_Table_0_wrapper"
-                                            class="dataTables_wrapper dt-bootstrap4 no-footer">
-                                            <div class="row">
-                                                <div class="col-sm-12 col-md-6">
-
-                                                </div>
-                                                <div class="col-sm-12 col-md-6"></div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <table
-                                                        class="datatable table table-stripped mb-0 dataTable no-footer"
-                                                        id="DataTables_Table_0" role="grid"
-                                                        aria-describedby="DataTables_Table_0_info">
-                                                        <thead>
-                                                            <tr role="row">
-                                                                <th class="sorting_asc" tabindex="0"
-                                                                    aria-controls="DataTables_Table_0" rowspan="1"
-                                                                    colspan="1" aria-sort="ascending"
-                                                                    aria-label="Name: activate to sort column descending"
-                                                                    style="width: 311.5px;">ID</th>
-                                                                <th class="sorting" tabindex="0"
-                                                                    aria-controls="DataTables_Table_0" rowspan="1"
-                                                                    colspan="1"
-                                                                    aria-label="Position: activate to sort column ascending"
-                                                                    style="width: 503.281px;">Name</th>
-                                                                <th class="sorting" tabindex="0"
-                                                                    aria-controls="DataTables_Table_0" rowspan="1"
-                                                                    colspan="1"
-                                                                    aria-label="Office: activate to sort column ascending"
-                                                                    style="width: 231.109px;">Email</th>
-                                                                <th class="sorting" tabindex="0"
-                                                                    aria-controls="DataTables_Table_0" rowspan="1"
-                                                                    colspan="1"
-                                                                    aria-label="Age: activate to sort column ascending"
-                                                                    style="width: 125.062px;">Phone Number</th>
-                                                                <th class="sorting" tabindex="0"
-                                                                    aria-controls="DataTables_Table_0" rowspan="1"
-                                                                    colspan="1"
-                                                                    aria-label="Salary: activate to sort column ascending"
-                                                                    style="width: 190.047px;">Status</th>
-                                                                <th class="sorting" tabindex="0"
-                                                                    aria-controls="DataTables_Table_0" rowspan="1"
-                                                                    colspan="1"
-                                                                    aria-label="Salary: activate to sort column ascending"
-                                                                    style="width: 190.047px;">Role</th>
-                                                                <th class="sorting" tabindex="0"
-                                                                    aria-controls="DataTables_Table_0" rowspan="1"
-                                                                    colspan="1"
-                                                                    aria-label="Salary: activate to sort column ascending"
-                                                                    style="width: 190.047px;">Action</th>
-
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-
-                                                            @foreach($deletedUsers as $archive)
-                                                            <tr>
-                                                                <td>{{$archive->id}}</td>
-                                                                <td>{{$archive->name}}</td>
-                                                                <td>{{$archive->email}}</td>
-                                                                <td>{{$archive->phone_number}}</td>
-                                                                <td>{{$archive->status}}</td>
-                                                                <td>{{$archive->role_name}}</td>
-                                                                <td>
-                                                                    <form action="{{ route('restore', $archive->id) }}"
-                                                                        method="POST">
-                                                                        @csrf
-                                                                        <button type="submit"
-                                                                            class="btn btn-success">Restore</button>
-                                                                    </form>
-                                                                </td>
-                                                            </tr>
-                                                            @endforeach
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-12 col-md-5">
-                                                    <div class="dataTables_info" id="DataTables_Table_0_info"
-                                                        role="status" aria-live="polite">Showing 1 to 10 of 30 entries
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Basic Form</h4>
                                 </div>
+                                <div class="card-body">
+                                    <form action="{{ route('changepw.posts', $selectuser->id) }}" method="POST">
+                                        @csrf
+                                        <!-- Include CSRF token -->
+
+                                        <div class="form-group">
+                                            <label>Account ID</label>
+                                            <input type="text" class="form-control"
+                                                value="{{ old('account_id', $selectuser->id ?? '') }}" readonly />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Account Name</label>
+                                            <input type="text" class="form-control"
+                                                value="{{ old('account_name', $selectuser->name ?? '') }}" readonly />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Change Password</label>
+                                            <input type="password" class="form-control" name="password" required />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Confirm Password</label>
+                                            <input type="password" class="form-control" name="password_confirmation"
+                                                required />
+                                        </div>
+
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                        <!-- Change button type to submit -->
+                                    </form>
+                                </div>
+
                             </div>
                         </div>
+
                     </div>
+
                 </div>
             </div>
 
         </div>
+        @if(Session::has('message'))
+        <script>
+        swal("Message", "{{Session::get('message')}}", 'success', {
+            button: true,
+            button: "Okay",
+            timer: 3000,
 
 
-        <script src="adminz/assets/js/jquery-3.5.1.min.js"></script>
+        });
+        </script>
+        @endif
 
-        <script src="adminz/assets/js/popper.min.js"></script>
-        <script src="adminz/assets/js/bootstrap.min.js"></script>
+        <script src="{{asset('adminz/assets/js/jquery-3.5.1.min.js')}}"></script>
 
-        <script src="adminz/assets/js/jquery.slimscroll.min.js"></script>
+        <script src="{{asset('adminz/assets/js/popper.min.js')}}"></script>
+        <script src="{{asset('adminz/assets/js/bootstrap.min.js')}}"></script>
 
-        <script src="adminz/assets/js/jquery.dataTables.min.js"></script>
-        <script src="adminz/assets/js/dataTables.bootstrap4.min.js"></script>
+        <script src="{{asset('adminz/assets/js/jquery.slimscroll.min.js')}}"></script>
 
-        <script src="adminz/assets/js/app.js"></script>
+        <script src="{{asset('adminz/assets/js/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('adminz/assets/js/dataTables.bootstrap4.min.js')}}"></script>
+
+        <script src="{{asset('adminz/assets/js/app.js')}}"></script>
 
         <div class="sidebar-overlay"></div>
     </body>

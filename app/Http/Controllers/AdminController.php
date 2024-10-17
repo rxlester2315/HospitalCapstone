@@ -8,7 +8,11 @@ use App\Models\Message;
 use App\Events\MessageSent;
 use App\Models\Messagess;
 use App\Models\ChatSession;
-
+use App\Models\ticket;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Product;
+use Illuminate\Support\Facades\File;
 
 
 
@@ -26,7 +30,7 @@ class AdminController extends Controller
     // Correct approach using whereIn
     $data = User::whereIn('role_name', ['Normal User', 'Doctor'])->get();
 
-    return view('Admin.usermanage', ['data' => $data]);
+    return view('Admin.usermanage.usermanage', ['data' => $data]);
 }
 
 public function editmanage($id){
@@ -278,8 +282,293 @@ return redirect()->back()->with('message','Doctor Added Successfully');
 
 
 
+public function ticketing(){
+        $datas = ticket::all();
+
+    return view('Admin.list-ticket',compact('datas'));
+
+
+}
+
+
+public function resolve_tix(Request $request, $id)
+{
+    $dataz = ticket::find($id);
+
+    if (!$dataz) {
+        return redirect()->back()->with('error', 'Ticket not found.');
+    }
+
+    $dataz->status = $request->status;
+    $dataz->reply = $request->reply;
+    $dataz->save();
+
+Notification::route('mail', $dataz->email)->notify(new TicketResponse($dataz));
+
+    return redirect()->back()->with('message','Message Ticket Sent Successfully');
+}
 
 
 
+     public function resolve_form($id)
+{
+    $dataz = ticket::find($id);
+
+    if (!$dataz) {
+        return redirect()->back()->with('error', 'Ticket not found.');
+    }
+
+    return view('Admin.response-ticket', compact('dataz'));
+}
+
+
+
+public function user_logins(){
+
+        $activityLog = DB::table('activity_logs')->get();
+        return view('Admin.usermanage.userlogins',compact('activityLog'));
+}
+
+
+
+public function changepw(){
+
+    $data = User::whereIn('role_name', ['Normal User', 'Doctor', 'Nurse', 'Guests', 'Front Desk'])->get();
+
+    return view('Admin.usermanage.changepwview-user', compact('data'));
+}
+
+
+
+public function updatepw($id) { // Accept the user ID as a parameter
+
+    $selectuser = User::find($id);
+    
+    if (!$selectuser) {
+        return redirect()->back()->with('error', 'User not found.');
+    }
+
+    return view('Admin.usermanage.changepassword', compact('selectuser'));
+}
+
+
+
+public function updatepw_request(Request $request, $id)
+{
+    $validator = Validator::make($request->all(), [
+        'password' => 'required|min:8|confirmed', // 'confirmed' checks for 'password_confirmation'
+    ]);
+
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
+    }
+
+    $selectuser = User::findOrFail($id);
+    $selectuser->password = Hash::make($request->password); // Hash the new password
+    $selectuser->save();
+
+    return redirect()->route('pass.change', $id)->with('message', 'Password updated successfully');
+}
+
+
+
+
+
+
+
+     public function create() {
+        return view('Admin.inventory.create');
+    }
+
+
+    public function prodStore(Request $request){
+        
+          $rules = [
+             'ProductName' => 'required|min:3',
+            'Status' => 'required',
+            'UnitOrders' => 'required|numeric',
+            'UnitStock' => 'required|numeric'            
+        ];
+       $validator = Validator::make($request->all(),$rules);
+
+
+             if ($validator->fails()) {
+            return redirect()->route('Admin.inventory.create')->withInput()->withErrors($validator);
+        }
+
+        $product = new Product();
+        $product->ProductName = $request->ProductName;
+        $product->Status = $request->Status;
+        $product->UnitOrders = $request->UnitOrders;
+        $product->UnitStock = $request->UnitStock;
+        $product->save();
+
+
+            if ($request->imagez != "") {
+            $imagez = $request->imagez;
+            $ext = $imagez->getClientOriginalExtension();
+            $imageName = time().'.'.$ext;
+            $imagez->move(public_path('uploads/products'),$imageName);
+            $product->imagez = $imageName;
+            $product->save();
+
+
+        
+
+
+
+
+            }
+                    return redirect()->route('Product.view')->with('message','Product added successfully.');
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+     public function index(){
+
+    $products = Product::orderBy('created_at')->get();
+      return view('Admin.inventory.edit-view',['products' => $products]);
+
+         if ($request->imagez != "") {
+            $rules['image'] = 'image';
+        }
+
+    }
+
+
+      public function edit($id) {
+        $product = Product::findOrFail($id);
+        return view('Admin.inventory.edit-product',[
+            'product' => $product
+        ]);
+
+      }
+
+
+      public function update($id, Request $request) {
+
+        $product = Product::findOrFail($id);
+
+         $rules = [
+             'ProductName' => 'required|min:3',
+            'Status' => 'required|min:3',
+            'UnitOrders' => 'required|numeric' ,
+            'UnitStock' => 'required|numeric'            
+        ];
+
+     
+
+        $validator = Validator::make($request->all(),$rules);
+
+        if ($validator->fails()) {
+            return redirect()->route('Product.edit',$product->id)->withInput()->withErrors($validator);
+        }
+
+        // here we will update product
+        $product->ProductName = $request->ProductName;
+        $product->Status = $request->Status;
+        $product->UnitOrders = $request->UnitOrders;
+        $product->UnitStock = $request->UnitStock;
+        $product->save();
+
+        if ($request->imagez != "") {
+
+            // delete old image
+            File::delete(public_path('uploads/products/'.$product->imagez));
+
+            // here we will store image
+            $imagez = $request->imagez;
+            $ext = $imagez->getClientOriginalExtension();
+            $imageName = time().'.'.$ext; // Unique image name
+
+            // Save image to products directory
+            $imagez->move(public_path('uploads/products'),$imageName);
+
+            // Save image name in database
+            $product->imagez = $imageName;
+            $product->save();
+        }        
+
+        return redirect()->route('product.edit.view')->with('message','Product updated successfully.');
+    }
+
+
+
+        
+
+
+
+  public function destroy($id) {
+        $product = Product::findOrFail($id);
+
+       // delete image
+       File::delete(public_path('uploads/products/'.$product->image));
+
+       // delete product from database
+       $product->delete();
+        return redirect()->back();
+
+
+    }
+
+    public function view_list(){
+
+      
+     $products = Product::orderBy('created_at')->get();
+
+    return view('Admin.inventory.view-product',['products' => $products]);
+}
+
+
+
+
+  public function delete($id){
+
+        $product=Product::find($id);
+         File::delete(public_path('uploads/products/'.$product->image));
+
+        $product->delete();
+
+      return redirect()->back();
+
+
+
+
+    }
+
+  
+
+
+
+  
+
+
+ 
+
+ 
+  
 
 }

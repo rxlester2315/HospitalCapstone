@@ -367,14 +367,10 @@
                             </li>
 
 
-                            <li class="submenu">
-                                <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
-                                        class="menu-arrow"></span></a>
-                                <ul style="display: none;">
-                                    <li><a href="{{url('products/viewlist')}}" target="_blank">View List</a></li>
-                                    <li><a href="{{url('Hr/products/create')}}" target="_blank">Create</a></li>
-                                    <li><a href="{{url('products')}}" target="_blank">Edit</a></li>
-                                </ul>
+                            <li>
+                                <a href="{{url('products/viewlist')}}"><i class="la la-key"></i> <span> Inventory
+                                    </span> <span class="menu-arrow"></span></a>
+
                             </li>
 
 

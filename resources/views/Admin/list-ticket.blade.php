@@ -10,9 +10,6 @@
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
         <title>Admin Dashboards</title>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
 
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/favicon.png">
 
@@ -48,7 +45,7 @@
             <div class="header">
 
                 <div class="header-left">
-                    <a href="{{url(url('Admin'))}}" class="logo">
+                    <a href="index.html" class="logo">
                         <img src="adminz/assets/img/logo.jpg" width="70px" height="70px" alt="">
                     </a>
                 </div>
@@ -67,7 +64,6 @@
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
 
                 <ul class="nav user-menu">
-
 
 
 
@@ -217,7 +213,7 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="profile.html">My Profile</a>
                         <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                        <a class="dropdown-item" href="login.html">Logout</a>
                     </div>
                 </div>
 
@@ -237,29 +233,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-                            <li>
-                                <a href="{{url('tickets')}}"><i class="la la-cog"></i> <span>Ticket
-                                        Management</span></a>
                             </li>
                             <li>
-                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
-                                        Management</span></a>
+                                <a href="{{url('Admin')}}"><i class="la la-object-ungroup"></i>
+                                    <span>Home</span></a>
                             </li>
 
-
-                            <li>
-                                <a href="{{url('products-list')}}"><i class="la la-cog"></i>
-                                    <span>Inventory</span></a>
-                            </li>
 
 
 
@@ -274,85 +253,92 @@
 
 
             <div class="page-wrapper">
-
                 <div class="content container-fluid">
-
                     <div class="page-header">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <center>
-                                    <h1 style="font-size:40px;" class="page-title">Welcome Admin!</h1>
-
-                                </center>
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="page-title">Tickets</h3>
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item active">Dashboard</li>
+                                    <li class="breadcrumb-item">
+                                        <a href="index.html">Dashboard</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">
+                                        Tickets
+                                    </li>
                                 </ul>
                             </div>
+
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>112</h3>
-                                        <span>Projects</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>44</h3>
-                                        <span>Clients</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>37</h3>
-                                        <span>Tasks</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>218</h3>
-                                        <span>Employees</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Total Revenue</h3>
-                                            <div id="bar-charts"></div>
+                            <div class="card-group m-b-30">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <div>
+                                                <span class="d-block">New Tickets</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-success">+10%</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="mb-3">112</h3>
+                                        <div class="progress mb-2" style="height: 5px">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
+                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Sales Overview</h3>
-                                            <div id="line-charts"></div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <div>
+                                                <span class="d-block">Solved Tickets</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-success">+12.5%</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="mb-3">70</h3>
+                                        <div class="progress mb-2" style="height: 5px">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
+                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <div>
+                                                <span class="d-block">Open Tickets</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-danger">-2.8%</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="mb-3">100</h3>
+                                        <div class="progress mb-2" style="height: 5px">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
+                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <div>
+                                                <span class="d-block">Pending Tickets</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-danger">-75%</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="mb-3">125</h3>
+                                        <div class="progress mb-2" style="height: 5px">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
+                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -361,11 +347,66 @@
                     </div>
 
 
+                    <div class="row" style="font-size:20px;">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped custom-table mb-0 datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Ticket Id</th>
+                                            <th>Ticket Subject</th>
+                                            <th>Employee Name</th>
+                                            <th>Created Date</th>
+                                            <th>Priority</th>
+                                            <th class="text-center">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($datas as $tix )
+
+                                        <tr>
+                                            <td>{{$tix->id}}</td>
+                                            <td>
+                                                <span
+                                                    class="badge badge-pill badge-primary">{{$tix->ticket_number}}</span>
+                                            </td>
+                                            <td>{{$tix->subject}}</td>
+                                            <td>
+                                                <span style="font-size:15px;"
+                                                    class="badge badge-pill badge-info">{{$tix->name}}</span>
+                                            </td>
+                                            <td>{{$tix->created_at}}</td>
+                                            <td>
+                                                <span class="badge badge-pill badge-danger">{{$tix->priority}}</span>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    <a href="{{url('/resolve',$tix->id)}}" class="btn btn-primary"
+                                                        style="font-size: 10px;
+">View</a>
+                                                    <a href="" class="btn btn-danger" style="font-size: 10px;
+">Close</a>
+                                                    <a href="" class="btn btn-success" style="font-size: 10px;
+">Solve</a>
+
+                                                </center>
+
+                                            </td>
 
 
+                                        </tr>
+                                        @endforeach
 
-
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
+
 
             </div>
 

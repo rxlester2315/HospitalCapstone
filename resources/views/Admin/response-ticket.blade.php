@@ -10,9 +10,6 @@
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
         <title>Admin Dashboards</title>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
 
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/favicon.png">
 
@@ -67,7 +64,6 @@
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
 
                 <ul class="nav user-menu">
-
 
 
 
@@ -217,11 +213,12 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="profile.html">My Profile</a>
                         <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                        <a class="dropdown-item" href="login.html">Logout</a>
                     </div>
                 </div>
 
             </div>
+
 
 
             <div class="sidebar" id="sidebar">
@@ -237,18 +234,22 @@
 
 
 
-
-
-
-
-
-
-
-
+                            </li>
+                            <li>
+                                <a href="adminz/assets.html"><i class="la la-object-ungroup"></i>
+                                    <span>Assets</span></a>
+                            </li>
 
                             <li>
-                                <a href="{{url('tickets')}}"><i class="la la-cog"></i> <span>Ticket
-                                        Management</span></a>
+                                <a href="knowledgebase.html"><i class="la la-question"></i>
+                                    <span>Knowledgebase</span></a>
+                            </li>
+                            <li>
+                                <a href="activities.html"><i class="la la-bell"></i> <span>Activities</span></a>
+                            </li>
+
+                            <li>
+                                <a href="{{url('tickets')}}"><i class="la la-cog"></i> <span>Settings</span></a>
                             </li>
                             <li>
                                 <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
@@ -257,9 +258,10 @@
 
 
                             <li>
-                                <a href="{{url('products-list')}}"><i class="la la-cog"></i>
-                                    <span>Inventory</span></a>
+                                <a href="{{url('add_doc')}}"><i class="la la-user-plus"></i> <span>Add Health Care
+                                        Staff</span></a>
                             </li>
+
 
 
 
@@ -274,98 +276,76 @@
 
 
             <div class="page-wrapper">
-
                 <div class="content container-fluid">
 
-                    <div class="page-header">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <center>
-                                    <h1 style="font-size:40px;" class="page-title">Welcome Admin!</h1>
-
-                                </center>
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item active">Dashboard</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row">
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>112</h3>
-                                        <span>Projects</span>
-                                    </div>
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Basic Form</h4>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
                                 <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>44</h3>
-                                        <span>Clients</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>37</h3>
-                                        <span>Tasks</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>218</h3>
-                                        <span>Employees</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Total Revenue</h3>
-                                            <div id="bar-charts"></div>
+                                    <form method="POST" action="{{ route('resolve.view', $dataz->id) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name" value="{{ $dataz->name }}"
+                                                readonly>
+
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Sales Overview</h3>
-                                            <div id="line-charts"></div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control" value="{{ $dataz->email }}"
+                                                readonly>
+
                                         </div>
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="subject" class="form-label">Subject</label>
+                                            <input type="email" class="form-control" value="{{ $dataz->subject }}"
+                                                readonly>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="priority" class="form-label">Priority</label>
+                                            <input type="text" class="form-control" value="{{ $dataz->priority }}"
+                                                readonly>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Status</label>
+                                            <select class="form-select" name="status">
+                                                <option value="open" {{ $dataz->status == 'open' ? 'selected' : '' }}>
+                                                    Open</option>
+                                                <option value="close" {{ $dataz->status == 'close' ? 'selected' : '' }}>
+                                                    Close</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="subject" class="form-label">Subject</label>
+                                            <input type="text" name="reply" class="form-control"
+                                                placeholder="Type your reply here..." required="">
+                                        </div>
+
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-primary">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
-
-
-
 
 
 
                 </div>
+
+
+
 
             </div>
 

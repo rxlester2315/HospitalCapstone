@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
     <head>
@@ -9,12 +8,9 @@
             content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
-        <title>Admin Dashboards</title>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+        <title>User Management</title>
 
-
-        <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
         <link rel="stylesheet" href="adminz/assets/css/bootstrap.min.css">
 
@@ -22,23 +18,15 @@
 
         <link rel="stylesheet" href="adminz/assets/css/line-awesome.min.css">
 
-        <link rel="stylesheet" href="adminz/assets/plugins/morris/morris.css">
+        <link rel="stylesheet" href="adminz/assets/css/dataTables.bootstrap4.min.css">
 
         <link rel="stylesheet" href="adminz/assets/css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
-        <script>
-        if (window.history && window.history.pushState) {
-            window.history.pushState(null, null, window.location.href);
-            window.onpopstate = function() {
-                window.history.pushState(null, null, window.location.href);
-            };
-        }
-        </script>
-
-
-
+        <!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
     </head>
 
     <body>
@@ -48,8 +36,8 @@
             <div class="header">
 
                 <div class="header-left">
-                    <a href="{{url(url('Admin'))}}" class="logo">
-                        <img src="adminz/assets/img/logo.jpg" width="70px" height="70px" alt="">
+                    <a href="{{ url('Admin') }}" class="logo">
+                        <img src="adminz/assets/img/logo.png" width="40" height="40" alt="">
                     </a>
                 </div>
 
@@ -62,12 +50,12 @@
                 </a>
 
                 <div class="page-title-box">
+                    <h3>Admin Dashboard</h3>
                 </div>
 
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
 
                 <ul class="nav user-menu">
-
 
 
 
@@ -186,13 +174,116 @@
 
 
                     <li class="nav-item dropdown">
-                        <a href="chat">
-                            <i class="fa fa-comment-o"></i> <span class="badge badge-pill">0</span>
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="fa fa-comment-o"></i> <span class="badge badge-pill">8</span>
                         </a>
                         <div class="dropdown-menu notifications">
-
-
-
+                            <div class="topnav-dropdown-header">
+                                <span class="notification-title">Messages</span>
+                                <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
+                            </div>
+                            <div class="noti-content">
+                                <ul class="notification-list">
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="adminz/assets/img/profiles/avatar-09.jpg">
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author">Richard Miles </span>
+                                                    <span class="message-time">12:28 AM</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit amet,
+                                                        consectetur
+                                                        adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="adminz/assets/img/profiles/avatar-02.jpg">
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author">John Doe</span>
+                                                    <span class="message-time">6 Mar</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit amet,
+                                                        consectetur
+                                                        adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="adminz/assets/img/profiles/avatar-03.jpg">
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author"> Tarah Shropshire </span>
+                                                    <span class="message-time">5 Mar</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit amet,
+                                                        consectetur
+                                                        adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="adminz/assets/img/profiles/avatar-05.jpg">
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author">Mike Litorus</span>
+                                                    <span class="message-time">3 Mar</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit amet,
+                                                        consectetur
+                                                        adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="adminz/assets/img/profiles/avatar-08.jpg">
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author"> Catherine Manseau </span>
+                                                    <span class="message-time">27 Feb</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit amet,
+                                                        consectetur
+                                                        adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="topnav-dropdown-footer">
+                                <a href="chat.html">View all Messages</a>
+                            </div>
                         </div>
                     </li>
 
@@ -205,7 +296,7 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="profile.html">My Profile</a>
                             <a class="dropdown-item" href="settings.html">Settings</a>
-                            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                            <a class="dropdown-item" href="login.html">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -217,7 +308,7 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="profile.html">My Profile</a>
                         <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                        <a class="dropdown-item" href="login.html">Logout</a>
                     </div>
                 </div>
 
@@ -241,25 +332,24 @@
 
 
 
-
-
-
-
-
-                            <li>
-                                <a href="{{url('tickets')}}"><i class="la la-cog"></i> <span>Ticket
-                                        Management</span></a>
-                            </li>
                             <li>
                                 <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
-                                        Management</span></a>
+                                        Login</span></a>
                             </li>
-
 
                             <li>
-                                <a href="{{url('products-list')}}"><i class="la la-cog"></i>
-                                    <span>Inventory</span></a>
+                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>Archived
+                                        User</span></a>
                             </li>
+
+                            <li>
+                                <a href="{{url('changepw_user')}}"><i class="la la-users"></i> <span>Account Reset
+                                        Password</span></a>
+                            </li>
+
+
+
+
 
 
 
@@ -273,118 +363,74 @@
             </div>
 
 
-            <div class="page-wrapper">
 
+
+            <div class="page-wrapper" style="min-height: 667px;">
                 <div class="content container-fluid">
 
-                    <div class="page-header">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <center>
-                                    <h1 style="font-size:40px;" class="page-title">Welcome Admin!</h1>
-
-                                </center>
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item active">Dashboard</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>112</h3>
-                                        <span>Projects</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>44</h3>
-                                        <span>Clients</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>37</h3>
-                                        <span>Tasks</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>218</h3>
-                                        <span>Employees</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Total Revenue</h3>
-                                            <div id="bar-charts"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Sales Overview</h3>
-                                            <div id="line-charts"></div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped custom-table mb-0 datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Description</th>
+                                            <th>Date Time</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach ($activityLog as $key => $item)
+
+                                        <tr>
+                                            <td>{{ ++$key }}</td>
+
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html" class="avatar"><img alt=""
+                                                            src="assets/img/profiles/avatar-25.jpg" /></a>
+                                                    <a>{{ $item->name }}
+                                                </h2>
+                                            </td>
+                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->description }}</td>
+                                            <td>{{ $item->date_time }}</td>
+
+
+
+
+                                        </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
 
-
-
-
-
-
                 </div>
-
             </div>
 
         </div>
 
 
-        <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script src="assets/js/jquery-3.5.1.min.js"></script>
+        <script src="adminz/assets/js/jquery-3.5.1.min.js"></script>
 
         <script src="adminz/assets/js/popper.min.js"></script>
         <script src="adminz/assets/js/bootstrap.min.js"></script>
 
         <script src="adminz/assets/js/jquery.slimscroll.min.js"></script>
 
-        <script src="adminz/assets/plugins/morris/morris.min.js"></script>
-        <script src="adminz/assets/plugins/raphael/raphael.min.js"></script>
-        <script src="adminz/assets/js/chart.js"></script>
+        <script src="adminz/assets/js/jquery.dataTables.min.js"></script>
+        <script src="adminz/assets/js/dataTables.bootstrap4.min.js"></script>
 
         <script src="adminz/assets/js/app.js"></script>
+
+        <div class="sidebar-overlay"></div>
     </body>
 
 </html>

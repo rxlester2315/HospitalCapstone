@@ -8,7 +8,7 @@
             content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
-        <title>Data Tables - HRMS admin template</title>
+        <title>User Management</title>
 
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -56,6 +56,7 @@
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
 
                 <ul class="nav user-menu">
+
 
 
 
@@ -328,11 +329,31 @@
 
 
 
+                            </li>
+
+
+
+
+
 
 
                             <li>
-                                <a href="{{url('users_manage')}}"><i class="la la-user-plus"></i> <span>Back</span></a>
+                                <a href="{{url('/userlog')}}"><i class="la la-users"></i> <span>User
+                                        Login</span></a>
                             </li>
+
+                            <li>
+                                <a href="{{route('list')}}"><i class="la la-users"></i> <span>Archived
+                                        User</span></a>
+                            </li>
+
+                            <li>
+                                <a href="{{url('/changepw_user')}}"><i class="la la-users"></i> <span>Account Reset
+                                        Password</span></a>
+                            </li>
+
+
+
 
 
 
@@ -347,38 +368,41 @@
             </div>
 
 
+
+
             <div class="page-wrapper" style="min-height: 667px;">
                 <div class="content container-fluid">
-
                     <div class="page-header">
                         <div class="row">
+
                             <div class="col">
-                                <h3 class="page-title">Data Tables</h3>
+                                <h3 class="page-title">Archived Table</h3>
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Data Tables</li>
+                                    <li class="breadcrumb-item active">Archived Tables</li>
                                 </ul>
                                 <br>
                                 <div>
-                                    <a href="{{url('/users_manage')}}">
-                                        <h3 class="btn btn-primary">Back</h3>
+                                    <a href="{{route('list')}}">
+                                        <h3 class="btn btn-primary">View Archives</h3>
                                     </a>
+                                    @if(session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                    @endif
+
+                                    @if(session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                    @endif
-
-                    @if(session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                    @endif
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card mb-0">
@@ -441,21 +465,23 @@
                                                         </thead>
                                                         <tbody>
 
-                                                            @foreach($deletedUsers as $archive)
+                                                            @foreach($data as $datas)
                                                             <tr>
-                                                                <td>{{$archive->id}}</td>
-                                                                <td>{{$archive->name}}</td>
-                                                                <td>{{$archive->email}}</td>
-                                                                <td>{{$archive->phone_number}}</td>
-                                                                <td>{{$archive->status}}</td>
-                                                                <td>{{$archive->role_name}}</td>
+                                                                <td>{{ $datas->id }}</td>
+                                                                <td>{{ $datas->name }}</td>
+                                                                <td>{{ $datas->email }}</td>
+                                                                <td>{{ $datas->phone_number }}</td>
+                                                                <td>{{ $datas->status }}</td>
+                                                                <td>{{ $datas->role_name }}</td>
                                                                 <td>
-                                                                    <form action="{{ route('restore', $archive->id) }}"
-                                                                        method="POST">
-                                                                        @csrf
-                                                                        <button type="submit"
-                                                                            class="btn btn-success">Restore</button>
-                                                                    </form>
+                                                                    <a href="{{ route('profiles', $datas->id) }}">
+                                                                        <button type="button"
+                                                                            class="btn btn-info">Edit</button>
+                                                                    </a>
+                                                                    <a href="{{ route('archives', $datas->id) }}">
+                                                                        <button type="button"
+                                                                            class="btn btn-danger">Archive</button>
+                                                                    </a>
                                                                 </td>
                                                             </tr>
                                                             @endforeach

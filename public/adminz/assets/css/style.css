@@ -70,8 +70,12 @@ html {
 body {
     font-family: circularstd, sans-serif;
     font-size: 0.9375rem;
-    color: #bbc4cc;
-    background-color: #23272b;
+    background: #388e3c; /* Dark green */
+    background: linear-gradient(0deg, #388e3c 0%, #000000 100%);
+    background: -webkit-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+    background: -moz-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+    color: #ffffff; /* White text */
+
     min-height: 100%;
     overflow-x: hidden;
 }
@@ -116,7 +120,7 @@ a:focus {
     outline: none;
 }
 .form-control {
-    background-color: #2e3439;
+    background-color: #392f2e;
     color: #bbc4cc;
     border-color: #2e3439;
     box-shadow: none;
@@ -1324,7 +1328,7 @@ table.dataTable thead > tr > td.sorting {
     color: #1f1f1f;
 }
 .header {
-    background: #16191c;
+    background: #001f33;
     border-bottom: 1px solid #2e3840;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
     height: 60px;
@@ -1333,6 +1337,7 @@ table.dataTable thead > tr > td.sorting {
     right: 0;
     top: 0;
     z-index: 1002;
+    color: black;
 }
 .header .header-left {
     float: left;
@@ -1485,7 +1490,7 @@ table.dataTable thead > tr > td.sorting {
     padding: 0;
 }
 .sidebar {
-    background-color: #16191c;
+    background: #001f33;
     border-right: 1px solid tranparent;
     bottom: 0;
     left: 0;
@@ -1503,6 +1508,7 @@ table.dataTable thead > tr > td.sorting {
 }
 .sidebar-inner {
     height: 100%;
+
     transition: all 0.2s ease-in-out 0s;
 }
 .sidebar-menu {
@@ -1516,7 +1522,7 @@ table.dataTable thead > tr > td.sorting {
     position: relative;
 }
 .sidebar-menu li a {
-    color: #8b94a1;
+    color: white;
     display: block;
     font-size: 15px;
     height: auto;
@@ -1755,7 +1761,8 @@ table.dataTable thead > tr > td.sorting {
     color: #bbc4cc;
 }
 .card {
-    background-color: #16191c;
+    background: #001f33;
+
     border: 1px solid #2e3840;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
@@ -1913,7 +1920,6 @@ table.dataTable thead > tr > td.sorting {
     color: #ff9b44;
 }
 .card-table .card-header {
-    background-color: transparent;
     border-bottom: 1px solid #2e3840;
     padding: 15px;
 }

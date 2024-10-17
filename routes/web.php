@@ -73,6 +73,39 @@ Route::put('/users_edit/{id}',[AdminController::class,'update_manage'])->name('s
 Route::get('/view_archives', [AdminController::class, 'listarch'])->name('list');
 Route::post('/view_archives/{id}', [AdminController::class, 'restoreUserById'])->name('restore');
 Route::get('/users_edits/{id}', [AdminController::class, 'archive'])->name('archives');
+Route::get('/tickets', [AdminController::class, 'ticketing'])->name('ticket.view');
+
+Route::post('/resolves{id}', [AdminController::class, 'resolve_tix'])->name('resolve.view');
+Route::get('/resolves{id})', [AdminController::class, 'resolve_form'])->name('show.ticketss');
+Route::post('/mail/{id}',[AdminController::class,'mail']);
+Route::get('/userlog',[AdminController::class,'user_logins']);
+Route::get('/changepw_user',[AdminController::class,'changepw']);
+Route::get('/changepw_userss/{id}',[AdminController::class,'updatepw'])->name('pass.change');
+Route::post('/changepw_pws/{id}',[AdminController::class,'updatepw_request'])->name('changepw.posts');
+
+
+
+
+Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::get('/products-list', [AdminController::class, 'index'])->name('product.edit.view');
+    Route::get('/products', [AdminController::class, 'create'])->name('Product.view');
+    Route::post('/products', [AdminController::class, 'prodStore'])->name('Product.store');
+    Route::get('/products/{product}/edit', [AdminController::class, 'edit'])->name('Product.edit');
+    Route::put('/products/{product}', [AdminController::class, 'update'])->name('Product.Update');
+    Route::delete('/delete/{id}', [AdminController::class, 'delete'])->name('Product.Delete');
+});
+
+
+
+
+
+
+
+
+
+  
+
+
 
 
 
@@ -100,16 +133,6 @@ Route::get('/admin/chat/{sessionId}/messages', [FrontDeskController::class, 'fet
 
 //Human Resources 
 
-Route::controller(HrController::class)->group(function(){
-    Route::get('/products','index')->name('Hr.products.index');
-    Route::get('Hr/products/create','create')->name('Hr.products.create');
-    Route::post('/products','prodStore')->name('Hr.products.store');
-    Route::get('/products/{product}/edit','edit')->name('Hr.products.edit');
-    Route::put('/products/{product}','update')->name('products.update');
-    Route::get('/products/viewlist','view_list')->name('products.viewlist');
-    Route::get('/delete/{id}','delete');
-
-});
 
   Route::get('/add_doctor_view',[HrController:: class,'addview']);
   Route::POST('/upload_doctor',[HrController:: class,'upload'])->name('adddoctor');
@@ -129,6 +152,8 @@ Route::delete('/canceled/{id}', [HrController::class, 'canceled'])->name('appoin
   Route::get('/leave-list',[HrController::class,'leavelist']);
   Route::get('/leave_approved/{id}',[HrController::class,'leave_approved']);
   Route::get('/leave_canceled/{id}',[HrController::class,'leave_canceled']);
+
+    Route::get('/products/viewlist',[HrController::class,'view_list'])->name('products.viewlist')->middleware(['auth','hr']);
 
 
 

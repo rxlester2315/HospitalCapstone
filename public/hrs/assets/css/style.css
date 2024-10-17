@@ -67,14 +67,16 @@
 html {
     height: 100%;
 }
+
 body {
     font-family: circularstd, sans-serif;
     font-size: 0.9375rem;
     color: white;
-    background-color: #ffffff; /* Fallback color */
-    background: linear-gradient(to bottom, #2ab0ff, #ffffff);
-    background: -webkit-linear-gradient(top, #2ab0ff, #ffffff);
-    background: -moz-linear-gradient(top, #2ab0ff, #ffffff);
+    background: #388e3c; /* Dark green */
+    background: linear-gradient(0deg, #388e3c 0%, #000000 100%);
+    background: -webkit-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+    background: -moz-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+    color: #ffffff; /* White text */
     min-height: 100%;
     background-attachment: fixed; /* Optional: makes the background fixed on scroll */
 

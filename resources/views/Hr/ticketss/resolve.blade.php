@@ -150,7 +150,7 @@
             <div class="header">
 
                 <div class="header-left">
-                    <a href="{{url(url('HR'))}}" class="logo">
+                    <a href="{{url(url('Admin'))}}" class="logo">
                         <img src="{{ asset('hrs/assets/img/logo.jpg')}}" width="70" height="70" alt="">
                     </a>
                 </div>
@@ -365,117 +365,60 @@
             </div>
 
 
+
             <div class="sidebar" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
-                            <li class="menu-title">
-                                <span>Main</span>
+
+
+
+
+
+
+
+
+
                             </li>
-                            <li class="submenu">
-                                <a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span
-                                        class="menu-arrow"></span></a>
-                                <!-- <ul style="display: none;">
-                                <li><a class="active" href="index.html">Admin Dashboard</a></li>
-                                <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
-                            </ul> -->
-                                <!-- </li>
-                        <li class="submenu">
-                            <a href="#"><i class="la la-cube"></i> <span> Apps</span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="chat.html">Chat</a></li>
-                                <li class="submenu">
-                                    <a href="#"><span> Calls</span> <span class="menu-arrow"></span></a>
-                                    <ul style="display: none;">
-                                        <li><a href="voice-call.html">Voice Call</a></li>
-                                        <li><a href="video-call.html">Video Call</a></li>
-                                        <li><a href="outgoing-call.html">Outgoing Call</a></li>
-                                        <li><a href="incoming-call.html">Incoming Call</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="events.html">Calendar</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
-                                <li><a href="inbox.html">Email</a></li>
-                                <li><a href="file-manager.html">File Manager</a></li>
-                            </ul>
-                        </li> -->
-                            <li class="menu-title">
-                                <span>Employees</span>
+                            <li>
+                                <a href="adminz/assets.html"><i class="la la-object-ungroup"></i>
+                                    <span>Assets</span></a>
                             </li>
-                            <li class="submenu">
-                                <a href="#" class="noti-dot"><i class="la la-user"></i> <span> Employees</span>
-                                    <span class="menu-arrow"></span></a>
-                                <ul style="display: none;">
 
-                                    <li><a href="{{url('/leave-list')}}">Leaves <span
-                                                class="badge badge-pill bg-primary float-right">1</span></a></li>
+                            <li>
+                                <a href="knowledgebase.html"><i class="la la-question"></i>
+                                    <span>Knowledgebase</span></a>
+                            </li>
+                            <li>
+                                <a href="activities.html"><i class="la la-bell"></i> <span>Activities</span></a>
+                            </li>
 
-
-
-
-                                    <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
-                                    <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-                                    <li><a href="departments.html">Departments</a></li>
-                                    <li><a href="timesheet.html">Timesheet</a></li>
-                                    <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
-
-                                </ul>
+                            <li>
+                                <a href="{{url('tickets')}}"><i class="la la-cog"></i> <span>Settings</span></a>
+                            </li>
+                            <li>
+                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
+                                        Management</span></a>
                             </li>
 
 
                             <li>
-                                <!-- <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a> -->
-                            </li>
-                            <!-- <li class="submenu">
-                            <a href="#"><i class="la la-rocket"></i> <span> Projects</span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="projects.html">Projects</a></li>
-                                <li><a href="tasks.html">Tasks</a></li>
-                                <li><a href="task-board.html">Task Board</a></li>
-                            </ul>
-                        </li> -->
-                            <li>
-                                <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i>
-                                    <span>Patient
-                                        Request</span></a>
-                            </li>
-                            <li>
-                                <a href="{{url('view_tickets')}}"><i class="la la-ticket"></i>
-                                    <span>Tickets</span></a>
-                            </li>
-                            <li class="menu-title">
-                                <span>HR</span>
-                            </li>
-                            <!-- <li class="submenu">
-                            <a href="#"><i class="la la-files-o"></i> <span> Sales </span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="estimates.html">Estimates</a></li>
-                                <li><a href="invoices.html">Invoices</a></li>
-                                <li><a href="payments.html">Payments</a></li>
-                                <li><a href="expenses.html">Expenses</a></li>
-                                <li><a href="provident-fund.html">Provident Fund</a></li>
-                                <li><a href="taxes.html">Taxes</a></li>
-                            </ul>
-                        </li> -->
-
-                            <li class="submenu">
-                                <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
-                                        class="menu-arrow"></span></a>
-                                <ul style="display: none;">
-                                    <li><a href="{{url('products/viewlist')}}">View List</a></li>
-                                    <li><a href="{{url('Hr/products/create')}}">Create</a></li>
-                                    <li><a href="{{url('products')}}">Edit</a></li>
-                                </ul>
+                                <a href="{{url('add_doc')}}"><i class="la la-user-plus"></i> <span>Add Health Care
+                                        Staff</span></a>
                             </li>
 
 
 
+
+
+
+                        </ul>
+                        </li>
+                        </ul>
                     </div>
                 </div>
             </div>
+
 
 
             <div class="page-wrapper">
@@ -554,7 +497,17 @@
 
         </div>
 
+        @if(Session::has('message'))
+        <script>
+        swal("Message", "{{Session::get('message')}}", 'success', {
+            button: true,
+            button: "Okay",
+            timer: 3000,
 
+
+        });
+        </script>
+        @endif
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
         </script>
         <script src="{{ asset('hrs/assets/js/jquery-3.5.1.min.js')}}"></script>

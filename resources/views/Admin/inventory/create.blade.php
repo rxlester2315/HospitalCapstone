@@ -10,9 +10,10 @@
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
         <title>Admin Dashboards</title>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
 
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/favicon.png">
 
@@ -67,7 +68,6 @@
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
 
                 <ul class="nav user-menu">
-
 
 
 
@@ -217,7 +217,7 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="profile.html">My Profile</a>
                         <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                        <a class="dropdown-item" href="login.html">Logout</a>
                     </div>
                 </div>
 
@@ -245,21 +245,16 @@
 
 
 
-
                             <li>
-                                <a href="{{url('tickets')}}"><i class="la la-cog"></i> <span>Ticket
-                                        Management</span></a>
+                                <a href="{{url('Admin')}}"><i class="la la-cog"></i> <span>Home</span></a>
                             </li>
                             <li>
-                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
-                                        Management</span></a>
+                                <a href="{{url('products-list')}}"><i class="la la-cog"></i> <span>Edit
+                                        Inventory</span></a>
                             </li>
 
 
-                            <li>
-                                <a href="{{url('products-list')}}"><i class="la la-cog"></i>
-                                    <span>Inventory</span></a>
-                            </li>
+
 
 
 
@@ -277,90 +272,65 @@
 
                 <div class="content container-fluid">
 
-                    <div class="page-header">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <center>
-                                    <h1 style="font-size:40px;" class="page-title">Welcome Admin!</h1>
 
-                                </center>
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item active">Dashboard</li>
-                                </ul>
+                    <div class="card-body">
+                        <form enctype="multipart/form-data" action="{{ route('Product.store') }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="" class="form-label h3">Product Name</label>
+                                <input value="{{ old('ProductName') }}" type="text"
+                                    class="@error('ProductName') is-invalid @enderror form-control-lg form-control"
+                                    placeholder="ProductName" name="ProductName">
+                                @error('ProductName')
+                                <p class="invalid-feedback">{{ $message }}</p>
+                                @enderror
                             </div>
-                        </div>
+
+                            <div class="form-group">
+                                <label for="status" class="form-label h3">Status</label>
+                                <select name="Status" id="status"
+                                    class="@error('Status') is-invalid @enderror form-control form-control-lg">
+                                    <option value="">Select Status</option>
+                                    <option value="Available" {{ old('Status') == 'Available' ? 'selected' : '' }}>
+                                        Available</option>
+                                    <option value="Low-stock" {{ old('Status') == 'Low-stock' ? 'selected' : '' }}>
+                                        Low-stock</option>
+                                </select>
+                                @error('Status')
+                                <p class="invalid-feedback">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="form-label h3">Unit Orders</label>
+                                <input value="{{ old('UnitOrders') }}" type="number"
+                                    class="@error('UnitOrders') is-invalid @enderror form-control form-control-lg"
+                                    placeholder="UnitOrders" name="UnitOrders">
+                                @error('UnitOrders')
+                                <p class="invalid-feedback">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="" class="form-label h3">Unit Stock</label>
+                                <input value="{{ old('UnitStock') }}" type="number"
+                                    class="@error('UnitStock') is-invalid @enderror form-control form-control-lg"
+                                    placeholder="UnitStock" name="UnitStock">
+                                @error('UnitStock')
+                                <p class="invalid-feedback">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="" class="form-label h3">Image</label>
+                                <input type="file" class="form-control form-control-lg" placeholder="Price"
+                                    name="imagez">
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>112</h3>
-                                        <span>Projects</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>44</h3>
-                                        <span>Clients</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>37</h3>
-                                        <span>Tasks</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>218</h3>
-                                        <span>Employees</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Total Revenue</h3>
-                                            <div id="bar-charts"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Sales Overview</h3>
-                                            <div id="line-charts"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
 
 
 
@@ -371,7 +341,17 @@
 
         </div>
 
+        @if(Session::has('message'))
+        <script>
+        swal("Message", "{{Session::get('message')}}", 'success', {
+            button: true,
+            button: "Okay",
+            timer: 3000,
 
+
+        });
+        </script>
+        @endif
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script src="assets/js/jquery-3.5.1.min.js"></script>
 

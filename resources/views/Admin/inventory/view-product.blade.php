@@ -10,9 +10,6 @@
         <meta name="author" content="Dreamguys - Bootstrap Admin Template">
         <meta name="robots" content="noindex, nofollow">
         <title>Admin Dashboards</title>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
 
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/favicon.png">
 
@@ -198,7 +195,7 @@
 
                     <li class="nav-item dropdown has-arrow main-drop">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="adminz/assets/img/profiles/adminimg.jpg" alt="">
+                            <span class="user-img"><img src="adminz/assets/img/profiles/avatar-21.jpg" alt="">
                                 <span class="status online"></span></span>
                             <span>Admin</span>
                         </a>
@@ -217,7 +214,7 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="profile.html">My Profile</a>
                         <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                        <a class="dropdown-item" href="login.html">Logout</a>
                     </div>
                 </div>
 
@@ -246,21 +243,14 @@
 
 
 
-                            <li>
-                                <a href="{{url('tickets')}}"><i class="la la-cog"></i> <span>Ticket
-                                        Management</span></a>
-                            </li>
-                            <li>
-                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
-                                        Management</span></a>
-                            </li>
+
+
 
 
                             <li>
-                                <a href="{{url('products-list')}}"><i class="la la-cog"></i>
-                                    <span>Inventory</span></a>
+                                <a href="{{url('create_products)}}"><i class="la la-cog"></i>
+                                    <span>Create</span></a>
                             </li>
-
 
 
 
@@ -277,90 +267,60 @@
 
                 <div class="content container-fluid">
 
-                    <div class="page-header">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <center>
-                                    <h1 style="font-size:40px;" class="page-title">Welcome Admin!</h1>
 
-                                </center>
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item active">Dashboard</li>
-                                </ul>
+                    <div class="col-md-10">
+                        <div class="card borde-0 shadow-lg my-4">
+                            <div class="card-header bg-dark">
+                                <h3 class="text-white">Products</h3>
                             </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th></th>
+                                        <th>Product Name</th>
+                                        <th>Status</th>
+                                        <th>Unit Orders</th>
+                                        <th>Unit Stock</th>
+                                        <th>Created at</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    @if ($products->isNotEmpty())
+                                    @foreach ($products as $product)
+                                    <tr>
+                                        <td>{{ $product->id }}</td>
+                                        <td>
+                                            @if ($product->imagez != "")
+                                            <img width="50" src="{{('uploads/products/'.$product->imagez) }}" alt="">
+                                            @endif
+                                        </td>
+                                        <td>{{ $product->ProductName }}</td>
+                                        <td>{{ $product->Status }}</td>
+                                        <td>{{ $product->UnitOrders }}</td>
+                                        <td>{{ $product->UnitStock }}</td>
+
+                                        <td>{{ \Carbon\Carbon::parse($product->created_at)->format('d M, Y') }}</td>
+                                        <td>
+                                            <a href="{{ route('Hr.products.edit',$product->id) }}"
+                                                class="btn btn-dark">Edit</a>
+                                            <a onclick="confirmation(event)" class="btn btn-danger"
+                                                href="{{url('delete',$product->id)}}">Delete</a>
+
+
+
+
+                                        </td>
+
+                                    </tr>
+                                    @endforeach
+
+                                    @endif
+
+                                </table>
+                            </div>
+
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>112</h3>
-                                        <span>Projects</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>44</h3>
-                                        <span>Clients</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>37</h3>
-                                        <span>Tasks</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>218</h3>
-                                        <span>Employees</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Total Revenue</h3>
-                                            <div id="bar-charts"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Sales Overview</h3>
-                                            <div id="line-charts"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
 
 
 
