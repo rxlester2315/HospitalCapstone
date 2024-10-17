@@ -8,7 +8,7 @@
         <meta name="robots" content="noindex, nofollow">
         <title>Human Resources Dashboard</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('hrs/assets/img/logo.jpg')}}" />
 
         <link rel="stylesheet" href="hrs/assets/css/bootstrap.min.css">
 

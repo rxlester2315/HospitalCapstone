@@ -1,330 +1,577 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>Comcare Front Desk</title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="fdesk/assets/css/bootstrap.css">
-<title>Front Desk Dashboard</title>
-    <link rel="stylesheet" href="fdesk/assets/vendors/iconly/bold.css">
 
-    <link rel="stylesheet" href="fdesk/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="fdesk/assets/vendors/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="fdesk/assets/css/app.css">
-    <link rel="shortcut icon" href="fdesk/assets/images/favicon.svg" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('fdesk/assets/img/logo.jpg')}}" />
 
-    <script>
-    if (window.history && window.history.pushState) {
-        window.history.pushState(null, null, window.location.href);
-        window.onpopstate = function() {
-            window.history.pushState(null, null, window.location.href);
-        };
-    }
-    </script>
-</head>
+        <link rel="stylesheet" href="fdesk/assets/css/bootstrap.min.css" />
 
-<body>
-    <div id="app">
-        <div id="sidebar" class="active">
-            <div class="sidebar-wrapper active">
-                <div class="sidebar-header">
-                    <div class="d-flex justify-content-between">
-                        <div class="logo">
-                        </div>
-                        <div class="toggler">
-                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
-                        </div>
-                    </div>
+        <link rel="stylesheet" href="fdesk/assets/css/font-awesome.min.css" />
+
+        <link rel="stylesheet" href="fdesk/assets/css/line-awesome.min.css" />
+
+        <link rel="stylesheet" href="fdesk/assets/plugins/morris/morris.css" />
+
+        <link rel="stylesheet" href="fdesk/assets/css/style.css" />
+
+        <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="main-wrapper">
+            <div class="header">
+                <div class="header-left">
+                    <a href="index.html" class="logo">
+                        <img src="{{asset('fdesk/assets/img/logo.jpg')}}" width="80px" height="70px" alt="" />
+                    </a>
                 </div>
-                <div class="sidebar-menu">
-                    <ul class="menu">
-                        <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item active ">
-                            <a href="{{url('Front')}}" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-
-
-
-
-
-
-                        <li class="sidebar-item active ">
-                            <a href="{{route('chatat')}}" class="sidebar-link">
-                                <i class="bi bi-chat-dots-fill"></i>
-                                <span>Live Chat</span>
-                            </a>
-                        </li>
-
-
-                        <li class="sidebar-item  ">
-                            <a href="{{route('ticket')}}" target=" _blank" class="sidebar-link">
-                                <i class="bi bi-telephone-fill"></i>
-                                <span>Send Ticket</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-title">Forms &amp; Tables</li>
-
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-hexagon-fill"></i>
-                                <span>Patients</span>
-                            </a>
-                            <ul class="submenu ">
-
-
-
-                                <li class="submenu-item ">
-                                    <a href="{{url('patient_list')}}">List Patient</a>
-                                </li>
-                                <li class="submenu-item">
-                                    <a href="{{ route('appointments') }}">Schedule Today</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="{{url('patient_appointment')}}">Record of Appointment</a>
-                                </li>
-                            </ul>
-                        </li>
-
-
-
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-pen-fill"></i>
-                                <span>Visit Registration</span>
-                            </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
-                                    <a href="{{route('unverified')}}">Unverified Patient</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="{{route('verifieduser')}}">Verified Patients</a>
-                                </li>
-
-                                <li class="submenu-item ">
-                                    <a href="{{route('archived')}}">Archived Patients</a>
-                                </li>
-
-                                <li class="submenu-item ">
-                                    <a href="{{url('unverified-list')}}">Request Verified Patient</a>
-                                </li>
-                            </ul>
-                        </li>
-
-
-                        <li class="sidebar-item">
-                            <a href="{{ route('logout') }}" class="sidebar-link">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Log Out</span>
-                            </a>
-                        </li>
-
-
-
-
-
-
-                    </ul>
-
-                </div>
-                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
-            </div>
-        </div>
-        <div id="main">
-            <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
-                    <i class="bi bi-justify fs-3"></i>
+                <a id="toggle_btn" href="javascript:void(0);">
+                    <span class="bar-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
                 </a>
-            </header>
 
-            <div class="page-heading">
-                <h3>Profile Statistics</h3>
-            </div>
-            <div class="page-content">
-                <section class="row">
-                    <div class="col-12 col-lg-9">
-                        <div class="row">
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon purple">
-                                                    <i class="iconly-boldShow"></i>
+                <div class="page-title-box">
+                    <h3>Front Desk Dashboard</h3>
+                </div>
+
+                <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
+
+                <ul class="nav user-menu">
+
+
+
+                    <li class="nav-item dropdown">
+
+                        <div class="dropdown-menu notifications">
+                            <div class="topnav-dropdown-header">
+                                <span class="notification-title">Notifications</span>
+                                <a href="javascript:void(0)" class="clear-noti">
+                                    Clear All
+                                </a>
+                            </div>
+                            <div class="noti-content">
+                                <ul class="notification-list">
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">
+                                                    <img alt="" src="assets/img/profiles/avatar-02.jpg" />
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details">
+                                                        <span class="noti-title">John Doe</span>
+                                                        added new task
+                                                        <span class="noti-title">Patient appointment
+                                                            booking</span>
+                                                    </p>
+                                                    <p class="noti-time">
+                                                        <span class="notification-time">4 mins ago</span>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Profile Views</h6>
-                                                <h6 class="font-extrabold mb-0">112.000</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon blue">
-                                                    <i class="iconly-boldProfile"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Followers</h6>
-                                                <h6 class="font-extrabold mb-0">183.000</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon green">
-                                                    <i class="iconly-boldAdd-User"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Following</h6>
-                                                <h6 class="font-extrabold mb-0">80.000</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-3 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="stats-icon red">
-                                                    <i class="iconly-boldBookmark"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Saved Post</h6>
-                                                <h6 class="font-extrabold mb-0">112</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Profile Visit</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="chart-profile-visit"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                    </div>
-                    <div class="col-12 col-lg-3">
-                        <div class="card">
-                            <div class="card-body py-4 px-5">
-                                <div class="d-flex align-items-center">
-                                    <div class="avatar avatar-xl">
-                                        <img src="fdesk/assets/images/faces/1.jpg" alt="Face 1">
-                                    </div>
-                                    <div class="ms-3 name">
-                                        <a href="chat">
-                                            <i class="bi bi-envelope-fill"></i>
                                         </a>
-
-                                        <h5 class="font-bold">Front-Desk</h5>
-                                        <h6 class="text-muted mb-0">@FrontDesk@gmail.com</h6>
-
-                                    </div>
-
-                                </div>
-
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">
+                                                    <img alt="" src="assets/img/profiles/avatar-03.jpg" />
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details">
+                                                        <span class="noti-title">Tarah
+                                                            Shropshire</span>
+                                                        changed the task name
+                                                        <span class="noti-title">Appointment booking
+                                                            with payment
+                                                            gateway</span>
+                                                    </p>
+                                                    <p class="noti-time">
+                                                        <span class="notification-time">6 mins ago</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">
+                                                    <img alt="" src="assets/img/profiles/avatar-06.jpg" />
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details">
+                                                        <span class="noti-title">Misty Tison</span>
+                                                        added
+                                                        <span class="noti-title">Domenic
+                                                            Houston</span>
+                                                        and
+                                                        <span class="noti-title">Claire Mapes</span>
+                                                        to project
+                                                        <span class="noti-title">Doctor available
+                                                            module</span>
+                                                    </p>
+                                                    <p class="noti-time">
+                                                        <span class="notification-time">8 mins ago</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">
+                                                    <img alt="" src="assets/img/profiles/avatar-17.jpg" />
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details">
+                                                        <span class="noti-title">Rolland
+                                                            Webber</span>
+                                                        completed task
+                                                        <span class="noti-title">Patient and Doctor
+                                                            video
+                                                            conferencing</span>
+                                                    </p>
+                                                    <p class="noti-time">
+                                                        <span class="notification-time">12 mins ago</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">
+                                                    <img alt="" src="assets/img/profiles/avatar-13.jpg" />
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details">
+                                                        <span class="noti-title">Bernardo
+                                                            Galaviz</span>
+                                                        added new task
+                                                        <span class="noti-title">Private chat
+                                                            module</span>
+                                                    </p>
+                                                    <p class="noti-time">
+                                                        <span class="notification-time">2 days ago</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="topnav-dropdown-footer">
+                                <a href="activities.html">View all Notifications</a>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Recent Messages</h4>
-                            </div>
-                            <div class="card-content pb-4">
-                                <div class="recent-message d-flex px-4 py-3">
-                                    <div class="avatar avatar-lg">
-                                        <img src="fdesk/assets/images/faces/4.jpg">
-                                    </div>
-                                    <div class="name ms-4">
-                                        <h5 class="mb-1">Hank Schrader</h5>
-                                        <h6 class="text-muted mb-0">@johnducky</h6>
-                                    </div>
-                                </div>
-                                <div class="recent-message d-flex px-4 py-3">
-                                    <div class="avatar avatar-lg">
-                                        <img src="fdesk/assets/images/faces/5.jpg">
-                                    </div>
-                                    <div class="name ms-4">
-                                        <h5 class="mb-1">Dean Winchester</h5>
-                                        <h6 class="text-muted mb-0">@imdean</h6>
-                                    </div>
-                                </div>
-                                <div class="recent-message d-flex px-4 py-3">
-                                    <div class="avatar avatar-lg">
-                                        <img src="fdesk/assets/images/faces/1.jpg">
-                                    </div>
-                                    <div class="name ms-4">
-                                        <h5 class="mb-1">John Dodol</h5>
-                                        <h6 class="text-muted mb-0">@dodoljohn</h6>
-                                    </div>
-                                </div>
-                                <div class="px-4">
-                                    <button class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>Start
-                                        Conversation</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Visitors Profile</h4>
-                            </div>
-                            <div class="card-body">
-                                <div id="chart-visitors-profile"></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+                    </li>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">A. Saugi</a></p>
+                    <li class="nav-item dropdown">
+                        <a href="chat" class="dropdown-toggle nav-link" data-toggle="">
+                            <i class="fa fa-comment-o"></i>
+
+                        </a>
+                        <div class="dropdown-menu notifications">
+                            <div class="topnav-dropdown-header">
+                                <span class="notification-title">Messages</span>
+                                <a href="javascript:void(0)" class="clear-noti">
+                                    Clear All
+                                </a>
+                            </div>
+                            <div class="noti-content">
+                                <ul class="notification-list">
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="assets/img/profiles/avatar-09.jpg" />
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author">Richard Miles
+                                                    </span>
+                                                    <span class="message-time">12:28 AM</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit
+                                                        amet, consectetur
+                                                        adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="assets/img/profiles/avatar-02.jpg" />
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author">John Doe</span>
+                                                    <span class="message-time">6 Mar</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit
+                                                        amet, consectetur
+                                                        adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="assets/img/profiles/avatar-03.jpg" />
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author">
+                                                        Tarah Shropshire
+                                                    </span>
+                                                    <span class="message-time">5 Mar</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit
+                                                        amet, consectetur
+                                                        adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="assets/img/profiles/avatar-05.jpg" />
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author">Mike Litorus</span>
+                                                    <span class="message-time">3 Mar</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit
+                                                        amet, consectetur
+                                                        adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="assets/img/profiles/avatar-08.jpg" />
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author">
+                                                        Catherine Manseau
+                                                    </span>
+                                                    <span class="message-time">27 Feb</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit
+                                                        amet, consectetur
+                                                        adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="topnav-dropdown-footer">
+                                <a href="chat.html">View all Messages</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown has-arrow main-drop">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <span class="user-img"><img src="fdesk/assets/img/profiles/front.jpg" alt="" />
+                                <span class="status online"></span></span>
+                            <span>Admin</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="profile.html">My Profile</a>
+                            <a class="dropdown-item" href="settings.html">Settings</a>
+                            <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="dropdown mobile-user-menu">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                            class="fa fa-ellipsis-v"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="profile.html">My Profile</a>
+                        <a class="dropdown-item" href="settings.html">Settings</a>
+                        <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
                     </div>
                 </div>
-            </footer>
+            </div>
+
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-inner slimscroll">
+                    <div id="sidebar-menu" class="sidebar-menu">
+                        <ul>
+                            <li class="menu-title">
+                                <span>Patients</span>
+                            </li>
+
+
+
+                            <li>
+                                <a href="{{route('chatat')}}"><i class="la la-users"></i>
+                                    <span>Live Chat</span></a>
+                            </li>
+
+
+
+                            <li>
+                                <a href="{{url('patient_list')}}"><i class="fa-solid fa-users-between-lines"></i></i>
+                                    <span>Patient Accounts</span></a>
+                            </li>
+
+                            <li><a href="{{ route('appointments') }}"><i class="la la-bullhorn"></i> <span>Today
+                                        Appointment</span></a></li>
+
+
+                            <li><a href="{{url('patient_appointment')}}"><i class="fa-solid fa-user-group"></i>
+                                    <span>Record of Appointment</span></a></li>
+
+                            <li class="menu-title">
+                                <span>Accounts</span>
+                            </li>
+
+                            <li><a href="{{route('unverified')}}"><i class="fa-regular fa-user"></i>
+                                    <span>Unverified Accounts</span></a></li>
+                            <li class="menu-title">
+                            <li><a href="{{route('verifieduser')}}"> <i class="fa-solid fa-check"></i>
+
+                                    <span>Verified Accounts</span></a></li>
+                            <li>
+                                <a href="{{url('unverified-list')}}"><i class="fa-solid fa-user-minus"></i>
+                                    <span>Request Verification </span></a>
+                            </li>
+                            <li class="menu-title">
+                                <span>Disable Account</span>
+                            </li>
+
+                            <li>
+                                <a href="{{route('archived')}}"><i class="fa-solid fa-trash"></i>
+                                    <span>Archived Accounts </span></a>
+                            </li>
+                            <li>
+                                <a href="{{route('ticket')}}" target=" _blank"><i class="fa-solid fa-ticket"></i>
+                                    <span>Send Ticket </span></a>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-wrapper">
+                <div class="content container-fluid">
+                    <div class="page-header">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <center>
+
+                                    <h3 class="page-title" style="color:white; font-size:40px;">Welcome Front Desk!</h3>
+                                    <ul class="breadcrumb">
+
+                                    </ul>
+                                </center>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                            <div class="card dash-widget">
+                                <div class="card-body">
+                                    <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
+                                    <div class="dash-widget-info">
+                                        <h3>{{$listguest}}</h3>
+                                        <span>New Patient Register </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                            <div class="card dash-widget">
+                                <div class="card-body">
+                                    <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
+                                    <div class="dash-widget-info">
+                                        <h3>{{$noappoint}}</h3>
+                                        <span>Appointment Request</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                            <div class="card dash-widget">
+                                <div class="card-body">
+                                    <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
+                                    <div class="dash-widget-info">
+                                        <h3>{{$approveappoint}}</h3>
+                                        <span>Approve Appointment</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                            <div class="card dash-widget">
+                                <div class="card-body">
+                                    <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
+                                    <div class="dash-widget-info">
+                                        <h3>{{$activeUser}}</h3>
+                                        <span>Disable Account</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-flex">
+                            <div class="card card-table flex-fill">
+                                <div class="card-header">
+                                    <h3 class="card-title mb-0">Patients Request Verified</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-nowrap custom-table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Created</th>
+                                                    <th>Request Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($listguestss as $new)
+                                                <tr>
+                                                    <td>
+                                                        <a href="invoice-view.html">{{$new->id}}</a>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge badge-info">{{$new->name}}</span>
+                                                    </td>
+                                                    <td>{{$new->created_at}}</td>
+                                                    <td>{{$new->updated_at}}</td>
+                                                    <td>
+                                                        <span class="badge badge-danger">
+                                                            {{$new->status}}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-flex">
+                            <div class="card card-table flex-fill">
+                                <div class="card-header">
+                                    <h3 class="card-title mb-0">Patients Verified</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-nowrap custom-table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Doctor</th>
+                                                    <th>Appointment Date</th>
+                                                    <th>Created Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($pending as $pend)
+                                                <tr>
+                                                    <td>
+                                                        <a href="invoice-view.html">{{$pend->id}}</a>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge badge-info">{{$pend->name}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge badge-info">{{$pend->employees}}</span>
+                                                    </td>
+                                                    <td>{{$pend->date}}</td>
+                                                    <td>{{$pend->created_at}}</td>
+                                                    <td>
+                                                        <span class="badge badge-warning">
+                                                            {{$pend->status}}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
         </div>
-    </div>
-    <script src="fdesk/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="fdesk/assets/js/bootstrap.bundle.min.js"></script>
+        </div>
 
-    <script src="fdesk/assets/vendors/apexcharts/apexcharts.js"></script>
-    <script src="fdesk/assets/js/pages/dashboard.js"></script>
+        <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script src="fdesk/assets/js/jquery-3.5.1.min.js"></script>
 
-    <script src="fdesk/assets/js/main.js"></script>
-</body>
+        <script src="fdesk/assets/js/popper.min.js"></script>
+        <script src="fdesk/assets/js/bootstrap.min.js"></script>
+
+        <script src="fdesk/assets/js/jquery.slimscroll.min.js"></script>
+
+        <script src="fdesk/assets/plugins/morris/morris.min.js"></script>
+        <script src="fdesk/assets/plugins/raphael/raphael.min.js"></script>
+        <script src="fdesk/assets/js/chart.js"></script>
+
+        <script src="fdesk/assets/js/app.js"></script>
+    </body>
 
 </html>

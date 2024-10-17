@@ -257,10 +257,21 @@ public function hruser()
     }
 
 
-    public function frontdeskview(){
+  public function frontdeskview() {
+    $listguest = User::where('role_name', 'Guests')->count();
+    $noappoint = Appointments::all()->count();
+    $approveappoint = Appointments::where('status', 'Approved')->count();
+    $activeUser = User::where('status', 'Active')->count();
 
-        return view('Front-desk.home');
-    }
+        $listguestss = User::where('role_name', 'Guests')->get();
+        $pending = Appointments::where('status', 'Pending')->get();
+
+
+
+ 
+
+    return view('Front-desk.home', compact('listguest', 'noappoint', 'approveappoint', 'activeUser','listguestss','pending'));
+}
 
 
 
