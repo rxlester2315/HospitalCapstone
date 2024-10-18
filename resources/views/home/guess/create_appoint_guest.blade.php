@@ -273,8 +273,8 @@
 
                         <!-- Contact Number -->
                         <div class="col-md-6 mb-3">
-                            <input type="text" class="form-control" id="phone_input" name="number"
-                                placeholder="Contact No." maxlength="11" required>
+                            <input type="number" class="form-control" id="phone_input" name="number"
+                                placeholder="Contact No." required max="99999999999" />
                             <div class="form-check mt-2">
                                 <input class="form-check-input" type="checkbox" id="fill_phone" />
                                 <label class="form-check-label" for="fill_phone">
@@ -282,6 +282,7 @@
                                 </label>
                             </div>
                         </div>
+
                     </div>
 
                     <div class="row">
@@ -426,7 +427,15 @@
 
 
 
+            <script>
+            const phoneInput = document.getElementById('phone_input');
 
+            phoneInput.addEventListener('input', function(e) {
+                if (this.value.length > 11) {
+                    this.value = this.value.slice(0, 11); // Limit to 11 characters
+                }
+            });
+            </script>
 
 
 

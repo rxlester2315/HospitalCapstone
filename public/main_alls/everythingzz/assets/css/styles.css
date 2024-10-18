@@ -3308,3 +3308,99 @@ table.dataTable thead td {
         padding: 10px;
     }
 }
+
+.cardboxzz {
+    border: 3px solid black;
+    display: inline-block;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px;
+    background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+}
+
+.container-display {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    height: 50vh; /* Full viewport height */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.cardboxzz ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap; /* Wrap items in the list */
+}
+
+.cardboxzz li {
+    padding: 30px;
+    font-size: 60px;
+    border: 6px solid black;
+    margin: 40px;
+    border-radius: 12px;
+    box-shadow: 16px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.cardboxzz li:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.cardboxzz h3 {
+    text-align: center;
+    font-size: 50px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .cardboxzz li {
+        font-size: 50px;
+        margin: 15px; /* Reduce margin for medium screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .cardboxzz li {
+        font-size: 45px;
+        padding: 25px; /* Adjust padding */
+        margin: 10px; /* Adjust margin */
+    }
+}
+
+@media (max-width: 768px) {
+    .cardboxzz li {
+        font-size: 40px; /* Smaller font for smaller screens */
+        padding: 20px; /* Adjust padding */
+        margin: 8px; /* Adjust margin */
+    }
+
+    .cardboxzz h3 {
+        font-size: 35px; /* Adjust heading size */
+    }
+}
+
+@media (max-width: 576px) {
+    .cardboxzz li {
+        font-size: 30px; /* Further reduce font size */
+        padding: 15px; /* Further adjust padding */
+        margin: 5px; /* Adjust margin */
+    }
+
+    .cardboxzz h3 {
+        font-size: 28px; /* Smaller heading size */
+    }
+}
+
+@media (max-width: 400px) {
+    .cardboxzz li {
+        font-size: 24px; /* Smallest font size */
+        padding: 10px; /* Minimal padding */
+        margin: 5px; /* Minimal margin */
+    }
+
+    .cardboxzz h3 {
+        font-size: 22px; /* Smaller heading size */
+    }
+}
