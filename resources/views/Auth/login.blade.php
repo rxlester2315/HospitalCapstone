@@ -43,6 +43,14 @@
                         <br>
                         <form method="POST" action="{{ route('login') }}" class="md-float-material">
                             @csrf
+
+                            @if (session('wrong'))
+                            <div class="alert alert-light-danger color-danger" role="alert"><i
+                                    class="bi bi-exclamation-circle"></i>
+                                {{ session('wrong') }}
+                            </div>
+                            @endif
+
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text"
                                     class="form-control form-control-lg @error('email') is-invalid @enderror"
@@ -56,6 +64,7 @@
                                 </span>
                                 @enderror
                             </div>
+
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="password"
                                     class="form-control form-control-lg @error('password') is-invalid @enderror"
@@ -72,6 +81,8 @@
 
                             <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
                         </form>
+
+
                         <div class="text-center mt-5 text-lg fs-4">
                             <p class="text-gray-600">Don't have an account? <a href="{{url('guessaccount')}}"
                                     class="font-bold">Sign

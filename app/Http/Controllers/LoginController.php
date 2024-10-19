@@ -102,8 +102,7 @@ class LoginController extends Controller
    
         
         else{
-            Toastr::error('fail, WRONG USERNAME OR PASSWORD :)','Error');
-            return redirect('login');
+           return redirect('login')->with('wrong','Invalid Password or Email Please double check');
         }
         
 
