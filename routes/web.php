@@ -21,10 +21,6 @@ use App\Events\GuessMessage;
 
 
 
-Route::get('/', function () {
-    return view('landingview');
-});
-
 
 Route::get('/unreadcount',function(){
     $count=auth()->user()->getMessageCount();
