@@ -429,7 +429,7 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">Basic Form</h4>
+                                    <h4 class="card-title mb-0">Ticketing Form</h4>
                                 </div>
                                 <div class="card-body">
                                     <form method="POST" action="{{ route('Hr.tickets.resolve.update', $dataz->id) }}">
@@ -458,6 +458,12 @@
                                             <input type="text" class="form-control" value="{{ $dataz->priority }}"
                                                 readonly>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="description" class="form-label">Description</label>
+                                            <textarea name="description" class="form-control"
+                                                readonly>{{ $dataz->description }}</textarea>
+                                        </div>
+
                                         <div class="mb-3">
                                             <label class="form-label">Status</label>
                                             <select class="form-select" name="status">

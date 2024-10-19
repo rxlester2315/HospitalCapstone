@@ -4,19 +4,22 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>Tickets</title>
 
+        <title>Admin Dashboards</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/logo.jpg">
 
-        <link rel="stylesheet" href="{{asset('adminz/assets/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="adminz/assets/css/bootstrap.min.css">
 
-        <link rel="stylesheet" href="{{asset('adminz/assets/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="adminz/assets/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="{{asset('adminz/assets/css/line-awesome.min.css')}}">
+        <link rel="stylesheet" href="adminz/assets/css/line-awesome.min.css">
 
-        <link rel="stylesheet" href="{{asset('adminz/assets/plugins/morris/morris.css')}}">
+        <link rel="stylesheet" href="adminz/assets/plugins/morris/morris.css">
 
-        <link rel="stylesheet" href="{{asset('adminz/assets/css/style.css')}}">
+        <link rel="stylesheet" href="adminz/assets/css/style.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
             integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
@@ -43,8 +46,8 @@
             <div class="header">
 
                 <div class="header-left">
-                    <a href="{{url(url('Admin'))}}" class="logo">
-                        <img src="{{asset('adminz/assets/img/logo.jpg')}}" width="70px" height="70px" alt="">
+                    <a href="{{url('Admin')}}" class="logo">
+                        <img src="adminz/assets/img/logo.jpg" width="70px" height="70px" alt="">
                     </a>
                 </div>
 
@@ -81,8 +84,7 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt=""
-                                                        src="{{asset('adminz/assets/img/profiles/avatar-02.jpg')}}">
+                                                    <img alt="" src="adminz/assets/img/profiles/avatar-02.jpg">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">John Doe</span>
@@ -101,8 +103,7 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt=""
-                                                        src="{{asset('adminz/assets/img/profiles/avatar-03.jpg')}}">
+                                                    <img alt="" src="adminz/assets/img/profiles/avatar-03.jpg">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Tarah
@@ -121,8 +122,7 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt=""
-                                                        src="{{asset('adminz/assets/img/profiles/avatar-06.jpg')}}">
+                                                    <img alt="" src="adminz/assets/img/profiles/avatar-06.jpg">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Misty Tison</span>
@@ -140,8 +140,7 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt=""
-                                                        src="{{asset('adminz/assets/img/profiles/avatar-17.jpg')}}">
+                                                    <img alt="" src="adminz/assets/img/profiles/avatar-17.jpg">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Rolland
@@ -159,8 +158,7 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt=""
-                                                        src="{{asset('adminz/assets/img/profiles/avatar-13.jpg')}}">
+                                                    <img alt="" src="adminz/assets/img/profiles/avatar-13.jpg">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Bernardo
@@ -197,8 +195,7 @@
 
                     <li class="nav-item dropdown has-arrow main-drop">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="{{asset('adminz/assets/img/profiles/adminimg.jpg')}}"
-                                    alt="">
+                            <span class="user-img"><img src="adminz/assets/img/profiles/adminimg.jpg" alt="">
                                 <span class="status online"></span></span>
                             <span>Admin</span>
                         </a>
@@ -224,7 +221,6 @@
             </div>
 
 
-
             <div class="sidebar" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
@@ -240,30 +236,18 @@
 
                             </li>
                             <li>
-                                <a href="{{asset('adminz/assets.html')}}"><i class="la la-object-ungroup"></i>
-                                    <span>Assets</span></a>
+                                <a href="{{url('Admin')}}"><i class="fa-solid fa-house"></i>
+                                    <span>Home</span></a>
                             </li>
 
                             <li>
-                                <a href="knowledgebase.html"><i class="la la-question"></i>
-                                    <span>Knowledgebase</span></a>
-                            </li>
-                            <li>
-                                <a href="activities.html"><i class="la la-bell"></i> <span>Activities</span></a>
+                                <a href="{{url('closetickets')}}"><i class="fa-solid fa-closed-captioning"></i>
+                                    <span>List Close Ticket</span></a>
                             </li>
 
                             <li>
-                                <a href="{{url('tickets')}}"><i class="la la-cog"></i> <span>Settings</span></a>
-                            </li>
-                            <li>
-                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
-                                        Management</span></a>
-                            </li>
-
-
-                            <li>
-                                <a href="{{url('add_doc')}}"><i class="la la-user-plus"></i> <span>Add Health Care
-                                        Staff</span></a>
+                                <a href="{{url('solvedtickets')}}"><i class="fa-solid fa-check-to-slot"></i>
+                                    <span>List Solved Ticket</span></a>
                             </li>
 
 
@@ -282,115 +266,79 @@
             <div class="page-wrapper">
                 <div class="content container-fluid">
 
+
+
+
                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped custom-table mb-0 datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>Ticket Number</th>
+                                            <th>Name</th>
+                                            <th>Date</th>
+                                            <th>Subject</th>
+                                            <th>Status</th>
+                                            <th>Description</th>
 
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title mb-0">Ticketing Form</h4>
-                                </div>
-                                <div class="card-body">
-                                    <form method="POST" action="{{ route('resolve.view', $dataz->id) }}">
-                                        @csrf
-                                        @method('PUT')
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" value="{{ $dataz->name }}"
-                                                readonly>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" class="form-control" value="{{ $dataz->email }}"
-                                                readonly>
+                                        @foreach($numcsolve as $solved)
 
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="subject" class="form-label">Subject</label>
-                                            <input type="email" class="form-control" value="{{ $dataz->subject }}"
-                                                readonly>
+                                        <tr>
+                                            <td><span class="badge badge-success">{{$solved->ticket_number}}</span></td>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html" class="avatar"><img alt=""
+                                                            src="assets/img/profiles/avatar-02.jpg" /></a>
+                                                    <a href="profile.html">{{$solved->name}}
 
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="priority" class="form-label">Priority</label>
-                                            <input type="text" class="form-control" value="{{ $dataz->priority }}"
-                                                readonly>
-                                        </div>
+                                                </h2>
+                                            </td>
+                                            <td>{{$solved->updated_at}}</td>
+                                            <td>
+                                                <h2>{{$solved->subject}}</h2>
+                                            </td>
+                                            <td><span class="badge badge-success">{{$solved->status}}</span></td>
+                                            <td> {{$solved->description}}
+                                            </td>
 
-                                        <div class="form-group">
-                                            <label for="description" class="form-label">Description</label>
-                                            <textarea name="description" class="form-control"
-                                                readonly>{{ $dataz->description }}</textarea>
-                                        </div>
-
-                                        <label class="form-label">Status</label>
-
-                                        <div class="mb-3">
-                                            <select style="width:250px; height:30px;" class="form-select" name="status">
-                                                <option value="open" {{ $dataz->status == 'open' ? 'selected' : '' }}>
-                                                    Open</option>
-                                                <option value="close" {{ $dataz->status == 'close' ? 'selected' : '' }}>
-                                                    Close</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="subject" class="form-label">Subject</label>
-                                            <input type="text" name="reply" class="form-control"
-                                                placeholder="Type your reply here..." required="">
-                                        </div>
-
-                                        <div class="text-right">
-                                            <button type="submit" class="btn btn-primary">
-                                                Submit
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-
-
                     </div>
+
+
 
 
 
                 </div>
 
-
-
-
             </div>
 
-        </div>
 
 
-        @if(Session::has('message'))
-        <script>
-        swal("Message", "{{Session::get('message')}}", 'success', {
-            button: true,
-            button: "Okay",
-            timer: 3000,
 
+            <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+            </script>
+            <script src="assets/js/jquery-3.5.1.min.js"></script>
 
-        });
-        </script>
-        @endif
+            <script src="adminz/assets/js/popper.min.js"></script>
+            <script src="adminz/assets/js/bootstrap.min.js"></script>
 
+            <script src="adminz/assets/js/jquery.slimscroll.min.js"></script>
 
-        <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js')}}">
-        </script>
-        <script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
+            <script src="adminz/assets/plugins/morris/morris.min.js"></script>
+            <script src="adminz/assets/plugins/raphael/raphael.min.js"></script>
+            <script src="adminz/assets/js/chart.js"></script>
 
-        <script src="{{asset('adminz/assets/js/popper.min.js')}}"></script>
-        <script src="{{asset('adminz/assets/js/bootstrap.min.js')}}"></script>
-
-        <script src="{{asset('adminz/assets/js/jquery.slimscroll.min.js')}}"></script>
-
-        <script src="{{asset('adminz/assets/plugins/morris/morris.min.js')}}"></script>
-        <script src="{{asset('adminz/assets/plugins/raphael/raphael.min.js')}}"></script>
-        <script src="{{asset('adminz/assets/js/chart.js')}}"></script>
-
-        <script src="{{asset('adminz/assets/js/app.js')}}"></script>
+            <script src="adminz/assets/js/app.js"></script>
     </body>
 
 </html>

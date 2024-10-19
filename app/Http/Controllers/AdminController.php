@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Product;
 use Illuminate\Support\Facades\File;
 
+use App\Notifications\TicketResponse;
 
+use Notification;
 
 class AdminController extends Controller
 {
@@ -283,12 +285,47 @@ return redirect()->back()->with('message','Doctor Added Successfully');
 
 
 public function ticketing(){
-        $datas = ticket::all();
+        $datas = ticket::where('status','open')->get();
 
-    return view('Admin.list-ticket',compact('datas'));
+ $numopen= ticket::where('status','open')->count();
+  $numclose= ticket::where('status','Close')->count();
+    $numsolved= ticket::where('status','Solved')->count();
+
+    return view('Admin.list-ticket',compact('datas','numopen','numclose','numsolved'));
 
 
 }
+
+
+public function numclosetix(){
+      $numclose= ticket::where('status','Close')->get();
+
+      return view('Admin.number-closetix',compact('numclose'));
+
+}
+
+public function numsolvetix(){
+      $numcsolve= ticket::where('status','Solved')->get();
+      return view('Admin.number-solvetix',compact('numcsolve'));
+
+}
+
+
+
+
+
+
+     public function showResolveFormz($id)
+{
+    $dataz = ticket::find($id);
+
+    if (!$dataz) {
+        return redirect()->back()->with('error', 'Ticket not found.');
+    }
+
+    return view('Admin.response-ticket', compact('dataz'));
+}
+
 
 
 public function resolve_tix(Request $request, $id)
@@ -320,6 +357,35 @@ Notification::route('mail', $dataz->email)->notify(new TicketResponse($dataz));
 
     return view('Admin.response-ticket', compact('dataz'));
 }
+
+public function close_ticket($id) {
+    $ticket = Ticket::find($id);
+
+    if ($ticket) {
+        $ticket->status = 'Close';
+        $ticket->save();
+    } else {
+        // Handle the case where the ticket is not found
+        return response()->json(['error' => 'Ticket not found'], 404);
+    }
+
+    return redirect()->back()->with('message', 'Ticket closed successfully!');
+}
+
+public function solve_ticket($id){
+    $ticket = Ticket::find($id);
+
+  if ($ticket) {
+        $ticket->status = 'Solved';
+        $ticket->save();
+    } else {
+        // Handle the case where the ticket is not found
+        return response()->json(['error' => 'Ticket not found'], 404);
+    }
+
+    return redirect()->back()->with('message', 'Ticket Solve successfully!');
+}
+
 
 
 

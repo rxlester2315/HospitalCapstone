@@ -144,7 +144,7 @@
 
                                 <li><a href="{{url('listrecord')}}"><i class="fa fa-commenting-o"></i> <span>Chat with
                                             Patients</span></a></li>
-                                <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Send Ticket
+                                <li><a href="{{url('send_ticket')}}"><i class="ti-receipt"></i> <span>Send Ticket
                                             Request</span></a>
                                 </li>
 

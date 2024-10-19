@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
         <title>Admin Dashboards</title>
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/logo.jpg">
 
         <link rel="stylesheet" href="adminz/assets/css/bootstrap.min.css">
@@ -19,7 +21,10 @@
 
         <link rel="stylesheet" href="adminz/assets/css/style.css">
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
 
         <script>
         if (window.history && window.history.pushState) {
@@ -231,8 +236,18 @@
 
                             </li>
                             <li>
-                                <a href="{{url('Admin')}}"><i class="la la-object-ungroup"></i>
+                                <a href="{{url('Admin')}}"><i class="fa-solid fa-house"></i>
                                     <span>Home</span></a>
+                            </li>
+
+                            <li>
+                                <a href="{{url('closetickets')}}"><i class="fa-solid fa-closed-captioning"></i>
+                                    <span>List Close Ticket</span></a>
+                            </li>
+
+                            <li>
+                                <a href="{{url('solvedtickets')}}"><i class="fa-solid fa-check-to-slot"></i>
+                                    <span>List Solved Ticket</span></a>
                             </li>
 
 
@@ -277,10 +292,10 @@
                                                 <span class="d-block">New Tickets</span>
                                             </div>
                                             <div>
-                                                <span class="text-success">+10%</span>
+                                                <span class="text-success">+0.3%</span>
                                             </div>
                                         </div>
-                                        <h3 class="mb-3">112</h3>
+                                        <h3 class="mb-3">{{$numopen}}</h3>
                                         <div class="progress mb-2" style="height: 5px">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
                                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -294,10 +309,10 @@
                                                 <span class="d-block">Solved Tickets</span>
                                             </div>
                                             <div>
-                                                <span class="text-success">+12.5%</span>
+                                                <span class="text-success">+1.5%</span>
                                             </div>
                                         </div>
-                                        <h3 class="mb-3">70</h3>
+                                        <h3 class="mb-3">{{$numsolved}}</h3>
                                         <div class="progress mb-2" style="height: 5px">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
                                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -314,7 +329,7 @@
                                                 <span class="text-danger">-2.8%</span>
                                             </div>
                                         </div>
-                                        <h3 class="mb-3">100</h3>
+                                        <h3 class="mb-3">{{$numopen}}</h3>
                                         <div class="progress mb-2" style="height: 5px">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
                                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -325,13 +340,13 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-3">
                                             <div>
-                                                <span class="d-block">Pending Tickets</span>
+                                                <span class="d-block">Closed Tickets</span>
                                             </div>
                                             <div>
                                                 <span class="text-danger">-75%</span>
                                             </div>
                                         </div>
-                                        <h3 class="mb-3">125</h3>
+                                        <h3 class="mb-3">{{$numclose}}</h3>
                                         <div class="progress mb-2" style="height: 5px">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
                                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -376,20 +391,47 @@
                                             <td>
                                                 <span class="badge badge-pill badge-danger">{{$tix->priority}}</span>
                                             </td>
+
+
                                             <td>
                                                 <center>
-                                                    <a href="{{url('/resolve',$tix->id)}}" class="btn btn-primary"
-                                                        style="font-size: 10px;
-">View</a>
-                                                    <a href="" class="btn btn-danger" style="font-size: 10px;
-">Close</a>
-                                                    <a href="" class="btn btn-success" style="font-size: 10px;
-">Solve</a>
+                                                    <a href="{{ url('/resolves', $tix->id) }}" class="btn btn-primary"
+                                                        style="font-size: 10px;">
+                                                        View
+                                                    </a>
+
+
+
+                                                    <a href="{{ route('tickets.close', ['id' => $tix->id]) }}"
+                                                        class="btn btn-danger" style="font-size: 10px;"
+                                                        onclick="event.preventDefault(); document.getElementById('close-ticket-form-{{ $tix->id }}').submit();">
+                                                        Close
+                                                    </a>
+
+                                                    <form id="close-ticket-form-{{ $tix->id }}"
+                                                        action="{{ route('tickets.close', ['id' => $tix->id]) }}"
+                                                        method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('POST')
+                                                    </form>
+
+
+
+                                                    <a href="{{ route('tickets.solved', ['id' => $tix->id]) }}"
+                                                        class="btn btn-success" style="font-size: 10px;"
+                                                        onclick="event.preventDefault(); document.getElementById('solve-ticket-form-{{ $tix->id }}').submit();">
+                                                        Solve
+                                                    </a>
+
+                                                    <form id="solve-ticket-form-{{ $tix->id }}"
+                                                        action="{{ route('tickets.solved', ['id' => $tix->id]) }}"
+                                                        method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('POST')
+                                                    </form>
 
                                                 </center>
-
                                             </td>
-
 
                                         </tr>
                                         @endforeach
@@ -407,6 +449,18 @@
             </div>
 
         </div>
+
+        @if(Session::has('message'))
+        <script>
+        swal("Message", "{{Session::get('message')}}", 'success', {
+            button: true,
+            button: "Okay",
+            timer: 3000,
+
+
+        });
+        </script>
+        @endif
 
 
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

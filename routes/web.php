@@ -74,13 +74,20 @@ Route::post('/view_archives/{id}', [AdminController::class, 'restoreUserById'])-
 Route::get('/users_edits/{id}', [AdminController::class, 'archive'])->name('archives');
 Route::get('/tickets', [AdminController::class, 'ticketing'])->name('ticket.view');
 
-Route::post('/resolves{id}', [AdminController::class, 'resolve_tix'])->name('resolve.view');
-Route::get('/resolves{id})', [AdminController::class, 'resolve_form'])->name('show.ticketss');
+Route::put('/resolves{id}', [AdminController::class, 'resolve_tix'])->name('resolve.view');
+Route::get('/resolves/{id}', [AdminController::class, 'showResolveFormz'])->name('show.ticketss');
+Route::post('/tickets/{id}/close', [AdminController::class, 'close_ticket'])->name('tickets.close');
+Route::post('/tickets/{id}/solve', [AdminController::class, 'solve_ticket'])->name('tickets.solved');
+
 Route::post('/mail/{id}',[AdminController::class,'mail']);
 Route::get('/userlog',[AdminController::class,'user_logins']);
 Route::get('/changepw_user',[AdminController::class,'changepw']);
 Route::get('/changepw_userss/{id}',[AdminController::class,'updatepw'])->name('pass.change');
 Route::post('/changepw_pws/{id}', [AdminController::class, 'updatepw_request'])->name('changepw.posts');
+
+Route::get('/closetickets',[AdminController::class,'numclosetix']);
+Route::get('/solvedtickets',[AdminController::class,'numsolvetix']);
+
 
 
 

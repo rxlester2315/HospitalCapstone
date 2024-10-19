@@ -94,6 +94,7 @@ $data ->email=$request->email;
 $data ->subject=$request->subject;
 $data ->description=$request->description;
 $data ->priority=$request->priority;
+$data ->status='open';
 
 $data->ticket_number = 'TCKT-' . strtoupper(Str::random(8));
 
