@@ -120,7 +120,7 @@
                             <div class="col-lg-9 col-md-9 col-12 d-flex justify-content-between">
                                 <!-- Start Logo -->
                                 <div class="logo">
-                                    <a href="index.html"><img src="landing/img/logo.png" alt="ComCare"></a>
+                                    <a href="#"><img src="landing/img/logo.png" alt="ComCare"></a>
                                 </div>
                                 <!-- End Logo -->
 
