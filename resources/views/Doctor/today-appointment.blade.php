@@ -106,7 +106,7 @@
             <div class="sidebar-menu">
                 <div class="sidebar-header">
                     <div class="logo">
-                        <a href="index.html"><img src="main_alls/everythingzz/assets/images/icon/logo.png"
+                        <a href="{{url('Doc')}}"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
                                 alt="logo"></a>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
 
                                 <li><a href="{{url('listrecord')}}"><i class="fa fa-commenting-o"></i> <span>Chat with
                                             Patients</span></a></li>
-                                <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Send Ticket
+                                <li><a href="{{url('send_ticket')}}"><i class="ti-receipt"></i> <span>Send Ticket
                                             Request</span></a>
                                 </li>
 
@@ -164,7 +164,6 @@
 
                                 </li>
                                 <li class="dropdown">
-                                    <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span></span></i>
                                     <div class="dropdown-menu notify-box nt-enveloper-box">
                                         <span class="notify-title">Check Message<a href="chat">view
                                                 all</a></span>

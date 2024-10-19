@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <title>Admin Edit</title>
 
@@ -118,12 +119,14 @@
 
                                     </td>
                                     <td>
-                                        <form action="{{ url('delete', $product->id) }}" method="POST"
-                                            onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                        <form id="delete-form-{{ $product->id }}"
+                                            action="{{ url('delete', $product->id) }}" method="POST"
+                                            style="display: none;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
+                                        <button type="button" class="btn btn-danger"
+                                            onclick="confirmation(event, '{{ $product->id }}')">Delete</button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -136,6 +139,25 @@
 
         </div>
 
+
+        <script type="text/javascript">
+        function confirmation(ev, productId) {
+            ev.preventDefault();
+
+            swal({
+                    title: "Are you sure to delete this?",
+                    text: "You will not be able to recover this!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        document.getElementById('delete-form-' + productId).submit();
+                    }
+                });
+        }
+        </script>
         <script src="adminz/assets/js/jquery.min.js"></script>
         <script src="adminz/assets/js/bootstrap.min.js"></script>
         <script src="adminz/assets/js/script.js"></script>

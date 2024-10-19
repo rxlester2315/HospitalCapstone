@@ -33,7 +33,7 @@ body {
 }
 
 .auth-title {
-    color: red;
+    color: #0ed7b6;
 }
 #auth #auth-left .auth-subtitle {
     font-size: 1.7rem;

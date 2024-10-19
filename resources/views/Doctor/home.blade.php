@@ -137,6 +137,7 @@
                                         @endif
 
                                         <li><a href="{{url('changesPasswordDoc')}}">Change Password</a></li>
+                                        <li><a href="{{url('doc_sched')}}">Submit Schedule</a></li>
 
                                     </ul>
                                 </li>
@@ -147,6 +148,8 @@
                                 <li><a href="{{url('send_ticket')}}"><i class="ti-receipt"></i> <span>Send Ticket
                                             Request</span></a>
                                 </li>
+
+
 
                             </ul>
                         </nav>
@@ -176,7 +179,6 @@
 
                                 </li>
                                 <li class="dropdown">
-                                    <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span></span></i>
                                     <div class="dropdown-menu notify-box nt-enveloper-box">
                                         <span class="notify-title">Check Message<a href="chat">view
                                                 all</a></span>
@@ -211,7 +213,7 @@
                                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Doctor|
                                     {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Message</a>
+                                    <a class="dropdown-item" href="{{url('chat')}}">Message</a>
                                     <a class="dropdown-item" href="#">Settings</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">Log Out</a>
                                 </div>

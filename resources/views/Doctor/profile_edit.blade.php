@@ -96,10 +96,8 @@
             <!-- sidebar menu area start -->
             <div class="sidebar-menu">
                 <div class="sidebar-header">
-                    <div class="logo">
-                        <a href="{{url('Doc')}}"><img
-                                src="{{asset('main_alls/everythingzz/assets/images/icon/logo2.png')}}" alt="logo"></a>
-                    </div>
+                    <a href="{{url('Doc')}}"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
+                            alt="logo"></a>
                 </div>
                 <div class="main-menu">
                     <div class="menu-inner">
@@ -122,7 +120,7 @@
 
                             <li><a href="{{url('listrecord')}}"><i class="fa fa-commenting-o"></i> <span>Chat with
                                         Patients</span></a></li>
-                            <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Send Ticket
+                            <li><a href="{{url('send_ticket')}}"><i class="ti-receipt"></i> <span>Send Ticket
                                         Request</span></a>
                             </li>
 

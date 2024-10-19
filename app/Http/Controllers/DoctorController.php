@@ -317,7 +317,7 @@ public function store_sched(Request $request) {
         $doctor->shift_end_time = $shiftEndTime;
         $doctor->save();
 
-        return redirect()->back()->with('success', 'Schedule updated successfully');
+        return redirect()->back()->with('message', 'Schedule updated successfully');
     } else {
         return redirect()->back()->with('error', 'Doctor not found');
     }

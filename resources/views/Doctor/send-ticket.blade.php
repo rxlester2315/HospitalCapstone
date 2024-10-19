@@ -151,7 +151,6 @@
 
                                 </li>
                                 <li class="dropdown">
-                                    <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span></span></i>
                                     <div class="dropdown-menu notify-box nt-enveloper-box">
                                         <span class="notify-title">Check Message<a href="chat">view
                                                 all</a></span>
