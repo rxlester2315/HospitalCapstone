@@ -14,6 +14,7 @@
         <title>Comprehensive Care Medical Clinic</title>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="admins/assets/images/logo/logo.png" />
 
         <!-- Favicon -->
         <link rel="icon" href="img/favicon.png">
@@ -58,6 +59,11 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 
+        <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        </style>
 
     <body>
 
@@ -90,8 +96,8 @@
                             <!-- Contact -->
                             <ul class="top-link">
                                 <li><a href="#">About</a></li>
-                                <li><a href="#">Doctors</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="#alldoctors">Doctors</a></li>
+                                <li><a href="#">Our Location</a></li>
                                 <li><a href="#">FAQ</a></li>
                             </ul>
                             <!-- End Contact -->
@@ -129,10 +135,10 @@
                                         <ul class="nav menu">
                                             <li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
                                             </li>
-                                            <li><a href="#">Doctor </a></li>
-                                            <li><a href="#">Services </a></li>
-                                            <li><a href="#">About Us </a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
+                                            <li><a href="#alldoctors">Doctor </a></li>
+                                            <li><a href="#servicess">Services </a></li>
+                                            <li><a href="#mapszz">Our Location </a></li>
+                                            <li><a href="{{url('guessaccount')}}">Contact Us</a></li>
                                             <li><a href="{{url('/login')}}">Login</a></li>
                                         </ul>
                                     </nav>
@@ -403,7 +409,7 @@
         <!--/ End portfolio -->
 
         <!-- Start service -->
-        <section class="services section">
+        <section id="servicess" class="services">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -433,7 +439,7 @@
                         <!-- Start Single Service -->
                         <div class="single-service">
                             <i class="icofont-injection-syringe"></i>
-                            <h4><a href="service-details.html">Clinical Microscopy/a></h4>
+                            <h4><a href="service-details.html">Clinical Microscopy</a></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
                                 imperdiet. </p>
                         </div>
@@ -621,21 +627,23 @@
 
 
 
+        <section id="mapszz">
 
-        <div class="location-map">
-            <div class="container">
-                <div class="box">
-                    <h1 class="h1">Our Location</h1>
-                    <p class="p">San Jose Del Monte Bulacan, Bulacan </p>
+            <div class="location-map">
+                <div class="container">
+                    <div class="box">
+                        <h1 class="h1">Our Location</h1>
+                        <p class="p">San Jose Del Monte Bulacan, Bulacan </p>
+                    </div>
                 </div>
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.592177507925!2d121.00877907510986!3d14.791986385717347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b384b13e99f9%3A0xe211be6c05f4ae86!2sCOMCARE%20DIAGNOSTIC%20AND%20MEDICAL%20CLINIC!5e0!3m2!1sen!2sph!4v1728275754438!5m2!1sen!2sph"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
 
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.592177507925!2d121.00877907510986!3d14.791986385717347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b384b13e99f9%3A0xe211be6c05f4ae86!2sCOMCARE%20DIAGNOSTIC%20AND%20MEDICAL%20CLINIC!5e0!3m2!1sen!2sph!4v1728275754438!5m2!1sen!2sph"
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-
+        </section>
 
 
 
