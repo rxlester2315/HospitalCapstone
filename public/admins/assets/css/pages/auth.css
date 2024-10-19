@@ -31,6 +31,10 @@ body {
     font-size: 4rem;
     margin-bottom: 1rem;
 }
+
+.auth-title {
+    color: #0ed7b6;
+}
 #auth #auth-left .auth-subtitle {
     font-size: 1.7rem;
     line-height: 2.5rem;
@@ -55,11 +59,9 @@ body {
     padding-left: 150px;
 }
 
-.logos img{
+.logos img {
     width: 700px;
 }
-
-
 
 h2 {
     font-size: 80px;
