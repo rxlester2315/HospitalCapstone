@@ -51,6 +51,10 @@
                             </div>
                             @endif
 
+
+
+
+
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text"
                                     class="form-control form-control-lg @error('email') is-invalid @enderror"
