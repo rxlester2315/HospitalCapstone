@@ -381,23 +381,37 @@ public function export(Request $request)
 
 
 
+public function schedule_doc() {
 
-    public function schedule_doc(){
-
-            // Fetch all doctors with their schedule
-    $schedules = Employees::select('name', 'present_days', 'dayoff', 'shift_start_time', 'shift_end_time')->get()
-  ->map(function($schedule) {
+    // Fetch all doctors with their schedule (no filter)
+  $allsched = Employees::select('id', 'name', 'present_days', 'sched_status', 'specialty', 'dayoff', 'shift_start_time', 'shift_end_time')
+    ->where('sched_status', 'Pending')  // Filter by sched_status = "Pending"
+    ->get()
+    ->map(function($schedule) {
         $schedule->shift_start_time = date('h:i A', strtotime($schedule->shift_start_time));
         $schedule->shift_end_time = date('h:i A', strtotime($schedule->shift_end_time));
         return $schedule;
     });
 
-    return view('Hr.Management.schedview', ['schedules' => $schedules]);
-    }
+    // Fetch all doctors with their schedule where sched_status is 'Approved'
+    $schedules = Employees::select('name', 'present_days', 'dayoff', 'shift_start_time', 'shift_end_time')
+        ->where('sched_status', 'Approved')
+        ->get()
+        ->map(function($schedule) {
+            $schedule->shift_start_time = date('h:i A', strtotime($schedule->shift_start_time));
+            $schedule->shift_end_time = date('h:i A', strtotime($schedule->shift_end_time));
+            return $schedule;
+        });
+
+    // Pass both variables to the view
+    return view('Hr.Management.schedview', ['allsched' => $allsched, 'schedules' => $schedules]);
+}
+
+
+
 
 public function leavelist(){
         $emplo = Employees::select('name', 'id', 'specialty', 'reason', 'leave_start_date','leave_end_date','status')->get();
-
 
 
 
@@ -428,6 +442,23 @@ public function leave_canceled($id){
 
 }
 
+public function sched_accept($id){
+
+        $data=Employees::find($id);
+    $data->sched_status='Approved';
+    $data->save();
+    return redirect()->back();
+}
+
+
+
+public function sched_reject($id){
+
+        $data=Employees::find($id);
+    $data->sched_status='Rejected';
+    $data->save();
+    return redirect()->back();
+}
 
 
 

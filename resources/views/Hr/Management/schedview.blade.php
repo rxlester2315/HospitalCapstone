@@ -420,10 +420,8 @@
 
 
                     <div class="container">
-                        <a href="{{url('HR')}}">
-                            <h3 class="btn btn-primary">Back</h3>
-                        </a>
-                        <h2 class="text-center">Employee Weekly Schedule</h2>
+
+                        <h2 class="text-center">Doctor Weekly Schedule</h2>
                         <table class="table table-hover table-custom">
                             <thead>
                                 <tr>
@@ -467,6 +465,68 @@
                             </tbody>
                         </table>
                     </div>
+
+
+                    <center>
+                        <h1>Doctor Schedule Request</h1>
+                    </center>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped custom-table mb-0 datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>Doctor Name</th>
+                                            <th>Department</th>
+                                            <th>Present Day</th>
+                                            <th>Day Off</th>
+                                            <th>Shift Start Time</th>
+                                            <th>Shift Time End</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                            <th>Action</th>
+
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($allsched as $pending)
+                                        <tr>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html" class="avatar"><img alt=""
+                                                            src="assets/img/profiles/avatar-09.jpg" /></a>
+                                                    <a href="#">{{$pending->name}}
+                                                        <span>{{$pending->specialty}}</span></a>
+                                                </h2>
+                                            </td>
+                                            <td>{{$pending->specialty}}</td>
+                                            <td>{{$pending->present_days}}</td>
+                                            <td>{{$pending->dayoff}}</td>
+                                            <td>{{$pending->shift_start_time}}</td>
+                                            <td>{{$pending->shift_end_time}}</td>
+                                            <td><span class="badge badge-warning">{{$pending->sched_status}}</span></td>
+                                            <td><a href="{{url('schedule_approved', $pending->id)}}"
+                                                    class="btn btn-success">Approved</a></td>
+                                            <td><a href="{{url('schedule_rejected', $pending->id)}}"
+                                                    class="btn btn-warning">Rejected</a></td>
+
+
+                                        </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
 
                 </div>
 

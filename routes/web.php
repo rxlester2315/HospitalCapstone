@@ -161,6 +161,8 @@ Route::delete('/canceled/{id}', [HrController::class, 'canceled'])->name('appoin
 
     Route::get('/products/viewlist',[HrController::class,'view_list'])->name('products.viewlist')->middleware(['auth','hr']);
 
+  Route::get('/schedule_approved/{id}',[HrController::class,'sched_accept']);
+  Route::get('/schedule_rejected/{id}',[HrController::class,'sched_reject']);
 
 
   //Doctor Route

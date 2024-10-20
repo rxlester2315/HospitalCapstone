@@ -315,6 +315,8 @@ public function store_sched(Request $request) {
         $doctor->dayoff = json_encode($daysOff);  // Store as JSON or a comma-separated string
         $doctor->shift_start_time = $shiftStartTime;
         $doctor->shift_end_time = $shiftEndTime;
+        $doctor->sched_status ='Pending';
+        
         $doctor->save();
 
         return redirect()->back()->with('message', 'Schedule updated successfully');
