@@ -547,8 +547,8 @@
 
                     </div>
                     <div class="information">
-                        <div class="title"><b>Rex Lester Bastaoang</b> </div>
-                        <div class="price">Cardiology </div>
+                        <div class="title"><b>{{$doctors->name}}</b> </div>
+                        <div class="price">{{$doctors->specialty}}</div>
                     </div>
 
                     <div class="social-media">

@@ -363,7 +363,6 @@
 
                                     <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
                                     <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-
                                     <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
 
                                 </ul>
