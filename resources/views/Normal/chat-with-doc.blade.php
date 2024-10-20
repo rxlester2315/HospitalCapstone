@@ -25,17 +25,21 @@
         <script src="main_alls/everythingzz/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
         <style>
-        @media (max-width: 768px) {
-            .table {
-                display: block;
-                /* Make table block to enable scrolling */
-                overflow-x: auto;
-                /* Allow horizontal scrolling */
-                white-space: nowrap;
-                /* Prevent line breaks in table cells */
-            }
+        .col-md-3 {
+            margin: 30px;
+
+
+        }
+
+        .row {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         </style>
+
+
     </head>
 
     <body>
@@ -174,40 +178,34 @@
 
                 <div class="main-content-inner">
 
+
+                    <!-- 2nd Layer with Cyan Background -->
+
+                    <!-- Upper Section -->
+
+
+                    <!-- Lower Section - Doctor Profi
+                    les -->
                     <div class="container">
-                        <center>
-                            <h1>My Doctor List</h1>
-                        </center>
-                        <table class="table table-striped">
-                            <thead class="thead-dark">
-                                <tr>
+                        <h2 class="text-dark">Meet Your Doctors</h2>
 
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Specialization</th>
-                                    <th scope="col">Contact</th>
-                                    <th scope="col">Contact</th>
+                        <div class="row">
+                            @foreach($appointments as $appoint)
+                            <div class="col-md-3">
+                                <div class="doctor-card">
+                                    <img src="doctorsimage/{{$appoint->doctor->image}}" alt="Doctor 1"
+                                        class="doctor-picture">
+                                    <h4 class="mt-3">{{$appoint->employees}}</h4>
+                                    <p class="dep-info">{{$appoint->departments}}</p>
+                                    <a href="{{url('chatdoc/' .$appoint->doctor->id)}}" class="btn-sendmes">Send
+                                        Message</a>
 
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($appointments as $doc)
-                                <tr>
-                                    <td>{{$doc->employees}}</td>
-                                    <td>{{$doc->departments}}</td>
-                                    <td>{{$doc->doctor->id}}</td>
-                                    <td>
-                                        <a href="{{url('chatdoc/' .$doc->doctor->id)}}" class="btn btn-info">Send
-                                            Message</a>
-                                    </td>
-
-
-                                </tr>
-                                @endforeach
-
-                            </tbody>
-                        </table>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
+
 
 
                 </div>

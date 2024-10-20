@@ -246,7 +246,7 @@
             <div class="sidebar-menu">
                 <div class="sidebar-header">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="{{url('User')}}">
                             <img src="{{ asset('main_alls/everythingzz/assets/images/icon/logo2.png') }}" alt="logo">
                         </a>
                     </div>
@@ -374,10 +374,15 @@
 
                             <div class="profile-container">
                                 <div class="profile-image">
-                                    <img src="{{asset('doctorsimage/1721432436.jpg')}}" alt="Doctor Name">
+                                    @if($appointment->doctor && $appointment->doctor->image)
+                                    <img src="{{ asset('doctorsimage/' . $appointment->doctor->image) }}"
+                                        alt="Doctor Name" class="doctor-picture">
+                                    @else
+                                    <p>Image not available</p>
+                                    @endif
                                 </div>
                                 <h2 class="doctor-name">{{ $appointment->employee->name }}</h2>
-                                <p>Department: {{ $appointment->employee->department }}</p>
+                                <p>Department: {{ $appointment->departments }}</p>
 
                             </div>
                         </div>
