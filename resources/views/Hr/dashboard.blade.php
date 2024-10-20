@@ -296,11 +296,11 @@
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <span class="user-img"><img src="hrs/assets/img/profiles/hr.png" alt="">
                                 <span class="status online"></span></span>
-                            <span>Admin</span>
+                            <span>HR</span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="profile.html">My Profile</a>
-                            <a class="dropdown-item" href="settings.html">Settings</a>
+
+                            <a class="dropdown-item" href="{{url('chat')}}">Message</a>
                             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                         </div>
                     </li>
@@ -323,12 +323,7 @@
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
-                            <li class="menu-title">
-                                <span>Main</span>
-                            </li>
-                            <li class="submenu">
-                                <a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span
-                                        class="menu-arrow"></span></a>
+
 
                             <li class="menu-title">
                                 <span>Employees</span>
@@ -346,8 +341,6 @@
 
                                     <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
                                     <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-                                    <li><a href="departments.html">Departments</a></li>
-                                    <li><a href="timesheet.html">Timesheet</a></li>
                                     <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
 
                                 </ul>

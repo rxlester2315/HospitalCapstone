@@ -164,38 +164,7 @@
 
                 <ul class="nav user-menu">
 
-                    <li class="nav-item">
-                        <div class="top-nav-search">
-                            <a href="javascript:void(0);" class="responsive-search">
-                                <i class="fa fa-search"></i>
-                            </a>
-                            <form action="search.html">
-                                <input class="form-control" type="text" placeholder="Search here">
-                                <button class="btn" type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                    </li>
 
-
-                    <li class="nav-item dropdown has-arrow flag-nav">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                            <img src="hrs/assets/img/flags/us.png" alt="" height="20"> <span>English</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/us.png" alt="" height="16"> English
-                            </a>
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/fr.png" alt="" height="16"> French
-                            </a>
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/es.png" alt="" height="16"> Spanish
-                            </a>
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/de.png" alt="" height="16"> German
-                            </a>
-                        </div>
-                    </li>
 
 
                     <li class="nav-item dropdown">
@@ -317,18 +286,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item dropdown has-arrow main-drop">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="hrs/assets/img/profiles/hr.png" alt="">
-                                <span class="status online"></span></span>
-                            <span>Admin</span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="profile.html">My Profile</a>
-                            <a class="dropdown-item" href="settings.html">Settings</a>
-                            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
-                        </div>
-                    </li>
+
                 </ul>
 
 
@@ -444,8 +402,7 @@
                                         class="menu-arrow"></span></a>
                                 <ul style="display: none;">
                                     <li><a href="{{url('products/viewlist')}}">View List</a></li>
-                                    <li><a href="{{url('Hr/products/create')}}">Create</a></li>
-                                    <li><a href="{{url('products')}}">Edit</a></li>
+
                                 </ul>
                             </li>
 

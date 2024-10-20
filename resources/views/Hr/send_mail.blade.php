@@ -303,18 +303,7 @@
                     </li>
 
 
-                    <li class="nav-item dropdown has-arrow main-drop">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="{{asset('hrs/assets/img/profiles/hr.png')}}" alt="">
-                                <span class="status online"></span></span>
-                            <span>Admin</span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="profile.html">My Profile</a>
-                            <a class="dropdown-item" href="settings.html">Settings</a>
-                            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
-                        </div>
-                    </li>
+
                 </ul>
 
 
@@ -382,8 +371,7 @@
 
                                     <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
                                     <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-                                    <li><a href="departments.html">Departments</a></li>
-                                    <li><a href="timesheet.html">Timesheet</a></li>
+
                                     <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
 
                                 </ul>
@@ -432,8 +420,7 @@
                                         class="menu-arrow"></span></a>
                                 <ul style="display: none;">
                                     <li><a href="{{url('products/viewlist')}}">View List</a></li>
-                                    <li><a href="{{url('Hr/products/create')}}">Create</a></li>
-                                    <li><a href="{{url('products')}}">Edit</a></li>
+
                                 </ul>
                             </li>
 

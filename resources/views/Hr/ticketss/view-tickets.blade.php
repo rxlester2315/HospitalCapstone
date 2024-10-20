@@ -168,38 +168,8 @@
 
                 <ul class="nav user-menu">
 
-                    <li class="nav-item">
-                        <div class="top-nav-search">
-                            <a href="javascript:void(0);" class="responsive-search">
-                                <i class="fa fa-search"></i>
-                            </a>
-                            <form action="search.html">
-                                <input class="form-control" type="text" placeholder="Search here">
-                                <button class="btn" type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                    </li>
 
 
-                    <li class="nav-item dropdown has-arrow flag-nav">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                            <img src="hrs/assets/img/flags/us.png" alt="" height="20"> <span>English</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/us.png" alt="" height="16"> English
-                            </a>
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/fr.png" alt="" height="16"> French
-                            </a>
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/es.png" alt="" height="16"> Spanish
-                            </a>
-                            <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="hrs/assets/img/flags/de.png" alt="" height="16"> German
-                            </a>
-                        </div>
-                    </li>
 
 
                     <li class="nav-item dropdown">
@@ -313,39 +283,14 @@
                     </li>
 
 
-                    <li class="nav-item dropdown">
-                        <a href="chat" class="dropdown-toggle nav-link" data-toggle="">
-                            <i class="fa fa-comment-o"></i>
-                            <span
-                                class="badge badge-pill unread_notification">{{ auth()->user()->getMessageCount() }}</span>
-                        </a>
-                    </li>
 
 
-                    <li class="nav-item dropdown has-arrow main-drop">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="hrs/assets/img/profiles/hr.png" alt="">
-                                <span class="status online"></span></span>
-                            <span>Admin</span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="profile.html">My Profile</a>
-                            <a class="dropdown-item" href="settings.html">Settings</a>
-                            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
-                        </div>
-                    </li>
+
+
                 </ul>
 
 
-                <div class="dropdown mobile-user-menu">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
-                            class="fa fa-ellipsis-v"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-                        <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="login.html">Logout</a>
-                    </div>
-                </div>
+
 
             </div>
 
@@ -401,8 +346,7 @@
 
                                     <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
                                     <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-                                    <li><a href="departments.html">Departments</a></li>
-                                    <li><a href="timesheet.html">Timesheet</a></li>
+
                                     <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
 
                                 </ul>
@@ -449,8 +393,7 @@
                                         class="menu-arrow"></span></a>
                                 <ul style="display: none;">
                                     <li><a href="{{url('products/viewlist')}}">View List</a></li>
-                                    <li><a href="{{url('Hr/products/create')}}">Create</a></li>
-                                    <li><a href="{{url('products')}}">Edit</a></li>
+
                                 </ul>
                             </li>
 
@@ -568,7 +511,7 @@
                                             <th>Employee Name</th>
                                             <th>Created Date</th>
                                             <th>Priority</th>
-                                            <th class="text-center">Status</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -588,19 +531,6 @@
                                             <td>{{$tix->created_at}}</td>
                                             <td>
                                                 <span class="badge badge-pill badge-danger">{{$tix->priority}}</span>
-                                            </td>
-                                            <td>
-                                                <center>
-                                                    <a href="{{url('/resolve',$tix->id)}}" class="btn btn-primary"
-                                                        style="font-size: 10px;
-">View</a>
-                                                    <a href="" class="btn btn-danger" style="font-size: 10px;
-">Close</a>
-                                                    <a href="" class="btn btn-success" style="font-size: 10px;
-">Solve</a>
-
-                                                </center>
-
                                             </td>
 
 

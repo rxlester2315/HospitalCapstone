@@ -29,7 +29,7 @@ class HrController extends Controller
 
         $doctor=employees::all();
 
-        return view('HR.add_doctor',compact('doctor'));
+        return view('Hr.add_doctor',compact('doctor'));
 
 
     }
@@ -427,6 +427,7 @@ public function leave_canceled($id){
 
 
 }
+
 
 
 
