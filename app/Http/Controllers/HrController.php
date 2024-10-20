@@ -85,11 +85,13 @@ public function canceled($id)
 
 
 
- public function send_mail($id){
+public function send_mail($id) {
+    // Retrieve the appointment along with the related user (patient) and employee (doctor)
+    $data = Appointments::with(['user', 'employee'])->find($id);
+    return view('Hr.send_mail', compact('data'));
+}
 
-        $data=appointments::find($id);
-        return view('Hr.send_mail',compact('data'));
-    }
+
 
 
      public function mail(Request $request,$id){
