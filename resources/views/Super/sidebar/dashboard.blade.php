@@ -11,6 +11,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
@@ -23,7 +25,7 @@
                 <li class="sidebar-item">
                     <div class="card-body">
                         <div class="badges">
-                           
+
 
                             @if (Auth::user()->role_name=='Super Admin')
                             <span>Name: <span class="fw-bolder">{{ Auth::user()->name }}</span></span>
@@ -53,7 +55,7 @@
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-hexagon-fill"></i>
-                        <span>Maintenain</span>
+                        <span>Control</span>
                     </a>
                     <ul class="submenu active">
                         <li class="submenu-item active">
@@ -68,6 +70,9 @@
                         <li class="submenu-item">
                             <a href="{{ route('archives-restore') }}">Restore Users</a>
                         </li>
+                        <li class="submenu-item">
+                            <a href="{{ route('listin.personate') }}">Inpersonate Accounts</a>
+                        </li>
                     </ul>
 
 
@@ -75,7 +80,7 @@
 
                 @endif
 
-           
+
 
                 <li class="sidebar-item">
                     <a href="{{ route('logout') }}" class='sidebar-link'>

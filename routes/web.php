@@ -57,6 +57,7 @@ Route::post('/restores/{id}',[SuperAdController:: class,'restoreDeleteAd'])->nam
 Route::get('userspw/{id}',[SuperAdController::class,'updatepasswordview'])->name('user.reset');  
 Route::post('users/{id}/update',[SuperAdController::class,'updatepassword'])->name('users.update-password');
 
+Route::get('inpersonatess',[SuperAdController::class,'inpersonate_view'])->name('listin.personate');  
 
 
 

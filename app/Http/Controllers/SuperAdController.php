@@ -290,6 +290,12 @@ public function updatepassword(Request $request,$id){
 
 }
 
+public function inpersonate_view() {
+    $alluser = User::where('role_name', '!=', 'Super Admin')->get();
+    return view('Super.inpersonate-account', compact('alluser'));
+}
+
+
 
 
 
