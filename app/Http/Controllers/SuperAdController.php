@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 
 use Brian2694\Toastr\Facades\Toastr;
 use DB;
+
 use App\Models\User;
+use App\Models\Maintenance_system;
+
 use App\Models\Form;
 use App\Rules\MatchOldPassword;
 use Carbon\Carbon;
@@ -17,6 +20,46 @@ use Auth;
 class SuperAdController extends Controller
 {
   
+
+public function index_admin()
+{
+    $user = Auth::user(); // Get the authenticated (impersonated) user
+
+    // Check the role of the user and return the appropriate view
+    if ($user->role_name === 'Admin') {
+        return view('Admin.home');  // Return the admin view
+    } elseif ($user->role_name === 'Human Resources') {
+        return view('Hr.dashboard');  // Return the user view
+    
+    } elseif ($user->role_name === 'Front Desk') {
+        return view('Front-desk.home');  // Return the user view
+
+    }
+
+    elseif ($user->role_name === 'Doctor') {
+        return view('Doctor.home');  // Return the user view
+
+    }
+
+    elseif ($user->role_name === 'Nurse') {
+        return view('Nurse.home');  // Return the user view
+
+    }
+    elseif ($user->role_name === 'Normal User') {
+        return view('Normal.home');  // Return the user view
+
+
+    }
+
+      elseif ($user->role_name === 'Guests') {
+        return view('home.guess.guess_index');  // Return the user view
+
+    }
+    
+    else {
+        return view('Super.home');  // Default to Super Admin view or other roles
+    }
+}
 
 
 public function index()
@@ -295,8 +338,94 @@ public function inpersonate_view() {
     return view('Super.inpersonate-account', compact('alluser'));
 }
 
+public function impersonate($id)
+{
+    $user = User::find($id);
+
+    // Check if the user exists
+    if ($user) {
+        // Impersonate the user
+        Auth::user()->impersonate($user);
+
+        // Manually set a session variable to track impersonation
+        session(['impersonated_by' => Auth::id()]);
+
+        // Redirect based on role
+        if ($user->role_name === 'Admin') {
+            return redirect()->route('adminss');
+        } elseif ($user->role_name === 'Front Desk') {
+            return redirect()->route('frontss');
+        } elseif ($user->role_name === 'Human Resources') {
+            return redirect()->route('hrss');
+        } elseif ($user->role_name === 'Doctor') {
+            return redirect()->route('docss');
+        } elseif ($user->role_name === 'Nurse') {
+            return redirect()->route('nursses');
+        } elseif ($user->role_name === 'Normal User') {
+            return redirect()->route('userss');
+        } elseif ($user->role_name === 'Guests') {
+            return redirect()->route('Guests');
+        } else {
+            return redirect()->route('default.dashboard');
+        }
+    }
+
+    return redirect()->back()->withErrors('User not found.');
+}
 
 
+
+
+public function leave()
+{
+    // Check if user is impersonating
+    if (session()->has('impersonated_by')) {
+        // Attempt to leave impersonation
+        Auth::user()->leaveImpersonation();
+        
+        // Clear the impersonation session variable
+        session()->forget('impersonated_by');
+        
+        // Redirect to the super admin dashboard
+        return redirect()->route('superadmin.dashboard'); // Update with the correct route
+    }
+
+    // If not impersonating, redirect somewhere else
+    return redirect()->route('home'); // Update as needed
+}
+
+
+
+public function listupdate()
+{
+    return view('Super.maintenance-update');
+}
+
+public function updatestore(Request $request)
+{
+    // Validate the incoming request data
+    $validatedData = $request->validate([
+        'maintenance_date' => 'nullable|date',
+        'descriptions' => 'nullable|string',
+        'bugs' => 'nullable|string',
+        'effect' => 'nullable|string',
+    ]);
+
+    // Create a new instance of Maintenance_system
+    $listupdate = new Maintenance_system();
+
+    // Assign the validated data to the model
+    $listupdate->maintenance_date = $validatedData['maintenance_date'];
+    $listupdate->descriptions = $validatedData['descriptions'];
+    $listupdate->bugs = $validatedData['bugs'];
+    $listupdate->effect = $validatedData['effect'];
+
+    // Save the model to the database
+    $listupdate->save();
+
+    // Redirect or return a response after saving
+    return redirect()->route('update.list')->with('success', 'Update saved successfully!');
+}
 
 
    

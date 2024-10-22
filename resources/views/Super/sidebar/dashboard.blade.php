@@ -73,6 +73,10 @@
                         <li class="submenu-item">
                             <a href="{{ route('listin.personate') }}">Inpersonate Accounts</a>
                         </li>
+
+                        <li class="submenu-item">
+                            <a href="{{ url('updates_system') }}">Updates System</a>
+                        </li>
                     </ul>
 
 

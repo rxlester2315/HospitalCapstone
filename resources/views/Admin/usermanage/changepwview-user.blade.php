@@ -377,6 +377,7 @@
                                             <th>Phone Number</th>
                                             <th>Account Status</th>
                                             <th>Change Password</th>
+                                            <th>Send email</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -397,6 +398,11 @@
                                                 <a href="{{url('changepw_userss/'.$user->id)}}"
                                                     class="btn btn-danger">Change Password</a>
                                             </td>
+                                            <td>
+                                                <a href="{{ url('email_password/'.$user->id) }}"
+                                                    class="btn btn-info">Send Email</a>
+                                            </td>
+
 
                                         </tr>
                                         @endforeach

@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
 
 //Super Admin Route
 
-Route::get('/superhome',[SuperAdController::class,'view']);  
+Route::get('/superhome',[SuperAdController::class,'index_admin']);  
 
 Route::get('userManagement', [SuperAdController::class, 'index'])->middleware('auth')->name('userManagement');   
 Route::get('user/add/new', [SuperAdController::class, 'addNewUser'])->middleware('auth')->name('user/add/new');
@@ -59,6 +59,12 @@ Route::post('users/{id}/update',[SuperAdController::class,'updatepassword'])->na
 
 Route::get('inpersonatess',[SuperAdController::class,'inpersonate_view'])->name('listin.personate');  
 
+
+Route::get('impersonate/{id}', [SuperAdController::class, 'impersonate'])->name('impersonate')->middleware(['auth', 'super']);
+Route::get('impersonate/leave', [SuperAdController::class, 'leave'])->name('impersonate.leave')->middleware(['auth', 'super']);
+
+Route::get('updates_system',[SuperAdController::class,'listupdate'])->name('update.list');  
+Route::post('updates_system',[SuperAdController::class,'updatestore'])->name('update.storezzz');  
 
 
 
@@ -88,7 +94,8 @@ Route::post('/changepw_pws/{id}', [AdminController::class, 'updatepw_request'])-
 
 Route::get('/closetickets',[AdminController::class,'numclosetix']);
 Route::get('/solvedtickets',[AdminController::class,'numsolvetix']);
-
+Route::get('/email_password/{id}', [AdminController::class, 'send_password']);
+Route::post('/email_password/{id}', [AdminController::class, 'password_send'])->name('password.send.email');
 
 
 
@@ -315,6 +322,7 @@ Route::get('/Guessappoint',[GuessController:: class,'guestappointz']);
 Route::get('/create_guest_appointment',[GuessController:: class,'create_appoint_guestz']);
 Route::get('/redirect-succes',[GuessController:: class,'succes_message']);
 
+Route::impersonate();
 
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -327,13 +335,16 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
   
 
 Route::get('/Guests', [LoginController::class, 'guview'])->name('Guests')->middleware(['auth','guest']);
-Route::get('/Admin', [LoginController::class, 'Adminuser'])->middleware(['auth','admin']);
-Route::get('/HR', [LoginController::class, 'hruser'])->middleware(['auth','hr']);
-Route::get('/User', [LoginController::class, 'Normaluser'])->middleware(['auth','user']);
-Route::get('/Doc', [LoginController::class, 'Docview'])->middleware(['auth','doc'])->name('doctors');
-Route::get('/Superad', [LoginController::class, 'sadview'])->middleware(['auth','super'])->name('sadview');
-Route::get('/Front', [LoginController::class, 'frontdeskview'])->middleware(['auth','front']);
-Route::get('/Nurse', [LoginController::class, 'nurseview'])->middleware(['auth','nurse']);
+Route::get('/Admin', [LoginController::class, 'Adminuser'])->name('adminss')->middleware(['auth','admin']);
+Route::get('/HR', [LoginController::class, 'hruser'])->name('hrss')->middleware(['auth','hr']);
+Route::get('/User', [LoginController::class, 'Normaluser'])->name('userss')->middleware(['auth','user']);
+Route::get('/Doc', [LoginController::class, 'Docview'])->name('docss')->middleware(['auth','doc'])->name('doctors');
+Route::get('/Superad', [LoginController::class, 'sadview'])
+    ->middleware(['auth', 'super'])
+    ->name('sadview');
+
+Route::get('/Front', [LoginController::class, 'frontdeskview'])->name('frontss')->middleware(['auth','front']);
+Route::get('/Nurse', [LoginController::class, 'nurseview'])->name('nursses')->middleware(['auth','nurse']);
 
 
 //Register

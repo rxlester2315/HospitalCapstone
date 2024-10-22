@@ -49,6 +49,13 @@
                     </div>
                 </div>
                 <div class="main-menu">
+
+
+                    @if (session()->has('impersonated_by'))
+                    <a href="{{ route('logout') }}" class="btn btn-warning">Leave Impersonation</a>
+                    @endif
+
+
                     <div class="menu-inner">
                         <nav>
                             <ul class="metismenu" id="menu">

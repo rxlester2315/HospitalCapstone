@@ -9,8 +9,10 @@ use App\Models\Doctors;
 use App\Models\Employees;
 use Auth;
 use DB;
+use App\Models\Maintenance_system;
 use App\Models\User;
 use App\Models\EmployeeInfo;
+use App\Models\ticket;
 
 use App\Models\PatientInfo;
 use App\Models\Appointments;
@@ -241,7 +243,22 @@ public function hruser()
 
       public function sadview(){
 
-        return view('Super.home');
+     $datas = ticket::where('status','open')->get();
+      $numcsolve= ticket::where('status','Solved')->get();
+      $numbcrit = ticket::where('priority','Critical Severity')->get();
+        $numbcrit = ticket::where('priority','Critical Severity')->get();
+        $numbmode = ticket::where('priority','Moderate Severity')->get();
+
+       $latestUpdate = Maintenance_system::orderBy('created_at', 'desc')->first();
+    $activitylogsss = DB::table('user_activity_logs')->count();
+
+    $loginnum = DB::table('activity_logs')->count();
+$totaluser = User::count();
+$totaltix = ticket::count();
+
+
+
+        return view('Super.home',compact('datas','numcsolve','numbcrit','numbmode','latestUpdate','activitylogsss','loginnum','totaluser','totaltix'));
     }
 
 
@@ -279,6 +296,9 @@ public function hruser()
 
         return view('Nurse.home');
     }
+
+
+    
 
 
 }

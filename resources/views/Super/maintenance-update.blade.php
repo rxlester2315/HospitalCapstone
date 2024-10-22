@@ -6,7 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Inpersonate</title>
+        <title>Super Admin</title>
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap"
@@ -67,9 +67,6 @@
                                     <li class="submenu-item">
                                         <a href="{{ route('archives-restore') }}">Restore Users</a>
                                     </li>
-                                    <li class="submenu-item">
-                                        <a href="{{ route('update.list') }}">Changes Update </a>
-                                    </li>
                                 </ul>
                             </li>
 
@@ -93,7 +90,7 @@
                 </header>
 
                 <div class="page-heading">
-                    <h3>Profile Statistics</h3>
+                    <h3>Update New Changes</h3>
                 </div>
                 <div class="page-content">
 
@@ -101,60 +98,62 @@
 
 
 
+                <section id="input-sizing">
+                    <div class="row match-height">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
 
+                                    @if(session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                    @endif
 
+                                    <h4 class="card-title">Updates System</h4>
+                                </div>
 
-                <section class="section">
+                                <div class="card-body">
+                                    <form action="{{ route('update.storezzz') }}" method="post">
+                                        @csrf
+                                        <!-- Add CSRF protection -->
+                                        <div class="col-sm-4">
+                                            <h6>Select Date</h6>
+                                            <input name="maintenance_date" type="date" class="form-control"
+                                                id="changeDate" />
 
-                    <div class="card">
-                        <div class="card-header">
-                            Log Datatable
+                                            <h6>Description of Changes</h6>
+                                            <textarea class="form-control" name="descriptions"
+                                                placeholder="Describe the changes here..."
+                                                id="changeDescription"></textarea>
+
+                                            <h6>Bug Fixes</h6>
+                                            <textarea name="bugs" class="form-control"
+                                                placeholder="Describe any bug fixes..." id="bugFixes"></textarea>
+
+                                            <h6>Impact</h6>
+                                            <textarea name="effect" class="form-control"
+                                                placeholder="Describe the impact..." id="impact"></textarea>
+
+                                            <button type="submit" class="btn btn-primary mt-3" id="saveChange">Save
+                                                Change</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="card-body">
-                            @canImpersonate($guard = null)
-
-                            <table class="table table-striped" id="table1">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>Date Time</th>
-                                        <th>Impersonate</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($alluser as $userz)
-                                    <tr>
-                                        <td>{{ $userz->id }}</td>
-                                        <td>{{ $userz->name }}</td>
-                                        <td>{{ $userz->email }}</td>
-                                        <td>
-                                            <span class="badge badge-info">{{ $userz->role_name }}</span>
-                                        </td>
-                                        <td>{{ $userz->created_at }}</td>
-                                        <td>
-                                            <a href="{{ route('impersonate', $userz->id) }}"
-                                                class="btn btn-warning">Impersonate</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            @endCanImpersonate
-
-                        </div>
-
                     </div>
-                </section>
-
-
-
-
-
-
             </div>
+            </section>
+
+
+
+
+
+
+
+        </div>
         </div>
         <script src="admins/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
         <script src="admins/assets/js/bootstrap.bundle.min.js"></script>

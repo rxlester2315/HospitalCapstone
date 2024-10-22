@@ -6,7 +6,7 @@
 
         <title>User Management</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="{{asset('adminz/assets/img/logo.jpg')}}">
+        <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/logo.jpg')}}">
 
         <link rel="stylesheet" href="{{asset('adminz/assets/css/bootstrap.min.css')}}">
 
@@ -18,14 +18,15 @@
 
         <link rel="stylesheet" href="{{asset('adminz/assets/css/style.css')}}">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
             integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
             crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
-        <style>
-
-        </style>
-
+        <!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
     </head>
 
     <body>
@@ -378,91 +379,117 @@
             <div class="page-wrapper" style="min-height: 667px;">
                 <div class="content container-fluid">
 
-                    <div class="card-body">
-                        <form action="{{ route('changepw.posts', $selectuser->id) }}" method="POST">
-                            @csrf
-                            <!-- Include CSRF token -->
 
-                            <div class="form-group">
-                                <label>Account ID</label>
-                                <input type="text" class="form-control"
-                                    value="{{ old('account_id', $selectuser->id ?? '') }}" readonly />
-                            </div>
-
-                            <div class="form-group">
-                                <label>Account Name</label>
-                                <input type="text" class="form-control"
-                                    value="{{ old('account_name', $selectuser->name ?? '') }}" readonly />
-                            </div>
-
-                            <div class="form-group">
-                                <label>Change Password</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" name="password" id="password-field"
-                                        required />
-                                    <div class="input-group-append">
-                                        <button type="button" class="btn btn-warning"
-                                            onclick="generatePassword()">Generate</button>
-                                        <button type="button" class="btn btn-danger"
-                                            onclick="togglePassword('password-field', this)">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
-                                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 d-flex">
+                            <div class="card flex-fill">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Email Send Password</h4>
                                 </div>
-                            </div>
+                                <div class="card-body">
+                                    <form action="{{ route('password.send.email', $users->id) }}" method="post">
+                                        @csrf
 
-                            <div class="form-group">
-                                <label>Confirm Password</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" name="password_confirmation"
-                                        id="password-confirmation-field" required />
-                                    <div class="input-group-append">
-                                        <button type="button" class="btn btn-danger"
-                                            onclick="togglePassword('password-confirmation-field', this)">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
-                                    </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Full Name</label>
+                                            <div class="col-lg-9">
+                                                <input type="text" class="form-control" value="{{ $users->name }}"
+                                                    readonly />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Email</label>
+                                            <div class="col-lg-9">
+                                                <input type="text" class="form-control" value="{{ $users->email }}"
+                                                    readonly />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Status</label>
+                                            <div class="col-lg-9">
+                                                <input type="text" class="form-control" value="{{ $users->status }}"
+                                                    readonly />
+                                            </div>
+                                        </div>
+
+
+
+                                        <!-- Title Message Dropdown -->
+                                        <!-- Greetings Dropdown -->
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Greetings</label>
+                                            <div class="col-lg-9">
+                                                <select id="greeting" name="greeting" class="form-control">
+                                                    <option value="hello">Hello</option>
+                                                    <option value="dear">Dear</option>
+                                                    <option value="hi">Hi</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- Call to Action Text Dropdown -->
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Call to Action Text</label>
+                                            <div class="col-lg-9">
+                                                <select id="action_text" name="action_text" class="form-control">
+                                                    <option value="click-here">Click Here</option>
+                                                    <option value="visit-now">Visit Now</option>
+                                                    <option value="learn-more">Learn More</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="action_url" class="col-lg-3 col-form-label">Call to Action
+                                                URL</label>
+                                            <div class="col-lg-9">
+                                                <input type="url" name="action_url" id="action_url"
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+
+
+
+                                        <!-- Closing Remarks Dropdown -->
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">Closing Remarks</label>
+                                            <div class="col-lg-9">
+                                                <select name="endline" id="endline" class="form-control">
+                                                    <option value="thank-you">Thank you</option>
+                                                    <option value="best-regards">Best Regards</option>
+                                                    <option value="kind-regards">Kind Regards</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- Email Content (Leave as textarea) -->
+                                        <div class="mb-3">
+                                            <label for="body" class="form-label">Email Content</label>
+                                            <textarea class="form-control form-control-sm" name="body" id="body"
+                                                style="width: 800px; height: 250px;"
+                                                placeholder="Enter the body of your email"></textarea>
+                                        </div>
+
+
+                                        <!-- Submit Button -->
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
                                 </div>
-                            </div>
 
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </form>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <script>
-                    function generatePassword() {
-                        var randomPassword = Math.random().toString(36).slice(-
-                            8); // Generates an 8-character random string
-                        document.getElementById("password-field").value = randomPassword;
-                        document.getElementById("password-confirmation-field").value =
-                            randomPassword; // Optionally auto-fill confirm password field
-                    }
-
-                    function togglePassword(fieldId, button) {
-                        var passwordField = document.getElementById(fieldId);
-                        var icon = button.querySelector('i');
-                        if (passwordField.type === "password") {
-                            passwordField.type = "text";
-                            icon.classList.remove("fa-eye");
-                            icon.classList.add("fa-eye-slash");
-                        } else {
-                            passwordField.type = "password";
-                            icon.classList.remove("fa-eye-slash");
-                            icon.classList.add("fa-eye");
-                        }
-                    }
-                    </script>
-
-                    <!-- Add Font Awesome for icons -->
-                    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-                        rel="stylesheet">
 
 
                 </div>
             </div>
 
         </div>
-
 
         @if(Session::has('message'))
         <script>
@@ -475,6 +502,7 @@
         });
         </script>
         @endif
+
         <script src="{{asset('adminz/assets/js/jquery-3.5.1.min.js')}}"></script>
 
         <script src="{{asset('adminz/assets/js/popper.min.js')}}"></script>

@@ -15,6 +15,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\File;
 
 use App\Notifications\TicketResponse;
+use App\Notifications\EmailNotification;
 
 use Notification;
 
@@ -291,7 +292,9 @@ public function ticketing(){
   $numclose= ticket::where('status','Close')->count();
     $numsolved= ticket::where('status','Solved')->count();
 
-    return view('Admin.list-ticket',compact('datas','numopen','numclose','numsolved'));
+     $activityLogss = DB::table('user_activity_logs')->count();
+
+    return view('Admin.list-ticket',compact('datas','numopen','numclose','numsolved','activityLogss'));
 
 
 }
@@ -624,6 +627,43 @@ public function updatepw_request(Request $request, $id)
 
 
     }
+
+public function send_password($id) {
+    // Retrieve the user by ID
+    $users = User::find($id);
+
+    // Check if user exists
+    if (!$users) {
+        return redirect()->back()->with('error', 'User not found.');
+    }
+
+    // Pass the user data to the view
+    return view('Admin.usermanage.sendpw-email', compact('users'));
+}
+
+public function password_send(Request $request, $id) {
+    $users = User::find($id);
+
+    // Check if user exists
+    if (!$users) {
+        return redirect()->back()->with('error', 'User not found.');
+    }
+
+    $details = [
+        'greeting'    => $request->greeting,
+        'body'        => $request->body,
+        'action_text' => $request->action_text,
+        'action_url'  => $request->action_url,
+        'endline'     => $request->endline
+    ];
+
+    // Sending email notification
+    Notification::send($users, new EmailNotification($details));
+
+    return redirect()->back()->with('message', 'Email sent successfully.');
+}
+
+
 
   
 
