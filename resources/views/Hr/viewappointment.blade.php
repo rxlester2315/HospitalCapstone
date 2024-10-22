@@ -466,12 +466,9 @@
                                             <td>{{$appoint->message}}</td>
                                             <td><a href="" class="badge badge-warning">{{$appoint->status}}</a></td>
                                             <td>
-
-                                                <a href="" class="btn btn-success">
-
-                                                    Approve </a>
-
-
+                                                <a style="padding: 5px 10px; font-size: 12px;"
+                                                    class="btn btn-success btn-sm"
+                                                    href="{{url('approved', $appoint->id)}}">Approve</a>
                                             </td>
 
 

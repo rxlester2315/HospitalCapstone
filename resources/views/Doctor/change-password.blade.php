@@ -81,10 +81,8 @@
 
         .card-body {
             padding: 40px;
-            background: #cdffd8;
-            background: linear-gradient(0deg, #cdffd8 0%, #ff94cc 100%);
-            background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-            background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+            background: #0ed7b6;
+
         }
 
         h2 {

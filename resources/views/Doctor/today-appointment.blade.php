@@ -27,10 +27,8 @@
         <style>
         /* General styles (unchanged) */
         .container-fluid {
-            background: #cdffd8;
-            background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+            background: white;
+
         }
 
         .cons {

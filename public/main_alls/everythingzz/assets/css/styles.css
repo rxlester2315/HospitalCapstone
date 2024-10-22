@@ -86,10 +86,7 @@
 
 .sidebar-header {
     padding: 19px 32px 20px;
-    background: #cdffd8;
-    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: #0ed7b6;
 }
 
 .sidebar-menu .logo {
@@ -157,10 +154,8 @@
 
 .metismenu > li:hover > a,
 .metismenu > li.active > a {
-    background: #cdffd8;
-    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: #0ed7b6;
+
     transform: scale(1.05);
 }
 
@@ -348,10 +343,7 @@
 
 .header-area {
     padding: 15px 30px;
-    background: #cdffd8;
-    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background-color: #0ed7b6;
 }
 
 .nav-btn {
@@ -656,6 +648,10 @@ ul.breadcrumbs {
     width: 100%; /* Ensure it takes full width */
 }
 
+.bread-middle a {
+    color: black;
+}
+
 .bread-middle li {
     padding: 100px 15px; /* Base padding */
     font-size: 16px; /* Base font size */
@@ -663,11 +659,9 @@ ul.breadcrumbs {
     text-align: center; /* Center text within each item */
     flex: 0 1 auto; /* Allow items to grow and shrink, but not take full width */
     margin: 0 5px; /* Add some margin between items */
-    background: #cdffd8;
-    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    border: 3px solid black;
+    background: #0ed7b6;
+    color: black;
+    border: 3px;
     border-radius: 8px;
     box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -751,7 +745,7 @@ ul.breadcrumbs {
 }
 
 .user-profile {
-    margin-right: -30px;
+    margin: 20px -40px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -760,10 +754,9 @@ ul.breadcrumbs {
     align-items: center;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    background: #cdffd8;
-    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: #0ed7b6;
+    border: 1px;
+    border-radius: 3px;
     padding: 17px 38px;
     box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -2651,10 +2644,8 @@ table.dataTable thead td {
 }
 
 .prc-head h4 {
-    background: #cdffd8;
-    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: #0ed7b6;
+
     color: #fff;
     padding: 28px;
     letter-spacing: 0;
@@ -2970,9 +2961,6 @@ table.dataTable thead td {
     height: 500px;
     position: relative;
     overflow: hidden;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 
     border-radius: 8px;
 }
@@ -3144,40 +3132,32 @@ table.dataTable thead td {
 }
 
 .options .list-options .chat {
-    background: #cdffd8;
-    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: #0ed7b6;
+
     box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .options .list-options .book {
-    background: #cdffd8;
-    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: #0ed7b6;
+
     box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .options .list-options .appoint {
-    background: #cdffd8;
-    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: #0ed7b6;
+
     box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .options .list-options .doctor {
-    background: #cdffd8;
-    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background: #0ed7b6;
+
     box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -3433,10 +3413,8 @@ table.dataTable thead td {
     margin: 20px;
     width: 300px; /* Set a fixed width */
     height: 340px; /* Set a fixed height */
-    background: #cdffd8;
-    background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-    background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-    background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+    background: beige;
+
     transition: transform 0.3s ease; /* Smooth transition for transform */
 }
 
@@ -3463,8 +3441,8 @@ table.dataTable thead td {
     border-radius: 12px;
     padding: 10px;
     margin: 15px;
-    background: #6f42c1;
-    color: white;
+    background: #0ed7b6;
+    color: black;
 }
 
 .text-dark {

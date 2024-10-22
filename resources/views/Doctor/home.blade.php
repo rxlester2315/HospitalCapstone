@@ -48,7 +48,7 @@
         .box:hover {
             transform: scale(1.05);
             /* Zoom in effect */
-            background: #94b9ff;
+            background: #0ed7b6;
             /* Change background color on hover */
         }
 

@@ -131,32 +131,7 @@
                             </div>
                             @endauth
                         </div>
-                        <div class="col-sm-6 clearfix">
-                            <div class="user-profile pull-right">
-                                <img class="avatar user-thumb"
-                                    src="main_alls/everythingzz/assets/images/author/avatar.png">
-                                @auth
-                                @if(Auth::user()->role_name !== 'Normal User')
-                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-                                    Unverified|{{ Auth::user()->name }}<i class="fa fa-angle-down"></i>
-                                </h4>
-                                @else
-                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-                                    Patient| {{ Auth::user()->name }}
-                                    <i class="fa fa-angle-down"></i>
-                                </h4>
-                                @endif
 
-                                @endauth
-
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Message</a>
-                                    <a class="dropdown-item" href="{{ route('guest_view') }}">View Profile</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}">Log
-                                        Out</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- page title area end -->

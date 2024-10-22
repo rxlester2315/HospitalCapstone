@@ -26,6 +26,15 @@
         <script src="main_alls/everythingzz/assets/js/vendor/modernizr-2.8.3.min.js"></script>
         <style>
         /* General styles (unchanged) */
+
+        th {
+            background-color: #0ed7b6;
+        }
+
+        .container-bg {
+            background-color: white;
+        }
+
         .container-fluid {
             background: #cdffd8;
             background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
@@ -46,6 +55,7 @@
             width: 100%;
             /* Ensures the table takes the full width of its container */
         }
+
 
         /* Responsive styles */
         @media (max-width: 768px) {
@@ -106,8 +116,8 @@
             <div class="sidebar-menu">
                 <div class="sidebar-header">
                     <div class="logo">
-                        <a href="{{url('Doc')}}"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
-                                alt="logo"></a>
+                        <a href="{{url('Doc')}}"><img
+                                src="{{asset('main_alls/everythingzz/assets/images/icon/logo2.png')}}" alt="logo"></a>
                     </div>
                 </div>
                 <div class="main-menu">
@@ -132,7 +142,7 @@
 
                                 <li><a href="{{url('listrecord')}}"><i class="fa fa-commenting-o"></i> <span>Chat with
                                             Patients</span></a></li>
-                                <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Send Ticket
+                                <li><a href="{{url('send_ticket')}}"><i class="ti-receipt"></i> <span>Send Ticket
                                             Request</span></a>
                                 </li>
 
@@ -197,7 +207,7 @@
                                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Doctor|
                                     {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Message</a>
+                                    <a class="dropdown-item" href="{{url('chat')}}">Message</a>
                                     <a class="dropdown-item" href="#">Settings</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">Log Out</a>
                                 </div>
@@ -213,7 +223,7 @@
 
                     <div class="cons">
 
-                        <div class="container-fluid cyan-bg">
+                        <div class="container-bg">
                             <div class="row">
                                 <!-- Left Side -->
                                 <div class="col-md-6 text-center">
@@ -237,6 +247,9 @@
                                                     <th>Date Appointment</th>
                                                     <th>Status</th>
                                                     <th>Actions</th> <!-- Rename to Actions instead of keeping empty -->
+                                                    <th>Actions</th> <!-- Rename to Actions instead of keeping empty -->
+
+
                                                 </tr>
                                             </thead>
                                             <tbody>

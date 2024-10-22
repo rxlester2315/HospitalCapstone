@@ -48,6 +48,10 @@
             /* Ensures the table takes the full width of its container */
         }
 
+        button {
+            background-color: red;
+        }
+
         /* Responsive styles */
         @media (max-width: 768px) {
             .cons .row {
@@ -91,23 +95,25 @@
         }
 
         .form-container {
-            border: 3px solid black;
+            border: 3px;
             padding: 20px;
             border-radius: 8px;
             margin-top: 20px;
-            box-shadow: 12px 10px 5px 0px rgba(0, 0, 0, 0.75);
-            -webkit-box-shadow: 12px 10px 5px 0px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 12px 10px 5px 0px rgba(0, 0, 0, 0.75);
-            background: #cdffd8;
-            background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+            box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.75);
+            background: white;
+
 
         }
 
         .form-title {
             margin-bottom: 20px;
             text-align: center;
+            border: 1px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #0ed7b6;
         }
         </style>
     </head>

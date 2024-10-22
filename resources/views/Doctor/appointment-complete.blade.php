@@ -34,6 +34,10 @@
         <script src="main_alls/everythingzz/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
         <style>
+        th {
+            background-color: #0ed7b6;
+        }
+
         .table-responsive {
             display: block;
             width: 100%;
@@ -215,6 +219,9 @@
                                                 <td>
                                                     <a href="{{ url('sendmessage/'.$suc->id) }}"
                                                         class="btn btn-info">Send Message</a>
+                                                    <a href="{{ route('remove.patientss', $suc->id) }}"
+                                                        class="btn btn-danger">Remove</a>
+
 
                                                 </td>
                                             </tr>

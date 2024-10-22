@@ -41,10 +41,8 @@
 
         <style>
         .appointment-form {
-            background: #cdffd8;
-            background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+            background: #0ed7b6;
+
             padding: 30px;
             border-radius: 15px;
             max-width: 800px;
@@ -126,32 +124,7 @@
 
 
                             </div>
-                            <div class="clearfix d-md-inline-block d-block">
-                                <div class="user-profile pull-right">
-                                    <img class="avatar user-thumb"
-                                        src="main_alls/everythingzz/assets/images/author/avatar.png">
-                                    @auth
-                                    @if(Auth::user()->role_name !== 'Normal User')
-                                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-                                        Unverified|{{ Auth::user()->name }}<i class="fa fa-angle-down"></i>
-                                    </h4>
-                                    @else
-                                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-                                        Patient| {{ Auth::user()->name }}
-                                        <i class="fa fa-angle-down"></i>
-                                    </h4>
-                                    @endif
 
-                                    @endauth
-
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Message</a>
-                                        <a class="dropdown-item" href="{{ route('guest_view') }}">View Profile</a>
-                                        <a class="dropdown-item" href="{{ route('logout') }}">Log
-                                            Out</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

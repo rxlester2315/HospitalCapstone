@@ -206,6 +206,8 @@ Route::get('/sendmessage/{id}',[DoctorController::class,'sendmessage'])->name('s
 
 Route::post('/sendmessage/{id}', [DoctorController::class, 'sendmessage']);
 
+
+
 Route::post('/doctor/sendmessage/{id}', [DoctorController::class, 'sendmessage'])->name('doctor.sendmessage');
 Route::get('/doctor/chat-history/{appointmentId}', [DoctorController::class, 'loadChatHistory'])->name('doctor.chat.history');
 
@@ -214,6 +216,10 @@ Route::get('/doctor/chat-history/{appointmentId}', [DoctorController::class, 'lo
 
 Route::get('/doctor/chat/{id}', [DoctorController::class, 'loadMessages']);
 Route::get('/patient/chat', [HomeController::class, 'loadMessages']);
+
+Route::get('removepatient/{id}', [DoctorController::class, 'remove_appointment'])->name('remove.patientss');
+
+
 
 
 

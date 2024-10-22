@@ -59,7 +59,7 @@
         width: 30%;
         border: 1px solid #ccc;
         padding: 20px;
-        background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+        background: #0ed7b6;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -114,7 +114,7 @@
         width: 70%;
         display: flex;
         flex-direction: column;
-        background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+        background: #0ed7b6;
         padding: 20px;
         position: relative;
     }
@@ -299,19 +299,11 @@
 
                                 @auth
                                 @if(Auth::user()->role_name == 'Guests')
-                                <li><a href="{{url('Guessappoint')}}"><i class="fa fa-briefcase"></i> <span>View
-                                            Appointment</span></a>
-                                </li>
+
 
                                 <li><a href="{{ route('guest_view') }}"><i class="fa fa-user"></i> <span>My
                                             Profile</span></a></li>
-                                <li><a href="{{url('chatss')}}"><i class="fa fa-comments"></i> <span>Chat with
-                                            Front-desk</span></a>
-                                </li>
 
-                                <li><a href="{{url('create_guest_appointment')}}"><i class="fa fa-briefcase"></i>
-                                        <span>Create
-                                            An Appointment</span></a>
                                 </li>
 
 

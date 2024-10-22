@@ -96,7 +96,7 @@
             <!-- sidebar menu area start -->
             <div class="sidebar-menu">
                 <div class="sidebar-header">
-                    <a href="{{url('Doc')}}"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
+                    <a href="{{url('Doc')}}"><img src="{{asset('main_alls/everythingzz/assets/images/icon/logo2.png')}}"
                             alt="logo"></a>
                 </div>
                 <div class="main-menu">

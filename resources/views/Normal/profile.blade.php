@@ -62,6 +62,10 @@
             /* Adjusted margin-top */
         }
 
+        .card-header {
+            background: #0ed7b6;
+        }
+
 
         .note h2 {
             font-size: 15px;
@@ -82,10 +86,7 @@
 
         .card-body {
 
-            background: #cdffd8;
-            background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+            background: white;
         }
         </style>
     </head>
@@ -110,7 +111,9 @@
                                 <a href="{{ url('User') }}"><img
                                         src="main_alls/everythingzz/assets/images/icon/logo2.png" alt="logo"></a>
                             </div>
+
                         </div>
+
                         <!-- profile info & task notification -->
                         <div class="col-md-9 clearfix text-right">
                             <div class="d-md-inline-block d-block mr-md-4">

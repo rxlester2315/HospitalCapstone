@@ -567,12 +567,13 @@ public function sendmessage(Request $request, $id)
     $chatMessage->save();
 
     // Broadcast using Pusher
-    $pusher = new Pusher(
-        env('PUSHER_APP_KEY'),
-        env('PUSHER_APP_SECRET'),
-        env('PUSHER_APP_ID'),
-        ['cluster' => env('PUSHER_APP_CLUSTER'), 'useTLS' => true]
-    );
+  $pusher = new Pusher(
+    env('PUSHER_APP_KEY'),       // This retrieves the key from your .env file
+    env('PUSHER_APP_SECRET'),    // This retrieves the secret from your .env file
+    env('PUSHER_APP_ID'),        // This retrieves the ID from your .env file
+    ['cluster' => env('PUSHER_APP_CLUSTER'), 'useTLS' => true]  // This retrieves the cluster
+);
+
 
     $data = [
         'from' => $authUserId,
@@ -589,6 +590,24 @@ public function sendmessage(Request $request, $id)
         'userId' => $appointment->user->id
     ]);
 }
+
+public function remove_appointment($id)
+{
+    $appoint = Appointments::find($id);
+
+    if ($appoint) {
+        $appoint->delete();
+        // Optionally, you could add a success message to the session
+        session()->flash('success', 'Appointment removed successfully.');
+    } else {
+        // Handle the case where the appointment doesn't exist
+        session()->flash('error', 'Appointment not found.');
+    }
+
+    return redirect()->back();
+}
+
+
 
 
 

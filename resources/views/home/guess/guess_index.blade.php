@@ -51,19 +51,13 @@
 
 
 
-                                <li><a href="{{url('Guessappoint')}}"><i class="fa fa-briefcase"></i> <span>View
-                                            Appointment</span></a>
-                                </li>
+
                                 <li><a href="{{ route('guest_view') }}"><i class="fa fa-user"></i> <span>My
                                             Profile</span></a></li>
                                 <li><a href="{{url('chatss')}}"><i class="fa fa-comments"></i> <span>Chat with
                                             Front-desk</span></a>
                                 </li>
 
-                                <li><a href="{{url('create_guest_appointment')}}"><i class="fa fa-briefcase"></i>
-                                        <span>Create
-                                            An Appointment</span></a>
-                                </li>
 
 
 
@@ -320,7 +314,7 @@
                                             <li class="bold"><a href="#">Hepa A & B profile</a>
                                             </li>
                                         </ul>
-                                        <a href="{{url('chatss')}}">Buy Package</a>
+                                        <a href="{{url('chatss')}}">More Info</a>
                                     </div>
                                 </div>
                             </div>

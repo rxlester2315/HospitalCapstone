@@ -36,12 +36,13 @@
             margin: 30px auto;
             padding: 20px;
             background-color: #f8f9fa;
+            border: 1px solid;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            background: #cdffd8;
-            background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+            box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.75);
+            background: #white;
+
         }
 
 
@@ -110,18 +111,12 @@
                                     </ul>
                                 </li>
 
-                                <li>
-                                    <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-male"></i><span>My
-                                            Information</span></a>
 
-                                </li>
 
 
                                 <li><a href="{{url('listrecord')}}"><i class="fa fa-commenting-o"></i> <span>Chat with
                                             Patients</span></a></li>
-                                <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Send Ticket
-                                            Request</span></a>
-                                </li>
+
 
                             </ul>
                         </nav>
