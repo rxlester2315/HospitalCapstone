@@ -6,10 +6,10 @@
             @if (trim($slot) === 'Laravel')
             <!-- Logo with black background -->
             <img src="{{ asset('imagezz/email_logo.jpg') }}" width="70" height="70" alt="Logo"
-                style="display: block; margin-bottom: 10px;">
+                style="display: block; margin: 0 auto 10px;">
             @else
             <!-- Custom text with white color on black background -->
-            <span style="font-size: 24px; font-weight: bold; color: #ffffff;">{{ $slot }}</span>
+            <span style="font-size: 24px; font-weight: bold; color: #ffffff; display: block;">{{ $slot }}</span>
             @endif
         </a>
     </td>
