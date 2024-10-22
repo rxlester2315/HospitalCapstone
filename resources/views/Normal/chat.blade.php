@@ -610,19 +610,12 @@
 
         // Listen for messages from the doctor
         channel.bind('message-sent', function(data) {
-            let chatBox = document.getElementById('chat-box');
-            let messageClass = (data.from == {
-                {
-                    auth() - > user() - > id
-                }
-            }) ? 'patient' : 'doctor';
-            let senderName = (data.from == {
-                {
-                    auth() - > user() - > id
-                }
-            }) ? 'You' : data.doctor_name || "Doctor";
+    const chatBox = document.getElementById('chat-box');
+    const isCurrentUser = (data.from === {{ auth()->user()->id }});
+    const messageClass = isCurrentUser ? 'patient' : 'doctor';
+    const senderName = isCurrentUser ? 'You' : (data.doctor_name || 'Doctor');
 
-            let newMessage = `
+    const newMessage = `
         <div class="message ${messageClass}">
             <div class="message-bubble">
                 <strong>${senderName}:</strong> ${data.message}
@@ -630,9 +623,11 @@
             </div>
         </div>
     `;
-            chatBox.innerHTML += newMessage;
-            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom when new message arrives
-        });
+    
+    chatBox.innerHTML += newMessage;
+    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom when new message arrives
+});
+
 
         // Function to send the message via AJAX
         function sendMessage() {

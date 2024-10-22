@@ -143,6 +143,12 @@ Route::get('chatat', [FrontDeskController::class, 'listChats'])->name('chatat');
 Route::get('/admin/chat/{sessionId}', [FrontDeskController::class, 'viewChat']);
 Route::post('/admin/chat/{sessionId}/send', [FrontDeskController::class, 'sendMessage']);
 Route::get('/admin/chat/{sessionId}/messages', [FrontDeskController::class, 'fetchMessages']);
+Route::get('pending_app',[FrontDeskController::class,'list_pend'])->name('archived');
+Route::get('display_arrive',[FrontDeskController::class,'display_arrives'])->name('arrives.time');
+Route::get('display_arrives',[FrontDeskController::class,'arrive_times_today'])->name('arrives.set.todays');
+Route::get('arrive_setime/{id}',[FrontDeskController::class,'arrive_set'])->name('arrive.view.set');
+Route::post('arrive_setimes/{id}',[FrontDeskController::class,'subtime_arrive'])->name('submit.time.arrive');
+
 
 
 //Human Resources 

@@ -220,5 +220,81 @@ Notification::route('mail', $sendemail)->notify(new VerifiedNotification($user->
 
 
 
+public function list_pend(){
+
+$pending = Appointments::where('status','Pending')->get();
+
+
+return view('Front-desk.list-pending-appoint',compact('pending'));
+    
+
+}
+
+
+public function display_arrives(){
+
+    return view('Front-desk.arriving-times',['appointment'=>null]);
+    
+}
+
+public function arrive_times_today(Request $request){
+ $request->validate([
+        'filter_date' => 'required|date',
+    ]);
+ $filterDate = $request->input('filter_date');
+
+    // Query appointments based on the date, approved status, and null time_arrive and ampm
+    $appointment = Appointments::whereDate('date', $filterDate)
+                                ->where('status', 'Approved')
+                                ->whereNull('time_arrive') // Only show those who haven't arrived yet
+                                ->whereNull('ampm')
+                                ->get();
+return view('Front-desk.arriving-times',compact('appointment'));
+
+}
+
+
+
+public function arrive_set($id){
+
+     $patient = Appointments::find($id);
+    
+    if (!$patient) {
+        return redirect()->back()->with('error', 'Appointment not found.');
+    }
+
+    return view('Front-desk.arrived-set-time', compact('patient'));
+
+}
+
+
+public function subtime_arrive(Request $request, $id){
+
+     $request->validate([
+        'time' => 'required|date_format:H:i', 
+        'ampm' => 'required|string|in:AM,PM',
+    ]);
+
+    // Find the appointment by ID
+    $appointment = Appointments::findOrFail($id);
+
+    // Update the time_arrive and ampm fields
+    $appointment->time_arrive = $request->input('time');
+    $appointment->ampm = $request->input('ampm');
+
+    // Save the changes to the database
+    $appointment->save();
+
+    // Redirect back to the list of appointments
+    return redirect()->route('arrives.time')->with('success', 'Arrival time successfully recorded.');
+}
+
+
+
+
+
+
+
+
     
 }

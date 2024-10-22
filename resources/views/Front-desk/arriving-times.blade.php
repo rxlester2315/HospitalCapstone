@@ -4,9 +4,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+
         <title>Comcare Front Desk</title>
-
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
             integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -26,13 +25,20 @@
             <script src="assets/js/html5shiv.min.js"></script>
             <script src="assets/js/respond.min.js"></script>
         <![endif]-->
+
+        <style>
+        .clock {
+            font-size: 48px;
+            color: white;
+        }
+        </style>
     </head>
 
     <body>
         <div class="main-wrapper">
             <div class="header">
                 <div class="header-left">
-                    <a href="index.html" class="logo">
+                    <a href="{{url('Front')}}" class="logo">
                         <img src="{{asset('fdesk/assets/img/logo.jpg')}}" width="80px" height="70px" alt="" />
                     </a>
                 </div>
@@ -46,12 +52,13 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Front Desk Dashboard</h3>
+                    <h3>Admin Dashboard</h3>
                 </div>
 
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
 
                 <ul class="nav user-menu">
+
 
 
 
@@ -185,10 +192,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a href="chat" class="dropdown-toggle nav-link" data-toggle="">
-                            <i class="fa fa-comment-o"></i>
 
-                        </a>
                         <div class="dropdown-menu notifications">
                             <div class="topnav-dropdown-header">
                                 <span class="notification-title">Messages</span>
@@ -371,14 +375,6 @@
 
                                     <span>Verified Accounts</span></a></li>
                             <li>
-                                <a href="{{url('pending_app')}}" target=" _blank"><i class="fa-solid fa-ticket"></i>
-                                    <span>Pending Appointment</span></a>
-                            </li>
-
-                            <li><a href="{{url('display_arrive')}}"><i class="fa-solid fa-user-group"></i>
-                                    <span>Patient Arrives</span></a></li>
-                            <li>
-
                                 <a href="{{url('unverified-list')}}"><i class="fa-solid fa-user-minus"></i>
                                     <span>Request Verification </span></a>
                             </li>
@@ -390,15 +386,6 @@
                                 <a href="{{route('archived')}}"><i class="fa-solid fa-trash"></i>
                                     <span>Archived Accounts </span></a>
                             </li>
-                            <li>
-                                <a href="{{route('ticket')}}" target=" _blank"><i class="fa-solid fa-ticket"></i>
-                                    <span>Send Ticket </span></a>
-                            </li>
-
-
-
-
-
 
 
                         </ul>
@@ -408,164 +395,83 @@
 
             <div class="page-wrapper">
                 <div class="content container-fluid">
-                    <div class="page-header">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <center>
-
-                                    <h3 class="page-title" style="color:white; font-size:40px;">Welcome Front Desk!</h3>
-                                    <ul class="breadcrumb">
-
-                                    </ul>
-                                </center>
-                            </div>
-
-                        </div>
+                    <div class="card-header">
+                        <h4 class="card-title">Patient Appointment</h4>
+                        <form action="{{ route('arrives.set.todays') }}" method="GET">
+                            @csrf
+                            <input type="date" name="filter_date" required>
+                            <button type="submit" class="btn btn-primary">Filter</button>
+                        </form>
                     </div>
 
+                    <div class="card-header">
+                        <h4 class="card-title">Time in Manila, Philippines</h4>
+                        <div class="clock" id="clock"></div>
+
+
+                    </div>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$listguest}}</h3>
-                                        <span>New Patient Register </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$noappoint}}</h3>
-                                        <span>Appointment Request</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$approveappoint}}</h3>
-                                        <span>Approve Appointment</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$activeUser}}</h3>
-                                        <span>Disable Account</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped custom-table mb-0 datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Doctor</th>
+                                            <th>Date Schedule</th>
+                                            <th>Phone Number</th>
+                                            <th>Email</th>
+                                            <th>Arrived</th>
+                                            <th>Rejected</th>
 
-                        <div class="col-md-6 d-flex">
-                            <div class="card card-table flex-fill">
-                                <div class="card-header">
-                                    <h3 class="card-title mb-0">Patients Request Verified</h3>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-nowrap custom-table mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Created</th>
-                                                    <th>Request Date</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($listguestss as $new)
-                                                <tr>
-                                                    <td>
-                                                        <a href="invoice-view.html">{{$new->id}}</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-info">{{$new->name}}</span>
-                                                    </td>
-                                                    <td>{{$new->created_at}}</td>
-                                                    <td>{{$new->updated_at}}</td>
-                                                    <td>
-                                                        <span class="badge badge-danger">
-                                                            {{$new->status}}
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if($appointment && $appointment->isNotEmpty())
+                                        @foreach($appointment as $today)
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                        <tr>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html" class="avatar"><img alt=""
+                                                            src="assets/img/profiles/avatar-09.jpg" /></a>
+                                                    <a href="#">{{$today->name}}
+                                                </h2>
+                                            </td>
+                                            <td>{{$today->employees}}</td>
+                                            <td>{{$today->date}}</td>
+                                            <td>{{$today->phone}}</td>
+                                            <td>{{$today->email}}</td>
+                                            <td>
+                                                <a href="{{ url('arrive_setime/'.$today->id) }}" target="_blank">
+                                                    <h3 class="btn btn-success">Arrive</h3>
+                                                </a>
+                                            </td>
 
-                            </div>
-                        </div>
+                                            <td>
+                                                <a href="">
+                                                    <h3 class="btn btn-danger">Not Attended</h3>
+                                                </a>
+                                            </td>
 
-                        <div class="col-md-6 d-flex">
-                            <div class="card card-table flex-fill">
-                                <div class="card-header">
-                                    <h3 class="card-title mb-0">Patients Verified</h3>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-nowrap custom-table mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Doctor</th>
-                                                    <th>Appointment Date</th>
-                                                    <th>Created Date</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($pending as $pend)
-                                                <tr>
-                                                    <td>
-                                                        <a href="invoice-view.html">{{$pend->id}}</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-info">{{$pend->name}}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-info">{{$pend->employees}}</span>
-                                                    </td>
-                                                    <td>{{$pend->date}}</td>
-                                                    <td>{{$pend->created_at}}</td>
-                                                    <td>
-                                                        <span class="badge badge-warning">
-                                                            {{$pend->status}}
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
+                                        </tr>
+                                        @endforeach
+                                        @else
+                                        <tr>
+                                            <td colspan="7" class="text-center">Please select date today to
+                                                see
+                                                available schedule today
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                        </tr>
+                                        @endif
 
+
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
             </div>
         </div>
@@ -584,6 +490,25 @@
         <script src="fdesk/assets/js/chart.js"></script>
 
         <script src="fdesk/assets/js/app.js"></script>
+
+
+        <script>
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12; // Convert 0 to 12
+
+            const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call to display immediately
+        </script>
     </body>
 
 </html>

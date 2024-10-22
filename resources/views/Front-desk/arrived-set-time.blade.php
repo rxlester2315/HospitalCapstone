@@ -4,35 +4,157 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+
         <title>Comcare Front Desk</title>
-
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
             integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('fdesk/assets/img/logo.jpg')}}" />
 
-        <link rel="stylesheet" href="fdesk/assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="{{asset('fdesk/assets/css/bootstrap.min.css')}}" />
 
-        <link rel="stylesheet" href="fdesk/assets/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="{{asset('fdesk/assets/css/font-awesome.min.css')}}" />
 
-        <link rel="stylesheet" href="fdesk/assets/css/line-awesome.min.css" />
+        <link rel="stylesheet" href="{{asset('fdesk/assets/css/line-awesome.min.css')}}" />
 
-        <link rel="stylesheet" href="fdesk/assets/plugins/morris/morris.css" />
+        <link rel="stylesheet" href="{{asset('fdesk/assets/plugins/morris/morris.css')}}" />
 
-        <link rel="stylesheet" href="fdesk/assets/css/style.css" />
+        <link rel="stylesheet" href="{{asset('fdesk/assets/css/style.css')}}" />
 
         <!--[if lt IE 9]>
             <script src="assets/js/html5shiv.min.js"></script>
             <script src="assets/js/respond.min.js"></script>
         <![endif]-->
+
+        <style>
+        .clock {
+            font-size: 48px;
+            color: white;
+        }
+
+        <style>body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 20px;
+
+        }
+
+        .container {
+            max-width: 450px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+            background: #001f33;
+
+        }
+
+
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 25px;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: white;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="time"],
+        select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[readonly] {
+            background-color: #e2e6ea;
+            cursor: not-allowed;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="time"]:focus,
+        select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            padding: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .time-selection {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .time-selection input[type="time"] {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        select {
+            flex: 1;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+        </style>
+        </style>
     </head>
 
     <body>
         <div class="main-wrapper">
             <div class="header">
                 <div class="header-left">
-                    <a href="index.html" class="logo">
+                    <a href="{{url('Front')}}" class="logo">
                         <img src="{{asset('fdesk/assets/img/logo.jpg')}}" width="80px" height="70px" alt="" />
                     </a>
                 </div>
@@ -46,12 +168,13 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Front Desk Dashboard</h3>
+                    <h3>Admin Dashboard</h3>
                 </div>
 
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
 
                 <ul class="nav user-menu">
+
 
 
 
@@ -70,7 +193,7 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="assets/img/profiles/avatar-02.jpg" />
+                                                    <img alt="" src="{{asset('assets/img/profiles/avatar-02.jpg')}}" />
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details">
@@ -90,7 +213,7 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="assets/img/profiles/avatar-03.jpg" />
+                                                    <img alt="" src="{{asset('assets/img/profiles/avatar-03.jpg')}}" />
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details">
@@ -112,7 +235,7 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="assets/img/profiles/avatar-06.jpg" />
+                                                    <img alt="" src="{{asset('assets/img/profiles/avatar-06.jpg')}}" />
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details">
@@ -137,7 +260,7 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="assets/img/profiles/avatar-17.jpg" />
+                                                    <img alt="" src="{{asset('assets/img/profiles/avatar-17.jpg')}}" />
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details">
@@ -159,7 +282,7 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="assets/img/profiles/avatar-13.jpg" />
+                                                    <img alt="" src="{{asset('assets/img/profiles/avatar-13.jpg')}}" />
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details">
@@ -185,10 +308,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a href="chat" class="dropdown-toggle nav-link" data-toggle="">
-                            <i class="fa fa-comment-o"></i>
 
-                        </a>
                         <div class="dropdown-menu notifications">
                             <div class="topnav-dropdown-header">
                                 <span class="notification-title">Messages</span>
@@ -203,7 +323,8 @@
                                             <div class="list-item">
                                                 <div class="list-left">
                                                     <span class="avatar">
-                                                        <img alt="" src="assets/img/profiles/avatar-09.jpg" />
+                                                        <img alt=""
+                                                            src="{{asset('assets/img/profiles/avatar-09.jpg')}}" />
                                                     </span>
                                                 </div>
                                                 <div class="list-body">
@@ -223,7 +344,8 @@
                                             <div class="list-item">
                                                 <div class="list-left">
                                                     <span class="avatar">
-                                                        <img alt="" src="assets/img/profiles/avatar-02.jpg" />
+                                                        <img alt=""
+                                                            src="{{asset('assets/img/profiles/avatar-02.jpg')}}" />
                                                     </span>
                                                 </div>
                                                 <div class="list-body">
@@ -242,7 +364,8 @@
                                             <div class="list-item">
                                                 <div class="list-left">
                                                     <span class="avatar">
-                                                        <img alt="" src="assets/img/profiles/avatar-03.jpg" />
+                                                        <img alt=""
+                                                            src="{{asset('assets/img/profiles/avatar-03.jpg')}}" />
                                                     </span>
                                                 </div>
                                                 <div class="list-body">
@@ -263,7 +386,8 @@
                                             <div class="list-item">
                                                 <div class="list-left">
                                                     <span class="avatar">
-                                                        <img alt="" src="assets/img/profiles/avatar-05.jpg" />
+                                                        <img alt=""
+                                                            src="{{asset('assets/img/profiles/avatar-05.jpg')}}" />
                                                     </span>
                                                 </div>
                                                 <div class="list-body">
@@ -282,7 +406,8 @@
                                             <div class="list-item">
                                                 <div class="list-left">
                                                     <span class="avatar">
-                                                        <img alt="" src="assets/img/profiles/avatar-08.jpg" />
+                                                        <img alt=""
+                                                            src="{{asset('assets/img/profiles/avatar-08.jpg')}}" />
                                                     </span>
                                                 </div>
                                                 <div class="list-body">
@@ -308,7 +433,7 @@
 
                     <li class="nav-item dropdown has-arrow main-drop">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="fdesk/assets/img/profiles/front.jpg" alt="" />
+                            <span class="user-img"><img src="{{asset('fdesk/assets/img/profiles/front.jpg')}}" alt="" />
                                 <span class="status online"></span></span>
                             <span>Admin</span>
                         </a>
@@ -371,14 +496,6 @@
 
                                     <span>Verified Accounts</span></a></li>
                             <li>
-                                <a href="{{url('pending_app')}}" target=" _blank"><i class="fa-solid fa-ticket"></i>
-                                    <span>Pending Appointment</span></a>
-                            </li>
-
-                            <li><a href="{{url('display_arrive')}}"><i class="fa-solid fa-user-group"></i>
-                                    <span>Patient Arrives</span></a></li>
-                            <li>
-
                                 <a href="{{url('unverified-list')}}"><i class="fa-solid fa-user-minus"></i>
                                     <span>Request Verification </span></a>
                             </li>
@@ -390,15 +507,6 @@
                                 <a href="{{route('archived')}}"><i class="fa-solid fa-trash"></i>
                                     <span>Archived Accounts </span></a>
                             </li>
-                            <li>
-                                <a href="{{route('ticket')}}" target=" _blank"><i class="fa-solid fa-ticket"></i>
-                                    <span>Send Ticket </span></a>
-                            </li>
-
-
-
-
-
 
 
                         </ul>
@@ -408,182 +516,69 @@
 
             <div class="page-wrapper">
                 <div class="content container-fluid">
-                    <div class="page-header">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <center>
 
-                                    <h3 class="page-title" style="color:white; font-size:40px;">Welcome Front Desk!</h3>
-                                    <ul class="breadcrumb">
 
-                                    </ul>
-                                </center>
-                            </div>
 
+
+
+                    <body>
+                        <div class="container">
+                            <h1>Patient Information</h1>
+                            <form action="{{ route('submit.time.arrive', $patient->id) }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" value="{{ $patient->name }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="doctor">Doctor:</label>
+                                    <input type="text" id="doctor" value="{{ $patient->employees }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone:</label>
+                                    <input type="text" id="phone" value="{{ $patient->phone }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" value="{{ $patient->email }}" readonly>
+                                </div>
+                                <div class="form-group time-selection">
+                                    <label for="time">Arrive Time:</label>
+                                    <input type="time" name="time" id="time" />
+                                    <select id="time-period" name="ampm">
+                                        <option value="AM">AM</option>
+                                        <option value="PM">PM</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-secondary">Submit Arrive Time</button>
+                            </form>
                         </div>
-                    </div>
+                    </body>
 
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$listguest}}</h3>
-                                        <span>New Patient Register </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$noappoint}}</h3>
-                                        <span>Appointment Request</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$approveappoint}}</h3>
-                                        <span>Approve Appointment</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$activeUser}}</h3>
-                                        <span>Disable Account</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+</html>
 
-                        <div class="col-md-6 d-flex">
-                            <div class="card card-table flex-fill">
-                                <div class="card-header">
-                                    <h3 class="card-title mb-0">Patients Request Verified</h3>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-nowrap custom-table mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Created</th>
-                                                    <th>Request Date</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($listguestss as $new)
-                                                <tr>
-                                                    <td>
-                                                        <a href="invoice-view.html">{{$new->id}}</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-info">{{$new->name}}</span>
-                                                    </td>
-                                                    <td>{{$new->created_at}}</td>
-                                                    <td>{{$new->updated_at}}</td>
-                                                    <td>
-                                                        <span class="badge badge-danger">
-                                                            {{$new->status}}
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+</div>
+</div>
+</div>
+</div>
 
-                            </div>
-                        </div>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="{{asset('fdesk/assets/js/jquery-3.5.1.min.js')}}"></script>
 
-                        <div class="col-md-6 d-flex">
-                            <div class="card card-table flex-fill">
-                                <div class="card-header">
-                                    <h3 class="card-title mb-0">Patients Verified</h3>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-nowrap custom-table mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Doctor</th>
-                                                    <th>Appointment Date</th>
-                                                    <th>Created Date</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($pending as $pend)
-                                                <tr>
-                                                    <td>
-                                                        <a href="invoice-view.html">{{$pend->id}}</a>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-info">{{$pend->name}}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="badge badge-info">{{$pend->employees}}</span>
-                                                    </td>
-                                                    <td>{{$pend->date}}</td>
-                                                    <td>{{$pend->created_at}}</td>
-                                                    <td>
-                                                        <span class="badge badge-warning">
-                                                            {{$pend->status}}
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
+<script src="{{asset('fdesk/assets/js/popper.min.js')}}"></script>
+<script src="{{asset('fdesk/assets/js/bootstrap.min.js')}}"></script>
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+<script src="{{asset('fdesk/assets/js/jquery.slimscroll.min.js')}}"></script>
 
-                            </div>
-                        </div>
-                    </div>
+<script src="{{asset('fdesk/assets/plugins/morris/morris.min.js')}}"></script>
+<script src="{{asset('fdesk/assets/plugins/raphael/raphael.min.js')}}"></script>
+<script src="{{asset('fdesk/assets/js/chart.js')}}"></script>
+
+<script src="{{asset('fdesk/assets/js/app.js')}}"></script>
 
 
 
-
-
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script src="fdesk/assets/js/jquery-3.5.1.min.js"></script>
-
-        <script src="fdesk/assets/js/popper.min.js"></script>
-        <script src="fdesk/assets/js/bootstrap.min.js"></script>
-
-        <script src="fdesk/assets/js/jquery.slimscroll.min.js"></script>
-
-        <script src="fdesk/assets/plugins/morris/morris.min.js"></script>
-        <script src="fdesk/assets/plugins/raphael/raphael.min.js"></script>
-        <script src="fdesk/assets/js/chart.js"></script>
-
-        <script src="fdesk/assets/js/app.js"></script>
-    </body>
+</body>
 
 </html>
