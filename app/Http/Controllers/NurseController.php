@@ -13,31 +13,10 @@ class NurseController extends Controller
 {
     
 
- public function cardiology() {
-    $cardiology = Employees::where('specialty', 'Cardiology')->get(); // Execute the query to get the data
-
-    return view('Nurse.departments.cardiology', compact('cardiology'));
-}
-
- public function ortho() {
-    $orthopaedic = Employees::where('specialty', 'Orthopaedic Surgery')->get(); // Execute the query to get the data
-
-    return view('Nurse.departments.Orthopaedic', compact('orthopaedic'));
-}
 
 
-public function neuro() {
-    $neuro = Employees::where('specialty', 'Neurology')->get(); // Execute the query to get the data
-
-    return view('Nurse.departments.neurology', compact('neuro'));
-}
 
 
-public function surgery() {
-    $surgerys = Employees::where('specialty', 'General Surgery')->get(); // Execute the query to get the data
-
-    return view('Nurse.departments.surgery', compact('surgerys'));
-}
 
 public function list_pending(){
 
@@ -164,7 +143,139 @@ public function patient_listss(){
 
     return view('Nurse.patient-list',compact('patient'));
 }
+
+public function appointments_list(){
+
+    $approveapp = Appointments::where('status','Approved')->get();
+
+    return view('Nurse.patient-approve',compact('approveapp'));
+
+
+}
+public function remarkpatients($id) {
+    $selectpatients = Appointments::find($id);
+    if (!$selectpatients) {
+        return redirect()->back()->with('error', 'Patient not found');
+    }
+    return view('Nurse.remark-patients', compact('selectpatients'));
+}
+
+public function remark(Request $request)
+{
+    // Validate the request
+    $request->validate([
+        'diseases' => 'required|string|max:255',
+        'remarks' => 'required|string',
+        'completed' => 'required|string',
+    ]);
+
+    // Find the existing appointment by the provided patient ID (hidden field required in form)
+    $patient = Appointments::find($request->input('appointment_id'));
+    
+    if (!$patient) {
+        return redirect()->back()->with('error', 'Appointment not found');
+    }
+
+    // Update the appointment details
+    $patient->diseases = $request->diseases;
+    $patient->remarks = $request->remarks;
+    $patient->completed = $request->completed;
+
+    $patient->save();
+
+    // Redirect with success message
+    return redirect()->route('appoint.remark')->with('message', 'Remark Successful');
+}
+
+public function filterAppointments(Request $request)
+{
+    // Get the department from the form submission
+    $department = $request->input('department');
+
+    // If a department is selected, filter the appointments by department
+    if ($department) {
+        $approveapp = Appointments::where('departments', $department)->get();
+    } else {
+        // Otherwise, show all approved appointments
+        $approveapp = Appointments::all();
+    }
+
+    // Pass the filtered appointments to the view
+    return view('Nurse.patient-approve', compact('approveapp'));
+}
+
+
+public function assessment(){
+
+     
+     $assesment = Appointments::where('arrive_status','Arrived')->get();
+
+    return view('Nurse.patient-assessment',compact('assesment'));
+
+
+}
+
+
+
+public function selected_patients($id){
+
+    $selecteduser = Appointments::find($id);
+
+    if(!$selecteduser){
+     return redirect()->back()->with('error', 'Patient not found');
+
+
+
+    }
+
+    return view('Nurse.assesment-view',compact('selecteduser'));
+}
+
+
+public function patientassement(Request $request) {
+    $request->validate([
+        'mobility' => 'required|string|max:255',
+        'allergies' => 'required|string|max:255',
+        'painlevel' => 'required|string|max:255',
+        'mentalstatus' => 'required|string|max:255',
+        'bloodpressure' => 'required|string|max:255',
+        'Hearrate' => 'required|string|max:255',
+        'Weight' => 'required|string|max:255',
+        'Height' => 'required|string|max:255',
+    ]);
+
+    $patient = Appointments::find($request->input('appointment_id'));
+
+    if (!$patient) {
+        return redirect()->back()->with('error', 'Appointment not found');
+    }
+
+    // Correctly accessing the properties without using the '$' symbol
+    $patient->mobility = $request->mobility;
+    $patient->allergies = $request->allergies;
+    $patient->painlevel = $request->painlevel;
+    $patient->mentalstatus = $request->mentalstatus;
+    $patient->bloodpressure = $request->bloodpressure;
+    $patient->Hearrate = $request->Hearrate;
+    $patient->Weight = $request->Weight;
+    $patient->Height = $request->Height;
+
+    $patient->save();
+
+    return redirect()->back()->with('message', 'Assessment has been recorded');
+}
+
+
+
+
  
+
+
+
+
+
+
+
 
 
 

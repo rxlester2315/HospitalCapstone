@@ -608,7 +608,23 @@ public function remove_appointment($id)
 }
 
 
+public function schedule_sub() {
+    $authUserId = auth()->id();
 
+    $pending = Employees::where('sched_status', 'Pending')
+        ->where('id', $authUserId)
+        ->get();
+
+    $approve = Employees::where('sched_status', 'Approved')
+        ->where('id', $authUserId)
+        ->first();
+
+    $rejected = Employees::where('sched_status', 'Rejected')
+        ->where('id', $authUserId)
+        ->get();
+
+    return view('Doctor.submited-request', compact('pending', 'approve', 'rejected'));
+}
 
 
 

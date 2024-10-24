@@ -160,7 +160,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Admin Dashboard</h3>
+                    <h3>Inventory View</h3>
                 </div>
 
                 {{-- message --}}

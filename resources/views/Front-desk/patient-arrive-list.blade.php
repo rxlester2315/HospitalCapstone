@@ -4,14 +4,18 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+
         <title>Comcare Front Desk</title>
-
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
             integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('fdesk/assets/img/logo.jpg')}}" />
 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
         <link rel="stylesheet" href="fdesk/assets/css/bootstrap.min.css" />
 
         <link rel="stylesheet" href="fdesk/assets/css/font-awesome.min.css" />
@@ -26,6 +30,13 @@
             <script src="assets/js/html5shiv.min.js"></script>
             <script src="assets/js/respond.min.js"></script>
         <![endif]-->
+
+        <style>
+        .clock {
+            font-size: 48px;
+            color: white;
+        }
+        </style>
     </head>
 
     <body>
@@ -46,7 +57,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Today Appointment</h3>
+                    <h3>Arrive Patients</h3>
                 </div>
 
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
@@ -378,78 +389,74 @@
 
             <div class="page-wrapper">
                 <div class="content container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="table-responsive">
 
-                                <table class="table table-striped custom-table mb-0 datatable">
-                                    <div class="card-body">
-                                        <form action="{{ route('today_sched') }}" method="GET">
-                                            @csrf
-                                            <input type="date" name="filter_date" required>
-                                            <button type="submit" class="btn btn-primary">Filter</button>
-                                        </form>
-                                        <center>
-                                            <p>List of all Patient Submitted Appointments Today</p>
-                                        </center>
+                    <section class="section">
+                        <div class="row" id="table-striped">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Striped rows</h4>
                                     </div>
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Message</th>
-                                            <th>Status</th>
-                                            <th>Doctor</th>
-                                            <th>Appointment Date</th>
+                                    <div class="card-content">
+                                        <div class="card-body">
 
+                                        </div>
+                                        <!-- table striped -->
+                                        <div class="table-responsive">
+                                            <table class="table table-striped mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>NAME</th>
+                                                        <th>CONTACT</th>
+                                                        <th>DATE</th>
+                                                        <th>MESSAGE</th>
+                                                        <th>DOCTOR</th>
+                                                        <th>ACTION</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($allapprove as $approve)
+                                                    <tr>
+                                                        <td>{{$approve->name}}</td>
+                                                        <td>{{$approve->phone}}</td>
+                                                        <td>{{$approve->date}}</td>
+                                                        <td>{{$approve->message}}</td>
+                                                        <td>{{$approve->employees}}</td>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if($appointments && $appointments->isEmpty())
-                                        <tr>
-                                            <td colspan="7" class="text-center">No appointments found for this
-                                                date.</td>
-                                        </tr>
-                                        @elseif($appointments)
-                                        @foreach($appointments as $appointment)
+                                                        <td>
+                                                            <a href="{{url('arrive_approves/'. $approve->id)}}"
+                                                                class="btn btn-success">Arrive</a>
+                                                        </td>
 
-                                        <tr>
-                                            <td>
-                                                <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar"><img alt=""
-                                                            src="assets/img/profiles/avatar-09.jpg" /></a>
-                                                    <a href="#">{{ $appointment->name }}
-                                                </h2>
-                                            </td>
-                                            <td>{{ $appointment->email }}</td>
-                                            <td>{{ $appointment->phone }}</td>
-                                            <td>{{ $appointment->message }}</td>
-                                            <td>
-                                                <span class="badge badge-warning">{{ $appointment->status }}</span>
-                                            </td>
-                                            <td>{{ $appointment->employees }}</td>
-                                            <td>{{ $appointment->date }}</td>
+                                                    </tr>
+                                                    @endforeach
 
-
-                                        </tr>
-
-                                        @endforeach
-                                        @endif
-
-
-                                    </tbody>
-                                </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-
+                    </section>
                 </div>
             </div>
         </div>
         </div>
+
+        @if(Session::has('message'))
+        <script>
+        swal("Message", "{{Session::get('message')}}", 'success', {
+            button: true,
+            button: "Okay",
+            timer: 3000,
+
+
+        });
+        </script>
+        @endif
+
+
 
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script src="fdesk/assets/js/jquery-3.5.1.min.js"></script>
@@ -464,6 +471,9 @@
         <script src="fdesk/assets/js/chart.js"></script>
 
         <script src="fdesk/assets/js/app.js"></script>
+
+
+
     </body>
 
 </html>

@@ -20,7 +20,9 @@
         <link rel="shortcut icon" href="nursess/assets/images/favicon.svg" type="image/x-icon">
 
         <style>
-
+        .card-content {
+            background: white;
+        }
         </style>
         <script>
         if (window.history && window.history.pushState) {
@@ -73,7 +75,9 @@
                                     <li class="submenu-item ">
                                         <a href="{{route('arrivingtime')}}">Patients Arrives</a>
                                     </li>
-
+                                    <li class="submenu-item ">
+                                        <a href="extra-component-toastify.html">Rejected/Deleted Appointment</a>
+                                    </li>
 
                                 </ul>
                             </li>
@@ -105,13 +109,6 @@
                                         class="fa-solid fa-magnifying-glass-plus"></i><span>Patient Assesment</span></a>
                             </li>
 
-                            <li class="sidebar-item">
-                                <a href="{{ route('logout') }}" class='sidebar-link'>
-                                    <i class="bi bi-box-arrow-right"></i>
-                                    <span>Log Out</span>
-                                </a>
-                            </li>
-
 
 
 
@@ -135,111 +132,61 @@
                 </header>
 
                 <div class="page-heading">
-                    <center>
-                        <h1>Welcome Nurse Dashboard</h1>
-                    </center>
+
                 </div>
                 <div class="page-content">
-                    <section class="row">
-                        <div class="col-12 col-lg-9">
-                            <div class="row">
-                                <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="stats-icon black">
-                                                        <i class="fa-solid fa-hourglass-half"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <h6 class="text-muted font-semibold">Pending Appointments</h6>
-                                                    <h6 class="font-extrabold mb-0">112.000</h6>
-                                                </div>
-                                            </div>
-                                        </div>
+
+                    <section class="section">
+                        <div class="row" id="table-striped">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Patient Mark as Arrived</h4>
                                     </div>
-                                </div>
-                                <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="stats-icon black">
-                                                        <i class="iconly-boldProfile"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <h6 class="text-muted font-semibold">Total Appointments</h6>
-                                                    <h6 class="font-extrabold mb-0">183.000</h6>
-                                                </div>
-                                            </div>
+                                    <div class="card-content">
+                                        <div class="card-body">
+
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="stats-icon black">
-                                                        <i class="iconly-boldAdd-User"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <h6 class="text-muted font-semibold">Patient Register</h6>
-                                                    <h6 class="font-extrabold mb-0">80.000</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="card">
-                                        <div class="card-body px-3 py-4-5">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="stats-icon black">
-                                                        <i class="fa-solid fa-calendar-check"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <h6 class="text-muted font-semibold">Appointment Complete</h6>
-                                                    <h6 class="font-extrabold mb-0">112</h6>
-                                                </div>
-                                            </div>
+                                        <!-- table striped -->
+                                        <div class="table-responsive">
+                                            <table class="table table-striped mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>NAME</th>
+                                                        <th>CONTACT</th>
+                                                        <th>DATE</th>
+                                                        <th>MESSAGE</th>
+                                                        <th>DOCTOR</th>
+                                                        <th>ACTION</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($assesment as $asses)
+                                                    <tr>
+                                                        <td>{{$asses->name}}</td>
+                                                        <td>{{$asses->phone}}</td>
+                                                        <td>{{$asses->date}}</td>
+                                                        <td>{{$asses->message}}</td>
+                                                        <td>{{$asses->employees}}</td>
+                                                        <td>
+                                                            <a href="{{url('select_assesment/'.$asses->id)}}"
+                                                                class="btn btn-info">Make Assesment</a>
+                                                        </td>
+                                                    </tr>
+
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-                        <div class="col-12 col-lg-3">
-                            <div class="card">
-                                <div class="card-body py-4 px-5">
-                                    <div class="d-flex align-items-center">
-                                        <div class="avatar avatar-xl">
-                                            <img src="nursess/assets/images/faces/5.jpg">
-                                        </div>
-                                        <div class="ms-3 name">
-                                            <a href="chat">
-                                                <i class="bi bi-envelope-fill"></i>
-                                            </a>
-                                            <h5 class="font-bold">Nurse</h5>
-                                            <h6 class="text-muted mb-0">Nurse</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-
                     </section>
 
-
                 </div>
+
+
 
 
             </div>

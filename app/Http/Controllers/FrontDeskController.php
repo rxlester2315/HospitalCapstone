@@ -296,5 +296,32 @@ public function subtime_arrive(Request $request, $id){
 
 
 
+public function arriveappoint() {
+    $allapprove = Appointments::where('status', 'Approved')
+        ->where(function($query) {
+            $query->where('arrive_status', '!=', 'Arrived')
+                  ->orWhereNull('arrive_status');
+        })
+        ->get();
+
+    return view('Front-desk.patient-arrive-list', compact('allapprove'));
+}
+
+
+
+public function mark_arrive($id) {
+    // Find the appointment by ID
+    $mark = Appointments::find($id);
+
+    // Check if the appointment exists
+    if ($mark) {
+        $mark->arrive_status = 'Arrived';
+        $mark->save();
+
+    } 
+ return redirect()->back()->with('message','Appointment marked as arrived');
+
+}
+
     
 }

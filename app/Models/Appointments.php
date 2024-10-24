@@ -15,7 +15,7 @@ class Appointments extends Model
     use Notifiable;
     use SoftDeletes;
 
-    protected $fillable = ['date_receipt', 'doctor_signature_image','note_med_receipts',  'list_medicine'];
+    protected $fillable = ['date_receipt', 'doctor_signature_image','note_med_receipts',  'list_medicine','diseases','remarks'];
 
 
   protected $casts = [

@@ -310,7 +310,7 @@
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <span class="user-img"><img src="fdesk/assets/img/profiles/front.jpg" alt="" />
                                 <span class="status online"></span></span>
-                            <span>Admin</span>
+                            <span>Front Desk</span>
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="profile.html">My Profile</a>
@@ -349,51 +349,63 @@
 
 
                             <li>
-                                <a href="{{url('patient_list')}}"><i class="fa-solid fa-users-between-lines"></i></i>
+                                <a href="{{url('patient_list')}}" target=" _blank"><i
+                                        class="fa-solid fa-users-between-lines"></i></i>
                                     <span>Patient Accounts</span></a>
                             </li>
 
-                            <li><a href="{{ route('appointments') }}"><i class="la la-bullhorn"></i> <span>Today
+                            <li><a href="{{ route('appointments') }}" target=" _blank"><i class="la la-bullhorn"></i>
+                                    <span>Today
                                         Appointment</span></a></li>
 
 
-                            <li><a href="{{url('patient_appointment')}}"><i class="fa-solid fa-user-group"></i>
+                            <li><a href="{{url('patient_appointment')}}" target=" _blank"><i
+                                        class="fa-solid fa-user-group"></i>
                                     <span>Record of Appointment</span></a></li>
 
                             <li class="menu-title">
                                 <span>Accounts</span>
                             </li>
 
-                            <li><a href="{{route('unverified')}}"><i class="fa-regular fa-user"></i>
+                            <li><a href="{{route('unverified')}}" target=" _blank"><i class="fa-regular fa-user"></i>
                                     <span>Unverified Accounts</span></a></li>
                             <li class="menu-title">
-                            <li><a href="{{route('verifieduser')}}"> <i class="fa-solid fa-check"></i>
+                            <li><a href="{{route('verifieduser')}}" target=" _blank"> <i class="fa-solid fa-check"></i>
 
                                     <span>Verified Accounts</span></a></li>
                             <li>
-                                <a href="{{url('pending_app')}}" target=" _blank"><i class="fa-solid fa-ticket"></i>
+                                <a href="{{url('pending_app')}}" target="_blank"><i class="fa-solid fa-ticket"></i>
                                     <span>Pending Appointment</span></a>
                             </li>
 
-                            <li><a href="{{url('display_arrive')}}"><i class="fa-solid fa-user-group"></i>
+                            <li><a href="{{url('display_arrive')}}" target="_blank"><i
+                                        class="fa-solid fa-user-group"></i>
                                     <span>Patient Arrives</span></a></li>
                             <li>
 
-                                <a href="{{url('unverified-list')}}"><i class="fa-solid fa-user-minus"></i>
+                                <a href="{{url('unverified-list')}}" target=" _blank"><i
+                                        class="fa-solid fa-user-minus"></i>
                                     <span>Request Verification </span></a>
+                            </li>
+                            <li>
+                                <a href="{{url('arrive_approve')}}" target=" _blank"><i
+                                        class="fa-solid fa-users-between-lines"></i></i>
+                                    <span>Approve Appointment </span></a>
                             </li>
                             <li class="menu-title">
                                 <span>Disable Account</span>
                             </li>
 
                             <li>
-                                <a href="{{route('archived')}}"><i class="fa-solid fa-trash"></i>
+                                <a href="{{route('archivedss')}}" target=" _blank"><i class="fa-solid fa-trash"></i>
                                     <span>Archived Accounts </span></a>
                             </li>
                             <li>
                                 <a href="{{route('ticket')}}" target=" _blank"><i class="fa-solid fa-ticket"></i>
                                     <span>Send Ticket </span></a>
                             </li>
+
+
 
 
 
@@ -411,13 +423,10 @@
                     <div class="page-header">
                         <div class="row">
                             <div class="col-sm-12">
-                                <center>
 
-                                    <h3 class="page-title" style="color:white; font-size:40px;">Welcome Front Desk!</h3>
-                                    <ul class="breadcrumb">
 
-                                    </ul>
-                                </center>
+
+
                             </div>
 
                         </div>

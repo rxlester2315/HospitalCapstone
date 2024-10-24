@@ -256,17 +256,9 @@
 .card {
     margin-bottom: 2.2rem;
     border: none;
-    background: #cdffd8;
-    background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-    background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-    background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for zoom and shadow */
+    background-color: #0ed7b6;
 }
 
-.card:hover {
-    transform: scale(1.05); /* Zoom in on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
-}
 .card.card-statistic {
     box-shadow: 1px 2px 5px rgba(47, 170, 244, 0.5);
     background: linear-gradient(180deg, #25a6f1, #54b9ff);
@@ -295,10 +287,7 @@
     height: 100px;
 }
 .card .card-header {
-    background: #cdffd8;
-    background: linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-    background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+    background-color: white;
     border: none;
 }
 .card .card-header h4 {
@@ -317,6 +306,7 @@
 .card .card-body {
     padding: 1.5rem;
 }
+
 .card .card-heading {
     color: #555;
     font-size: 1.5rem;
@@ -768,10 +758,7 @@
     top: 0;
     z-index: 10;
     overflow-y: auto;
-    background: #cdffd8;
-    background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-    background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-    background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+    background-color: #0ed7b6;
     bottom: 0;
     transition: left 0.5s ease-out;
 }
@@ -829,6 +816,10 @@
 .sidebar-wrapper .menu .sidebar-link:hover {
     background-color: #f0f1f5;
 }
+.submenu-item :hover {
+    background-color: #f0f1f5;
+    border-radius: 8px;
+}
 .sidebar-wrapper .menu .sidebar-item {
     list-style: none;
     margin-top: 0.5rem;
@@ -843,7 +834,7 @@
     display: block;
 }
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link {
-    background-color: #435ebe;
+    background-color: black;
 }
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link span {
     color: #fff;

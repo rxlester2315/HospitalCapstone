@@ -15,6 +15,20 @@
         <link rel="stylesheet" href="nursess/assets/vendors/bootstrap-icons/bootstrap-icons.css">
         <link rel="stylesheet" href="nursess/assets/css/app.css">
         <link rel="shortcut icon" href="nursess/assets/images/favicon.svg" type="image/x-icon">
+
+        <style>
+        .card-header {
+            background-color: white;
+        }
+
+        .card {
+            background: white;
+        }
+
+        section {
+            background: white;
+        }
+        </style>
     </head>
 
     <body>
@@ -55,12 +69,7 @@
                                     <li class="submenu-item ">
                                         <a href="{{route('appoint')}}">Today Appointment</a>
                                     </li>
-                                    <li class="submenu-item ">
-                                        <a href="{{route('arrivingtime')}}">Patients Arrives</a>
-                                    </li>
-                                    <li class="submenu-item ">
-                                        <a href="extra-component-toastify.html">Rejected/Deleted Appointment</a>
-                                    </li>
+
 
                                 </ul>
                             </li>
@@ -83,39 +92,12 @@
                                 </ul>
                             </li>
 
-                            <li class="sidebar-title">Forms &amp; Tables</li>
 
 
 
 
 
-                            <li class="sidebar-item  has-sub">
-                                <a href="#" class='sidebar-link'>
-                                    <i class="bi bi-pen-fill"></i>
-                                    <span>Departments</span>
-                                </a>
-                                <ul class="submenu ">
-                                    <li class="submenu-item ">
-                                        <a href="{{url('cardio')}}">Cardiology</a>
-                                    </li>
-                                    <li class="submenu-item ">
-                                        <a href="{{url('orthos')}}">Orthopaedic Surgery</a>
-                                    </li>
-                                    <li class="submenu-item ">
-                                        <a href="{{url('neurology')}}">Neurology</a>
-                                    </li>
-                                    <li class="submenu-item ">
-                                        <a href="{{url('gsurgery')}}">General Surgery</a>
-                                    </li>
-                                </ul>
-                            </li>
 
-                            <li class="sidebar-item">
-                                <a href="{{ route('logout') }}" class="sidebar-link">
-                                    <i class="bi bi-box-arrow-right"></i>
-                                    <span>Log Out</span>
-                                </a>
-                            </li>
 
 
 
@@ -142,7 +124,7 @@
                             <div class="col-12 col-md-6 order-md-2 order-first">
                                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="{{url('Nurse')}}">Dashboard</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Schedule</li>
                                     </ol>
                                 </nav>

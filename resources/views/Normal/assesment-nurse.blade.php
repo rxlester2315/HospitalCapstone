@@ -110,6 +110,75 @@
                 padding: 5px 10px;
             }
         }
+
+        <style>.receipt {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .receipt-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .receipt-table th,
+        .receipt-table td {
+            text-align: left;
+        }
+
+        .receipt-footer {
+
+            padding: 15px;
+            border: 2px;
+            display: inline-block;
+            margin: 30px;
+            color: black;
+        }
+
+        .notes {
+            padding: 20px;
+            border: 3px solid black;
+            margin-bottom: 50px;
+        }
+
+
+        .separator {
+            border: none;
+            border-top: 10px solid black;
+            margin: 20px 0;
+        }
+
+        .notes {
+            background-color: #f0f8ff;
+            border: 1px solid #add8e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .notes h3 {
+            margin: 0 0 10px;
+            font-size: 1.5em;
+            color: #007bff;
+        }
+
+        .note-content {
+            font-size: 2em;
+            line-height: 1.5;
+            color: #333;
+        }
+
+
+        .receipt {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
         </style>
 
 
@@ -172,11 +241,6 @@
                                                 <span>Create
                                                     Appointment</span></a>
                                         </li>
-                                        <li><a href="{{url('nurse_assesment')}}"><i class="fa fa-comments"></i>
-                                                <span>Nurse
-                                                    Assesment Result</span></a>
-                                        </li>
-
 
                                     </ul>
                                 </nav>
@@ -193,52 +257,60 @@
             </div>
 
             <div class="container appointment-table">
-                <div class="table-header">
-                    <h3>My Appointments</h3>
-                </div>
-                <div class="table-container">
-                    <table class="table table-striped table-hover">
-                        <thead class="table-primary">
+                @foreach($appointments as $appoint)
+                <div class="receipt">
+                    <div class="receipt-header">
+                        <h2>Patient Assessment Result</h2>
+                        <h3>Doctor: {{$appoint->employees}}</h3>
+                        <p>Date: {{$appoint->date}}</p>
+                        <p>Patient Name: <strong>{{$appoint->name}}</strong></p>
+                        <p>Patient ID: <strong>{{$appoint->id}}</strong></p>
+                    </div>
+
+                    <table class="table receipt-table">
+                        <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Date</th>
-                                <th>Doctor Name</th>
-                                <th>Specialty</th>
-                                <th>Status</th>
-                                <th>Cancel</th>
+                                <th>Mobility</th>
+                                <th>Allergies</th>
+                                <th>Pain Level</th>
+                                <th>Mental Status</th>
+                                <th>Heart Rate</th>
+                                <th>Weight</th>
+                                <th>Height</th>
+                                <th>Blood Pressure</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($appoint as $appoints)
-
                             <tr>
-                                <td>{{$appoints->id}}</td>
-
-                                <td>{{$appoints->date}}</td>
-                                <td>{{$appoints->employees}}</td>
-                                <td>{{$appoints->departments}}</td>
-                                <td>{{$appoints->status}}</td>
-
-                                <td>
-                                    <a onclick="confirmation(event)" class="btn btn-danger"
-                                        href="{{url('cancel_appointment',$appoints->id)}}">Cancel</a>
-                                </td>
-
-
-
-
+                                <td>{{$appoint->mobility}}</td>
+                                <td>{{$appoint->allergies}}</td>
+                                <td>{{$appoint->painlevel}}</td>
+                                <td>{{$appoint->mentalstatus}}</td>
+                                <td>{{$appoint->Hearrate}}</td>
+                                <td>{{$appoint->Weight}}</td>
+                                <td>{{$appoint->Height}}</td>
+                                <td>{{$appoint->bloodpressure}}</td>
                             </tr>
-
-                            @endforeach
-
                         </tbody>
                     </table>
 
+                    <div class="notes">
+                        <h3>Nurse Note</h3>
+                        <p class="note-content">{{$appoint->remarks}}</p>
+                    </div>
 
 
-
+                    <div class="receipt-footer">
+                        <p>Contact us: <a href="{{url('chatss')}}" class="btn btn-info">Contact Now</a></p>
+                    </div>
                 </div>
+
+                <!-- Separator line -->
+                <hr class="separator">
+                @endforeach
             </div>
+
+
 
         </div>
 
@@ -246,6 +318,10 @@
 
 
 
+        <script>
+        // Set the current date
+        document.getElementById('date').textContent = new Date().toLocaleDateString();
+        </script>
 
 
 
@@ -317,26 +393,7 @@
 
 
 
-        <script type="text/javascript">
-        function confirmation(ev) {
-            ev.preventDefault();
-            var urlToRedirect = ev.currentTarget.getAttribute('href');
-            console.log(urlToRedirect);
 
-            swal({
-                    title: "Are you sure you want to cancel this appointment?",
-                    text: "You will need to create another again!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willCancel) => {
-                    if (willCancel) {
-                        window.location.href = urlToRedirect;
-                    }
-                });
-        }
-        </script>
 
 
     </body>

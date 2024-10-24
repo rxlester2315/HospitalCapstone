@@ -46,7 +46,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Admin Dashboard</h3>
+                    <h3>Unverified Account</h3>
                 </div>
 
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
@@ -304,18 +304,7 @@
                         </div>
                     </li>
 
-                    <li class="nav-item dropdown has-arrow main-drop">
-                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="fdesk/assets/img/profiles/front.jpg" alt="" />
-                                <span class="status online"></span></span>
-                            <span>Admin</span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="profile.html">My Profile</a>
-                            <a class="dropdown-item" href="settings.html">Settings</a>
-                            <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
-                        </div>
-                    </li>
+
                 </ul>
 
                 <div class="dropdown mobile-user-menu">

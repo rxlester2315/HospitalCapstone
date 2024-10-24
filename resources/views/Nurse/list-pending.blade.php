@@ -17,6 +17,17 @@
         <link rel="stylesheet" href="nursess/assets/vendors/bootstrap-icons/bootstrap-icons.css">
         <link rel="stylesheet" href="nursess/assets/css/app.css">
         <link rel="shortcut icon" href="nursess/assets/images/favicon.svg" type="image/x-icon">
+
+        <style>
+        .card-body {
+
+            background-color: white;
+        }
+
+        .card-header {
+            background: black;
+        }
+        </style>
     </head>
 
     <body>
@@ -138,14 +149,14 @@
                     <div class="page-title">
                         <div class="row">
                             <div class="col-12 col-md-6 order-md-1 order-last">
-                                <h3>DataTable</h3>
-                                <p class="text-subtitle text-muted">For user to check they list</p>
+                                <h3>Patient Pending Appointment</h3>
+                                <p class="text-subtitle text-muted">Pending Appointment</p>
                             </div>
                             <div class="col-12 col-md-6 order-md-2 order-first">
                                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                                        <li class="breadcrumb-item"><a href="{{url('Nurse')}}">Dashboard</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Pending Appointment</li>
                                     </ol>
                                 </nav>
                             </div>

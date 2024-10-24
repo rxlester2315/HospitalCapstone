@@ -158,7 +158,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Admin Dashboard</h3>
+                    <h3>List Tickets</h3>
                 </div>
 
                 {{-- message --}}

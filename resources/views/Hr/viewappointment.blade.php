@@ -151,7 +151,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Admin Dashboard</h3>
+                    <h3>Appointment Request</h3>
                 </div>
 
                 {{-- message --}}
@@ -413,7 +413,7 @@
 
                     <div class="col">
                         <h3 class="page-title">
-                            <center style="color:black; font-size:40px;">
+                            <center style="color:white; font-size:40px;">
                                 Appointment Request
 
                             </center>

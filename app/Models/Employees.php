@@ -17,4 +17,9 @@ class Employees extends Model
     'present_days' => 'array',
     'dayoff' => 'array',
 ];
+
+public function appointments()
+    {
+        return $this->hasMany(Appointment::class, 'employee', 'name');
+    }
 }

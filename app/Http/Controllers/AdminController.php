@@ -499,23 +499,6 @@ public function updatepw_request(Request $request, $id)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
      public function index(){
 
     $products = Product::orderBy('created_at')->get();
@@ -662,6 +645,10 @@ public function password_send(Request $request, $id) {
 
     return redirect()->back()->with('message', 'Email sent successfully.');
 }
+
+
+
+
 
 
 

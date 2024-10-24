@@ -136,7 +136,7 @@ Route::get('appointments', [FrontDeskController::class, 'displayData'])->name('a
 Route::get('today_sched', [FrontDeskController::class, 'sendDataDate'])->name('today_sched'); // Handle the date filtering
 Route::get('unverified',[FrontDeskController::class,'unverified'])->name('unverified');
 Route::get('verifieduser',[FrontDeskController::class,'verified'])->name('verifieduser');
-Route::get('archived',[FrontDeskController::class,'listarchived'])->name('archived');
+Route::get('archivedss',[FrontDeskController::class,'listarchived'])->name('archivedss');
 Route::get('ticket',[FrontDeskController::class,'viewticket'])->name('ticket');
 Route::post('ticket',[FrontDeskController::class,'send_ticketss'])->name('sendticket');
 Route::get('chatat', [FrontDeskController::class, 'listChats'])->name('chatat');
@@ -149,7 +149,9 @@ Route::get('display_arrives',[FrontDeskController::class,'arrive_times_today'])-
 Route::get('arrive_setime/{id}',[FrontDeskController::class,'arrive_set'])->name('arrive.view.set');
 Route::post('arrive_setimes/{id}',[FrontDeskController::class,'subtime_arrive'])->name('submit.time.arrive');
 
+Route::get('arrive_approve', [FrontDeskController::class, 'arriveappoint']);
 
+Route::get('arrive_approves/{id}', [FrontDeskController::class, 'mark_arrive'])->name('arrive.mark');
 
 //Human Resources 
 
@@ -225,6 +227,8 @@ Route::get('/patient/chat', [HomeController::class, 'loadMessages']);
 
 Route::get('removepatient/{id}', [DoctorController::class, 'remove_appointment'])->name('remove.patientss');
 
+Route::get('/submitted_request',[DoctorController::class,'schedule_sub'])->name('submitted.sched');
+
 
 
 
@@ -249,10 +253,7 @@ Route::get('showchat/{id}', [HomeController::class, 'showChat']);
 
 //Nurse 
 
-Route::get('cardio',[NurseController::class,'cardiology']);
-Route::get('orthos',[NurseController::class,'ortho']);
-Route::get('neurology',[NurseController::class,'neuro']);
-Route::get('gsurgery',[NurseController::class,'surgery']);
+
 Route::get('pending',[NurseController::class,'list_pending']);
 Route::get('todayappoint',[NurseController::class,'today_appoint'])->name('today');
 Route::get('appointtoday',[NurseController::class,'displaylist'])->name('appoint');
@@ -266,6 +267,25 @@ Route::post('patienttm/{id}', [NurseController::class, 'submittime_arrive'])->na
 Route::get('recordPatient', [NurseController::class, 'recordPatientView']);
 
 Route::get('viewpatientlist', [NurseController::class, 'patient_listss']);
+
+Route::get('patient_appointments',[NurseController::class,'appointments_list'])->name('appoint.remark');
+
+Route::get('remark_patients/{id}', [NurseController::class, 'remarkpatients']);
+
+Route::post('remark_store', [NurseController::class, 'remark'])->name('remark.store');
+
+Route::get('filter_appointments', [NurseController::class, 'filterAppointments'])->name('filter_appointments');
+
+
+Route::get('set_assesment', [NurseController::class, 'assessment'])->name('arrives.pat');
+Route::get('select_assesment/{id}', [NurseController::class, 'selected_patients']);
+
+
+Route::post('asses_user', [NurseController::class, 'patientassement'])->name('asses.store');
+
+
+
+
 
 
 
@@ -300,6 +320,9 @@ Route::get('/chatdoc/{id}',[HomeController::class,'chatwithdoctor']);
 Route::post('patient/send-message', [HomeController::class, 'patientSendMessage'])->name('patient.sendmessage');
 
 Route::get('/getUserAppointments/{userId}',[HomeController::class,'getUserAppointments']);
+
+Route::get('/nurse_assesment',[HomeController::class,'nurseasses']);
+
 
 
 

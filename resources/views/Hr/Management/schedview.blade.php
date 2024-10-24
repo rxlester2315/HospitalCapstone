@@ -154,7 +154,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Admin Dashboard</h3>
+                    <h3>List Schedule of Doctor</h3>
                 </div>
 
                 {{-- message --}}
@@ -278,27 +278,12 @@
                     </li>
 
 
-                    <li class="nav-item dropdown">
-                        <a href="chat" class="dropdown-toggle nav-link" data-toggle="">
-                            <i class="fa fa-comment-o"></i>
-                            <span
-                                class="badge badge-pill unread_notification">{{ auth()->user()->getMessageCount() }}</span>
-                        </a>
-                    </li>
 
 
                 </ul>
 
 
-                <div class="dropdown mobile-user-menu">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
-                            class="fa fa-ellipsis-v"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-                        <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="login.html">Logout</a>
-                    </div>
-                </div>
+
 
             </div>
 
@@ -354,8 +339,7 @@
 
                                     <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
                                     <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-                                    <li><a href="departments.html">Departments</a></li>
-                                    <li><a href="timesheet.html">Timesheet</a></li>
+
                                     <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
 
                                 </ul>

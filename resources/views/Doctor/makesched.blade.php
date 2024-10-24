@@ -159,8 +159,8 @@
 
                                 <li><a href="{{url('listrecord')}}"><i class="fa fa-commenting-o"></i> <span>Chat with
                                             Patients</span></a></li>
-                                <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Send Ticket
-                                            Request</span></a>
+                                <li><a href="{{url('submitted_request')}}"><i class="ti-receipt"></i> <span>Submitted
+                                            Schedule</span></a>
                                 </li>
 
                             </ul>
@@ -211,17 +211,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-sm-6 clearfix">
-                            <div class="user-profile pull-right">
-                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Doctor|
-                                    {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Message</a>
-                                    <a class="dropdown-item" href="#">Settings</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}">Log Out</a>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <!-- page title area end -->

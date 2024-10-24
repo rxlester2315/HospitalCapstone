@@ -480,6 +480,17 @@ public function patientSendMessage(Request $request)
 
 
 
+public function nurseasses() {
+    $userId = auth()->user()->id;
+
+    $appointments = Appointments::where('userid', $userId)
+                                ->where('status', 'Approved') 
+                                ->get();
+
+    return view('Normal.assesment-nurse', compact('appointments'));
+}
+
+
 
 
 
