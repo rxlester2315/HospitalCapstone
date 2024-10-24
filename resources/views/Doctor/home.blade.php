@@ -104,6 +104,10 @@
                                 alt="logo"></a>
                     </div>
                 </div>
+
+                @if (session()->has('impersonated_by'))
+                <a href="{{ route('logout') }}" class="btn btn-warning">Leave Impersonation</a>
+                @endif
                 <div class="main-menu">
                     <div class="menu-inner">
 

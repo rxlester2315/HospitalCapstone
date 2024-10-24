@@ -21,6 +21,10 @@
             font-size: 48px;
             color: #333;
         }
+
+        .card-content {
+            background: white;
+        }
         </style>
     </head>
 

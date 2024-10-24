@@ -40,6 +40,10 @@
 
 
         <style>
+        .timess {
+            padding-bottom: 30px;
+        }
+
         .appointment-form {
             background: #0ed7b6;
 
@@ -249,16 +253,28 @@
 
                         <!-- Contact Number -->
                         <div class="col-md-6 mb-3">
-                            <input type="text" class="form-control" id="phone_input" name="number"
-                                placeholder="Contact No." maxlength="11" required>
+                            <input type="number" class="form-control" id="phone_input" name="number"
+                                placeholder="Contact No." min="0" max="99999999999" required
+                                oninput="this.value = this.value.slice(0, 11)">
                             <div class="form-check mt-2">
                                 <input class="form-check-input" type="checkbox" id="fill_phone" />
                                 <label class="form-check-label" for="fill_phone">
                                     Fill with your profile phone number
                                 </label>
                             </div>
+
+
                         </div>
+                        <div class="timess">
+                            <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+                                <label for="time">Prefer Time:</label>
+                                <input type="time" name="time" class="form-control" />
+                            </div>
+                        </div>
+
+
                     </div>
+
 
                     <div class="row">
                         <!-- Message -->

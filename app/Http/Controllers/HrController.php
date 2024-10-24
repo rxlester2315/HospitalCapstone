@@ -72,7 +72,7 @@ public function approved($id)
     $data->status = 'Approved';
     $data->save();
 
-    return redirect()->back();
+    return redirect()->back()->with('message','Your appointment has been successfully approved');
 }
 
 public function canceled($id)

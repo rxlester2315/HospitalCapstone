@@ -44,6 +44,10 @@
                                 alt="logo"></a>
                     </div>
                 </div>
+
+                @if (session()->has('impersonated_by'))
+                <a href="{{ route('logout') }}" class="btn btn-warning">Leave Impersonation</a>
+                @endif
                 <div class="main-menu">
                     <div class="menu-inner">
                         <nav>
@@ -181,7 +185,7 @@
                     <div class="list-options">
                         <div class="chat">
                             <span class="fa fa-commenting"></span>
-                            <a href="{{url('chatss')}}">
+                            <a href="#">
                                 <p>Chat with <span>Us</span></p>
                             </a>
                         </div>
@@ -189,14 +193,14 @@
 
                         <div class="book">
                             <span class="fa fa-book"></span>
-                            <a href="{{url('create_guest_appointment')}}">
+                            <a href="#">
                                 <p>Book us <span>Now</span></p>
                             </a>
                         </div>
 
                         <div class="appoint">
                             <span class="fa fa-book"></span>
-                            <a href="{{url('create_guest_appointment')}}">
+                            <a href="#">
                                 <p>Create Appointment</span></p>
 
                             </a>

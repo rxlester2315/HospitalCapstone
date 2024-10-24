@@ -16,6 +16,10 @@
 
         <link rel="stylesheet" href="hrs/assets/css/style.css">
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
 
         <script>
         if (window.history && window.history.pushState) {
@@ -468,7 +472,8 @@
                                             <td>
                                                 <a style="padding: 5px 10px; font-size: 12px;"
                                                     class="btn btn-success btn-sm"
-                                                    href="{{url('approved', $appoint->id)}}">Approve</a>
+                                                    href="{{url('approved', $appoint->id)}}"
+                                                    onclick="confirmation(event)">Approve</a>
                                             </td>
 
 
@@ -477,10 +482,9 @@
                                                     method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Archived</button>
+                                                    <button type="button" class="btn btn-danger"
+                                                        onclick="confirmArchive(event, this)">Archived</button>
                                                 </form>
-
-
                                             </td>
 
                                             <td>
@@ -510,7 +514,61 @@
             </div>
 
         </div>
+        @if(Session::has('message'))
+        <script>
+        swal("Message", "{{Session::get('message')}}", 'success', {
+            button: true,
+            button: "Okay",
+            timer: 3000,
 
+
+        });
+        </script>
+        @endif
+
+
+        <script type="text/javascript">
+        function confirmation(ev) {
+            ev.preventDefault(); // Prevent the default anchor click behavior
+            var urlToRedirect = ev.currentTarget.getAttribute('href'); // Get the URL from the link
+            console.log(urlToRedirect);
+
+            swal({
+                    title: "Do you want to approve this?",
+                    text: "It will proceed.",
+                    icon: "warning", // Use "warning" for a more cautionary message
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willApprove) => {
+                    if (willApprove) {
+                        window.location.href = urlToRedirect; // Redirect if approved
+                    }
+                });
+        }
+        </script>
+
+
+
+        <script type="text/javascript">
+        function confirmArchive(ev, button) {
+            ev.preventDefault(); // Prevent form submission
+            var form = button.closest('form'); // Get the form element
+
+            swal({
+                    title: "Are you sure you want to archive this appointment?",
+                    text: "This action cannot be undone.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willArchive) => {
+                    if (willArchive) {
+                        form.submit(); // Submit the form if confirmed
+                    }
+                });
+        }
+        </script>
 
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script src="hrs/assets/js/jquery-3.5.1.min.js"></script>

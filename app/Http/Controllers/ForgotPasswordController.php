@@ -42,7 +42,7 @@ class ForgotPasswordController extends Controller
     });
 
     // Redirect with success message
-    return redirect()->route('forgotpw')->with('success', 'Please Check your Email');
+    return redirect()->route('forgotpw')->with('message', 'Please Check your Email');
 }
 
 
