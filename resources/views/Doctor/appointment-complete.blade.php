@@ -214,8 +214,13 @@
                                                 <td>{{$suc->email}}</td>
                                                 <td>{{$suc->date}}</td>
                                                 <td>
+                                                    @if($suc->completed == 'Completed')
                                                     <span class="status-p bg-success">{{$suc->completed}}</span>
+                                                    @elseif($suc->completed == 'Observation')
+                                                    <span class="status-p bg-warning">{{$suc->completed}}</span>
+                                                    @endif
                                                 </td>
+
                                                 <td>
                                                     <a href="{{ url('sendmessage/'.$suc->id) }}"
                                                         class="btn btn-info">Send Message</a>

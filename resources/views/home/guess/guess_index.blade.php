@@ -149,16 +149,16 @@
 
                         <!-- Slide images -->
                         <div class="custom-slide first">
-                            <img src="main_alls/everythingzz/assets/images/slider/brooz.jpg" alt="Image 1">
+                            <img src="main_alls/everythingzz/assets/images/slider/slide_1.jpg" alt="Image 1">
                         </div>
                         <div class="custom-slide">
-                            <img src="main_alls/everythingzz/assets/images/slider/brooz2.jpg" alt="Image 2">
+                            <img src="main_alls/everythingzz/assets/images/slider/slider_2.jpg" alt="Image 2">
                         </div>
                         <div class="custom-slide">
-                            <img src="main_alls/everythingzz/assets/images/slider/brooz3.jpg" alt="Image 3">
+                            <img src="main_alls/everythingzz/assets/images/slider/brooz2.jpg" alt="Image 3">
                         </div>
                         <div class="custom-slide">
-                            <img src="main_alls/everythingzz/assets/images/slider/brooz.jpg" alt="Image 4">
+                            <img src="main_alls/everythingzz/assets/images/slider/slider_3.jpg" alt="Image 4">
                         </div>
 
                         <!-- Automatic navigation dots -->

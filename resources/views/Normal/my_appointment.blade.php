@@ -44,6 +44,8 @@
             background-color: #f8f9fa;
         }
 
+
+
         .appointment-table {
             margin: 50px auto;
             width: 90%;
@@ -53,10 +55,7 @@
         }
 
         .table-header {
-            background: #cdffd8;
-            background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+            background: #0ed7b6;
             text-align: center;
         }
 

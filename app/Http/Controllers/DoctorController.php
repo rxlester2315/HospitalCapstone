@@ -522,17 +522,18 @@ public function changepass_storeDoc(Request $request)
     return redirect()->back();
 }
 
+
 public function recordview() {
-   // Get the authenticated user's name
+
    $authUserName = Auth::user()->name;
 
 
-   // Query to get appointments where employee matches the authenticated user's name
-   $completed = Appointments::where('status', 'Approved')
-                             ->where('completed', 'Completed')
-                             ->where('employees', $authUserName)  // Match employee with auth user's name
-                             ->with('employee')
-                             ->get();  // Fetch the results
+  $completed = Appointments::where('status', 'Approved')
+                         ->whereIn('completed', ['Completed', 'Observation'])
+                         ->where('employees', $authUserName)  
+                         ->with('employee')
+                         ->get();
+
 
     return view('Doctor.appointment-complete', compact('completed'));
 }
