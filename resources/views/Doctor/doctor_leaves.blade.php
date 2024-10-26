@@ -17,6 +17,11 @@
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
             media="all" />
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
         <!-- others css -->
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/typography.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/default-css.css">
@@ -302,6 +307,22 @@
         </div>
         <!-- page container area end -->
         <!-- offset area start -->
+
+
+        @if(Session::has('message'))
+        <script>
+        swal("Message", "{{Session::get('message')}}", 'success', {
+            button: true,
+            button: "Okay",
+            timer: 3000,
+
+
+        });
+        </script>
+        @endif
+
+
+
 
         <!-- offset area end -->
         <!-- jquery latest version -->

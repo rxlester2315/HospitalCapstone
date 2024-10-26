@@ -340,6 +340,7 @@ public function store_sched(Request $request) {
     $leavesEnd = $request ->input('leave_end_date');
     $reasontype = $request ->input('reason');
     $leaveNote = $request ->input('addnote');
+    $makestatus = 'pending';
 
 
 
@@ -356,10 +357,11 @@ public function store_sched(Request $request) {
     $doctor->leave_end_date = $leavesEnd;
     $doctor->reason = $reasontype;
     $doctor->addnote =$leaveNote;
+    $doctor->status =$makestatus;
     
    
         $doctor->save();
-                return redirect()->back()->with('success', 'Schedule updated successfully');
+                return redirect()->back()->with('message', 'Schedule updated successfully');
 
 
     }  else {
