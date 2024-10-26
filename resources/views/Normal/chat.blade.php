@@ -264,7 +264,7 @@
                                 </li>
                                 <li><a href="{{ url('view_normal_prof') }}"><i class="fa fa-user"></i> <span>My
                                             Profile</span></a></li>
-                                <li><a href=" invoice.html"><i class="fa fa-comments"></i> <span>Chat with
+                                <li><a href="{{url('chatss')}}"><i class="fa fa-comments"></i> <span>Chat with
                                             Front-desk</span></a>
                                 </li>
 
@@ -610,12 +610,16 @@
 
         // Listen for messages from the doctor
         channel.bind('message-sent', function(data) {
-    const chatBox = document.getElementById('chat-box');
-    const isCurrentUser = (data.from === {{ auth()->user()->id }});
-    const messageClass = isCurrentUser ? 'patient' : 'doctor';
-    const senderName = isCurrentUser ? 'You' : (data.doctor_name || 'Doctor');
+            const chatBox = document.getElementById('chat-box');
+            const isCurrentUser = (data.from === {
+                {
+                    auth() - > user() - > id
+                }
+            });
+            const messageClass = isCurrentUser ? 'patient' : 'doctor';
+            const senderName = isCurrentUser ? 'You' : (data.doctor_name || 'Doctor');
 
-    const newMessage = `
+            const newMessage = `
         <div class="message ${messageClass}">
             <div class="message-bubble">
                 <strong>${senderName}:</strong> ${data.message}
@@ -623,10 +627,10 @@
             </div>
         </div>
     `;
-    
-    chatBox.innerHTML += newMessage;
-    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom when new message arrives
-});
+
+            chatBox.innerHTML += newMessage;
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom when new message arrives
+        });
 
 
         // Function to send the message via AJAX

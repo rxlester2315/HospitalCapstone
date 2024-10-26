@@ -158,7 +158,7 @@
 
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{url('changesPassword')}}">Change Password</a>
-                                    <a class="dropdown-item" href="{{ route('guest_view') }}">View Profile</a>
+                                    <a class="dropdown-item" href="{{ url('view_normal_prof') }}">View Profile</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">Log
                                         Out</a>
                                 </div>
@@ -224,13 +224,6 @@
                         </div>
 
 
-                        <div class="book">
-                            <span class="fa fa-book"></span>
-                            <a href="{{url('create_appointmentsss')}}">
-                                <p>Book us <span>Now</span></p>
-
-                            </a>
-                        </div>
 
                         <div class="appoint">
                             <span class="fa fa-book"></span>

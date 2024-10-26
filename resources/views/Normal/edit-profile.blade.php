@@ -122,8 +122,8 @@
                                 <div class="user-profile m-0">
                                     <img class="avatar user-thumb"
                                         src="main_alls/everythingzz/assets/images/author/avatar.png" alt="avatar">
-                                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Rex Lesters <i
-                                            class="fa fa-angle-down"></i></h4>
+                                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
+                                        {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="#">Message</a>
                                         <a class="dropdown-item" href="#">Settings</a>
