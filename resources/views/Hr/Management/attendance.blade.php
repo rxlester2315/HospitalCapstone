@@ -279,6 +279,28 @@
                         </div>
                     </li>
 
+                    <li class="nav-item dropdown">
+                        <a href="chat" class="dropdown-toggle nav-link" data-toggle="">
+                            <i class="fa fa-comment-o"></i>
+                            <span
+                                class="badge badge-pill unread_notification">{{ auth()->user()->getMessageCount() }}</span>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item dropdown has-arrow main-drop">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <span class="user-img"><img src="hrs/assets/img/profiles/hr.png" alt="">
+                                <span class="status online"></span></span>
+                            <span>HR</span>
+                        </a>
+                        <div class="dropdown-menu">
+
+                            <a class="dropdown-item" href="{{url('chat')}}">Message</a>
+                            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                        </div>
+                    </li>
+
 
 
 

@@ -471,48 +471,55 @@
                         <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
                             <div class="card flex-fill">
                                 <div class="card-body">
-                                    <h4 class="card-title">Today Absent <span
+                                    <h4 class="card-title">Employee Leave Requests<span
                                             class="badge bg-inverse-danger ml-2">5</span>
                                     </h4>
-                                    <div class="leave-info-box">
-                                        <div class="media align-items-center">
-                                            <a href="profile.html" class="avatar"><img alt=""
-                                                    src="hrs/assets/img/user.jpg"></a>
-                                            <div class="media-body">
-                                                <div class="text-sm my-0">Dr.Martin Lewis</div>
+                                    @foreach($leavelist as $leave)
+                                    <div class="leave-info-box card border-primary mb-3">
+                                        <div class="card-header bg-primary text-white">
+                                            <h5 class="mb-0">Employee Leave Request</h5>
+                                        </div>
+                                        <div class="media align-items-center p-3">
+                                            <a href="profile.html" class="avatar">
+                                                <img alt="Dr. Martin Lewis" src="hrs/assets/img/user.jpg"
+                                                    class="rounded-circle" style="width: 60px; height: 60px;">
+                                            </a>
+                                            <div class="media-body ml-3">
+                                                <h6 class="mb-1">{{$leave->name}}</h6>
+                                                <span class="text-muted">Department</span>
+                                                <div class="text-sm text-muted">Specialty: {{$leave->specialty}}</div>
+                                                <div class="text-sm text-muted">Room Number: {{$leave->room}}</div>
                                             </div>
                                         </div>
-                                        <div class="row align-items-center mt-3">
+                                        <div class="row align-items-center p-3">
                                             <div class="col-6">
-                                                <h6 class="mb-0">4 Sep 2024</h6>
-                                                <span class="text-sm text-muted">Leave Date</span>
+                                                <h6 class="mb-0">Leave Start Date:</h6>
+                                                <span class="text-sm text-muted">{{$leave->leave_start_date}}</span>
                                             </div>
-                                            <div class="col-6 text-right">
-                                                <span class="badge bg-inverse-danger">Pending</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="leave-info-box">
-                                        <div class="media align-items-center">
-                                            <a href="profile.html" class="avatar"><img alt=""
-                                                    src="hrs/assets/img/user.jpg"></a>
-                                            <div class="media-body">
-                                                <div class="text-sm my-0">Dr.Carlo Guez</div>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center mt-3">
                                             <div class="col-6">
-                                                <h6 class="mb-0">4 Sep 2024</h6>
-                                                <span class="text-sm text-muted">Leave Date</span>
+                                                <h6 class="mb-0">Leave End Date:</h6>
+                                                <span class="text-sm text-muted">{{$leave->leave_end_date}}</span>
                                             </div>
-                                            <div class="col-6 text-right">
-                                                <span class="badge bg-inverse-success">Approved</span>
+                                            <div class="col-12 text-right mt-3">
+                                                @if($leave->status == 'approved')
+                                                <span class="badge badge-success">{{$leave->status}}</span>
+
+                                                @elseif($leave->status == 'pending')
+                                                <span class="badge badge-warning">{{$leave->status}}</span>
+
+                                                @elseif($leave->status == 'canceled')
+                                                <span class="badge badge-danger">{{$leave->status}}</span>
+
+                                                @endif
+
+
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="load-more text-center">
-                                        <a class="text-dark" href="javascript:void(0);">Load More</a>
-                                    </div>
+                                    @endforeach
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -530,226 +537,51 @@
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Status</th>
-                                                    <th class="text-right">Action</th>
+                                                    <th>Date & Time</th>
+
+
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($attendance as $attend)
                                                 <tr>
                                                     <td>
                                                         <h2 class="table-avatar">
                                                             <a href="#" class="avatar"><img alt=""
                                                                     src="hrs/assets/img/profiles/avatar-19.jpg"></a>
-                                                            <a href="client-profile.html">Barry Cuda
-                                                                <span>CEO</span></a>
+                                                            <a href="">{{$attend->name}}
+                                                                <span>Employees</span></a>
                                                         </h2>
                                                     </td>
-                                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                            data-cfemail="9af8fbe8e8e3f9effefbdaffe2fbf7eaf6ffb4f9f5f7">[email&#160;protected]</a>
+                                                    <td>
+                                                        <span class="badge badge-info">Employee</span>
+
                                                     </td>
                                                     <td>
-                                                        <div class="dropdown action-label">
-                                                            <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
-                                                                href="#" data-toggle="dropdown" aria-expanded="false">
-                                                                <i class="fa fa-dot-circle-o text-success"></i> Active
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="fa fa-dot-circle-o text-success"></i>
-                                                                    Active</a>
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="fa fa-dot-circle-o text-danger"></i>
-                                                                    Inactive</a>
-                                                            </div>
-                                                        </div>
+                                                        @if($attend->description == 'Login')
+                                                        <span
+                                                            class="badge badge-success">{{ $attend->description }}</span>
+
+                                                        @elseif($attend->description == 'Logout')
+
+                                                        <span
+                                                            class="badge badge-danger">{{ $attend->description }}</span>
+                                                        @endif
                                                     </td>
-                                                    <td class="text-right">
-                                                        <div class="dropdown dropdown-action">
-                                                            <a href="#" class="action-icon dropdown-toggle"
-                                                                data-toggle="dropdown" aria-expanded="false"><i
-                                                                    class="material-icons">more_vert</i></a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                        class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                        class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                            </div>
-                                                        </div>
+                                                    <td>
+                                                        <b>{{$attend->date_time}}</b>
                                                     </td>
+
+
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h2 class="table-avatar">
-                                                            <a href="#" class="avatar"><img alt=""
-                                                                    src="hrs/assets/img/profiles/avatar-19.jpg"></a>
-                                                            <a href="client-profile.html">Tressa Wexler
-                                                                <span>Manager</span></a>
-                                                        </h2>
-                                                    </td>
-                                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                            data-cfemail="98eceafdebebf9effde0f4fdead8fde0f9f5e8f4fdb6fbf7f5">[email&#160;protected]</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dropdown action-label">
-                                                            <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
-                                                                href="#" data-toggle="dropdown" aria-expanded="false">
-                                                                <i class="fa fa-dot-circle-o text-danger"></i> Inactive
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="fa fa-dot-circle-o text-success"></i>
-                                                                    Active</a>
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="fa fa-dot-circle-o text-danger"></i>
-                                                                    Inactive</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-right">
-                                                        <div class="dropdown dropdown-action">
-                                                            <a href="#" class="action-icon dropdown-toggle"
-                                                                data-toggle="dropdown" aria-expanded="false"><i
-                                                                    class="material-icons">more_vert</i></a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                        class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                        class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h2 class="table-avatar">
-                                                            <a href="client-profile.html" class="avatar"><img alt=""
-                                                                    src="hrs/assets/img/profiles/avatar-07.jpg"></a>
-                                                            <a href="client-profile.html">Ruby Bartlett
-                                                                <span>CEO</span></a>
-                                                        </h2>
-                                                    </td>
-                                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                            data-cfemail="324047504b505340465e57464672574a535f425e571c515d5f">[email&#160;protected]</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dropdown action-label">
-                                                            <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
-                                                                href="#" data-toggle="dropdown" aria-expanded="false">
-                                                                <i class="fa fa-dot-circle-o text-danger"></i> Inactive
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="fa fa-dot-circle-o text-success"></i>
-                                                                    Active</a>
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="fa fa-dot-circle-o text-danger"></i>
-                                                                    Inactive</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-right">
-                                                        <div class="dropdown dropdown-action">
-                                                            <a href="#" class="action-icon dropdown-toggle"
-                                                                data-toggle="dropdown" aria-expanded="false"><i
-                                                                    class="material-icons">more_vert</i></a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                        class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                        class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h2 class="table-avatar">
-                                                            <a href="client-profile.html" class="avatar"><img alt=""
-                                                                    src="hrs/assets/img/profiles/avatar-06.jpg"></a>
-                                                            <a href="client-profile.html"> Misty Tison
-                                                                <span>CEO</span></a>
-                                                        </h2>
-                                                    </td>
-                                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                            data-cfemail="a9c4c0daddd0ddc0dac6c7e9ccd1c8c4d9c5cc87cac6c4">[email&#160;protected]</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dropdown action-label">
-                                                            <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
-                                                                href="#" data-toggle="dropdown" aria-expanded="false">
-                                                                <i class="fa fa-dot-circle-o text-success"></i> Active
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="fa fa-dot-circle-o text-success"></i>
-                                                                    Active</a>
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="fa fa-dot-circle-o text-danger"></i>
-                                                                    Inactive</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-right">
-                                                        <div class="dropdown dropdown-action">
-                                                            <a href="#" class="action-icon dropdown-toggle"
-                                                                data-toggle="dropdown" aria-expanded="false"><i
-                                                                    class="material-icons">more_vert</i></a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                        class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                        class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h2 class="table-avatar">
-                                                            <a href="client-profile.html" class="avatar"><img alt=""
-                                                                    src="hrs/assets/img/profiles/avatar-14.jpg"></a>
-                                                            <a href="client-profile.html"> Daniel Deacon
-                                                                <span>CEO</span></a>
-                                                        </h2>
-                                                    </td>
-                                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                            data-cfemail="b5d1d4dbdcd0d9d1d0d4d6dadbf5d0cdd4d8c5d9d09bd6dad8">[email&#160;protected]</a>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dropdown action-label">
-                                                            <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
-                                                                href="#" data-toggle="dropdown" aria-expanded="false">
-                                                                <i class="fa fa-dot-circle-o text-danger"></i> Inactive
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="fa fa-dot-circle-o text-success"></i>
-                                                                    Active</a>
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="fa fa-dot-circle-o text-danger"></i>
-                                                                    Inactive</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-right">
-                                                        <div class="dropdown dropdown-action">
-                                                            <a href="#" class="action-icon dropdown-toggle"
-                                                                data-toggle="dropdown" aria-expanded="false"><i
-                                                                    class="material-icons">more_vert</i></a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                        class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                                                        class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="clients.html">View all clients</a>
+                                    <a href="{{url('attend')}}">View all Attendance</a>
                                 </div>
                             </div>
                         </div>

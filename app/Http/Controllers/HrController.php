@@ -286,7 +286,19 @@ return redirect()->back();
     public  function list_ticket(){
 
         $datas = ticket::all();
-       return view('Hr.ticketss.view-tickets',compact('datas'));
+        $lowtix = ticket::where('priority','Low Severity')->count();
+        $medtix = ticket::where('priority','Moderate Severity')->count();
+       $hightix = ticket::where('priority','High Severity')->count();
+       $crittix = ticket::where('priority','Critical Severity')->count();
+
+
+
+
+
+
+       
+       return view('Hr.ticketss.view-tickets',compact('datas','lowtix','medtix','hightix','crittix'));
+       
      }
 
      
@@ -412,11 +424,25 @@ public function schedule_doc() {
 
 public function leavelist(){
         $emplo = Employees::select('name', 'id', 'specialty', 'reason', 'leave_start_date','leave_end_date','status')->get();
+        
+        $totalpend = Employees::where('status','pending')->count();
+         $approve = Employees::where('status','approved')->count();
+         $rejected = Employees::where('status','canceled')->count();
+  $totalLeave = Employees::select('status', DB::raw('count(*) as total'))
+    ->groupBy('status')
+    ->get();
 
 
 
 
-    return view('Hr.Management.list_leave',compact('emplo'));
+
+
+
+
+
+
+
+    return view('Hr.Management.list_leave',compact('emplo','totalpend','approve','rejected','totalLeave'));
 }
 
 public function leave_approved($id){
@@ -460,6 +486,16 @@ public function sched_reject($id){
     return redirect()->back();
 }
 
+
+
+  public function charttable()
+    {
+        $data = DB::table('charttable')
+            ->select('year', 'total_patient', 'total_completed')
+            ->get();
+
+        return response()->json($data);
+    }
 
 
   

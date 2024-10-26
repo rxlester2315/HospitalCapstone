@@ -63,7 +63,9 @@
                 </div>
 
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
-
+                <div class="page-title-box">
+                    <h3>Inventory </h3>
+                </div>
                 <ul class="nav user-menu">
 
 

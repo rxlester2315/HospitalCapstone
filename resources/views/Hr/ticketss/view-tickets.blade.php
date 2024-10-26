@@ -282,7 +282,27 @@
                         </div>
                     </li>
 
+                    <li class="nav-item dropdown">
+                        <a href="chat" class="dropdown-toggle nav-link" data-toggle="">
+                            <i class="fa fa-comment-o"></i>
+                            <span
+                                class="badge badge-pill unread_notification">{{ auth()->user()->getMessageCount() }}</span>
+                        </a>
+                    </li>
 
+
+                    <li class="nav-item dropdown has-arrow main-drop">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <span class="user-img"><img src="hrs/assets/img/profiles/hr.png" alt="">
+                                <span class="status online"></span></span>
+                            <span>HR</span>
+                        </a>
+                        <div class="dropdown-menu">
+
+                            <a class="dropdown-item" href="{{url('chat')}}">Message</a>
+                            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                        </div>
+                    </li>
 
 
 
@@ -430,13 +450,13 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-3">
                                             <div>
-                                                <span class="d-block">New Tickets</span>
+                                                <span class="d-block">Low Prioty</span>
                                             </div>
                                             <div>
                                                 <span class="text-success">+10%</span>
                                             </div>
                                         </div>
-                                        <h3 class="mb-3">112</h3>
+                                        <h3 class="mb-3">{{$lowtix}}</h3>
                                         <div class="progress mb-2" style="height: 5px">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
                                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -447,13 +467,13 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-3">
                                             <div>
-                                                <span class="d-block">Solved Tickets</span>
+                                                <span class="d-block">Moderate Prioty</span>
                                             </div>
                                             <div>
                                                 <span class="text-success">+12.5%</span>
                                             </div>
                                         </div>
-                                        <h3 class="mb-3">70</h3>
+                                        <h3 class="mb-3">{{$medtix}}</h3>
                                         <div class="progress mb-2" style="height: 5px">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
                                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -464,13 +484,13 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-3">
                                             <div>
-                                                <span class="d-block">Open Tickets</span>
+                                                <span class="d-block">High Prioty</span>
                                             </div>
                                             <div>
                                                 <span class="text-danger">-2.8%</span>
                                             </div>
                                         </div>
-                                        <h3 class="mb-3">100</h3>
+                                        <h3 class="mb-3">{{$hightix}}</h3>
                                         <div class="progress mb-2" style="height: 5px">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
                                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -481,13 +501,13 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-3">
                                             <div>
-                                                <span class="d-block">Pending Tickets</span>
+                                                <span class="d-block">Critical Prioty</span>
                                             </div>
                                             <div>
                                                 <span class="text-danger">-75%</span>
                                             </div>
                                         </div>
-                                        <h3 class="mb-3">125</h3>
+                                        <h3 class="mb-3">{{$crittix}}</h3>
                                         <div class="progress mb-2" style="height: 5px">
                                             <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
                                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>

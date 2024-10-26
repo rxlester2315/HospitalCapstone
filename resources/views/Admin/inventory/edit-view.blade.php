@@ -44,6 +44,9 @@
                         <span></span>
                     </span>
                 </a>
+                <div class="page-title-box">
+                    <h3>Inventory </h3>
+                </div>
                 <ul class="nav user-menu">
                     <!-- Notifications and other nav items -->
                     <li class="nav-item dropdown">

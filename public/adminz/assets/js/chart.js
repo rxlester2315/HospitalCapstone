@@ -1,1 +1,28 @@
-$(document).ready(function(){Morris.Bar({element:'bar-charts',data:[{y:'2006',a:100,b:90},{y:'2007',a:75,b:65},{y:'2008',a:50,b:40},{y:'2009',a:75,b:65},{y:'2010',a:50,b:40},{y:'2011',a:75,b:65},{y:'2012',a:100,b:90}],xkey:'y',ykeys:['a','b'],labels:['Total Income','Total Outcome'],lineColors:['#ff9b44','#fc6075'],lineWidth:'3px',barColors:['#ff9b44','#fc6075'],resize:true,redraw:true});Morris.Line({element:'line-charts',data:[{y:'2006',a:50,b:90},{y:'2007',a:75,b:65},{y:'2008',a:50,b:40},{y:'2009',a:75,b:65},{y:'2010',a:50,b:40},{y:'2011',a:75,b:65},{y:'2012',a:100,b:50}],xkey:'y',ykeys:['a','b'],labels:['Total Sales','Total Revenue'],lineColors:['#ff9b44','#fc6075'],lineWidth:'3px',resize:true,redraw:true});});
+$(document).ready(function () {
+    $.getJSON("/chart-data", function (data) {
+        Morris.Bar({
+            element: "bar-charts",
+            data: data,
+            xkey: "year",
+            ykeys: ["total_patient", "total_completed"],
+            labels: ["Total Patient", "Total Completed"],
+            lineColors: ["#ff9b44", "#fc6075"],
+            lineWidth: "3px",
+            barColors: ["#98ff98", "#fff9c4"],
+            resize: true,
+            redraw: true,
+        });
+
+        Morris.Line({
+            element: "line-charts",
+            data: data,
+            xkey: "year",
+            ykeys: ["total_patient", "total_completed"],
+            labels: ["Total Patient", "Total Completed"],
+            lineColors: ["#ff6f61", "#d1c4e9"],
+            lineWidth: "3px",
+            resize: true,
+            redraw: true,
+        });
+    });
+});

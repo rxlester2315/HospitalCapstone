@@ -45,7 +45,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Admin Dashboard</h3>
+                    <h3>Archived Accounts</h3>
                 </div>
 
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
@@ -348,11 +348,8 @@
                     <div class="page-header">
                         <div class="row">
                             <div class="col">
-                                <h3 class="page-title">Data Tables</h3>
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Data Tables</li>
-                                </ul>
+                                <h3 class="page-title">List Archived Accounts</h3>
+
                                 <br>
                                 <div>
                                     <a href="{{url('/users_manage')}}">

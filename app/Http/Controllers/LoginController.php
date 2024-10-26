@@ -229,7 +229,17 @@ public function hruser()
     $completedAppointments = Appointments::where('status', 'Completed')->count();
     $alldoctor = employees::count();
 
-    return view('Hr.dashboard', compact('totalAppointments', 'pendingAppointments', 'approvedAppointments', 'completedAppointments','alldoctor'));
+     $attendance = DB::table('activity_logs')
+        ->orderBy('created_at', 'desc')
+        ->take(10) 
+        ->get();
+
+$leavelist = employees::select('name', 'Specialty', 'room', 'leave_start_date', 'leave_end_date', 'reason', 'addnote', 'status')
+    ->orderBy('created_at', 'desc')
+    ->take(3)
+    ->get();
+
+    return view('Hr.dashboard', compact('totalAppointments', 'pendingAppointments', 'approvedAppointments', 'completedAppointments','alldoctor','attendance','leavelist'));
 }
 
 

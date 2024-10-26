@@ -181,6 +181,11 @@ Route::delete('/canceled/{id}', [HrController::class, 'canceled'])->name('appoin
   Route::get('/schedule_rejected/{id}',[HrController::class,'sched_reject']);
 
 
+Route::get('/chart-data', [HrController::class, 'charttable']);
+
+
+
+
   //Doctor Route
 
   Route::get('/listappoint',[DoctorController::class,'listAppointment']);  

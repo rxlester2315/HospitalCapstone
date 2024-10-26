@@ -278,7 +278,27 @@
 
 
 
+                    <li class="nav-item dropdown">
+                        <a href="chat" class="dropdown-toggle nav-link" data-toggle="">
+                            <i class="fa fa-comment-o"></i>
+                            <span
+                                class="badge badge-pill unread_notification">{{ auth()->user()->getMessageCount() }}</span>
+                        </a>
+                    </li>
 
+
+                    <li class="nav-item dropdown has-arrow main-drop">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <span class="user-img"><img src="hrs/assets/img/profiles/hr.png" alt="">
+                                <span class="status online"></span></span>
+                            <span>HR</span>
+                        </a>
+                        <div class="dropdown-menu">
+
+                            <a class="dropdown-item" href="{{url('chat')}}">Message</a>
+                            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                        </div>
+                    </li>
 
 
                 </ul>
@@ -414,28 +434,40 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="stats-info">
-                                <h6>Annual Leave</h6>
-                                <h4>12</h4>
+                                <h6>Pending Entries</h6>
+                                <h4>{{$totalpend}}</h4>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="stats-info">
-                                <h6>Medical Leave</h6>
-                                <h4>3</h4>
+                                <h6>Approved</h6>
+                                <h4>{{$approve}}</h4>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="stats-info">
-                                <h6>Other Leave</h6>
-                                <h4>4</h4>
+                                <h6>Rejected</h6>
+                                <h4>{{$rejected}}</h4>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="stats-info">
-                                <h6>Remaining Leave</h6>
-                                <h4>5</h4>
+                                <h6>Total Leaves</h6>
+                                <h4>
+                                    @php
+                                    // Initialize total count
+                                    $totalCount = 0;
+
+                                    // Sum total leaves from the result
+                                    foreach ($totalLeave as $leave) {
+                                    $totalCount += $leave->total;
+                                    }
+                                    @endphp
+                                    {{$totalCount}}
+                                </h4>
                             </div>
                         </div>
+
                     </div>
 
 

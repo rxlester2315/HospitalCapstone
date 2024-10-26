@@ -49,7 +49,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Admin Dashboard</h3>
+                    <h3>User Management </h3>
                 </div>
 
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
@@ -375,12 +375,7 @@
                         <div class="row">
 
                             <div class="col">
-                                <h3 class="page-title">Archived Table</h3>
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Archived Tables</li>
-                                </ul>
-                                <br>
+
                                 <div>
                                     <a href="{{route('list')}}">
                                         <h3 class="btn btn-primary">View Archives</h3>
