@@ -458,7 +458,7 @@ public function leave_approved($id){
 public function leave_canceled($id){
 
     $data=Employees::find($id);
-    $data->status='Canceled';
+    $data->status='Rejected';
         $data->save();
 
     return redirect()->back();

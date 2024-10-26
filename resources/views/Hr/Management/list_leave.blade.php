@@ -539,7 +539,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($emplo->where('status', 'approved') as $data)
+                                    @foreach($emplo->where('status', 'Approved') as $data)
                                     <tr>
                                         <td>{{ $data->name }}</td>
                                         <td>{{ $data->id }}</td>
@@ -581,7 +581,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($emplo->where('status', 'canceled') as $data)
+                                    @foreach($emplo->where('status', 'Rejected') as $data)
                                     <tr>
                                         <td>{{ $data->name }}</td>
                                         <td>{{ $data->id }}</td>
