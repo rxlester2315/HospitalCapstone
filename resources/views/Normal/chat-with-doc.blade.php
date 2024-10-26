@@ -74,7 +74,7 @@
                                 </li>
                                 <li><a href="{{ url('view_normal_prof') }}"><i class="fa fa-user"></i> <span>My
                                             Profile</span></a></li>
-                                <li><a href=" invoice.html"><i class="fa fa-comments"></i> <span>Chat with
+                                <li><a href=" {{url('chatss')}}"><i class="fa fa-comments"></i> <span>Chat with
                                             Front-desk</span></a>
                                 </li>
 

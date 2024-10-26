@@ -155,8 +155,8 @@
 
                         <!-- Show the profile form if the profile exists -->
                         <div class="text-center">
-                            <img src="https://via.placeholder.com/150" alt="Profile Picture"
-                                class="rounded-circle mb-3">
+                            <img style="width:150px" src="main_alls/everythingzz/assets/images/author/avatar.png"
+                                alt="Profile Picture" class="rounded-circle mb-3">
                         </div>
 
                         <form method="POST" action="{{ route('update.Store') }}" enctype="multipart/form-data">
