@@ -292,10 +292,26 @@ $totaltix = ticket::count();
 
 
 
-    public function nurseview(){
+public function nurseview()
+{
+    $totalappoint = Appointments::all()->count();
+    $approveappoint = Appointments::where('status', 'Approved')->count();
+    $pending = Appointments::where('status', 'Pending')->count();
+    $verifiedpatients = User::where('role_name', 'Normal User')->count();
+    
+    // Limit to the most recent 5 patients that have arrived
+    $assespatients = Appointments::where('arrive_status', 'Arrived')
+        ->latest() // Order by latest arrival
+        ->take(5) // Limit to 5 records
+        ->get();
 
-        return view('Nurse.home');
-    }
+    // Get images from the faces directory
+    $imagePath = public_path('nursess/assets/images/faces');
+    $images = array_diff(scandir($imagePath), ['..', '.']); // Exclude . and ..
+
+    return view('Nurse.home', compact('totalappoint', 'approveappoint', 'pending', 'verifiedpatients', 'assespatients', 'images'));
+}
+
 
 
     

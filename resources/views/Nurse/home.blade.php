@@ -20,7 +20,22 @@
         <link rel="shortcut icon" href="nursess/assets/images/favicon.svg" type="image/x-icon">
 
         <style>
+        .card-content {
+            background: white;
+        }
 
+        .card {
+            background: white;
+            padding: 20px;
+        }
+
+        .card-img-top {
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+            border: 2px;
+            border-radius: 50%;
+        }
         </style>
         <script>
         if (window.history && window.history.pushState) {
@@ -154,7 +169,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <h6 class="text-muted font-semibold">Pending Appointments</h6>
-                                                    <h6 class="font-extrabold mb-0">112.000</h6>
+                                                    <h6 class="font-extrabold mb-0">{{$pending}}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -171,7 +186,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <h6 class="text-muted font-semibold">Total Appointments</h6>
-                                                    <h6 class="font-extrabold mb-0">183.000</h6>
+                                                    <h6 class="font-extrabold mb-0">{{$totalappoint}}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -187,8 +202,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <h6 class="text-muted font-semibold">Patient Register</h6>
-                                                    <h6 class="font-extrabold mb-0">80.000</h6>
+                                                    <h6 class="text-muted font-semibold">Patient Verified</h6>
+                                                    <h6 class="font-extrabold mb-0">{{$verifiedpatients}}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -205,7 +220,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <h6 class="text-muted font-semibold">Appointment Complete</h6>
-                                                    <h6 class="font-extrabold mb-0">112</h6>
+                                                    <h6 class="font-extrabold mb-0">{{$approveappoint}}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -237,6 +252,100 @@
 
 
                     </section>
+
+
+                    <div class="container mt-5">
+                        <h2 class="text-center">Patient Arrivals</h2>
+                        <div class="row">
+                            @foreach($assespatients as $asses)
+                            <div class="col-md-4">
+                                <div class="card">
+                                    @php
+                                    $randomImage = $images[array_rand($images)]; // Get a random image
+                                    @endphp
+                                    <img src="{{ asset('nursess/assets/images/faces/' . $randomImage) }}"
+                                        class="card-img-top" alt="{{ $asses->name }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $asses->name }}</h5>
+                                        <p class="card-text">Patient ID: {{ $asses->userid }}</p>
+                                        <p class="card-text">Age: {{ $asses->age ?? 'N/A' }}</p>
+                                        <p class="card-text">Gender: {{ $asses->gender ?? 'N/A' }}</p>
+                                        <p class="card-text">Arrival Time:
+                                            {{ \Carbon\Carbon::parse($asses->time_arrive)->format('h:i A') }}</p>
+                                        <p class="card-text">Department: {{ $asses->departments ?? 'N/A' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+
+
+                    </div>
+                    <section class="section">
+                        <div class="row" id="table-striped">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <center>
+                                            <h4 class="card-title">Patient Assesment Recently</h4>
+                                        </center>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="card-body">
+
+                                        </div>
+                                        <!-- table striped -->
+                                        <div class="table-responsive">
+                                            <table class="table table-striped mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>NAME</th>
+                                                        <th>DOCTOR</th>
+                                                        <th>PATIENT STATUS</th>
+                                                        <th>MOBILITY</th>
+                                                        <th>ALLERGIES</th>
+                                                        <th>MENTAL STATUS</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($assespatients as $asses)
+                                                    <tr>
+                                                        <td>{{$asses->name}}</td>
+                                                        <td>{{$asses->employees}}</td>
+                                                        <td>
+                                                            @if($asses->completed == 'Observation')
+                                                            <span
+                                                                class="badge bg-warning">{{ $asses->completed }}</span>
+                                                            @elseif($asses->completed == 'Discharged')
+                                                            <span
+                                                                class="badge bg-success">{{ $asses->completed }}</span>
+                                                            @else
+                                                            <span
+                                                                class="badge bg-secondary">{{ $asses->completed }}</span>
+                                                            @endif
+                                                        </td>
+
+                                                        <td>{{$asses->mobility}}</td>
+                                                        <td>{{$asses->allergies}}</td>
+                                                        <td>{{$asses->mentalstatus}}</td>
+
+
+
+                                                    </tr>
+
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
 
 
                 </div>

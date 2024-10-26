@@ -242,6 +242,10 @@ public function patientassement(Request $request) {
         'Hearrate' => 'required|string|max:255',
         'Weight' => 'required|string|max:255',
         'Height' => 'required|string|max:255',
+        'gender' => 'required|string|max:255',
+        'age' => 'required|integer|min:1|max:999',
+
+
     ]);
 
     $patient = Appointments::find($request->input('appointment_id'));
@@ -259,6 +263,8 @@ public function patientassement(Request $request) {
     $patient->Hearrate = $request->Hearrate;
     $patient->Weight = $request->Weight;
     $patient->Height = $request->Height;
+    $patient->age = $request->age;
+    $patient->gender = $request->gender;
 
     $patient->save();
 

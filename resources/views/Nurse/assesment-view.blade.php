@@ -242,8 +242,8 @@
                                                         <h2>Vital Signs</h2>
                                                     </center>
 
-                                                    <div class="col-md-6 col-12">
-                                                        <div class="col-md-6 col-12">
+                                                    <div class="row">
+                                                        <div class="col-md-4 col-12">
                                                             <div class="form-group">
                                                                 <label for="blood-pressure-dropdown">Blood
                                                                     Pressure</label>
@@ -251,8 +251,7 @@
                                                                     class="form-control" name="bloodpressure"
                                                                     onchange="toggleOtherInput(this)">
                                                                     <option disabled selected value="">Select Blood
-                                                                        Pressure
-                                                                    </option>
+                                                                        Pressure</option>
                                                                     <option value="90/60">90/60</option>
                                                                     <option value="100/70">100/70</option>
                                                                     <option value="110/75">110/75</option>
@@ -268,40 +267,67 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="col-md-4 col-12">
+                                                            <div class="form-group">
+                                                                <label for="heart-rate">Heart Rate</label>
+                                                                <input type="text" id="heart-rate" class="form-control"
+                                                                    name="Hearrate" placeholder="Heart Rate"
+                                                                    style="width: 70%;">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4 col-12">
+                                                            <div class="form-group">
+                                                                <label for="weight">Weight(lbs)</label>
+                                                                <input type="text" id="weight" class="form-control"
+                                                                    name="Weight" placeholder="Weight"
+                                                                    style="width: 70%;">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4 col-12">
+                                                            <div class="form-group">
+                                                                <label for="gender">Gender</label>
+                                                                <select id="gender" class="form-control" name="gender"
+                                                                    style="width: 70%;">
+                                                                    <option value="" disabled selected>Select Gender
+                                                                    </option>
+                                                                    <option value="male">Male</option>
+                                                                    <option value="female">Female</option>
+                                                                    <option value="other">Other</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4 col-12">
+                                                            <div class="form-group">
+                                                                <label for="age">Age</label>
+                                                                <input type="number" id="age" class="form-control"
+                                                                    name="age" placeholder="Age" style="width: 70%;">
+                                                            </div>
+                                                        </div>
+
                                                         <div class="col-md-6 col-12">
                                                             <div class="form-group">
-                                                                <label for="country-floating">Heart Rate</label>
-                                                                <input type="text" id="country-floating"
-                                                                    class="form-control" name="Hearrate"
-                                                                    placeholder="Heart Rate">
+                                                                <label for="height">Height (cm)</label>
+                                                                <input type="text" id="height" class="form-control"
+                                                                    name="Height" placeholder="Height"
+                                                                    style="width: 30%;" maxlength="3">
                                                             </div>
-
-                                                            <div class="col-md-6 col-12">
-                                                                <div class="form-group">
-                                                                    <label for="country-floating">Weight</label>
-                                                                    <input type="text" id="country-floating"
-                                                                        class="form-control" name="Weight"
-                                                                        placeholder="Weight">
-                                                                </div>
-
-                                                                <div class="col-md-6 col-12">
-                                                                    <div class="form-group">
-                                                                        <label for="country-floating">Height</label>
-                                                                        <input type="text" id="country-floating"
-                                                                            class="form-control" name="Height"
-                                                                            placeholder="Height">
-                                                                    </div>
-
-                                                                </div>
+                                                        </div>
 
 
-                                                                <div class="col-12 d-flex justify-content-end">
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary me-1 mb-1">Submit</button>
-                                                                    <button type="reset"
-                                                                        class="btn btn-light-secondary me-1 mb-1">Reset</button>
-                                                                </div>
-                                                            </div>
+                                                        <div class="col-12 d-flex justify-content-end">
+                                                            <button type="submit"
+                                                                class="btn btn-primary me-1 mb-1">Submit</button>
+                                                            <button type="reset"
+                                                                class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                                        </div>
+                                                    </div>
+
+
+
+
                                             </form>
                                         </div>
                                     </div>
