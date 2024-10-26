@@ -32,7 +32,7 @@
         <div class="main-wrapper">
             <div class="header">
                 <div class="header-left">
-                    <a href="index.html" class="logo">
+                    <a href="{{url('Front')}}" class="logo">
                         <img src="{{asset('fdesk/assets/img/logo.jpg')}}" width="80px" height="70px" alt="" />
                     </a>
                 </div>

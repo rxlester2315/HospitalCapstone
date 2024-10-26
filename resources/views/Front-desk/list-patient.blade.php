@@ -32,7 +32,7 @@
         <div class="main-wrapper">
             <div class="header">
                 <div class="header-left">
-                    <a href="index.html" class="logo">
+                    <a href="{{url('Front')}}" class="logo">
                         <img src="{{asset('fdesk/assets/img/logo.jpg')}}" width="80px" height="70px" alt="" />
                     </a>
                 </div>
@@ -46,7 +46,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Admin Dashboard</h3>
+                    <h3>Patient List</h3>
                 </div>
 
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
@@ -308,7 +308,7 @@
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <span class="user-img"><img src="fdesk/assets/img/profiles/front.jpg" alt="" />
                                 <span class="status online"></span></span>
-                            <span>Admin</span>
+                            <span>Front Desk</span>
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="profile.html">My Profile</a>

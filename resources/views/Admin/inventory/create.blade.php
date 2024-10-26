@@ -75,6 +75,7 @@
                                 <span class="notification-title">Notifications</span>
                                 <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
                             </div>
+
                             <div class="noti-content">
                                 <ul class="notification-list">
                                     <li class="notification-message">

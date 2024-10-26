@@ -40,7 +40,7 @@
             <div class="sidebar-menu">
                 <div class="sidebar-header">
                     <div class="logo">
-                        <a href="index.html"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
+                        <a href="{{url('Guests')}}"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
                                 alt="logo"></a>
                     </div>
                 </div>
