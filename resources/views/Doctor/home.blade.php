@@ -142,6 +142,9 @@
 
                                         <li><a href="{{url('changesPasswordDoc')}}">Change Password</a></li>
                                         <li><a href="{{url('doc_sched')}}">Submit Schedule</a></li>
+                                        <li><a href="{{url('create_leave')}}">Submit Leave</a></li>
+
+
 
                                     </ul>
                                 </li>
@@ -189,9 +192,7 @@
 
                                     </div>
                                 </li>
-                                <li class="settings-btn">
-                                    <i class="ti-settings"></i>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
