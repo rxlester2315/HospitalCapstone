@@ -137,7 +137,7 @@
             <div class="sidebar-menu">
                 <div class="sidebar-header">
                     <div class="logo">
-                        <a href="index.html"><img src="{{asset('main_alls/everythingzz/assets/images/icon/logo.png')}}"
+                        <a href="{{url('Doc')}}"><img src="{{asset('main_alls/everythingzz/assets/images/icon/logo2.png')}}"
                                 alt="logo"></a>
                     </div>
                 </div>
@@ -225,18 +225,8 @@
 
 
                                 </li>
-                                <li class="dropdown">
-                                    <i class="fa fa-envelope-o dropdown-toggle"
-                                        data-toggle="dropdown"><span>3</span></i>
-                                    <div class="dropdown-menu notify-box nt-enveloper-box">
-                                        <span class="notify-title">You have 3 new notifications <a href="#">view
-                                                all</a></span>
-
-                                    </div>
-                                </li>
-                                <li class="settings-btn">
-                                    <i class="ti-settings"></i>
-                                </li>
+                           
+                               
                             </ul>
                         </div>
                     </div>
@@ -340,61 +330,60 @@
 
 
 
-        <script>
-        // Pusher initialization
-        Pusher.logToConsole = true;
+       <script>
+    // Pusher initialization
+    Pusher.logToConsole = true;
 
-        var pusher = new Pusher('{{ env('
-            PUSHER_APP_KEY ') }}', {
-                cluster: '{{ env('
-                PUSHER_APP_CLUSTER ') }}',
-                forceTLS: true
+    var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
+        cluster: '{{ env('PUSHER_APP_CLUSTER') }}',
+        forceTLS: true
+    });
+
+    var channel = pusher.subscribe('chat-channel');
+    channel.bind('message-sent', function(data) {
+        let chatBox = document.getElementById('chat-box');
+        let messageClass = data.from == "{{ auth()->user()->id }}" ? "message-sent" : "message-received";
+        let newMessage = `
+        <div class="${messageClass}">
+            <p><strong>${data.from == "{{ auth()->user()->id }}" ? "You" : data.senderName}:</strong> ${data.message}</p>
+        </div>`;
+        chatBox.innerHTML += newMessage;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    });
+
+    // Function to send message via AJAX
+    function sendMessage() {
+        var message = $('#message').val();
+
+        if (message.trim() !== '') {
+            $.ajax({
+                url: '{{ url("sendmessage", $appointment->id) }}',
+                method: 'POST',
+                data: {
+                    message: message,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    $('#message').val(''); // Clear the input after sending
+                }
             });
-
-        var channel = pusher.subscribe('chat-channel');
-        channel.bind('message-sent', function(data) {
-            let chatBox = document.getElementById('chat-box');
-            let messageClass = data.from == "{{ auth()->user()->id }}" ? "message-sent" : "message-received";
-            let newMessage = `
-            <div class="${messageClass}">
-                <p><strong>${data.from == "{{ auth()->user()->id }}" ? "You" : data.senderName}:</strong> ${data.message}</p>
-            </div>`;
-            chatBox.innerHTML += newMessage;
-            chatBox.scrollTop = chatBox.scrollHeight;
-        });
-
-        // Function to send message via AJAX
-        function sendMessage() {
-            var message = $('#message').val();
-
-            if (message.trim() !== '') {
-                $.ajax({
-                    url: '{{ url("sendmessage", $appointment->id) }}',
-                    method: 'POST',
-                    data: {
-                        message: message,
-                        _token: '{{ csrf_token() }}'
-                    },
-                    success: function(response) {
-                        $('#message').val(''); // Clear the input after sending
-                    }
-                });
-            }
         }
+    }
 
-        // Send message on button click
-        $('#send').click(function() {
+    // Send message on button click
+    $('#send').click(function() {
+        sendMessage();
+    });
+
+    // Send message on Enter key press
+    $('#message').keydown(function(e) {
+        if (e.keyCode === 13) { // Check if Enter key is pressed
+            e.preventDefault(); // Prevent form submission on Enter
             sendMessage();
-        });
+        }
+    });
+</script>
 
-        // Send message on Enter key press
-        $('#message').keydown(function(e) {
-            if (e.keyCode === 13) { // Check if Enter key is pressed
-                e.preventDefault(); // Prevent form submission on Enter
-                sendMessage();
-            }
-        });
-        </script>
 
         <script src="main_alls/everythingzz/assets/js/vendor/jquery-2.2.4.min.js"></script>
         <!-- bootstrap 4 js -->

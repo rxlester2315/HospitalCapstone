@@ -159,9 +159,7 @@
 
                                 <li><a href="{{url('listrecord')}}"><i class="fa fa-commenting-o"></i> <span>Chat with
                                             Patients</span></a></li>
-                                <li><a href="{{url('submitted_request')}}"><i class="ti-receipt"></i> <span>Submitted
-                                            Schedule</span></a>
-                                </li>
+
 
                             </ul>
                         </nav>

@@ -611,11 +611,7 @@
         // Listen for messages from the doctor
         channel.bind('message-sent', function(data) {
             const chatBox = document.getElementById('chat-box');
-            const isCurrentUser = (data.from === {
-                {
-                    auth() - > user() - > id
-                }
-            });
+            const isCurrentUser = (data.from === {{auth()->user()->id}});
             const messageClass = isCurrentUser ? 'patient' : 'doctor';
             const senderName = isCurrentUser ? 'You' : (data.doctor_name || 'Doctor');
 
