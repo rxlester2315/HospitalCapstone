@@ -137,8 +137,8 @@
             <div class="sidebar-menu">
                 <div class="sidebar-header">
                     <div class="logo">
-                        <a href="{{url('Doc')}}"><img src="{{asset('main_alls/everythingzz/assets/images/icon/logo2.png')}}"
-                                alt="logo"></a>
+                        <a href="{{url('Doc')}}"><img
+                                src="{{asset('main_alls/everythingzz/assets/images/icon/logo2.png')}}" alt="logo"></a>
                     </div>
                 </div>
                 <div class="main-menu">
@@ -149,55 +149,18 @@
                                 <li><a href="{{url('Doc')}}"><i class="ti-receipt"></i> <span>Home</span></a>
                                 </li>
 
+
                                 <li>
-                                    <a href="javascript:void(0)" aria-expanded="true"><i
-                                            class="ti-pie-chart"></i><span>Patient Appointments</span></a>
-                                    <ul class="collapse">
-                                        <li><a href="barchart.html"></a></li>
-                                        <li><a href="linechart.html">line Chart</a></li>
-                                        <li><a href="piechart.html">pie chart</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>My
+                                    <a href="{{url('listrecord')}}" aria-expanded="true"><i
+                                            class="ti-palette"></i><span>My
                                             Information</span></a>
 
                                 </li>
 
 
-                                <li><a href="{{url('listrecord')}}"><i class="ti-map-alt"></i> <span>Chat with
-                                            Patients</span></a></li>
-                                <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Send Ticket
-                                            Request</span></a>
-                                </li>
 
-                                <li>
-                                    <a href="javascript:void(0)" aria-expanded="true"><i
-                                            class="fa fa-exclamation-triangle"></i>
-                                        <span>Error</span></a>
-                                    <ul class="collapse">
-                                        <li><a href="404.html">Error 404</a></li>
-                                        <li><a href="403.html">Error 403</a></li>
-                                        <li><a href="500.html">Error 500</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i>
-                                        <span>Multi
-                                            level menu</span></a>
-                                    <ul class="collapse">
-                                        <li><a href="#">Item level (1)</a></li>
-                                        <li><a href="#">Item level (1)</a></li>
-                                        <li><a href="#" aria-expanded="true">Item level (1)</a>
-                                            <ul class="collapse">
-                                                <li><a href="#">Item level (2)</a></li>
-                                                <li><a href="#">Item level (2)</a></li>
-                                                <li><a href="#">Item level (2)</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Item level (1)</a></li>
-                                    </ul>
-                                </li>
+                            </ul>
+                            </li>
                             </ul>
                         </nav>
                     </div>
@@ -225,8 +188,8 @@
 
 
                                 </li>
-                           
-                               
+
+
                             </ul>
                         </div>
                     </div>
@@ -247,8 +210,8 @@
                             <div class="user-profile pull-right">
                                 <img class="avatar user-thumb" src="{{asset('assets/images/author/avatar.png')}}"
                                     alt="avatar">
-                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Doctor| {{ Auth::user()->name }}<i
-                                        class="fa fa-angle-down"></i></h4>
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Doctor|
+                                    {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Message</a>
                                     <a class="dropdown-item" href="#">Settings</a>
@@ -330,59 +293,61 @@
 
 
 
-       <script>
-    // Pusher initialization
-    Pusher.logToConsole = true;
+        <script>
+        // Pusher initialization
+        Pusher.logToConsole = true;
 
-    var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
-        cluster: '{{ env('PUSHER_APP_CLUSTER') }}',
-        forceTLS: true
-    });
+        var pusher = new Pusher('{{ env('
+            PUSHER_APP_KEY ') }}', {
+                cluster: '{{ env('
+                PUSHER_APP_CLUSTER ') }}',
+                forceTLS: true
+            });
 
-    var channel = pusher.subscribe('chat-channel');
-    channel.bind('message-sent', function(data) {
-        let chatBox = document.getElementById('chat-box');
-        let messageClass = data.from == "{{ auth()->user()->id }}" ? "message-sent" : "message-received";
-        let newMessage = `
+        var channel = pusher.subscribe('chat-channel');
+        channel.bind('message-sent', function(data) {
+            let chatBox = document.getElementById('chat-box');
+            let messageClass = data.from == "{{ auth()->user()->id }}" ? "message-sent" : "message-received";
+            let newMessage = `
         <div class="${messageClass}">
             <p><strong>${data.from == "{{ auth()->user()->id }}" ? "You" : data.senderName}:</strong> ${data.message}</p>
         </div>`;
-        chatBox.innerHTML += newMessage;
-        chatBox.scrollTop = chatBox.scrollHeight;
-    });
+            chatBox.innerHTML += newMessage;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        });
 
-    // Function to send message via AJAX
-    function sendMessage() {
-        var message = $('#message').val();
+        // Function to send message via AJAX
+        function sendMessage() {
+            var message = $('#message').val();
 
-        if (message.trim() !== '') {
-            $.ajax({
-                url: '{{ url("sendmessage", $appointment->id) }}',
-                method: 'POST',
-                data: {
-                    message: message,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(response) {
-                    $('#message').val(''); // Clear the input after sending
-                }
-            });
+            if (message.trim() !== '') {
+                $.ajax({
+                    url: '{{ url("sendmessage", $appointment->id) }}',
+                    method: 'POST',
+                    data: {
+                        message: message,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        $('#message').val(''); // Clear the input after sending
+                    }
+                });
+            }
         }
-    }
 
-    // Send message on button click
-    $('#send').click(function() {
-        sendMessage();
-    });
-
-    // Send message on Enter key press
-    $('#message').keydown(function(e) {
-        if (e.keyCode === 13) { // Check if Enter key is pressed
-            e.preventDefault(); // Prevent form submission on Enter
+        // Send message on button click
+        $('#send').click(function() {
             sendMessage();
-        }
-    });
-</script>
+        });
+
+        // Send message on Enter key press
+        $('#message').keydown(function(e) {
+            if (e.keyCode === 13) { // Check if Enter key is pressed
+                e.preventDefault(); // Prevent form submission on Enter
+                sendMessage();
+            }
+        });
+        </script>
 
 
         <script src="main_alls/everythingzz/assets/js/vendor/jquery-2.2.4.min.js"></script>

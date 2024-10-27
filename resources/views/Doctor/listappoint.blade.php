@@ -25,7 +25,7 @@
         <!-- modernizr css -->
         <script src="main_alls/everythingzz/assets/js/vendor/modernizr-2.8.3.min.js"></script>
         <style>
-          /* Custom styles for the hospital theme */
+        /* Custom styles for the hospital theme */
         .table-container {
             margin-top: 50px;
             background-color: #f8f9fa;
@@ -33,13 +33,16 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .table thead {
             background-color: #007bff;
             color: white;
         }
+
         .table tbody tr:hover {
             background-color: #f1f1f1;
         }
+
         .header-text {
             font-family: 'Arial', sans-serif;
             font-weight: bold;
@@ -47,21 +50,25 @@
             margin-bottom: 20px;
             text-align: center;
         }
+
         .status {
             font-weight: bold;
         }
+
         .status.pending {
             color: #ffc107;
         }
+
         .status.confirmed {
             color: #28a745;
         }
+
         .status.cancelled {
             color: #dc3545;
         }
 
-        th{
-            background:#0ed7b6;
+        th {
+            background: #0ed7b6;
         }
         </style>
     </head>
@@ -138,7 +145,7 @@
 
 
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -174,52 +181,54 @@
 
 
 
-<div class="container table-container">
-        <h2 class="header-text">Patient Appointment List</h2>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Patient Name</th>
-                    <th>Contact No.</th>
-                    <th>Appointment Date</th>
-                    <th>Status</th>
-                    <th>Status Patient</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($data as $dats)
-                <tr>
-                    <td>{{$dats->name}}</td>
-                    <td>{{$dats->phone}}</td>
-                    <td>{{$dats->date}}</td>
-                    <td>{{$dats->status}}</td>
-                    <td><span class="status pending">Not Arrive</span></td>
-                    <td>
-                       
-                        <button class="btn btn-danger btn-sm">Decline</button>
-                    </td>
-                </tr>
-                @endforeach
-              
-            </tbody>
-        </table>
-    </div>
+                    <div class="container table-container">
+                        <h2 class="header-text">Patient Appointment List</h2>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Patient Name</th>
+                                    <th>Contact No.</th>
+                                    <th>Appointment Date</th>
+                                    <th>Status</th>
+                                    <th>Status Patient</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($data as $dats)
+                                <tr>
+                                    <td>{{$dats->name}}</td>
+                                    <td>{{$dats->phone}}</td>
+                                    <td>{{$dats->date}}</td>
+                                    <td>{{$dats->status}}</td>
+                                    <td><span class="status pending">Not Arrive</span></td>
+                                    <td>
 
+                                        <button class="btn btn-danger btn-sm">Decline</button>
+                                    </td>
+                                </tr>
+                                @endforeach
 
+                            </tbody>
+                        </table>
 
-
-
-
-
-
-
+                    </div>
                 </div>
-            </div>
-            <!-- main content area end -->
-            <!-- footer area start-->
 
-            <!-- footer area end-->
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <!-- main content area end -->
+        <!-- footer area start-->
+
+        <!-- footer area end-->
         </div>
         <!-- page container area end -->
         <!-- offset area start -->

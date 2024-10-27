@@ -24,69 +24,53 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/responsive.css">
         <!-- modernizr css -->
         <script src="main_alls/everythingzz/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+        <!-- Custom Styles -->
         <style>
-        /* General styles (unchanged) */
-        .container-fluid {
-            background: white;
-
-        }
-
-        .cons {
-            padding-top: 30px;
-        }
-
         .table-container {
-            overflow-x: auto;
-            /* Allows horizontal scrolling on small screens */
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+        }
+
+        .header-text {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #black;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        th {
+            background: #0ed7b6;
+        }
+
+        h2 {
+            color: black;
         }
 
         .table {
-            width: 100%;
-            /* Ensures the table takes the full width of its container */
+            margin: 0 auto;
         }
 
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .cons .row {
-                flex-direction: column;
-                /* Stack the columns on small screens */
-            }
-
-            .col-md-6 {
-                width: 100%;
-                /* Make each column full width */
-                margin-bottom: 20px;
-                /* Add space between stacked columns */
-
-            }
-
-            .text-center {
-                text-align: center;
-                /* Center-align text in smaller screens */
-            }
-
-            .time-select {
-                width: auto;
-                /* Allow select elements to size properly */
-                margin: 0 5px;
-                /* Add some margin for better spacing */
-            }
+        .table thead {
+            background-color: #007bff;
+            color: white;
         }
 
-        @media (max-width: 576px) {
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
 
-            /* Further adjustments for extra small screens */
-            .table-container {
-                margin-top: 20px;
-                /* Add spacing above table */
-            }
-
-            h4 {
-                font-size: 18px;
-                /* Reduce heading size for smaller devices */
-            }
+        .badge-warning {
+            font-weight: bold;
+            color: #ffc107;
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
         }
         </style>
+
     </head>
 
     <body>
@@ -168,7 +152,7 @@
 
                                     </div>
                                 </li>
-                               
+
                             </ul>
                         </div>
                     </div>
@@ -205,71 +189,51 @@
 
 
 
+                    <div class="col-md-6 mx-auto">
+                        <!-- Table -->
+                        <form action="{{ route('zzzzz') }}" method="GET" class="text-center">
+                            @csrf
+                            <input type="date" name="filter_date" required>
+                            <button type="submit" class="btn btn-primary">Select Date</button>
+                        </form>
 
-                    <div class="cons">
-
-                        <div class="container-fluid cyan-bg">
-                            <div class="row">
-                                <!-- Left Side -->
-                                <div class="col-md-6 text-center">
-                                    <!-- Calendar Button -->
-
-                                    <div class="">
-
-                                    </div>
-                                </div>
-
-                                <!-- Right Side -->
-                                <div class="col-md-6">
-                                    <h4 class="text-center text-white">Appointment Request</h4>
-                                    <!-- Table -->
-                                    <form action="{{route('zzzzz')}}" method="GET">
-                                        @csrf
-                                        <input type="date" name="filter_date" required>
-                                        <button type="submit" class="btn btn-primary">Select Date</button>
-                                    </form>
-                                    <div class="table-container">
-                                        <table class="table table-striped">
-                                            <thead class="table-primary">
-                                                <tr>
-                                                    <th>Patient Name</th>
-                                                    <th>Contact No.</th>
-                                                    <th>Date Appointment</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @if($appointment && $appointment->isNotEmpty())
-                                                @foreach($appointment as $appoint)
-
-                                                <tr>
-                                                    <td>{{$appoint->name}}</td>
-                                                    <td>{{$appoint->phone}}</td>
-                                                    <td>{{$appoint->date}}</td>
-                                                    <td>
-                                                        <span class="badge badge-warning">Not Arrived</span>
-                                                    </td>
-
-
-                                                </tr>
-                                                @endforeach
-                                                @else
-
-                                                <tr>
-                                                    <td colspan="7" class="text-center">Please select date today to see
-                                                        available schedule today
-
-                                                </tr>
-                                                @endif
-
-                                                <!-- Add more rows as needed -->
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                        <div class="container table-container mt-4">
+                            <h2 class="header-text">Patient Appointment List</h2>
+                            <div class="table-responsive">
+                                <table class="table table-striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Patient Name</th>
+                                            <th>Contact No.</th>
+                                            <th>Appointment Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if($appointment && $appointment->isNotEmpty())
+                                        @foreach($appointment as $appoint)
+                                        <tr>
+                                            <td>{{ $appoint->name }}</td>
+                                            <td>{{ $appoint->phone }}</td>
+                                            <td>{{ $appoint->date }}</td>
+                                            <td>
+                                                <span class="badge badge-warning">Not Arrived</span>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                        @else
+                                        <tr>
+                                            <td colspan="4" class="text-center">
+                                                Please select a date to see today's available schedule
+                                            </td>
+                                        </tr>
+                                        @endif
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
+
 
 
 
