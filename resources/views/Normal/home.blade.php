@@ -145,11 +145,13 @@
                                 @auth
                                 @if(Auth::user()->role_name !== 'Normal User')
                                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-                                    Unverified|{{ Auth::user()->name }}<i class="fa fa-angle-down"></i>
+                                    <span style="margin:10px;">Unverified|</span>{{ Auth::user()->name }}<i
+                                        class="fa fa-angle-down"></i>
                                 </h4>
                                 @else
                                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-                                    Patient| {{ Auth::user()->name }}
+                                    <span style="margin:10px;">Patient|</span>
+                                    {{ Auth::user()->name }}
                                     <i class="fa fa-angle-down"></i>
                                 </h4>
                                 @endif
@@ -188,7 +190,7 @@
                             <img src="main_alls/everythingzz/assets/images/slider/slider_2.jpg" alt="Image 2">
                         </div>
                         <div class="custom-slide">
-                            <img src="main_alls/everythingzz/assets/images/slider/brooz2.jpg" alt="Image 3">
+                            <img src="main_alls/everythingzz/assets/images/slider/slider_4.jpg" alt="Image 3">
                         </div>
                         <div class="custom-slide">
                             <img src="main_alls/everythingzz/assets/images/slider/slider_3.jpg" alt="Image 4">
@@ -219,7 +221,7 @@
                         <div class="chat">
                             <span class="fa fa-commenting"></span>
                             <a href="{{url('chatss')}}">
-                                <p>Chat with <span>Us</span></p>
+                                <p>Chat with <span>Frontdesk</span></p>
                             </a>
                         </div>
 
@@ -235,7 +237,7 @@
                         <div class=" doctor">
                             <span class="fa fa-user "></span>
                             <a href="{{url('mydoctor')}}">
-                                <p>My Doctors</span></p>
+                                <p>Chat With Your Doctors</span></p>
                             </a>
 
                         </div>
@@ -329,7 +331,7 @@
 
 
                 <div class="services-list">
-                    <h2>Our Services Offer</h2>
+                    <h2>Our Offered Services</h2>
                 </div>
 
                 <div class="main-content-inner">
@@ -363,7 +365,7 @@
                             <div class="card">
                                 <div class="pricing-list">
                                     <div class="prc-head">
-                                        <h4>HORMONES</h4>
+                                        <h4>Hormones</h4>
                                     </div>
                                     <div class="prc-list">
                                         <ul>
@@ -386,17 +388,17 @@
                             <div class="card">
                                 <div class="pricing-list">
                                     <div class="prc-head">
-                                        <h4>TUMOR MARKERS</h4>
+                                        <h4>Tumor Markers</h4>
                                     </div>
                                     <div class="prc-list">
                                         <ul>
                                             <li><a href="#">AFP </a></li>
                                             <li><a href="#">CEA</a></li>
                                             <li><a href="#">PSA</a></li>
-                                            <li><a href="#">CA-125 OVARY</a></li>
-                                            <li class="bold"><a href="#">CA-15-3 (BREAST)</a>
+                                            <li><a href="#">CA-125 (Ovary)</a></li>
+                                            <li class="bold"><a href="#">CA-15-3 (Breast)</a>
                                             </li>
-                                            <li><a href="#">CA-19-9 (PANCREAS)</a></li>
+                                            <li><a href="#">CA-19-9 (Pancreas)</a></li>
 
                                         </ul>
                                         <a href="{{url('chatss')}}">More Info</a>
@@ -408,18 +410,19 @@
                             <div class="card">
                                 <div class="pricing-list">
                                     <div class="prc-head">
-                                        <h4>•HEPATITIS</h4>
+                                        <h4>Hepatitis</h4>
                                     </div>
                                     <div class="prc-list">
                                         <ul>
                                             <li><a href="#">HBsAg Screening/a></li>
                                             <li><a href="#">HBsAg with Titer</a></li>
-                                            <li><a href="#">Anti-HBs Titer</a></li>
+                                            <li><a href="#">Anti-Hbe - Anti-HBe
+                                                </a></li>
                                             <li><a href="#">HBeAg</a></li>
                                             <li class="bold"><a href="#">Anti-Hbe</a></li>
-                                            <li><a href="#">Anti-HBc lgm</a></li>
-                                            <li><a href="#">Anti-HBc lgc</a></li>
-                                            <li><a href="#">Anti-Hav lgm</a></li>
+                                            <li><a href="#">Anti-HBc IgM</a></li>
+                                            <li><a href="#">Anti-HBc IgG</a></li>
+                                            <li><a href="#">Anti-HAV IgM</a></li>
                                             <li><a href="#">Anti-HCV</a></li>
                                             <li><a href="#">Hepa A & B profile</a></li>
                                             <li><a href="#">Hepatitis A, B & C profile</a></li>
@@ -455,7 +458,7 @@
         <!-- footer area start-->
         <footer>
             <div class="footer-area">
-                <p>© Copyright 2018. All right reserved.</p>.
+                <p>© Copyright 2018. All Rights Reserved.</p>
                 </p>
             </div>
         </footer>

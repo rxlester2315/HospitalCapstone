@@ -336,7 +336,7 @@
                                         class="menu-arrow"></span></a>
                                 <ul style="display: none;">
 
-                                    <li><a href="{{url('/leave-list')}}">Leaves <span
+                                    <li><a href="{{url('/leave-list')}}">Doctor/Staff Leaves<span
                                                 class="badge badge-pill bg-primary float-right">1</span></a></li>
 
 
@@ -344,7 +344,7 @@
 
                                     <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
                                     <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-                                    <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
+                                    <li><a href="{{url('docsched')}}">Doctor Shifts & Schedule</a></li>
 
                                 </ul>
                             </li>
@@ -352,8 +352,8 @@
 
 
                             <li>
-                                <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i> <span>Patient
-                                        Request</span></a>
+                                <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i>
+                                    <span>Appointment Requests</span></a>
                             </li>
                             <li>
                                 <a href="{{url('view_tickets')}}"><i class="la la-ticket"></i> <span>Tickets</span></a>
@@ -398,7 +398,7 @@
                                     <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
                                     <div class="dash-widget-info">
                                         <h3>{{$totalAppointments}}</h3>
-                                        <span>Total Appointment</span>
+                                        <span>Total Appointments</span>
                                     </div>
                                 </div>
                             </div>
@@ -409,7 +409,7 @@
                                     <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
                                     <div class="dash-widget-info">
                                         <h3>{{$pendingAppointments}}</h3>
-                                        <span>Pending Appointment</span>
+                                        <span>Pending Appointments</span>
                                     </div>
                                 </div>
                             </div>
@@ -420,7 +420,7 @@
                                     <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
                                     <div class="dash-widget-info">
                                         <h3>{{ $approvedAppointments}}</h3>
-                                        <span>Approve Appointment</span>
+                                        <span>Approved Appointments</span>
                                     </div>
                                 </div>
                             </div>
@@ -527,7 +527,7 @@
                         <div class="col-md-6 d-flex">
                             <div class="card card-table flex-fill">
                                 <div class="card-header">
-                                    <h3 class="card-title mb-0">Employees</h3>
+                                    <h3 class="card-title mb-0">Employees / Staff</h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -581,7 +581,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <a href="{{url('attend')}}">View all Attendance</a>
+                                    <a href="{{url('attend')}}">View All Employee/Staff Attendance</a>
                                 </div>
                             </div>
                         </div>

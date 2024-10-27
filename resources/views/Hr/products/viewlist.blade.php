@@ -310,7 +310,7 @@
                         </a>
                         <div class="dropdown-menu">
 
-                            <a class="dropdown-item" href="{{url('chat')}}">Message</a>
+                            <a class="dropdown-item" href="{{url('chat')}}">Messages</a>
                             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                         </div>
                     </li>
@@ -340,7 +340,7 @@
                                 <span>Main</span>
                             </li>
                             <li class="submenu">
-                              
+
                                 <!-- <ul style="display: none;">
                                 <li><a class="active" href="index.html">Admin Dashboard</a></li>
                                 <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
@@ -467,7 +467,7 @@
                                             <th style="color:white;">Unit Orders</th>
                                             <th style="color:white;">Unit Stock</th>
                                             <th style="color:white;">Stock Alert</th>
-                                            <th style="color:white;">Created at</th>
+                                            <th style="color:white;"> Last Supply Restocking</th>
                                         </tr>
                                         @if ($products->isNotEmpty())
                                         @foreach ($products as $product)

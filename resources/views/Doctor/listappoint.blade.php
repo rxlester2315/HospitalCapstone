@@ -156,7 +156,7 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="breadcrumbs-area clearfix">
-                                <h4 class="page-title pull-left">Patient Appointment</h4>
+                                <h4 class="page-title pull-left">Patient Appointments</h4>
                                 <ul class="breadcrumbs pull-left">
                                     <li><a href="{{url('Doc')}}">Home</a></li>
                                     <li><span>Doctor Account</span></li>
@@ -182,7 +182,7 @@
 
 
                     <div class="container table-container">
-                        <h2 class="header-text">Patient Appointment List</h2>
+                        <h2 class="header-text">List of Patient Appointments</h2>
                         <table class="table table-striped">
                             <thead>
                                 <tr>

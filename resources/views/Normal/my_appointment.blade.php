@@ -165,15 +165,15 @@
                                     <ul id="nav_menu">
 
 
-                                        <li><a href="{{url('User')}}"><i class="fa fa-home"></i> <span>Homes</span></a>
+                                        <li><a href="{{url('User')}}"><i class="fa fa-home"></i> <span>Home
+                                                    Page</span></a>
                                         </li>
                                         <li><a href="{{url('create_appointmentsss')}}"><i class="fa fa-briefcase"></i>
                                                 <span>Create
                                                     Appointment</span></a>
                                         </li>
                                         <li><a href="{{url('nurse_assesment')}}"><i class="fa fa-comments"></i>
-                                                <span>Nurse
-                                                    Assesment Result</span></a>
+                                                <span>Nurse Assessment Result/s</span></a>
                                         </li>
 
 

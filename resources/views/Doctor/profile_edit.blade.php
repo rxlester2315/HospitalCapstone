@@ -150,18 +150,8 @@
 
 
                                 </li>
-                                <li class="dropdown">
-                                    <i class="fa fa-envelope-o dropdown-toggle"
-                                        data-toggle="dropdown"><span>3</span></i>
-                                    <div class="dropdown-menu notify-box nt-enveloper-box">
-                                        <span class="notify-title">You have 3 new notifications <a href="#">view
-                                                all</a></span>
 
-                                    </div>
-                                </li>
-                                <li class="settings-btn">
-                                    <i class="ti-settings"></i>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -268,13 +258,7 @@
             </div>
             <!-- main content area end -->
             <!-- footer area start-->
-            <footer>
-                <div class="footer-area">
-                    <p>© Copyright 2018. All right reserved. Template by <a
-                            href="https://colorlib.com/wp/">Colorlib</a>.
-                    </p>
-                </div>
-            </footer>
+
             <!-- footer area end-->
         </div>
         <!-- page container area end -->

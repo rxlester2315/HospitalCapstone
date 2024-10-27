@@ -155,7 +155,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Appointment Request</h3>
+                    <h3>Appointment Requests</h3>
                 </div>
 
                 {{-- message --}}
@@ -326,11 +326,9 @@
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
-                            <li class="menu-title">
-                                <span>Main</span>
-                            </li>
+
                             <li class="submenu">
-                               
+
                                 <!-- <ul style="display: none;">
                                 <li><a class="active" href="index.html">Admin Dashboard</a></li>
                                 <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
@@ -437,7 +435,7 @@
                     <div class="col">
                         <h3 class="page-title">
                             <center style="color:white; font-size:40px;">
-                                Appointment Request
+                                Appointment Requests
 
                             </center>
                         </h3>

@@ -232,7 +232,7 @@
                             <div class="form-check mt-2">
                                 <input class="form-check-input" type="checkbox" id="fill_email" />
                                 <label class="form-check-label" for="fill_email">
-                                    Fill with your profile email
+                                    Fill with your profile e-mail
                                 </label>
                             </div>
                         </div>
@@ -267,7 +267,7 @@
                         </div>
                         <div class="timess">
                             <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                                <label for="time">Prefer Time:</label>
+                                <label for="time">Preferred Appointment Time:</label>
                                 <input type="time" name="time" class="form-control" />
                             </div>
                         </div>

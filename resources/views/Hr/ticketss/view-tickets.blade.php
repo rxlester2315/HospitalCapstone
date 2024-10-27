@@ -323,7 +323,7 @@
                                 <span>Main</span>
                             </li>
                             <li class="submenu">
-                               
+
                                 <!-- <ul style="display: none;">
                                 <li><a class="active" href="index.html">Admin Dashboard</a></li>
                                 <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
@@ -449,7 +449,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-3">
                                             <div>
-                                                <span class="d-block">Low Prioty</span>
+                                                <span class="d-block">Low Priority</span>
                                             </div>
                                             <div>
                                                 <span class="text-success">+10%</span>
@@ -466,7 +466,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-3">
                                             <div>
-                                                <span class="d-block">Moderate Prioty</span>
+                                                <span class="d-block">Moderate Priority</span>
                                             </div>
                                             <div>
                                                 <span class="text-success">+12.5%</span>
@@ -483,7 +483,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-3">
                                             <div>
-                                                <span class="d-block">High Prioty</span>
+                                                <span class="d-block">High Priority</span>
                                             </div>
                                             <div>
                                                 <span class="text-danger">-2.8%</span>
@@ -500,7 +500,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between mb-3">
                                             <div>
-                                                <span class="d-block">Critical Prioty</span>
+                                                <span class="d-block">Critical Priority</span>
                                             </div>
                                             <div>
                                                 <span class="text-danger">-75%</span>
@@ -525,7 +525,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Ticket Id</th>
+                                            <th>Ticket ID</th>
                                             <th>Ticket Subject</th>
                                             <th>Employee Name</th>
                                             <th>Created Date</th>

@@ -121,7 +121,7 @@
                                     <a href="javascript:void(0)" aria-expanded="true"><i
                                             class="fa fa-users"></i><span>Patient Appointments</span></a>
                                     <ul class="collapse">
-                                        <li><a href="{{url('/listappoint')}}">List of Appointment</a></li>
+                                        <li><a href="{{url('/listappoint')}}">List of Appointments</a></li>
                                         <li><a href="{{route('view.date')}}">Today Appointment</a></li>
                                         <li><a href="{{url('listrecord')}}">Appointment Completed</a></li>
                                     </ul>
@@ -221,8 +221,10 @@
                                     alt="default avatar">
                                 @endif
 
-                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Doctor|
-                                    {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4>
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
+                                    <span style="margin:10px;">Doctor|</span>
+                                    {{ Auth::user()->name }}<i class="fa fa-angle-down"></i>
+                                </h4>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{url('chat')}}">Message</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">Log Out</a>
@@ -238,6 +240,7 @@
 
 
                     <div class="custom-slider">
+
                         <div class="custom-slides">
                             <!-- Radio buttons for manual navigation -->
                             <input type="radio" name="radio-btn" id="radio1" checked>
@@ -247,16 +250,16 @@
 
                             <!-- Slide images -->
                             <div class="custom-slide first">
-                                <img src="main_alls/everythingzz/assets/images/slider/brooz.jpg" alt="Image 1">
+                                <img src="main_alls/everythingzz/assets/images/slider/slide_1.jpg" alt="Image 1">
                             </div>
                             <div class="custom-slide">
-                                <img src="main_alls/everythingzz/assets/images/slider/brooz2.jpg" alt="Image 2">
+                                <img src="main_alls/everythingzz/assets/images/slider/slider_2.jpg" alt="Image 2">
                             </div>
                             <div class="custom-slide">
-                                <img src="main_alls/everythingzz/assets/images/slider/brooz3.jpg" alt="Image 3">
+                                <img src="main_alls/everythingzz/assets/images/slider/slider_4.jpg" alt="Image 3">
                             </div>
                             <div class="custom-slide">
-                                <img src="main_alls/everythingzz/assets/images/slider/brooz.jpg" alt="Image 4">
+                                <img src="main_alls/everythingzz/assets/images/slider/slider_3.jpg" alt="Image 4">
                             </div>
 
                             <!-- Automatic navigation dots -->
@@ -291,17 +294,17 @@
                     <div class="container-ssx">
                         <div class="box">
                             <i class="fa fa-users"></i>
-                            <h3>Total Patient</h3>
+                            <h3>Total Patients</h3>
                             <p>32</p>
                         </div>
                         <div class="box">
                             <i class="fa fa-user"></i>
-                            <h3>Patient Incoming</h3>
+                            <h3>Patients Incoming</h3>
                             <p>13</p>
                         </div>
                         <div class="box">
                             <i class="fa fa-check-square-o"></i>
-                            <h3>Appointment Completed</h3>
+                            <h3>Appointments Completed</h3>
                             <p>23</p>
                         </div>
                     </div>
@@ -310,7 +313,7 @@
                     <!-- order list area start -->
                     <div class="card mt-5">
                         <div class="card-body">
-                            <h4 class="header-title">Todays Appointment</h4>
+                            <h4 class="header-title">Today's Appointment</h4>
                             <div class="table-responsive">
                                 <table class="dbkit-table">
                                     <tbody>
@@ -326,44 +329,47 @@
                                         <tr>
                                             <td>John Carlo</td>
                                             <td><a href="" class="btn btn-success">View Message</a></td>
-                                            <td><span class="pending_dot">Pending</span></td>
                                             <td>01976 74 92 00</td>
                                             <td>September 08,2024</td>
-                                            <td><a href="" class="btn btn-warning">Pending</a></td>
+                                            <td><span class="pending_dot">Pending</span></td>
+                                            <td><a href="" class="btn btn-warning">View</a></td>
                                         </tr>
                                         <tr>
                                             <td>Client godinez</td>
                                             <td><a href="" class="btn btn-success">View Message</a></td>
-                                            <td><span class="pending_dot">Pending</span></td>
                                             <td>01976 74 92 00</td>
                                             <td>September 08,2024</td>
-                                            <td><a href="" class="btn btn-warning">Pending</a></td>
+                                            <td><span class="pending_dot">Pending</span></td>
+
+                                            <td><a href="" class="btn btn-warning">View</a></td>
                                         </tr>
 
                                         <tr>
                                             <td>Jerome Baros</td>
                                             <td><a href="" class="btn btn-success">View Message</a></td>
-                                            <td><span class="pending_dot">Pending</span></td>
                                             <td>01976 74 92 00</td>
                                             <td>September 08,2024</td>
-                                            <td><a href="" class="btn btn-warning">Pending</a></td>
+                                            <td><span class="pending_dot">Pending</span></td>
+
+                                            <td><a href="" class="btn btn-warning">View</a></td>
                                         </tr>
                                         <tr>
                                             <td>Isaac Canlas</td>
                                             <td><a href="" class="btn btn-success">View Message</a></td>
-                                            <td><span class="pending_dot">Pending</span></td>
                                             <td>01976 74 92 00</td>
                                             <td>September 08,2024</td>
-                                            <td><a href="" class="btn btn-warning">Pending</a></td>
+                                            <td><span class="pending_dot">Pending</span></td>
+
+                                            <td><a href="" class="btn btn-warning">View</a></td>
                                         </tr>
 
                                         <tr>
                                             <td>Rex Lester</td>
                                             <td><a href="" class="btn btn-success">View Message</a></td>
-                                            <td><span class="pending_dot">Pending</span></td>
                                             <td>01976 74 92 00</td>
                                             <td>September 08,2024</td>
-                                            <td><a href="" class="btn btn-warning">Pending</a></td>
+                                            <td><span class="pending_dot">Pending</span></td>
+                                            <td><a href="" class="btn btn-warning">View</a></td>
                                         </tr>
 
                                     </tbody>

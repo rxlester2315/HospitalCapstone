@@ -104,7 +104,7 @@
                                             class="fa fa-users"></i><span>Patient Appointments</span></a>
                                     <ul class="collapse">
                                         <li><a href="{{url('/listappoint')}}">List of Appointment</a></li>
-                                        <li><a href="{{route('view.date')}}">Today Appointment</a></li>
+                                        <li><a href="{{route('view.date')}}">Todays Appointment</a></li>
                                         <li><a href="{{url('listrecord')}}">Appointment Completed</a></li>
                                     </ul>
                                 </li>
@@ -163,7 +163,7 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="breadcrumbs-area clearfix">
-                                <h4 class="page-title pull-left">Today Appointment</h4>
+                                <h4 class="page-title pull-left">Today's Appointment</h4>
                                 <ul class="breadcrumbs pull-left">
                                     <li><a href="index.html">Home</a></li>
                                     <li><span>Appointment Today</span></li>
@@ -198,7 +198,7 @@
                         </form>
 
                         <div class="container table-container mt-4">
-                            <h2 class="header-text">Patient Appointment List</h2>
+                            <h2 class="header-text">Patients Appointment List</h2>
                             <div class="table-responsive">
                                 <table class="table table-striped text-center">
                                     <thead>

@@ -68,10 +68,8 @@
                                     <li class="submenu-item ">
                                         <a href="{{route('appoint')}}">Today Appointment</a>
                                     </li>
-                                    <li class="submenu-item ">
-                                        <a href="{{route('arrivingtime')}}">Patients Arrives</a>
-                                    </li>
-                                   
+
+
 
                                 </ul>
                             </li>
@@ -99,7 +97,7 @@
 
 
 
-                     
+
 
                             <li class="sidebar-item">
                                 <a href="{{ route('logout') }}" class="sidebar-link">

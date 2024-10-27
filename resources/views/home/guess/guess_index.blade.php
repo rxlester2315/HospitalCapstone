@@ -113,11 +113,12 @@
                                 @auth
                                 @if(Auth::user()->role_name !== 'Normal User')
                                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-                                    Unverified|{{ Auth::user()->name }}<i class="fa fa-angle-down"></i>
+                                    <span style="margin:10px;">Unverified|</span>{{ Auth::user()->name }}<i
+                                        class="fa fa-angle-down"></i>
                                 </h4>
                                 @else
                                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
-                                    Patient| {{ Auth::user()->name }}
+                                    <span style="margin:10px;">Patient|</span> {{ Auth::user()->name }}
                                     <i class="fa fa-angle-down"></i>
                                 </h4>
                                 @endif
@@ -191,7 +192,7 @@
                         </div>
 
 
-                    
+
                         <div class="appoint">
                             <span class="fa fa-book"></span>
                             <a href="#">
