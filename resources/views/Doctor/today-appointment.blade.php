@@ -217,7 +217,11 @@
                                             <td>{{ $appoint->phone }}</td>
                                             <td>{{ $appoint->date }}</td>
                                             <td>
-                                                <span class="badge badge-warning">Not Arrived</span>
+                                                @if($appoint->arrive_status == 'Arrived')
+                                                <span class="badge badge-success">{{$appoint->arrive_status}}</span>
+                                                @elseif($appoint->arrive_status == 'Not Arrived')
+                                                <span class="badge badge-danger">{{$appoint->arrive_status}}</span>
+                                                @endif
                                             </td>
                                         </tr>
                                         @endforeach

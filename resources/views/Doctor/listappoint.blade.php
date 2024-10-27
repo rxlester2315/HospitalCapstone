@@ -201,7 +201,14 @@
                                     <td>{{$dats->phone}}</td>
                                     <td>{{$dats->date}}</td>
                                     <td>{{$dats->status}}</td>
-                                    <td><span class="status pending">Not Arrive</span></td>
+                                    <td>
+                                        @if($dats->arrive_status == 'Arrived')
+                                        <span class="badge badge-success">{{$dats->arrive_status}}</span>
+                                        @elseif($dats->arrive_status == 'Not Arrived')
+                                        <span class="badge badge-danger">{{$dats->arrive_status}}</span>
+                                        @endif
+
+                                    </td>
                                     <td>
 
                                         <button class="btn btn-danger btn-sm">Decline</button>

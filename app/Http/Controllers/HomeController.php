@@ -91,6 +91,7 @@ public function appointments(Request $request)
     $data->phone = $request->number;
     $data->message = $request->message;
     $data->status = 'Pending';
+     $data->arrive_status = 'Not Arrived';
     $data->completed = 'Observation';
 
     if (Auth::id()) {
