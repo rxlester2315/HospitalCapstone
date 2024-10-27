@@ -141,6 +141,7 @@
 
 
                 <div class="custom-slider">
+
                     <div class="custom-slides">
                         <!-- Radio buttons for manual navigation -->
                         <input type="radio" name="radio-btn" id="radio1" checked>
@@ -156,7 +157,7 @@
                             <img src="main_alls/everythingzz/assets/images/slider/slider_2.jpg" alt="Image 2">
                         </div>
                         <div class="custom-slide">
-                            <img src="main_alls/everythingzz/assets/images/slider/brooz2.jpg" alt="Image 3">
+                            <img src="main_alls/everythingzz/assets/images/slider/slider_4.jpg" alt="Image 3">
                         </div>
                         <div class="custom-slide">
                             <img src="main_alls/everythingzz/assets/images/slider/slider_3.jpg" alt="Image 4">
@@ -186,7 +187,7 @@
                     <div class="list-options">
                         <div class="chat">
                             <span class="fa fa-commenting"></span>
-                            <a href="#">
+                            <a href="{{url('chatt')}}">
                                 <p>Chat with <span>Us</span></p>
                             </a>
                         </div>
@@ -216,7 +217,7 @@
 
 
                 <div class="services-list">
-                    <h2>Our Services Offer</h2>
+                    <h2>Our Offered Services</h2>
                 </div>
 
                 <div class="main-content-inner">
@@ -250,7 +251,7 @@
                             <div class="card">
                                 <div class="pricing-list">
                                     <div class="prc-head">
-                                        <h4>HORMONES</h4>
+                                        <h4>Hormones</h4>
                                     </div>
                                     <div class="prc-list">
                                         <ul>
@@ -273,7 +274,7 @@
                             <div class="card">
                                 <div class="pricing-list">
                                     <div class="prc-head">
-                                        <h4>TUMOR MARKERS</h4>
+                                        <h4>Tumor Markers</h4>
                                     </div>
                                     <div class="prc-list">
                                         <ul>
@@ -295,7 +296,7 @@
                             <div class="card">
                                 <div class="pricing-list">
                                     <div class="prc-head">
-                                        <h4>•HEPATITIS</h4>
+                                        <h4>Hepatitis</h4>
                                     </div>
                                     <div class="prc-list">
                                         <ul>
