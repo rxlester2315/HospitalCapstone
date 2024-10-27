@@ -406,7 +406,6 @@
                                             <th>Address</th>
                                             <th>Email</th>
                                             <th>Status</th>
-                                            <th>Action</th>
 
                                         </tr>
                                     </thead>
@@ -426,9 +425,9 @@
                                             </td>
                                             <td>{{$verified->lastName}}</td>
                                             <td>{{$verified->birthdate}}</td>
-                                            <td>{{$verified->email}}</td>
                                             <td>{{$verified->address}}</td>
-                                            <td>Going to Hospital</td>
+
+                                            <td>{{$verified->email}}</td>
 
                                             <td>
                                                 <!-- Update this link to point to the route with user ID -->

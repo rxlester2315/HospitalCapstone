@@ -247,7 +247,7 @@
                             <div class="user-profile pull-right">
                                 <img class="avatar user-thumb" src="{{asset('assets/images/author/avatar.png')}}"
                                     alt="avatar">
-                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Doctor| Warlyn Bangongon<i
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Doctor| {{ Auth::user()->name }}<i
                                         class="fa fa-angle-down"></i></h4>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Message</a>
@@ -280,7 +280,7 @@
                                         <strong>Name:</strong> {{$appointment->name}} <br>
                                         <strong>Phone Number:</strong> {{$appointment->phone}} <br>
                                         <strong>Date of Schedule:</strong> {{$appointment->date}} <br>
-                                        <strong>Case Type:</strong> Sore throat
+                                        <strong>Case Type:</strong> {{$appointment->diseases}}
                                     </li>
                                 </ul>
                             </div>

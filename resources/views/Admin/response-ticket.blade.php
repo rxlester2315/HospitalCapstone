@@ -239,32 +239,12 @@
 
 
                             </li>
-                            <li>
-                                <a href="{{asset('adminz/assets.html')}}"><i class="la la-object-ungroup"></i>
-                                    <span>Assets</span></a>
-                            </li>
+                     
 
                             <li>
-                                <a href="knowledgebase.html"><i class="la la-question"></i>
-                                    <span>Knowledgebase</span></a>
+                                <a href="{{url('Admin')}}"><i class="la la-cog"></i> <span>Back</span></a>
                             </li>
-                            <li>
-                                <a href="activities.html"><i class="la la-bell"></i> <span>Activities</span></a>
-                            </li>
-
-                            <li>
-                                <a href="{{url('tickets')}}"><i class="la la-cog"></i> <span>Settings</span></a>
-                            </li>
-                            <li>
-                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
-                                        Management</span></a>
-                            </li>
-
-
-                            <li>
-                                <a href="{{url('add_doc')}}"><i class="la la-user-plus"></i> <span>Add Health Care
-                                        Staff</span></a>
-                            </li>
+                          
 
 
 

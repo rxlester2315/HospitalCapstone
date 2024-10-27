@@ -71,9 +71,7 @@
                                     <li class="submenu-item ">
                                         <a href="{{route('arrivingtime')}}">Patients Arrives</a>
                                     </li>
-                                    <li class="submenu-item ">
-                                        <a href="extra-component-toastify.html">Rejected/Deleted Appointment</a>
-                                    </li>
+                                   
 
                                 </ul>
                             </li>
@@ -96,32 +94,12 @@
                                 </ul>
                             </li>
 
-                            <li class="sidebar-title">Forms &amp; Tables</li>
 
 
 
 
 
-                            <li class="sidebar-item  has-sub">
-                                <a href="#" class='sidebar-link'>
-                                    <i class="bi bi-pen-fill"></i>
-                                    <span>Departments</span>
-                                </a>
-                                <ul class="submenu ">
-                                    <li class="submenu-item ">
-                                        <a href="{{url('cardio')}}">Cardiology</a>
-                                    </li>
-                                    <li class="submenu-item ">
-                                        <a href="{{url('orthos')}}">Orthopaedic Surgery</a>
-                                    </li>
-                                    <li class="submenu-item ">
-                                        <a href="{{url('neurology')}}">Neurology</a>
-                                    </li>
-                                    <li class="submenu-item ">
-                                        <a href="{{url('gsurgery')}}">General Surgery</a>
-                                    </li>
-                                </ul>
-                            </li>
+                     
 
                             <li class="sidebar-item">
                                 <a href="{{ route('logout') }}" class="sidebar-link">

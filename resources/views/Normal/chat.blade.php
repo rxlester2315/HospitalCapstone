@@ -613,7 +613,7 @@
             const chatBox = document.getElementById('chat-box');
             const isCurrentUser = (data.from === {{auth()->user()->id}});
             const messageClass = isCurrentUser ? 'patient' : 'doctor';
-            const senderName = isCurrentUser ? 'You' : (data.doctor_name || 'Doctor');
+            const senderName = isCurrentUser ? '{{ auth()->user()->name }}' : (data.doctor_name || 'Doctor');
 
             const newMessage = `
         <div class="message ${messageClass}">

@@ -149,9 +149,7 @@
 
                                     </div>
                                 </li>
-                                <li class="settings-btn">
-                                    <i class="ti-settings"></i>
-                                </li>
+                               
                             </ul>
                         </div>
                     </div>
@@ -193,7 +191,7 @@
                     <div class="col-12 mt-5">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">List of patient appointment</h4>
+                                <h4 class="header-title">List of patient</h4>
                                 <div class="data-tables datatable-primary">
                                     <table id="dataTable2" class="text-center">
                                         <thead class="text-capitalize">
