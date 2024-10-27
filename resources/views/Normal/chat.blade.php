@@ -273,7 +273,7 @@
                                             An Appointment</span></a>
                                 </li>
 
-                                <li><a href=" invoice.html"><i class="fa fa-comments"></i> <span>Chat with my
+                                <li><a href="{{url('mydoctor')}}"><i class="fa fa-comments"></i> <span>Chat with my
                                             Doctor</span></a>
                                 </li>
 

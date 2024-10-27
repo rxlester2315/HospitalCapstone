@@ -527,7 +527,7 @@
                         <div class="col-md-6 d-flex">
                             <div class="card card-table flex-fill">
                                 <div class="card-header">
-                                    <h3 class="card-title mb-0">Clients</h3>
+                                    <h3 class="card-title mb-0">Employees</h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -548,7 +548,7 @@
                                                     <td>
                                                         <h2 class="table-avatar">
                                                             <a href="#" class="avatar"><img alt=""
-                                                                    src="hrs/assets/img/profiles/avatar-19.jpg"></a>
+                                                                    src="hrs/assets/img/profiles/user.jpg"></a>
                                                             <a href="">{{$attend->name}}
                                                                 <span>Employees</span></a>
                                                         </h2>

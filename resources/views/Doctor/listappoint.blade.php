@@ -25,78 +25,43 @@
         <!-- modernizr css -->
         <script src="main_alls/everythingzz/assets/js/vendor/modernizr-2.8.3.min.js"></script>
         <style>
-        /* General styles (unchanged) */
-
-        th {
-            background-color: #0ed7b6;
-        }
-
-        .container-bg {
-            background-color: white;
-        }
-
-        .container-fluid {
-            background: #cdffd8;
-            background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-        }
-
-        .cons {
-            padding-top: 30px;
-        }
-
+          /* Custom styles for the hospital theme */
         .table-container {
-            overflow-x: auto;
-            /* Allows horizontal scrolling on small screens */
+            margin-top: 50px;
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .table thead {
+            background-color: #007bff;
+            color: white;
+        }
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        .header-text {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .status {
+            font-weight: bold;
+        }
+        .status.pending {
+            color: #ffc107;
+        }
+        .status.confirmed {
+            color: #28a745;
+        }
+        .status.cancelled {
+            color: #dc3545;
         }
 
-        .table {
-            width: 100%;
-            /* Ensures the table takes the full width of its container */
-        }
-
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .cons .row {
-                flex-direction: column;
-                /* Stack the columns on small screens */
-            }
-
-            .col-md-6 {
-                width: 100%;
-                /* Make each column full width */
-                margin-bottom: 20px;
-                /* Add space between stacked columns */
-
-            }
-
-            .text-center {
-                text-align: center;
-                /* Center-align text in smaller screens */
-            }
-
-            .time-select {
-                width: auto;
-                /* Allow select elements to size properly */
-                margin: 0 5px;
-                /* Add some margin for better spacing */
-            }
-        }
-
-        @media (max-width: 576px) {
-
-            /* Further adjustments for extra small screens */
-            .table-container {
-                margin-top: 20px;
-                /* Add spacing above table */
-            }
-
-            h4 {
-                font-size: 18px;
-                /* Reduce heading size for smaller devices */
-            }
+        th{
+            background:#0ed7b6;
         }
         </style>
     </head>
@@ -173,18 +138,7 @@
 
 
                                 </li>
-                                <li class="dropdown">
-                                    <i class="fa fa-envelope-o dropdown-toggle"
-                                        data-toggle="dropdown"><span>3</span></i>
-                                    <div class="dropdown-menu notify-box nt-enveloper-box">
-                                        <span class="notify-title">You have 3 new notifications <a href="#">view
-                                                all</a></span>
-
-                                    </div>
-                                </li>
-                                <li class="settings-btn">
-                                    <i class="ti-settings"></i>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -220,65 +174,37 @@
 
 
 
-
-                    <div class="cons">
-
-                        <div class="container-bg">
-                            <div class="row">
-                                <!-- Left Side -->
-                                <div class="col-md-6 text-center">
-                                    <!-- Calendar Button -->
-
-                                    <div class="">
-
-                                    </div>
-                                </div>
-
-                                <!-- Right Side -->
-                                <div class="col-md-6">
-                                    <h4 class="text-center text-white">Appointment Request</h4>
-                                    <!-- Table -->
-                                    <div class="table-container">
-                                        <table class="table table-striped">
-                                            <thead class="table-primary">
-                                                <tr>
-                                                    <th>Patient Name</th>
-                                                    <th>Contact No.</th>
-                                                    <th>Date Appointment</th>
-                                                    <th>Status</th>
-                                                    <th>Actions</th> <!-- Rename to Actions instead of keeping empty -->
-                                                    <th>Actions</th> <!-- Rename to Actions instead of keeping empty -->
-
-
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($data as $appoint)
-                                                <tr>
-                                                    <td>{{$appoint->name}}</td>
-                                                    <td>{{$appoint->email}}</td>
-                                                    <td>{{$appoint->phone}}</td>
-                                                    <td>{{$appoint->date}}</td>
-                                                    <td>
-                                                        <a href="" class="btn btn-warning">Not Arrived</a>
-                                                    </td>
-                                                    <td>
-
-                                                        <button class="btn btn-danger">Decline</button>
-
-                                                    </td>
-                                                </tr>
-                                                @endforeach
-
-                                                <!-- Add more rows as needed -->
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+<div class="container table-container">
+        <h2 class="header-text">Patient Appointment List</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Contact No.</th>
+                    <th>Appointment Date</th>
+                    <th>Status</th>
+                    <th>Status Patient</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($data as $dats)
+                <tr>
+                    <td>{{$dats->name}}</td>
+                    <td>{{$dats->phone}}</td>
+                    <td>{{$dats->date}}</td>
+                    <td>{{$dats->status}}</td>
+                    <td><span class="status pending">Not Arrive</span></td>
+                    <td>
+                       
+                        <button class="btn btn-danger btn-sm">Decline</button>
+                    </td>
+                </tr>
+                @endforeach
+              
+            </tbody>
+        </table>
+    </div>
 
 
 
