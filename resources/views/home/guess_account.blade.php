@@ -13,6 +13,32 @@
         <link rel="shortcut icon" type="image/x-icon" href="admins/assets/images/logo/logo.png" />
 
         <link rel="stylesheet" href="admins/assets/css/pages/auth.css">
+
+        <style>
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            /* Match the font size */
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+        }
+
+        .link {
+            color: #007BFF;
+            /* Change to your desired link color */
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+        </style>
     </head>
 
     <body>
@@ -42,7 +68,7 @@
                                 </span>
                                 @enderror
                             </div>
-                            {{-- insert defaults --}}
+
                             <input type="hidden" class="image" name="image" value="photo_defaults.jpg">
 
                             <div class="form-group position-relative has-icon-left mb-4">
@@ -58,8 +84,6 @@
                                 </span>
                                 @enderror
                             </div>
-
-
 
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="password"
@@ -82,8 +106,19 @@
                                     <i class="bi bi-shield-check"></i>
                                 </div>
                             </div>
+
+                            <div class="form-group position-relative has-icon-left mb-4">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" id="terms" required>
+                                    <label for="terms">I agree to the <a href="{{ route('conditioncreated') }}"
+                                            class="link" target="_blank">terms and conditions</a>.</label>
+                                </div>
+                            </div>
+
                             <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
                         </form>
+
+
                         <div class="text-center mt-5 text-lg fs-4">
                             <p class='text-gray-600'>Already have an account? <a href="{{ route('login') }}"
                                     class="font-bold">Login</a>.</p>

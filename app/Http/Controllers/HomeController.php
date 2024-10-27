@@ -491,6 +491,12 @@ public function nurseasses() {
 }
 
 
+public function termncondition(){
+
+    return view('home.term-condition');
+}
+
+
 
 
 

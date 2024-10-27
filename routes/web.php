@@ -421,3 +421,5 @@ Route::post('/login', [LoginController::class, 'authenticate']);
    Route::post('/forgotpassword', [ForgotPasswordController::class, 'forgetpass_post'])->name('forgotpass');
    Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'resetpw'])->name('reset');
    Route::post('/reset-password', [ForgotPasswordController::class, 'resetPwpost'])->name('reset.post');
+
+   Route::get('conditionterm',[HomeController::class,'termncondition'])->name('conditioncreated');

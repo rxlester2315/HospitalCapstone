@@ -191,13 +191,7 @@
                         </div>
 
 
-                        <div class="book">
-                            <span class="fa fa-book"></span>
-                            <a href="#">
-                                <p>Book us <span>Now</span></p>
-                            </a>
-                        </div>
-
+                    
                         <div class="appoint">
                             <span class="fa fa-book"></span>
                             <a href="#">
