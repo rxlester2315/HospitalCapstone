@@ -183,6 +183,8 @@ Route::delete('/canceled/{id}', [HrController::class, 'canceled'])->name('appoin
 
 Route::get('/chart-data', [HrController::class, 'charttable']);
 
+Route::get('/message_patients/{id}', [HrController::class, 'checkmessage']);
+
 
 
 

@@ -84,10 +84,7 @@
 
         .card-body {
 
-            background: #cdffd8;
-            background: linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -webkit-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
-            background: -moz-linear-gradient(90deg, #cdffd8 0%, #94b9ff 80%);
+            background: #0ed7b6;
         }
         </style>
     </head>
@@ -172,8 +169,8 @@
                     </div>
                     <div class="card-body">
                         <div class="text-center">
-                            <img src="https://via.placeholder.com/150" alt="Profile Picture"
-                                class="rounded-circle mb-3">
+                            <img width="130px;" src="main_alls/everythingzz/assets/images/author/avatar.png"
+                                alt="Profile Picture" class="rounded-circle mb-3">
                         </div>
 
 

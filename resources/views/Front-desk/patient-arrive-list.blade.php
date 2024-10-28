@@ -423,7 +423,6 @@
                                                         <th>NAME</th>
                                                         <th>CONTACT</th>
                                                         <th>DATE</th>
-                                                        <th>MESSAGE</th>
                                                         <th>DOCTOR</th>
                                                         <th>ACTION</th>
                                                     </tr>
@@ -434,7 +433,6 @@
                                                         <td>{{$approve->name}}</td>
                                                         <td>{{$approve->phone}}</td>
                                                         <td>{{$approve->date}}</td>
-                                                        <td>{{$approve->message}}</td>
                                                         <td>{{$approve->employees}}</td>
 
                                                         <td>

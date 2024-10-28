@@ -414,7 +414,6 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Full Name</th>
-                                            <th>Patient Message</th>
                                             <th>Doctor Preffered</th>
                                             <th>Departments</th>
                                             <th>Date</th>
@@ -436,7 +435,6 @@
                                                     <a href="#">{{$pend->firstName}}
                                                 </h2>
                                             </td>
-                                            <td>{{$pend->message}}</td>
                                             <td>{{$pend->employees}}</td>
                                             <td>{{$pend->departments}}</td>
                                             <td>{{$pend->date}}</td>

@@ -498,6 +498,15 @@ public function sched_reject($id){
     }
 
 
+    public function checkmessage($id){
+
+        $selectpatients = Appointments::find($id);
+
+        return view('Hr.view-message-patients',compact('selectpatients'));
+
+    }
+
+
   
 
 

@@ -153,7 +153,6 @@
                                                         <th>NAME</th>
                                                         <th>CONTACT</th>
                                                         <th>DATE</th>
-                                                        <th>MESSAGE</th>
                                                         <th>DOCTOR</th>
                                                         <th>ACTION</th>
                                                     </tr>
@@ -164,7 +163,6 @@
                                                         <td>{{$asses->name}}</td>
                                                         <td>{{$asses->phone}}</td>
                                                         <td>{{$asses->date}}</td>
-                                                        <td>{{$asses->message}}</td>
                                                         <td>{{$asses->employees}}</td>
                                                         <td>
                                                             <a href="{{url('select_assesment/'.$asses->id)}}"

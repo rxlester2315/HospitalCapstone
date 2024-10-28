@@ -103,9 +103,9 @@
                                     <a href="javascript:void(0)" aria-expanded="true"><i
                                             class="fa fa-users"></i><span>Patient Appointments</span></a>
                                     <ul class="collapse">
-                                        <li><a href="{{url('/listappoint')}}">List of Appointment</a></li>
-                                        <li><a href="{{route('view.date')}}">Today Appointment</a></li>
-                                        <li><a href="{{url('listrecord')}}">Appointment Completed</a></li>
+                                        <li><a href="{{url('/listappoint')}}">List of Appointments</a></li>
+                                        <li><a href="{{route('view.date')}}">Today Appointments</a></li>
+                                        <li><a href="{{url('listrecord')}}">Appointments Completed</a></li>
                                     </ul>
                                 </li>
 

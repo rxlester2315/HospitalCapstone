@@ -411,7 +411,6 @@
                                             <th>Phone Number</th>
                                             <th>Email</th>
                                             <th>Arrived</th>
-                                            <th>Rejected</th>
 
                                         </tr>
                                     </thead>
@@ -433,15 +432,11 @@
                                             <td>{{$today->email}}</td>
                                             <td>
                                                 <a href="{{ url('arrive_setime/'.$today->id) }}" target="_blank">
-                                                    <h3 class="btn btn-success">Arrive</h3>
+                                                    <h3 class="btn btn-success">Arrived Time</h3>
                                                 </a>
                                             </td>
 
-                                            <td>
-                                                <a href="">
-                                                    <h3 class="btn btn-danger">Not Attended</h3>
-                                                </a>
-                                            </td>
+
 
                                         </tr>
                                         @endforeach

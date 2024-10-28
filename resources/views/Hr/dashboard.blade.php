@@ -481,7 +481,7 @@
                                         </div>
                                         <div class="media align-items-center p-3">
                                             <a href="profile.html" class="avatar">
-                                                <img alt="Dr. Martin Lewis" src="hrs/assets/img/user.jpg"
+                                                <img alt="Photo error" src="hrs/assets/img/user.jpg"
                                                     class="rounded-circle" style="width: 60px; height: 60px;">
                                             </a>
                                             <div class="media-body ml-3">

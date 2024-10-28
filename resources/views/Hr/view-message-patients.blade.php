@@ -4,24 +4,21 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <meta name="description" content="Smarthr - Bootstrap Admin Template">
-        <meta name="keywords"
-            content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
-        <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+
         <meta name="robots" content="noindex, nofollow">
         <title>Human Resources Dashboard</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('hrs/assets/img/logo.jpg')}}" />
 
-        <link rel="stylesheet" href="hrs/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{asset('hrs/assets/css/bootstrap.min.css')}}">
 
-        <link rel="stylesheet" href="hrs/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{asset('hrs/assets/css/font-awesome.min.css')}}">
 
-        <link rel="stylesheet" href="hrs/assets/css/line-awesome.min.css">
+        <link rel="stylesheet" href="{{asset('hrs/assets/css/line-awesome.min.css')}}">
 
-        <link rel="stylesheet" href="hrs/assets/plugins/morris/morris.css">
+        <link rel="stylesheet" href="{{asset('hrs/assets/plugins/morris/morris.css')}}">
 
-        <link rel="stylesheet" href="hrs/assets/css/style.css">
+        <link rel="stylesheet" href="{{asset('hrs/assets/css/style.css')}}">
 
 
         <script>
@@ -145,7 +142,7 @@
 
                 <div class="header-left">
                     <a href="{{url(url('HR'))}}" class="logo">
-                        <img src="hrs/assets/img/logo.jpg" width="70" height="70" alt="">
+                        <img src="{{asset('hrs/assets/img/logo.jpg')}}" width="70" height="70" alt="">
                     </a>
                 </div>
 
@@ -158,7 +155,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>List Tickets</h3>
+                    <h3>Human Resources Dashboard</h3>
                 </div>
 
                 {{-- message --}}
@@ -172,8 +169,11 @@
 
 
 
-                    <li class="nav-item dropdown">
 
+
+                    <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        </a>
                         <div class="dropdown-menu notifications">
                             <div class="topnav-dropdown-header">
                                 <span class="notification-title">Notifications</span>
@@ -185,7 +185,8 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="hrs/assets/img/profiles/avatar-02.jpg">
+                                                    <img alt=""
+                                                        src="{{asset('hrs/assets/img/profiles/avatar-02.jpg')}}">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">John Doe</span>
@@ -204,7 +205,8 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="hrs/assets/img/profiles/avatar-03.jpg">
+                                                    <img alt=""
+                                                        src="{{asset('hrs/assets/img/profiles/avatar-03.jpg')}}">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Tarah
@@ -223,7 +225,8 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="hrs/assets/img/profiles/avatar-06.jpg">
+                                                    <img alt=""
+                                                        src="{{asset('hrs/assets/img/profiles/avatar-06.jpg')}}">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Misty Tison</span>
@@ -241,7 +244,8 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="hrs/assets/img/profiles/avatar-17.jpg">
+                                                    <img alt=""
+                                                        src="{{asset('hrs/assets/img/profiles/avatar-17.jpg')}}">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Rolland
@@ -259,7 +263,8 @@
                                         <a href="activities.html">
                                             <div class="media">
                                                 <span class="avatar">
-                                                    <img alt="" src="hrs/assets/img/profiles/avatar-13.jpg">
+                                                    <img alt=""
+                                                        src="{{asset('hrs/assets/img/profiles/avatar-13.jpg')}}">
                                                 </span>
                                                 <div class="media-body">
                                                     <p class="noti-details"><span class="noti-title">Bernardo
@@ -282,6 +287,7 @@
                         </div>
                     </li>
 
+
                     <li class="nav-item dropdown">
                         <a href="chat" class="dropdown-toggle nav-link" data-toggle="">
                             <i class="fa fa-comment-o"></i>
@@ -293,7 +299,7 @@
 
                     <li class="nav-item dropdown has-arrow main-drop">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="user-img"><img src="hrs/assets/img/profiles/hr.png" alt="">
+                            <span class="user-img"><img src="{{asset('hrs/assets/img/profiles/hr.png')}}" alt="">
                                 <span class="status online"></span></span>
                             <span>HR</span>
                         </a>
@@ -303,50 +309,30 @@
                             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                         </div>
                     </li>
-
-
-
-
                 </ul>
 
 
+                <div class="dropdown mobile-user-menu">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                            class="fa fa-ellipsis-v"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
 
+                        <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
+                    </div>
+                </div>
 
             </div>
 
 
+            @if (session()->has('impersonated_by'))
+            <a href="{{ route('logout') }}" class="btn btn-warning">Leave Impersonation</a>
+            @endif
             <div class="sidebar" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
 
-                            <li class="submenu">
 
-                                <!-- <ul style="display: none;">
-                                <li><a class="active" href="index.html">Admin Dashboard</a></li>
-                                <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
-                            </ul> -->
-                                <!-- </li>
-                        <li class="submenu">
-                            <a href="#"><i class="la la-cube"></i> <span> Apps</span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="chat.html">Chat</a></li>
-                                <li class="submenu">
-                                    <a href="#"><span> Calls</span> <span class="menu-arrow"></span></a>
-                                    <ul style="display: none;">
-                                        <li><a href="voice-call.html">Voice Call</a></li>
-                                        <li><a href="video-call.html">Video Call</a></li>
-                                        <li><a href="outgoing-call.html">Outgoing Call</a></li>
-                                        <li><a href="incoming-call.html">Incoming Call</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="events.html">Calendar</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
-                                <li><a href="inbox.html">Email</a></li>
-                                <li><a href="file-manager.html">File Manager</a></li>
-                            </ul>
-                        </li> -->
                             <li class="menu-title">
                                 <span>Employees</span>
                             </li>
@@ -355,7 +341,7 @@
                                         class="menu-arrow"></span></a>
                                 <ul style="display: none;">
 
-                                    <li><a href="{{url('/leave-list')}}">Leaves <span
+                                    <li><a href="{{url('/leave-list')}}">Doctor/Staff Leaves<span
                                                 class="badge badge-pill bg-primary float-right">1</span></a></li>
 
 
@@ -363,28 +349,16 @@
 
                                     <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
                                     <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-
-                                    <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
+                                    <li><a href="{{url('docsched')}}">Doctor Shifts & Schedule</a></li>
 
                                 </ul>
                             </li>
 
 
+
                             <li>
-                                <!-- <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a> -->
-                            </li>
-                            <!-- <li class="submenu">
-                            <a href="#"><i class="la la-rocket"></i> <span> Projects</span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="projects.html">Projects</a></li>
-                                <li><a href="tasks.html">Tasks</a></li>
-                                <li><a href="task-board.html">Task Board</a></li>
-                            </ul>
-                        </li> -->
-                            <li>
-                                <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i> <span>Patient
-                                        Request</span></a>
+                                <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i>
+                                    <span>Appointment Requests</span></a>
                             </li>
                             <li>
                                 <a href="{{url('view_tickets')}}"><i class="la la-ticket"></i> <span>Tickets</span></a>
@@ -392,26 +366,12 @@
                             <li class="menu-title">
                                 <span>HR</span>
                             </li>
-                            <!-- <li class="submenu">
-                            <a href="#"><i class="la la-files-o"></i> <span> Sales </span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="estimates.html">Estimates</a></li>
-                                <li><a href="invoices.html">Invoices</a></li>
-                                <li><a href="payments.html">Payments</a></li>
-                                <li><a href="expenses.html">Expenses</a></li>
-                                <li><a href="provident-fund.html">Provident Fund</a></li>
-                                <li><a href="taxes.html">Taxes</a></li>
-                            </ul>
-                        </li> -->
 
-                            <li class="submenu">
-                                <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
-                                        class="menu-arrow"></span></a>
-                                <ul style="display: none;">
-                                    <li><a href="{{url('products/viewlist')}}">View List</a></li>
 
-                                </ul>
+                            <li>
+                                <a href="{{url('products/viewlist')}}"><i class="la la-key"></i> <span> Inventory
+                                    </span> <span class="menu-arrow"></span></a>
+
                             </li>
 
 
@@ -422,145 +382,80 @@
 
 
             <div class="page-wrapper">
-                <div class="content container-fluid">
-                    <div class="page-header">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h3 class="page-title">Tickets</h3>
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="index.html">Dashboard</a>
-                                    </li>
-                                    <li class="breadcrumb-item active">
-                                        Tickets
-                                    </li>
-                                </ul>
-                            </div>
 
-                        </div>
-                    </div>
+                <div class="content container-fluid">
+
 
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="card-group m-b-30">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between mb-3">
-                                            <div>
-                                                <span class="d-block">Low Priority</span>
-                                            </div>
-                                            <div>
-                                                <span class="text-success">+10%</span>
-                                            </div>
-                                        </div>
-                                        <h3 class="mb-3">{{$lowtix}}</h3>
-                                        <div class="progress mb-2" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
-                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Appointment Information</h4>
                                 </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between mb-3">
-                                            <div>
-                                                <span class="d-block">Moderate Priority</span>
-                                            </div>
-                                            <div>
-                                                <span class="text-success">+12.5%</span>
-                                            </div>
+                                <div class="card-body">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label>Name Of Patients</label>
+                                            <input type="text" class="form-control"
+                                                value="{{ old('account_name', $selectpatients->name ?? '') }}"
+                                                readonly />
                                         </div>
-                                        <h3 class="mb-3">{{$medtix}}</h3>
-                                        <div class="progress mb-2" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
-                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="form-group">
+                                            <label>Specialty</label>
+                                            <input type="text" class="form-control"
+                                                value="{{ old('account_name', $selectpatients->departments ?? '') }}"
+                                                readonly />
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between mb-3">
-                                            <div>
-                                                <span class="d-block">High Priority</span>
-                                            </div>
-                                            <div>
-                                                <span class="text-danger">-2.8%</span>
-                                            </div>
+                                        <div class="form-group">
+                                            <label>Doctor Selected</label>
+                                            <input type="text" class="form-control"
+                                                value="{{ old('account_name', $selectpatients->employees ?? '') }}"
+                                                readonly />
                                         </div>
-                                        <h3 class="mb-3">{{$hightix}}</h3>
-                                        <div class="progress mb-2" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
-                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+
+                                        <div class="form-group">
+                                            <label>Email Address</label>
+                                            <input type="email" class="form-control"
+                                                value="{{ old('account_name', $selectpatients->email ?? '') }}"
+                                                readonly />
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between mb-3">
-                                            <div>
-                                                <span class="d-block">Critical Priority</span>
-                                            </div>
-                                            <div>
-                                                <span class="text-danger">-75%</span>
-                                            </div>
+
+                                        <div class="form-group">
+                                            <label>Date</label>
+                                            <input type="text" class="form-control"
+                                                value="{{ old('account_name', $selectpatients->date ?? '') }}"
+                                                readonly />
                                         </div>
-                                        <h3 class="mb-3">{{$crittix}}</h3>
-                                        <div class="progress mb-2" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
-                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="form-group">
+                                            <label>Time</label>
+                                            <input type="text" class="form-control"
+                                                value="{{ old('account_name', $selectpatients->time ?? '') }}"
+                                                readonly />
                                         </div>
-                                    </div>
+
+                                        <div class="form-group">
+                                            <label for="doctorSelected">Doctor Selected</label>
+                                            <textarea readonly class="form-control" id="doctorSelected"
+                                                rows="3">{{ old('account_name', $selectpatients->message ?? '') }}</textarea>
+                                        </div>
+
+
+
+                                        <div class="text-right">
+                                            <a href="{{url('viewappointment')}}" class="btn btn-info">Back</a>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
 
-                    <div class="row" style="font-size:20px;">
-                        <div class="col-md-12">
-                            <div class="table-responsive">
-                                <table class="table table-striped custom-table mb-0 datatable">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Ticket ID</th>
-                                            <th>Ticket Subject</th>
-                                            <th>Employee Name</th>
-                                            <th>Created Date</th>
-                                            <th>Priority</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($datas as $tix )
-
-                                        <tr>
-                                            <td>{{$tix->id}}</td>
-                                            <td>
-                                                <span
-                                                    class="badge badge-pill badge-primary">{{$tix->ticket_number}}</span>
-                                            </td>
-                                            <td>{{$tix->subject}}</td>
-                                            <td>
-                                                <span style="font-size:15px;"
-                                                    class="badge badge-pill badge-info">{{$tix->name}}</span>
-                                            </td>
-                                            <td>{{$tix->created_at}}</td>
-                                            <td>
-                                                <span class="badge badge-pill badge-danger">{{$tix->priority}}</span>
-                                            </td>
 
 
-                                        </tr>
-                                        @endforeach
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
 
 
 
@@ -568,20 +463,23 @@
 
         </div>
 
+        </div>
 
-        <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script src="hrs/assets/js/jquery-3.5.1.min.js"></script>
 
-        <script src="hrs/assets/js/popper.min.js"></script>
-        <script src="hrs/assets/js/bootstrap.min.js"></script>
+        <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js')}}">
+        </script>
+        <script src="{{asset('hrs/assets/js/jquery-3.5.1.min.js')}}"></script>
 
-        <script src="hrs/assets/js/jquery.slimscroll.min.js"></script>
+        <script src="{{asset('hrs/assets/js/popper.min.js')}}"></script>
+        <script src="{{asset('hrs/assets/js/bootstrap.min.js')}}"></script>
 
-        <script src="hrs/assets/plugins/morris/morris.min.js"></script>
-        <script src="hrs/assets/plugins/raphael/raphael.min.js"></script>
-        <script src="hrs/assets/js/chart.js"></script>
+        <script src="{{asset('hrs/assets/js/jquery.slimscroll.min.js')}}"></script>
 
-        <script src="hrs/assets/js/app.js"></script>
+        <script src="{{asset('hrs/assets/plugins/morris/morris.min.js')}}"></script>
+        <script src="{{asset('hrs/assets/plugins/raphael/raphael.min.js')}}"></script>
+        <script src="{{asset('hrs/assets/js/chart.js')}}"></script>
+
+        <script src="{{asset('hrs/assets/js/app.js')}}"></script>
     </body>
 
 </html>

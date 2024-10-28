@@ -148,7 +148,6 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Patient Message</th>
                                             <th>Doctor</th>
                                             <th>Departments</th>
                                             <th>Appointment Created</th>
@@ -161,7 +160,6 @@
 
                                         <tr>
                                             <td>{{$pen->name}}</td>
-                                            <td>{{$pen->message}}</td>
                                             <td>{{$pen->employees}}</td>
                                             <td>{{$pen->departments}}</td>
                                             <td>{{$pen->created_at}}</td>

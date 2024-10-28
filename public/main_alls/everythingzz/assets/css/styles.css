@@ -3000,11 +3000,18 @@ table.dataTable thead td {
 }
 
 .manual-btn {
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
     border: 2px solid white;
-    padding: 5px;
-    border-radius: 10px;
+    border-radius: 50%;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.3s;
+}
+
+.manual-btn:hover,
+.manual-btn:focus {
+    background-color: white; /* Optional focus style */
 }
 
 .manual-btn:not(:last-child) {
@@ -3405,21 +3412,21 @@ table.dataTable thead td {
 .doctor-card {
     background-color: white;
     border-radius: 10px;
-    box-shadow: 12px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 12px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 12px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    padding: 40px; /* Increased padding */
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    padding: 40px;
     text-align: center;
     margin: 20px;
-    width: 300px; /* Set a fixed width */
-    height: 340px; /* Set a fixed height */
+    width: 300px;
+    height: 350px;
     background: beige;
 
-    transition: transform 0.3s ease; /* Smooth transition for transform */
+    transition: transform 0.3s ease;
 }
 
 .doctor-card:hover {
-    transform: scale(1.05); /* Scale the card slightly on hover */
+    transform: scale(1.05);
 }
 
 .doctor-card img {
@@ -3451,4 +3458,10 @@ table.dataTable thead td {
     margin-top: 20px;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     font-size: 100px;
+}
+
+.patients-doc {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
 }

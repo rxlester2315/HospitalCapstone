@@ -187,7 +187,7 @@
                     <div class="list-options">
                         <div class="chat">
                             <span class="fa fa-commenting"></span>
-                            <a href="{{url('chatt')}}">
+                            <a href="{{url('chatss')}}">
                                 <p>Chat with <span>Us</span></p>
                             </a>
                         </div>

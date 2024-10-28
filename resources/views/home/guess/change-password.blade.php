@@ -85,10 +85,8 @@
 
     .card-body {
         padding: 40px;
-        background: #cdffd8;
-        background: linear-gradient(0deg, #cdffd8 0%, #ff94cc 100%);
-        background: -webkit-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
-        background: -moz-linear-gradient(0deg, #cdffd8 0%, #94b9ff 20%);
+        background: #0ed7b6;
+
     }
 
     h2 {
@@ -188,11 +186,7 @@
                             <ul class="metismenu" id="menu">
 
 
-                                @auth
-                                @if(Auth::user()->role_name == 'Guests')
-                                <li><a href="{{url('Guessappoint')}}"><i class="fa fa-briefcase"></i> <span>View
-                                            Appointment</span></a>
-                                </li>
+
 
                                 <li><a href="{{ route('guest_view') }}"><i class="fa fa-user"></i> <span>My
                                             Profile</span></a></li>
@@ -200,39 +194,15 @@
                                             Front-desk</span></a>
                                 </li>
 
-                                <li><a href="{{url('create_guest_appointment')}}"><i class="fa fa-briefcase"></i>
-                                        <span>Create
-                                            An Appointment</span></a>
-                                </li>
-
-
-                                @elseif(Auth::user()->role_name == 'Normal User')
-
-
-                                <li><a href="{{url('myappointment')}}"><i class="fa fa-briefcase"></i> <span>View
-                                            Appointment</span></a>
-                                </li>
-                                <li><a href="{{ url('view_normal_prof') }}"><i class="fa fa-user"></i> <span>My
-                                            Profile</span></a></li>
-                                <li><a href="{{url('chatss')}}"><i class="fa fa-comments"></i> <span>Chat with
-                                            Front-desk</span></a>
-                                </li>
-
-                                <li><a href="{{url('create_appointmentsss')}}"><i class="fa fa-briefcase"></i>
-                                        <span>Create
-                                            An Appointment</span></a>
-                                </li>
-
-                                <li><a href="{{url('mydoctor')}}"><i class="fa fa-comments"></i> <span>Chat with my
-                                            Doctor</span></a>
-                                </li>
 
 
 
 
-                                @endif
 
-                                @endauth
+
+
+
+
 
                             </ul>
                         </nav>
