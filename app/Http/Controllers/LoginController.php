@@ -17,6 +17,8 @@ use App\Models\ticket;
 use App\Models\PatientInfo;
 use App\Models\Appointments;
 
+use App\Models\Product;
+
 use Carbon\Carbon;
 use Session;
 use Brian2694\Toastr\Facades\Toastr;
@@ -218,7 +220,13 @@ class LoginController extends Controller
 
     public function Adminuser(){
 
-        return view('Admin.home');
+$totalproduct = Product::count();
+$totaluser = User::where('status','Active')->count();
+$totalticket = ticket::count();
+    $alldoctor = employees::count();
+
+
+        return view('Admin.home',compact('totalproduct','totaluser','totalticket','alldoctor'));
     }
 
 public function hruser()

@@ -82,7 +82,8 @@ public function patient_record() {
     public function listarchived(){
 
     $archived = User::onlyTrashed()->get();
-        return view('Front-desk.archived-user', compact('archived'));
+        $archivedtotal = User::onlyTrashed()->count();
+        return view('Front-desk.archived-user', compact('archived','archivedtotal'));
 
 
 
@@ -189,7 +190,12 @@ public function req_unverified(){
    $unverified = PatientInfo::whereHas('user', function($query) {
         $query->where('role_name', '!=', 'Normal User'); // yung mga hinde user or mga guest andito
     })->get();
-  return view('Front-desk.list-unverified',compact('unverified')); 
+
+     $unverifiedtotal = PatientInfo::whereHas('user', function($query) {
+        $query->where('role_name', '!=', 'Normal User'); // yung mga hinde user or mga guest andito
+    })->count();
+
+  return view('Front-desk.list-unverified',compact('unverified','unverifiedtotal')); 
 
 }
 
@@ -223,9 +229,10 @@ Notification::route('mail', $sendemail)->notify(new VerifiedNotification($user->
 public function list_pend(){
 
 $pending = Appointments::where('status','Pending')->get();
+$pendingtotal = Appointments::where('status','Pending')->count();
 
 
-return view('Front-desk.list-pending-appoint',compact('pending'));
+return view('Front-desk.list-pending-appoint',compact('pending','pendingtotal'));
     
 
 }
@@ -304,7 +311,14 @@ public function arriveappoint() {
         })
         ->get();
 
-    return view('Front-desk.patient-arrive-list', compact('allapprove'));
+          $allapprovetotal = Appointments::where('status', 'Approved')
+        ->where(function($query) {
+            $query->where('arrive_status', '!=', 'Arrived')
+                  ->orWhereNull('arrive_status');
+        })
+        ->count();
+
+    return view('Front-desk.patient-arrive-list', compact('allapprove','allapprovetotal'));
 }
 
 

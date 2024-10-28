@@ -345,7 +345,7 @@
 
 
                             <li>
-                                <a href="{{route('chatat')}}"><i class="la la-users"></i>
+                                <a href="{{route('chatat')}}"><i class="fa-brands fa-rocketchat"></i>
                                     <span>Live Chat</span></a>
                             </li>
 
@@ -377,7 +377,8 @@
 
                                     <span>Verified Accounts</span></a></li>
                             <li>
-                                <a href="{{url('pending_app')}}" target="_blank"><i class="fa-solid fa-ticket"></i>
+                                <a href="{{url('pending_app')}}" target="_blank"><i
+                                        class="fa-solid fa-business-time"></i>
                                     <span>Pending Appointment</span></a>
                             </li>
 
@@ -404,7 +405,8 @@
                                     <span>Archived Accounts </span></a>
                             </li>
                             <li>
-                                <a href="{{route('ticket')}}" target=" _blank"><i class="fa-solid fa-ticket"></i>
+                                <a href="{{route('ticket')}}" target=" _blank"><i
+                                        class="fa-solid fa-clipboard-check"></i>
                                     <span>Send Ticket </span></a>
                             </li>
 

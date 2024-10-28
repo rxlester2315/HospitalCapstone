@@ -405,11 +405,17 @@
                 <div class="content container-fluid">
 
                     <section class="section">
+                        <div class="col-md-3">
+                            <div class="stats-info">
+                                <h6>Verification Request</h6>
+                                <h4>{{$allapprovetotal}}</h4>
+                            </div>
+                        </div>
                         <div class="row" id="table-striped">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Striped rows</h4>
+                                        <h4 class="card-title">Patient Arrive</h4>
                                     </div>
                                     <div class="card-content">
                                         <div class="card-body">

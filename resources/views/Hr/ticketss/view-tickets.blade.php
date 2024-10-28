@@ -15,6 +15,10 @@
 
         <link rel="stylesheet" href="hrs/assets/css/bootstrap.min.css">
 
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="hrs/assets/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="hrs/assets/css/line-awesome.min.css">
@@ -320,33 +324,7 @@
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
 
-                            <li class="submenu">
 
-                                <!-- <ul style="display: none;">
-                                <li><a class="active" href="index.html">Admin Dashboard</a></li>
-                                <li><a href="employee-dashboard.html">Employee Dashboard</a></li>
-                            </ul> -->
-                                <!-- </li>
-                        <li class="submenu">
-                            <a href="#"><i class="la la-cube"></i> <span> Apps</span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="chat.html">Chat</a></li>
-                                <li class="submenu">
-                                    <a href="#"><span> Calls</span> <span class="menu-arrow"></span></a>
-                                    <ul style="display: none;">
-                                        <li><a href="voice-call.html">Voice Call</a></li>
-                                        <li><a href="video-call.html">Video Call</a></li>
-                                        <li><a href="outgoing-call.html">Outgoing Call</a></li>
-                                        <li><a href="incoming-call.html">Incoming Call</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="events.html">Calendar</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
-                                <li><a href="inbox.html">Email</a></li>
-                                <li><a href="file-manager.html">File Manager</a></li>
-                            </ul>
-                        </li> -->
                             <li class="menu-title">
                                 <span>Employees</span>
                             </li>
@@ -355,63 +333,39 @@
                                         class="menu-arrow"></span></a>
                                 <ul style="display: none;">
 
-                                    <li><a href="{{url('/leave-list')}}">Leaves <span
-                                                class="badge badge-pill bg-primary float-right">1</span></a></li>
+                                    <li><a href="{{url('/leave-list')}}">Doctor/Staff Leaves<span
+                                                class="badge badge-pill bg-primary float-right"></span></a></li>
 
 
 
 
                                     <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
-                                    <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-
-                                    <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
+                                    <li><a href="{{url('attend')}}">Employees Attendance </a></li>
+                                    <li><a href="{{url('docsched')}}">Doctor Shifts & Schedule</a></li>
 
                                 </ul>
                             </li>
 
 
+
                             <li>
-                                <!-- <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a> -->
-                            </li>
-                            <!-- <li class="submenu">
-                            <a href="#"><i class="la la-rocket"></i> <span> Projects</span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="projects.html">Projects</a></li>
-                                <li><a href="tasks.html">Tasks</a></li>
-                                <li><a href="task-board.html">Task Board</a></li>
-                            </ul>
-                        </li> -->
-                            <li>
-                                <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i> <span>Patient
-                                        Request</span></a>
+                                <a href="{{url('viewappointment')}}"><i class="fa-solid fa-business-time"></i>
+                                    <span>Appointment Requests</span></a>
                             </li>
                             <li>
-                                <a href="{{url('view_tickets')}}"><i class="la la-ticket"></i> <span>Tickets</span></a>
+                                <a href="{{url('view_tickets')}}"><i class="fa-solid fa-clipboard-list"></i>
+                                    <span>Tickets</span></a>
                             </li>
                             <li class="menu-title">
                                 <span>HR</span>
                             </li>
-                            <!-- <li class="submenu">
-                            <a href="#"><i class="la la-files-o"></i> <span> Sales </span> <span
-                                    class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="estimates.html">Estimates</a></li>
-                                <li><a href="invoices.html">Invoices</a></li>
-                                <li><a href="payments.html">Payments</a></li>
-                                <li><a href="expenses.html">Expenses</a></li>
-                                <li><a href="provident-fund.html">Provident Fund</a></li>
-                                <li><a href="taxes.html">Taxes</a></li>
-                            </ul>
-                        </li> -->
 
-                            <li class="submenu">
-                                <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
-                                        class="menu-arrow"></span></a>
-                                <ul style="display: none;">
-                                    <li><a href="{{url('products/viewlist')}}">View List</a></li>
 
-                                </ul>
+                            <li>
+                                <a href="{{url('products/viewlist')}}"> <i class="fa-solid fa-screwdriver-wrench"></i>
+                                    <span> Inventory
+                                    </span> <span class="menu-arrow"></span></a>
+
                             </li>
 
 

@@ -19,6 +19,9 @@
         <link rel="stylesheet" href="hrs/assets/plugins/morris/morris.css">
 
         <link rel="stylesheet" href="hrs/assets/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
         <script>
@@ -337,7 +340,7 @@
                                 <ul style="display: none;">
 
                                     <li><a href="{{url('/leave-list')}}">Doctor/Staff Leaves<span
-                                                class="badge badge-pill bg-primary float-right">1</span></a></li>
+                                                class="badge badge-pill bg-primary float-right"></span></a></li>
 
 
 
@@ -352,11 +355,12 @@
 
 
                             <li>
-                                <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i>
+                                <a href="{{url('viewappointment')}}"><i class="fa-solid fa-business-time"></i>
                                     <span>Appointment Requests</span></a>
                             </li>
                             <li>
-                                <a href="{{url('view_tickets')}}"><i class="la la-ticket"></i> <span>Tickets</span></a>
+                                <a href="{{url('view_tickets')}}"><i class="fa-solid fa-clipboard-list"></i>
+                                    <span>Tickets</span></a>
                             </li>
                             <li class="menu-title">
                                 <span>HR</span>
@@ -364,7 +368,8 @@
 
 
                             <li>
-                                <a href="{{url('products/viewlist')}}"><i class="la la-key"></i> <span> Inventory
+                                <a href="{{url('products/viewlist')}}"> <i class="fa-solid fa-screwdriver-wrench"></i>
+                                    <span> Inventory
                                     </span> <span class="menu-arrow"></span></a>
 
                             </li>

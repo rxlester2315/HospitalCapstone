@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="adminz/assets/css/line-awesome.min.css">
 
         <link rel="stylesheet" href="adminz/assets/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <link rel="stylesheet" href="adminz/assets/css/style.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -328,19 +331,19 @@
 
 
 
+
                             <li>
-                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
+                                <a href="{{url('/userlog')}}"><i class="la la-users"></i> <span>User
                                         Login</span></a>
                             </li>
 
                             <li>
-                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>Archived
+                                <a href="{{route('list')}}"><i class="fa-solid fa-trash"></i><span>Archived
                                         User</span></a>
                             </li>
 
                             <li>
-                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>Account Reset
-                                        Password</span></a>
+                                <a href="{{url('Admin')}}"><i class="fa-solid fa-house"></i><span>Home</span></a>
                             </li>
 
 

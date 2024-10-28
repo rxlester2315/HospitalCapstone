@@ -395,15 +395,10 @@
                         <div class="col-md-3">
                             <div class="stats-info">
                                 <h6>Today Register</h6>
-                                <h4>12</h4>
+                                <h4>{{$archivedtotal}}</h4>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="stats-info">
-                                <h6>Create Appointment</h6>
-                                <h4>8 <span>Today</span></h4>
-                            </div>
-                        </div>
+
 
                     </div>
 

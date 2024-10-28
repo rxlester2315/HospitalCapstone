@@ -7,6 +7,9 @@
 
         <title>Human Resources Product</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('hrs/assets/img/logo.jpg')}}" />
 
@@ -222,67 +225,9 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="notification-message">
-                                        <a href="activities.html">
-                                            <div class="media">
-                                                <span class="avatar">
-                                                    <img alt=""
-                                                        src="{{ asset('hrs/assets/img/profiles/avatar-06.jpg')}}">
-                                                </span>
-                                                <div class="media-body">
-                                                    <p class="noti-details"><span class="noti-title">Misty
-                                                            Tison</span>
-                                                        added <span class="noti-title">Domenic Houston</span> and
-                                                        <span class="noti-title">Claire Mapes</span> to project
-                                                        <span class="noti-title">Doctor available module</span>
-                                                    </p>
-                                                    <p class="noti-time"><span class="notification-time">8 mins
-                                                            ago</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="notification-message">
-                                        <a href="activities.html">
-                                            <div class="media">
-                                                <span class="avatar">
-                                                    <img alt=""
-                                                        src="{{ asset('hrs/assets/img/profiles/avatar-17.jpg')}}">
-                                                </span>
-                                                <div class="media-body">
-                                                    <p class="noti-details"><span class="noti-title">Rolland
-                                                            Webber</span>
-                                                        completed task <span class="noti-title">Patient and Doctor
-                                                            video
-                                                            conferencing</span></p>
-                                                    <p class="noti-time"><span class="notification-time">12 mins
-                                                            ago</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="notification-message">
-                                        <a href="activities.html">
-                                            <div class="media">
-                                                <span class="avatar">
-                                                    <img alt=""
-                                                        src="{{ asset('hrs/assets/img/profiles/avatar-13.jpg')}}">
-                                                </span>
-                                                <div class="media-body">
-                                                    <p class="noti-details"><span class="noti-title">Bernardo
-                                                            Galaviz</span>
-                                                        added new task <span class="noti-title">Private chat
-                                                            module</span>
-                                                    </p>
-                                                    <p class="noti-time"><span class="notification-time">2 days
-                                                            ago</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
+
+
+
                                 </ul>
                             </div>
                             <div class="topnav-dropdown-footer">
@@ -401,12 +346,11 @@
                             </ul>
                         </li> -->
                             <li>
-                                <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i></i>
-                                    <span>Patient
-                                        Request</span></a>
+                                <a href="{{url('viewappointment')}}"><i class="fa-solid fa-business-time"></i>
+                                    <span>Appointment Requests</span></a>
                             </li>
                             <li>
-                                <a href="{{url('view_tickets')}}"><i class="la la-ticket"></i>
+                                <a href="{{url('view_tickets')}}"><i class="fa-solid fa-clipboard-list"></i>
                                     <span>Tickets</span></a>
                             </li>
                             <li class="menu-title">
@@ -425,13 +369,11 @@
                             </ul>
                         </li> -->
 
-                            <li class="submenu">
-                                <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
-                                        class="menu-arrow"></span></a>
-                                <ul style="display: none;">
-                                    <li><a href="{{url('products/viewlist')}}" target="_blank">View List</a></li>
+                            <li>
+                                <a href="{{url('products/viewlist')}}"> <i class="fa-solid fa-screwdriver-wrench"></i>
+                                    <span> Inventory
+                                    </span> <span class="menu-arrow"></span></a>
 
-                                </ul>
                             </li>
 
 

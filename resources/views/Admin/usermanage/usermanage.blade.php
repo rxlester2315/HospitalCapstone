@@ -13,6 +13,9 @@
         <link rel="stylesheet" href="adminz/assets/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="adminz/assets/css/line-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <link rel="stylesheet" href="adminz/assets/css/dataTables.bootstrap4.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
@@ -342,12 +345,12 @@
                             </li>
 
                             <li>
-                                <a href="{{route('list')}}"><i class="la la-users"></i> <span>Archived
+                                <a href="{{route('list')}}"><i class="fa-solid fa-trash"></i><span>Archived
                                         User</span></a>
                             </li>
 
                             <li>
-                                <a href="{{url('/changepw_user')}}"><i class="la la-users"></i> <span>Account Reset
+                                <a href="{{url('/changepw_user')}}"><i class="fa-solid fa-key"></i><span>Account Reset
                                         Password</span></a>
                             </li>
 

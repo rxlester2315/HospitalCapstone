@@ -8,7 +8,9 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/logo.jpg">
 
         <link rel="stylesheet" href="adminz/assets/css/bootstrap.min.css">
@@ -248,7 +250,7 @@
 
 
                             <li>
-                                <a href="{{url('tickets')}}"><i class="la la-cog"></i> <span>Ticket
+                                <a href="{{url('tickets')}}"><i class="fa-regular fa-rectangle-list"></i> <span>Ticket
                                         Management</span></a>
                             </li>
                             <li>
@@ -258,7 +260,7 @@
 
 
                             <li>
-                                <a href="{{url('products-list')}}"><i class="la la-cog"></i>
+                                <a href="{{url('products-list')}}"><i class="fa-solid fa-screwdriver-wrench"></i>
                                     <span>Inventory</span></a>
                             </li>
 
@@ -298,8 +300,8 @@
                                 <div class="card-body">
                                     <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
                                     <div class="dash-widget-info">
-                                        <h3>112</h3>
-                                        <span>Projects</span>
+                                        <h3>{{$totalproduct}}</h3>
+                                        <span>Total Medical Supply</span>
                                     </div>
                                 </div>
                             </div>
@@ -309,8 +311,8 @@
                                 <div class="card-body">
                                     <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
                                     <div class="dash-widget-info">
-                                        <h3>44</h3>
-                                        <span>Clients</span>
+                                        <h3>{{$totaluser}}</h3>
+                                        <span>Total Active User</span>
                                     </div>
                                 </div>
                             </div>
@@ -320,8 +322,8 @@
                                 <div class="card-body">
                                     <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
                                     <div class="dash-widget-info">
-                                        <h3>37</h3>
-                                        <span>Tasks</span>
+                                        <h3>{{$totalticket}}</h3>
+                                        <span>Total Ticket</span>
                                     </div>
                                 </div>
                             </div>
@@ -331,8 +333,8 @@
                                 <div class="card-body">
                                     <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
                                     <div class="dash-widget-info">
-                                        <h3>218</h3>
-                                        <span>Employees</span>
+                                        <h3>{{$alldoctor}}</h3>
+                                        <span>Total Doctor</span>
                                     </div>
                                 </div>
                             </div>
