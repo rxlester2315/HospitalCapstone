@@ -387,7 +387,7 @@
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a href="profile.html" class="avatar"><img alt=""
-                                                            src="assets/img/profiles/avatar-25.jpg" /></a>
+                                                            src="adminz/assets/img/profiles/user.jpg" /></a>
                                                     <a>{{$user->name}} <span>{{$user->role_name}}</span></a>
                                                 </h2>
                                             </td>
