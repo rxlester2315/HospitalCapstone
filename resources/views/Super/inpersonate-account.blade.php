@@ -19,6 +19,18 @@
         <link rel="stylesheet" href="admins/assets/vendors/bootstrap-icons/bootstrap-icons.css">
         <link rel="stylesheet" href="admins/assets/css/app.css">
         <link rel="shortcut icon" href="admins/assets/images/favicon.svg" type="image/x-icon">
+        <style>
+        body {
+            background: #388e3c;
+            background: linear-gradient(0deg, #388e3c 0%, #000000 100%);
+            background: -webkit-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+            background: -moz-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+        }
+
+        * {
+            color: white;
+        }
+        </style>
     </head>
 
     <body>
@@ -28,8 +40,9 @@
                     <div class="sidebar-header">
                         <div class="d-flex justify-content-between">
                             <div class="logo">
-                                <a href="index.html"><img src="admins/assets/images/logo/logo.png" alt="Logo"
-                                        srcset=""></a>
+                                <a href="{{ route('sadview') }}"><img
+                                        style="width:100px; height:100px; margin-left:50px;"
+                                        src="hrs/assets/img/logo.jpg" alt="Logo" srcset=""></a>
                             </div>
                             <div class="toggler">
                                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -93,7 +106,7 @@
                 </header>
 
                 <div class="page-heading">
-                    <h3>Profile Statistics</h3>
+                    <h3 style="color:white;">Account View Access</h3>
                 </div>
                 <div class="page-content">
 

@@ -3,8 +3,8 @@
         <div class="sidebar-header">
             <div class="d-flex justify-content-between">
                 <div class="logo">
-                    <a href="{{ route('sadview') }}"><img src="{{ URL::to('assets/images/logo/logo.png') }}" alt="Logo"
-                            srcset=""></a>
+                    <a href="{{ route('sadview') }}"><img style="width:100px; height:100px; margin-left:50px;"
+                            src="{{asset('hrs/assets/img/logo.jpg')}}" alt="Logo" srcset=""></a>
                 </div>
                 <div class="toggler">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -76,7 +76,7 @@
                 </li>
                 @endif
 
-            
+
                 <li class="sidebar-item">
                     <a href="{{ route('logout') }}" class='sidebar-link'>
                         <i class="bi bi-box-arrow-right"></i>

@@ -19,6 +19,22 @@
         <link rel="stylesheet" href="admins/assets/vendors/bootstrap-icons/bootstrap-icons.css">
         <link rel="stylesheet" href="admins/assets/css/app.css">
         <link rel="shortcut icon" href="admins/assets/images/favicon.svg" type="image/x-icon">
+        <style>
+        body {
+            background: #388e3c;
+            background: linear-gradient(0deg, #388e3c 0%, #000000 100%);
+            background: -webkit-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+            background: -moz-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+        }
+
+        h6 {
+            color: white;
+        }
+
+        * {
+            color: white;
+        }
+        </style>
     </head>
 
     <body>
@@ -28,8 +44,9 @@
                     <div class="sidebar-header">
                         <div class="d-flex justify-content-between">
                             <div class="logo">
-                                <a href="index.html"><img src="admins/assets/images/logo/logo.png" alt="Logo"
-                                        srcset=""></a>
+                                <a href="{{ route('sadview') }}"><img
+                                        style="width:100px; height:100px; margin-left:50px;"
+                                        src="hrs/assets/img/logo.jpg" alt="Logo" srcset=""></a>
                             </div>
                             <div class="toggler">
                                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -90,7 +107,7 @@
                 </header>
 
                 <div class="page-heading">
-                    <h3>Update New Changes</h3>
+                    <h3 style="color:white;">Update New Changes</h3>
                 </div>
                 <div class="page-content">
 
@@ -118,20 +135,20 @@
                                         @csrf
                                         <!-- Add CSRF protection -->
                                         <div class="col-sm-4">
-                                            <h6>Select Date</h6>
+                                            <h6 style="color:white;">Select Date</h6>
                                             <input name="maintenance_date" type="date" class="form-control"
                                                 id="changeDate" />
 
-                                            <h6>Description of Changes</h6>
+                                            <h6 style="color:white;">Description of Changes</h6>
                                             <textarea class="form-control" name="descriptions"
                                                 placeholder="Describe the changes here..."
                                                 id="changeDescription"></textarea>
 
-                                            <h6>Bug Fixes</h6>
+                                            <h6 style="color:white;">Bug Fixes</h6>
                                             <textarea name="bugs" class="form-control"
                                                 placeholder="Describe any bug fixes..." id="bugFixes"></textarea>
 
-                                            <h6>Impact</h6>
+                                            <h6 style="color:white;">Impact</h6>
                                             <textarea name="effect" class="form-control"
                                                 placeholder="Describe the impact..." id="impact"></textarea>
 

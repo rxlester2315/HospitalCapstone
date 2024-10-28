@@ -117,8 +117,8 @@
     height: 1rem;
 }
 .avatar img {
-    width: 32px;
-    height: 32px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
 }
 .avatar .avatar-status {
@@ -257,6 +257,7 @@
     margin-bottom: 2.2rem;
     border: none;
     background-color: #0ed7b6;
+    color: white;
 }
 
 .card.card-statistic {
@@ -290,6 +291,7 @@
     background-color: white;
     border: none;
 }
+
 .card .card-header h4 {
     font-size: 1.2rem;
     font-weight: 700;

@@ -22,11 +22,23 @@
         <style>
         .card-content {
             background: white;
+            color: black;
+
         }
 
         .card {
             background: white;
             padding: 20px;
+
+        }
+
+        .cardss {
+            background: #0ed7b6;
+            padding: 20px;
+            width: 300px;
+            height: 200px;
+            border-radius: 12px;
+
         }
 
         .card-img-top {
@@ -157,7 +169,7 @@
                         <div class="col-12 col-lg-9">
                             <div class="row">
                                 <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="card">
+                                    <div class="cardss">
                                         <div class="card-body px-3 py-4-5">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -174,7 +186,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="card">
+                                    <div class="cardss">
                                         <div class="card-body px-3 py-4-5">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -191,7 +203,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="card">
+                                    <div class="cardss">
                                         <div class="card-body px-3 py-4-5">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -208,7 +220,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="card">
+                                    <div class="cardss">
                                         <div class="card-body px-3 py-4-5">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -228,7 +240,7 @@
 
                         </div>
                         <div class="col-12 col-lg-3">
-                            <div class="card">
+                            <div class="cardss">
                                 <div class="card-body py-4 px-5">
                                     <div class="d-flex align-items-center">
                                         <div class="avatar avatar-xl">

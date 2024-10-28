@@ -255,6 +255,7 @@
 .card {
     margin-bottom: 2.2rem;
     border: none;
+    background-color: #001f33;
 }
 .card.card-statistic {
     box-shadow: 1px 2px 5px rgba(47, 170, 244, 0.5);
@@ -262,7 +263,7 @@
 }
 .card.card-statistic .card-title {
     text-transform: uppercase;
-    color: #fff;
+    color: black;
     letter-spacing: 0.8px;
     font-weight: 400;
     font-size: 1.3rem;
@@ -753,7 +754,7 @@
     top: 0;
     z-index: 10;
     overflow-y: auto;
-    background-color: #fff;
+    background-color: #001f33;
     bottom: 0;
     transition: left 0.5s ease-out;
 }
@@ -782,7 +783,7 @@
     font-size: 1rem;
     list-style: none;
     font-weight: 600;
-    color: #25396f;
+    color: white;
 }
 .sidebar-wrapper .menu .sidebar-link {
     display: block;
@@ -793,7 +794,7 @@
     border-radius: 0.5rem;
     transition: all 0.5s;
     text-decoration: none;
-    color: #25396f;
+    color: white;
 }
 .sidebar-wrapper .menu .sidebar-link i,
 .sidebar-wrapper .menu .sidebar-link svg {
@@ -819,10 +820,10 @@
     display: block;
 }
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link {
-    background-color: #435ebe;
+    background-color: white;
 }
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link span {
-    color: #fff;
+    color: black;
 }
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link i,
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link svg {
@@ -846,13 +847,13 @@
     position: relative;
 }
 .sidebar-wrapper .menu .submenu .submenu-item.active > a {
-    color: #435ebe;
+    color: white;
     font-weight: 700;
 }
 .sidebar-wrapper .menu .submenu .submenu-item a {
     padding: 0.7rem 2rem;
     display: block;
-    color: #25396f;
+    color: white;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.5px;

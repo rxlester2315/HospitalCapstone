@@ -30,6 +30,19 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
+        <style>
+        body {
+            background: #388e3c;
+            background: linear-gradient(0deg, #388e3c 0%, #000000 100%);
+            background: -webkit-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+            background: -moz-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+        }
+
+        * {
+            color: white;
+        }
+        </style>
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
             integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -109,7 +122,7 @@
                 </a>
             </header>
             <div class="page-heading">
-                <h3>WELCOME TO SUPER ADMIN</h3>
+                <h3 style="color:white;">WELCOME TO SUPER ADMIN</h3>
             </div>
             {{-- message --}}
             {!! Toastr::message() !!}
@@ -127,7 +140,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <h6 class="text-muted font-semibold">Activity Log</h6>
+                                                <h6 stlye="color:white;" class="text-muted font-semibold">Activity Log
+                                                </h6>
                                                 <h6 class="font-extrabold mb-0">{{$activitylogsss}}</h6>
                                             </div>
                                         </div>
@@ -485,8 +499,9 @@
                                         <i class="fa-solid fa-gear"></i>
                                     </div>
                                     <div class="update-info ms-4">
-                                        <h5 class="mb-1">{{$latestUpdate->descriptions}}</h5>
-                                        <h6 class="text-muted mb-0">{{$latestUpdate->maintenance_date}}</h6>
+                                        <h5 style="color:white;" class="mb-1">{{$latestUpdate->descriptions}}</h5>
+                                        <h6 style="color:white;" class="text-muted mb-0">
+                                            {{$latestUpdate->maintenance_date}}</h6>
                                     </div>
                                 </div>
                                 <div class="recent-update d-flex px-4 py-3">
@@ -494,8 +509,9 @@
                                         <i class="fa-solid fa-bug"></i>
                                     </div>
                                     <div class="update-info ms-4">
-                                        <h5 class="mb-1">{{$latestUpdate->bugs}}</h5>
-                                        <h6 class="text-muted mb-0">{{$latestUpdate->maintenance_date}}</h6>
+                                        <h5 style="color:white;" class="mb-1">{{$latestUpdate->bugs}}</h5>
+                                        <h6 style="color:white;" class="text-muted mb-0">
+                                            {{$latestUpdate->maintenance_date}}</h6>
                                     </div>
                                 </div>
                                 <div class="recent-update d-flex px-4 py-3">
@@ -503,8 +519,9 @@
                                         <i class="fa-solid fa-shield"></i>
                                     </div>
                                     <div class="update-info ms-4">
-                                        <h5 class="mb-1">{{$latestUpdate->effect}}</h5>
-                                        <h6 class="text-muted mb-0">{{$latestUpdate->maintenance_date}}</h6>
+                                        <h5 style="color:white;" class="mb-1">{{$latestUpdate->effect}}</h5>
+                                        <h6 style="color:white;" class="text-muted mb-0">
+                                            {{$latestUpdate->maintenance_date}}</h6>
                                     </div>
                                 </div>
                                 <div class="px-4">

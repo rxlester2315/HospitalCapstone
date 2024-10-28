@@ -6,6 +6,18 @@
 
 <head>
 
+    <style>
+    body {
+        background: #388e3c;
+        background: linear-gradient(0deg, #388e3c 0%, #000000 100%);
+        background: -webkit-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+        background: -moz-linear-gradient(0deg, #388e3c 0%, #000000 100%);
+    }
+
+    * {
+        color: white;
+    }
+    </style>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
@@ -23,15 +35,17 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>User Management Control</h3>
-                    <p class="text-subtitle text-muted">For user to check they list</p>
+                    <h3 style="color:white;">User Management Control</h3>
+                    <p style="color:white;" class="text-subtitle text-muted">User Control</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
 
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('sadview') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">User Mangement</li>
+                            <li class="breadcrumb-item"><a href="{{ route('sadview') }}"
+                                    style="color:white;">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page" style="color:white; ">User Mangement
+                            </li>
 
 
                         </ol>

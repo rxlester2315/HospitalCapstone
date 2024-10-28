@@ -154,7 +154,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>Leave Doctor </h3>
+                    <h3>Employees Attendance </h3>
                 </div>
 
                 {{-- message --}}
