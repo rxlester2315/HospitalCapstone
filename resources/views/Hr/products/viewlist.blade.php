@@ -294,7 +294,7 @@
 
 
                     <li class="nav-item dropdown">
-                        <a href="chat" class="dropdown-toggle nav-link" data-toggle="">
+                        <a href="{{url('chat')}}" class="dropdown-toggle nav-link" data-toggle="">
                             <i class="fa fa-comment-o"></i>
                             <span
                                 class="badge badge-pill unread_notification">{{ auth()->user()->getMessageCount() }}</span>
