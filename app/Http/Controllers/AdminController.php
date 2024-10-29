@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Product;
 use Illuminate\Support\Facades\File;
+use App\Models\Appointments;
+
+use App\Models\Employees;
 
 use App\Notifications\TicketResponse;
 use App\Notifications\EmailNotification;
@@ -665,6 +668,19 @@ public function sendtosuper($id) {
     }
     return redirect()->back()->with('message','Ticket Has been send to Super Admin');
 }
+
+
+
+public function submitted_appoinment(){
+
+    $approveappoint = Appointments::where('status','Approved')->get();
+
+
+    return view('Admin.appointment-list-sub',compact('approveappoint'));
+
+}
+
+
 
 
 

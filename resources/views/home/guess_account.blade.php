@@ -50,8 +50,13 @@
                         <div class="auth-logo">
                             <a href="{{url('/')}}"><img src="admins/assets/images/logo/logo.png" alt="Logo"></a>
                         </div>
-                        <h1 class="auth-title">Sign Up</h1>
-                        <p class="auth-subtitle mb-5">Please input Basic information to proceed Appointment/Inquire</p>
+                        <h1 class="auth-title">Join Us Today
+                        </h1>
+                        <p class="auth-subtitle mb-5">Provide your basic information to simplify your appointment
+                            process and healthcare inquiries.
+
+
+                        </p>
 
                         <form method="POST" action="{{ route('createguess') }}" class="md-float-material">
                             @csrf

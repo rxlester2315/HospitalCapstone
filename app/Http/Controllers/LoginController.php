@@ -34,139 +34,48 @@ class LoginController extends Controller
 
 
     public function authenticate(Request $request)
-    {
+{
+    $request->validate([
+        'email' => 'required|string|email',
+        'password' => 'required|string',
+    ]);
 
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-        ]);
+    $credentials = $request->only('email', 'password');
 
-
-        $email= $request->email;
-        $password = $request->password;
+    if (Auth::attempt(array_merge($credentials, ['status' => 'Active']))) {
+        $user = Auth::user();
         $dt = Carbon::now('Asia/Manila');
-        $todayDate  = $dt->toDayDateTimeString();
-
-         $activityLog = [
-
-            'name'        => $email,
-            'email'       => $email,
+        
+        // Log activity with sanitized data
+        DB::table('activity_logs')->insert([
+            'name'        => $user->name,
+            'email'       => $user->email,
             'description' => 'Login',
             'date_time'   => $dt,
+        ]);
+
+        // Success notification
+        Toastr::success('Login successfully', 'Success');
+
+        // Redirect based on role
+        $redirectRoutes = [
+            'Super Admin' => 'Superad',
+            'Admin' => 'Admin',
+            'Human Resources' => 'HR',
+            'Front Desk' => 'Front',
+            'Nurse' => 'Nurse',
+            'Doctor' => 'Doc',
+            'Normal User' => 'User',
+            'Guests' => 'Guests',
         ];
- if (Auth::attempt(['email'=>$email,'password'=>$password,'status'=>'Active','role_name'=>'Super Admin'])) {
-            DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully ','Success');
-            return redirect()->intended('Superad');
-        }elseif (Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Admin'])) {
-            DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully ','Success');
-            return redirect()->intended('Admin');
-        }elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Human Resources'])) {
-            DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully ','Success');
-            return redirect()->intended('HR');
 
-        }
-          elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Front Desk'])) {
-            DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully ','Success');
-            return redirect()->intended('Front');
-
-        }
-
-        elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Nurse'])) {
-            DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully ','Success');
-            return redirect()->intended('Nurse');
-
-        }
-        
-        elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Doctor'])) {
-            DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully ','Success');
-            return redirect()->intended('Doc');
-
-        }elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Normal User'])) {
-
-            Toastr::success('Hi Welcome Back Patient ','Success');
-
-            return redirect()->intended('User');
-
-        }
-
-         elseif(Auth::attempt(['email'=>$email,'password'=>$password,'status'=> 'Active' ,'role_name'=>'Guests'])) {
-
-            Toastr::success('Hi Welcome Back  ','Success');
-
-            return redirect()->intended('Guests');
-
-        }
-    
-
-   
-        
-        else{
-           return redirect('login')->with('wrong','Invalid Password or Email Please double check');
-        }
-        
-
-        
-
-          if (Auth::attempt(['email' => $email, 'password' => $password])) {
-        
-    $user = Auth::User();
-      
-    // Now you can differentiate based on roles
-    if ($user->hasRole('Admin')) {
-        // Redirect to admin dashboard or show admin-specific content
-
-
-        return redirect('Admin');
-
-    } elseif ($user->hasRole('Human Resources')) {
-
-        return redirect('HR');
-
-        } elseif ($user->hasRole('Normal User')) {
-
-        return redirect('User');
-
-    }   elseif  ($user->hasRole('Doctor')){
-
-                return redirect('Doc');
-
-    }else if ($user->hasRole('Super Admin')) {
-
-        return redirect('Superad');
-
-    }
-    else if($user->hasRole('Guests')){
-        return redirect('Guests');
+        return redirect()->intended($redirectRoutes[$user->role_name] ?? 'home');
     }
 
-     else if($user->hasRole('Front Desk')){
-        return redirect('Front');
-    }
-
-       else if($user->hasRole('Nurse')){
-        return redirect('Nurse');
-    }
-    
-
-    
-    
-
-    else {
-        
-        return redirect();
-    }
-} else {
-   
-    return back()->withErrors(['email' => 'Invalid credentials']);
+    // Handle failed authentication
+    return back()->withErrors(['email' => 'Invalid email, password, or inactive status.']);
 }
 
-    }
 
 
     public function logout(){

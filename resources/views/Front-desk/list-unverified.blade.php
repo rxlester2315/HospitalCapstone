@@ -22,6 +22,20 @@
 
         <link rel="stylesheet" href="fdesk/assets/css/style.css" />
 
+        <style>
+        .hover-effect {
+            transition: transform 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .hover-effect:hover {
+            transform: scale(1.05);
+            /* Zoom in effect */
+            z-index: 1;
+            /* Ensure it appears above other rows */
+        }
+        </style>
+
         <!--[if lt IE 9]>
             <script src="assets/js/html5shiv.min.js"></script>
             <script src="assets/js/respond.min.js"></script>
@@ -401,43 +415,32 @@
                                             <th>Address</th>
                                             <th>Email</th>
                                             <th>Status</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($unverified as $verified)
-
-                                        <tr>
+                                        <tr class="hover-effect">
+                                            <!-- Add hover-effect class here -->
                                             <td>{{$verified->user_id}}</td>
-
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar"><img alt=""
-                                                            src="assets/img/profiles/avatar-09.jpg" /></a>
-                                                    <a href="#">{{$verified->firstName}}
-                                                        <span>New Account</span></a>
+                                                    <a href="profile.html" class="avatar">
+                                                        <img alt="" src="assets/img/profiles/avatar-09.jpg" />
+                                                    </a>
+                                                    <a href="#">{{$verified->firstName}} <span>New Account</span></a>
                                                 </h2>
                                             </td>
                                             <td>{{$verified->lastName}}</td>
                                             <td>{{$verified->birthdate}}</td>
                                             <td>{{$verified->address}}</td>
-
                                             <td>{{$verified->email}}</td>
-
                                             <td>
-                                                <!-- Update this link to point to the route with user ID -->
                                                 <a href="{{ route('verify.user', $verified->id) }}">
                                                     <h3 class="btn btn-success">Verify</h3>
                                                 </a>
                                             </td>
-
-
                                         </tr>
                                         @endforeach
-
-
-
-
                                     </tbody>
                                 </table>
                             </div>

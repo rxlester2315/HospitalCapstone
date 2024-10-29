@@ -193,12 +193,12 @@ public function registerGuest(Request $request){
      $data = PatientInfo::where('user_id', $userId)->first();
 
       if (!$data) {
-        // If no profile exists, create a new one
+       
         $data = new PatientInfo();
-        $data->user_id = $userId;  // Ensure that the user_id is set
+        $data->user_id = $userId;  
     }
 
-    // Set/update the data
+   
     $data->firstName = $request->firstName;
     $data->lastName = $request->lastName;
     $data->birthdate = $request->birthdate;
@@ -346,7 +346,6 @@ public function changepass_storeGuest(Request $request){
         ->first();
 
     if ($existingAppointment) {
-        // Redirect back with an error message if an appointment already exists for the date
         return redirect()->back()->with('error', 'You already have an appointment on this date.');
     }
 

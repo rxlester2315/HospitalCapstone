@@ -28,6 +28,23 @@
 
 
         <style>
+        .short-search {
+            width: 300px;
+            /* Adjust the width as needed */
+        }
+
+        .hover-effect {
+            transition: transform 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .hover-effect:hover {
+            transform: scale(1.05);
+            /* Zoom in effect */
+            z-index: 1;
+            /* Ensure it appears above other rows */
+        }
+
         <style>.search-bar-container {
             display: flex;
             justify-content: center;
@@ -422,19 +439,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Search form -->
-                            <style>
-                            .short-search {
-                                width: 300px;
-                                /* Adjust the width as needed */
-                            }
-                            </style>
-
                             <div class="mb-3">
-
                                 <input type="text" id="searchInput" class="form-control short-search"
                                     placeholder="Search by name" />
-
-
                             </div>
 
                             <div class="table-responsive">
@@ -451,11 +458,13 @@
                                     </thead>
                                     <tbody>
                                         @foreach($listpatient as $patient)
-                                        <tr>
+                                        <tr class="hover-effect">
+                                            <!-- Add hover-effect class here -->
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar"><img alt=""
-                                                            src="assets/img/profiles/avatar-09.jpg" /></a>
+                                                    <a href="profile.html" class="avatar">
+                                                        <img alt="" src="assets/img/profiles/avatar-09.jpg" />
+                                                    </a>
                                                     <a href="#">{{$patient->name}}
                                                         <span>{{$patient->role_name}}</span></a>
                                                 </h2>

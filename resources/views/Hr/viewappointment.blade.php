@@ -38,6 +38,24 @@
 
 
         <style>
+        .table-striped tbody tr.hover-effect {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .table-striped tbody tr.hover-effect:hover {
+            background-color: #f0f0f0 !important;
+            /* Use !important to ensure it takes precedence */
+            transform: scale(1.05);
+            /* Zoom in effect */
+        }
+
+
+
+
+
+
+
+
         .unread_notification {
             position: absolute;
             top: 0;
@@ -315,18 +333,11 @@
             <div class="page-wrapper">
 
                 <div class="content container-fluid">
-
-
                     <div class="col">
                         <h3 class="page-title">
-                            <center style="color:white; font-size:40px;">
-                                Appointment Requests
-
-                            </center>
+                            <center style="color:white; font-size:40px;">Appointment Requests</center>
                         </h3>
-
                     </div>
-
 
                     <div class="row">
                         <div class="col-md-12">
@@ -334,7 +345,6 @@
                                 <table class="table table-striped custom-table mb-0 datatable">
                                     <thead>
                                         <tr>
-
                                             <th>Name of Patient</th>
                                             <th>Specialty</th>
                                             <th>Doctor Selected</th>
@@ -346,37 +356,28 @@
                                             <th>Approve</th>
                                             <th>Archived</th>
                                             <th>Contact</th>
-
-
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($data as $appoint)
-
-                                        <tr>
-
+                                        <tr class="hover-effect">
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar"> <img alt="Photo error"
-                                                            src="hrs/assets/img/user.jpg" class="rounded-circle"
-                                                            style="width: 40px; height: 40px;"></a>
+                                                    <a href="profile.html" class="avatar">
+                                                        <img alt="Photo error" src="hrs/assets/img/user.jpg"
+                                                            class="rounded-circle" style="width: 40px; height: 40px;">
+                                                    </a>
                                                     <a href="profile.html">{{$appoint->name}}</a>
                                                 </h2>
                                             </td>
-
                                             <td>{{$appoint->departments}}</td>
                                             <td>{{$appoint->employees}}</td>
                                             <td>{{$appoint->email}}</td>
-
                                             <td>{{$appoint->date}}</td>
                                             <td>{{$appoint->time}}</td>
                                             <td>
                                                 <a href="{{ url('message_patients/' . $appoint->id) }}"
-                                                    class="btn btn-info" target="_blank">
-                                                    View Message
-                                                </a>
-
-
+                                                    class="btn btn-info" target="_blank">View Message</a>
                                             </td>
                                             <td><a href="" class="badge badge-warning">{{$appoint->status}}</a></td>
                                             <td>
@@ -385,8 +386,6 @@
                                                     href="{{url('approved', $appoint->id)}}"
                                                     onclick="confirmation(event)">Approve</a>
                                             </td>
-
-
                                             <td>
                                                 <form action="{{ route('appointment.canceled', $appoint->id) }}"
                                                     method="POST" style="display:inline;">
@@ -396,30 +395,20 @@
                                                         onclick="confirmArchive(event, this)">Archived</button>
                                                 </form>
                                             </td>
-
                                             <td>
                                                 <a class="btn btn-info btn-sm"
                                                     href="{{url('/send_mail',$appoint->id)}}">Send Email</a>
                                             </td>
-
-
-
-
-
-
                                         </tr>
-
                                         @endforeach
-
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
+
+
 
             </div>
 

@@ -22,6 +22,20 @@
 
         <link rel="stylesheet" href="fdesk/assets/css/style.css" />
 
+        <style>
+        .hover-effect {
+            transition: transform 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .hover-effect:hover {
+            transform: scale(1.05);
+            /* Zoom in effect */
+            z-index: 1;
+            /* Ensure it appears above other rows */
+        }
+        </style>
+
         <!--[if lt IE 9]>
             <script src="assets/js/html5shiv.min.js"></script>
             <script src="assets/js/respond.min.js"></script>
@@ -399,46 +413,31 @@
                                             <th>Email Type</th>
                                             <th>Phone</th>
                                             <th>Status</th>
-
-
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($patientrecord as $record)
-
-                                        <tr>
+                                        <tr class="hover-effect">
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar"><img alt=""
-                                                            src="assets/img/profiles/avatar-09.jpg" /></a>
+                                                    <a href="profile.html" class="avatar">
+                                                        <img alt="" src="assets/img/profiles/avatar-09.jpg" />
+                                                    </a>
                                                     <a href="#">{{$record->name}}
                                                         <span>{{$record->role_name}}</span></a>
                                                 </h2>
                                             </td>
                                             <td>{{$record->email}}</td>
-
                                             <td>{{$record->phone_number}}</td>
-                                            <td><span class=" badge badge-success">{{$record->status}}</span></td>
-
-
-
+                                            <td><span class="badge badge-success">{{$record->status}}</span></td>
                                         </tr>
-
-
                                         @endforeach
-
-
-
-
-
-
-
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+
 
 
 

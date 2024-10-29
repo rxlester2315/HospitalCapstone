@@ -13,13 +13,13 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>User Activity Logs</h3>
-                    <p class="text-subtitle text-muted">For user log list</p>
+                    <p class="text-subtitle text-muted">Account Reset Password</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('sadview') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">User Activity Log</li>
+                            <li class="breadcrumb-item active" aria-current="page">Account Reset Password</li>
                         </ol>
                     </nav>
                 </div>

@@ -34,7 +34,10 @@
                         {{-- message --}}
                         {!! Toastr::message() !!}
                         <h1 class="auth-title">Login</h1>
-                        <p class="auth-subtitle mb-5">Log in with your Account that you entered during registration.</p>
+                        <p class="auth-subtitle mb-5">Welcome! Please Log In to Manage Your Healthcare Needs.
+
+
+                        </p>
                         @if(session()->has('error'))
                         <div class="text-danger text-center text-bold">
                             {{ session()->get('error') }}

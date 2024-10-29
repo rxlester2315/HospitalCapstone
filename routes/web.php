@@ -109,6 +109,10 @@ Route::post('/email_password/{id}', [AdminController::class, 'password_send'])->
 Route::get('/sendtosad/{id}', [AdminController::class, 'sendtosuper']);
 
 
+Route::get('/appointment_submitteds',[AdminController::class,'submitted_appoinment']);
+
+Route::get('/doctor_scheds',[AdminController::class,'scheddoc']);
+
 
 
 

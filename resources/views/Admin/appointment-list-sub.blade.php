@@ -24,6 +24,36 @@
         <link rel="stylesheet" href="adminz/assets/css/style.css">
 
 
+        <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            font-family: 'Arial', sans-serif;
+            color: #343a40;
+        }
+
+        .table {
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .table thead th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: red;
+        }
+
+        .badge {
+            font-size: 0.85rem;
+        }
+        </style>
+
+
 
         <script>
         if (window.history && window.history.pushState) {
@@ -249,24 +279,16 @@
 
 
 
-                            <li>
-                                <a href="{{url('tickets')}}"><i class="fa-regular fa-rectangle-list"></i> <span>Ticket
-                                        Management</span></a>
-                            </li>
-                            <li>
-                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
-                                        Management</span></a>
-                            </li>
+
+
+
+
+
 
 
                             <li>
-                                <a href="{{url('products-list')}}"><i class="fa-solid fa-screwdriver-wrench"></i>
-                                    <span>Inventory</span></a>
-                            </li>
-
-                            <li>
-                                <a href="{{url('appointment_submitteds')}}"><i class="fa-solid fa-users-line"></i>
-                                    <span>Appointment Schedule</span></a>
+                                <a href="{{url('Admin')}}"><i class="fa-solid fa-house"></i></i>
+                                    <span>Home</span></a>
                             </li>
 
 
@@ -286,91 +308,46 @@
 
                 <div class="content container-fluid">
 
-                    <div class="page-header">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <center>
-                                    <h1 style="font-size:40px;" class="page-title">Welcome Admin!</h1>
 
-                                </center>
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item active">Dashboard</li>
-                                </ul>
-                            </div>
+
+                    <div class="container mt-5">
+                        <h1 class="text-center mb-4" style="color:white;">Approve Appointments</h1>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Patient Name</th>
+                                        <th scope="col">Appointment Date</th>
+                                        <th scope="col">Doctor</th>
+                                        <th scope="col">Specialty</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach($approveappoint as $approve)
+                                    <tr>
+                                        <td>{{$approve->id}}</td>
+                                        <td>{{$approve->name}}</td>
+                                        <td>{{$approve->date}}</td>
+                                        <td>{{$approve->employees}}</td>
+                                        <td>{{$approve->departments}}</td>
+                                        <td>
+                                            <span class="badge badge-info">Approve by HR</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-success">Approved</span>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
                         </div>
+
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$totalproduct}}</h3>
-                                        <span>Total Medical Supply</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$totaluser}}</h3>
-                                        <span>Total Active User</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$totalticket}}</h3>
-                                        <span>Total Ticket</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                            <div class="card dash-widget">
-                                <div class="card-body">
-                                    <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
-                                    <div class="dash-widget-info">
-                                        <h3>{{$alldoctor}}</h3>
-                                        <span>Total Doctor</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Total Revenue</h3>
-                                            <div id="bar-charts"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">Sales Overview</h3>
-                                            <div id="line-charts"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
 
 
 
