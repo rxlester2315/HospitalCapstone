@@ -371,6 +371,7 @@
                                             <th>Ticket Subject</th>
                                             <th>Employee Name</th>
                                             <th>Created Date</th>
+                                            <th>Role Name</th>
                                             <th>Priority</th>
                                             <th class="text-center">Status</th>
                                         </tr>
@@ -390,6 +391,7 @@
                                                     class="badge badge-pill badge-info">{{$tix->name}}</span>
                                             </td>
                                             <td>{{$tix->created_at}}</td>
+                                            <td>{{$tix->rolename}}</td>
                                             <td>
                                                 <span class="badge badge-pill badge-danger">{{$tix->priority}}</span>
                                             </td>
@@ -431,6 +433,10 @@
                                                         @csrf
                                                         @method('POST')
                                                     </form>
+
+                                                    <a href="{{ url('sendtosad/' . $tix->id) }}"
+                                                        class="btn btn-info">Send Super Admin</a>
+
 
                                                 </center>
                                             </td>

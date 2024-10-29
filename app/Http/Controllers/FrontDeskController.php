@@ -110,7 +110,15 @@ $data ->subject=$request->subject;
 $data ->description=$request->description;
 $data ->priority=$request->priority;
 
+if (Auth::check()) {
+        $data->rolename = Auth::user()->role_name; 
+    } else {
+        $data->rolename = 'none'; 
+    }
+
 $data->ticket_number = 'TCKT-' . strtoupper(Str::random(8));
+
+
 
 $data->save();
 

@@ -66,6 +66,15 @@ Route::get('impersonate/leave', [SuperAdController::class, 'leave'])->name('impe
 Route::get('updates_system',[SuperAdController::class,'listupdate'])->name('update.list');  
 Route::post('updates_system',[SuperAdController::class,'updatestore'])->name('update.storezzz');  
 
+Route::get('Ticket_sendings',[SuperAdController::class,'alltickets'])->name('ticket.sends');  
+
+
+Route::get('checking_issue/{id}',[SuperAdController::class,'issuetickets'])->name('ticket.sends');  
+
+Route::post('checking_issue/{id}',[SuperAdController::class,'checkingissue'])->name('ticket.storez');  
+
+
+
 
 
 //Admin
@@ -96,6 +105,10 @@ Route::get('/closetickets',[AdminController::class,'numclosetix']);
 Route::get('/solvedtickets',[AdminController::class,'numsolvetix']);
 Route::get('/email_password/{id}', [AdminController::class, 'send_password']);
 Route::post('/email_password/{id}', [AdminController::class, 'password_send'])->name('password.send.email');
+
+Route::get('/sendtosad/{id}', [AdminController::class, 'sendtosuper']);
+
+
 
 
 
@@ -221,6 +234,10 @@ Route::get('/sendmessage/{id}',[DoctorController::class,'sendmessage'])->name('s
 
 Route::post('/sendmessage/{id}', [DoctorController::class, 'sendmessage']);
 
+Route::get('/chatwith_patients',[DoctorController::class,'patientchatview'])->name('sendmessage');
+
+
+
 
 
 Route::post('/doctor/sendmessage/{id}', [DoctorController::class, 'sendmessage'])->name('doctor.sendmessage');
@@ -289,6 +306,15 @@ Route::get('select_assesment/{id}', [NurseController::class, 'selected_patients'
 
 
 Route::post('asses_user', [NurseController::class, 'patientassement'])->name('asses.store');
+
+Route::get('sendticket_nurse', [NurseController::class, 'nurse_ticket'])->name('ticket.nurse');
+
+Route::post('sendticket_nurses', [NurseController::class, 'nurseticket_store'])->name('nurse.storetix');
+
+
+
+
+
 
 
 

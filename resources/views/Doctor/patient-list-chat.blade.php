@@ -4,8 +4,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Comcare Clinic</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Comcare Medical</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="shortcut icon" type="image/png" href="main_alls/everythingzz/assets/images/icon/favicon.ico">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/font-awesome.min.css">
@@ -13,64 +14,62 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/metisMenu.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
-        <!-- amchart css -->
+        <!-- amcharts css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
             media="all" />
-
-        <!-- others css -->
+        <!-- Start datatable css -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css"
+            href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css"
+            href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css"
+            href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
+        <!-- style css -->
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/typography.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/default-css.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/styles.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/responsive.css">
         <!-- modernizr css -->
         <script src="main_alls/everythingzz/assets/js/vendor/modernizr-2.8.3.min.js"></script>
-        <!-- Custom Styles -->
+
         <style>
-        .table-container {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 100%;
-        }
-
-        .header-text {
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-            color: #black;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
         th {
-            background: #0ed7b6;
+            background-color: #0ed7b6;
         }
 
-        h2 {
-            color: black;
+        .table-responsive {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            /* Smooth scrolling for iOS */
         }
 
-        .table {
+        .dataTables_wrapper {
+            width: 100%;
             margin: 0 auto;
+            /* Center the DataTable */
         }
 
-        .table thead {
-            background-color: #007bff;
-            color: white;
+        table.dataTable {
+            width: 100% !important;
+            /* Force table to take full width */
         }
 
-        .table tbody tr:hover {
-            background-color: #f1f1f1;
+        table.dataTable thead th,
+        table.dataTable thead td {
+            white-space: nowrap;
+            /* Prevent text from wrapping */
         }
 
-        .badge-warning {
-            font-weight: bold;
-            color: #ffc107;
-            background-color: #fff3cd;
-            border: 1px solid #ffc107;
+        /* Optional: If the table is still too wide, consider reducing padding/margins */
+        .table th,
+        .table td {
+            padding: 0.5rem;
+            /* Adjust as needed */
         }
         </style>
-
     </head>
 
     <body>
@@ -88,8 +87,8 @@
             <div class="sidebar-menu">
                 <div class="sidebar-header">
                     <div class="logo">
-                        <a href="{{url('Doc')}}"><img src="main_alls/everythingzz/assets/images/icon/logo2.png"
-                                alt="logo"></a>
+                        <a href="{{url('Doc')}}"><img
+                                src="{{asset('main_alls/everythingzz/assets/images/icon/logo2.png')}}" alt="logo"></a>
                     </div>
                 </div>
                 <div class="main-menu">
@@ -104,7 +103,7 @@
                                             class="fa fa-users"></i><span>Patient Appointments</span></a>
                                     <ul class="collapse">
                                         <li><a href="{{url('/listappoint')}}">List of Appointment</a></li>
-                                        <li><a href="{{route('view.date')}}">Todays Appointment</a></li>
+                                        <li><a href="{{route('view.date')}}">Today Appointment</a></li>
                                         <li><a href="{{url('listrecord')}}">Appointment Completed</a></li>
                                     </ul>
                                 </li>
@@ -148,8 +147,6 @@
                                 </li>
                                 <li class="dropdown">
                                     <div class="dropdown-menu notify-box nt-enveloper-box">
-                                        <span class="notify-title">Check Message<a href="chat">view
-                                                all</a></span>
 
                                     </div>
                                 </li>
@@ -164,20 +161,19 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="breadcrumbs-area clearfix">
-                                <h4 class="page-title pull-left">Today's Appointment</h4>
+                                <h4 class="page-title pull-left">Patients</h4>
                                 <ul class="breadcrumbs pull-left">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><span>Appointment Today</span></li>
+                                    <li><a href="index.html">Information</a></li>
+                                    <li><span>List</span></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-6 clearfix">
                             <div class="user-profile pull-right">
-
                                 <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Doctor|
                                     {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Message</a>
+                                    <a class="dropdown-item" href="{{url('chat')}}">Message</a>
                                     <a class="dropdown-item" href="#">Settings</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">Log Out</a>
                                 </div>
@@ -190,51 +186,53 @@
 
 
 
-                    <div class="col-md-6 mx-auto">
-                        <!-- Table -->
-                        <form action="{{ route('zzzzz') }}" method="GET" class="text-center">
-                            @csrf
-                            <input type="date" name="filter_date" required>
-                            <button type="submit" class="btn btn-primary">Select Date</button>
-                        </form>
 
-                        <div class="container table-container mt-4">
-                            <h2 class="header-text">Patients Appointment List</h2>
-                            <div class="table-responsive">
-                                <table class="table table-striped text-center">
-                                    <thead>
-                                        <tr>
-                                            <th>Patient Name</th>
-                                            <th>Contact No.</th>
-                                            <th>Appointment Date</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @if($appointment && $appointment->isNotEmpty())
-                                        @foreach($appointment as $appoint)
-                                        <tr>
-                                            <td>{{ $appoint->name }}</td>
-                                            <td>{{ $appoint->phone }}</td>
-                                            <td>{{ $appoint->date }}</td>
-                                            <td>
-                                                @if($appoint->arrive_status == 'Arrived')
-                                                <span class="badge badge-success">{{$appoint->arrive_status}}</span>
-                                                @elseif($appoint->arrive_status == 'Not Arrived')
-                                                <span class="badge badge-danger">{{$appoint->arrive_status}}</span>
-                                                @endif
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                        @else
-                                        <tr>
-                                            <td colspan="4" class="text-center">
-                                                Please select a date to see today's available schedule
-                                            </td>
-                                        </tr>
-                                        @endif
-                                    </tbody>
-                                </table>
+
+
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Patient Inquiry Chat System</h4>
+                                <div class="data-tables datatable-primary">
+                                    <table id="dataTable2" class="text-center">
+                                        <thead class="text-capitalize">
+                                            <tr>
+                                                <th>Name of Patient</th>
+                                                <th>Phone Number</th>
+                                                <th>Email Address</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($completed as $suc)
+                                            <tr>
+                                                <td>{{$suc->name}}</td>
+                                                <td>{{$suc->phone}}</td>
+                                                <td>{{$suc->email}}</td>
+                                                <td>{{$suc->date}}</td>
+                                                <td>
+                                                    @if($suc->completed == 'Completed')
+                                                    <span class="status-p bg-success">{{$suc->completed}}</span>
+                                                    @elseif($suc->completed == 'Observation')
+                                                    <span class="status-p bg-warning">{{$suc->completed}}</span>
+                                                    @endif
+                                                </td>
+
+                                                <td>
+                                                    <a href="{{ url('sendmessage/'.$suc->id) }}"
+                                                        class="btn btn-info">Send Message</a>
+                                                    <a href="{{ route('remove.patientss', $suc->id) }}"
+                                                        class="btn btn-danger">Remove</a>
+
+
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -246,8 +244,8 @@
 
 
 
-
-
+                    <!-- visitor graph area end -->
+                    <!-- order list area start -->
 
                 </div>
             </div>
@@ -258,7 +256,14 @@
         </div>
         <!-- page container area end -->
         <!-- offset area start -->
+        <div class="offset-area">
+            <div class="offset-close"><i class="ti-close"></i></div>
+            <ul class="nav offset-menu-tab">
+                <li><a class="active" data-toggle="tab" href="#activity">Activity</a></li>
+                <li><a data-toggle="tab" href="#settings">Settings</a></li>
+            </ul>
 
+        </div>
         <!-- offset area end -->
         <!-- jquery latest version -->
         <script src="main_alls/everythingzz/assets/js/vendor/jquery-2.2.4.min.js"></script>
@@ -270,26 +275,15 @@
         <script src="main_alls/everythingzz/assets/js/jquery.slimscroll.min.js"></script>
         <script src="main_alls/everythingzz/assets/js/jquery.slicknav.min.js"></script>
 
-        <!-- start chart js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-        <!-- start highcharts js -->
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <!-- start zingchart js -->
-        <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-        <script>
-        zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-        ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-        </script>
-        <!-- all line chart activation -->
-        <script src="main_alls/everythingzz/assets/js/line-chart.js"></script>
-        <!-- all bar chart activation -->
-        <script src="main_alls/everythingzz/assets/js/bar-chart.js"></script>
-        <!-- all pie chart -->
-        <script src="main_alls/everythingzz/assets/js/pie-chart.js"></script>
+        <!-- Start datatable js -->
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
         <!-- others plugins -->
         <script src="main_alls/everythingzz/assets/js/plugins.js"></script>
         <script src="main_alls/everythingzz/assets/js/scripts.js"></script>
-
     </body>
 
 </html>

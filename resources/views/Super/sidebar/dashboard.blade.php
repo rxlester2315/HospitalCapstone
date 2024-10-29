@@ -84,6 +84,10 @@
                         </li>
 
                         <li class="submenu-item">
+                            <a href="{{ url('Ticket_sendings') }}">Tickets</a>
+                        </li>
+
+                        <li class="submenu-item">
                             <a href="{{ url('updates_system') }}">Updates System</a>
                         </li>
                     </ul>

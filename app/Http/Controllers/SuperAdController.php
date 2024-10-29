@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use Brian2694\Toastr\Facades\Toastr;
 use DB;
+use App\Models\ticket;
 
 use App\Models\User;
 use App\Models\Maintenance_system;
@@ -17,36 +18,39 @@ use App\Rules\MatchOldPassword;
 use Carbon\Carbon;
 use Session;
 use Auth;
+use App\Notifications\TicketResponse;
+use App\Notifications\EmailNotification;
+
+use Notification;
 class SuperAdController extends Controller
 {
   
 
 public function index_admin()
 {
-    $user = Auth::user(); // Get the authenticated (impersonated) user
+    $user = Auth::user(); 
 
-    // Check the role of the user and return the appropriate view
     if ($user->role_name === 'Admin') {
-        return view('Admin.home');  // Return the admin view
+        return view('Admin.home');  
     } elseif ($user->role_name === 'Human Resources') {
-        return view('Hr.dashboard');  // Return the user view
+        return view('Hr.dashboard');  
     
     } elseif ($user->role_name === 'Front Desk') {
-        return view('Front-desk.home');  // Return the user view
+        return view('Front-desk.home'); 
 
     }
 
     elseif ($user->role_name === 'Doctor') {
-        return view('Doctor.home');  // Return the user view
+        return view('Doctor.home');
 
     }
 
     elseif ($user->role_name === 'Nurse') {
-        return view('Nurse.home');  // Return the user view
+        return view('Nurse.home'); 
 
     }
     elseif ($user->role_name === 'Normal User') {
-        return view('Normal.home');  // Return the user view
+        return view('Normal.home');  
 
 
     }
@@ -427,6 +431,47 @@ public function updatestore(Request $request)
     return redirect()->route('update.list')->with('success', 'Update saved successfully!');
 }
 
+
+public function alltickets() {
+    $ticketfrmadmin = ticket::where('frmadmin', '!=', 'fixed')->where('status', 'open')->get();
+
+    return view('Super.ticket-super', compact('ticketfrmadmin'));
+}
+
+
+
+
+
+
+public function issuetickets($id){
+
+    $ticketselect = ticket::find($id);
+
+      if (!$ticketselect) {
+        return redirect()->back()->with('error', 'Ticket not found.');
+    }
+    
+
+    return view('Super.view-ticket',compact('ticketselect'));
+}
+
+
+public function checkingissue(Request $request, $id){
+
+    $dataz = ticket::find($id);
+
+    if (!$dataz) {
+        return redirect()->back()->with('error', 'Ticket not found.');
+    }
+
+    $dataz->status = $request->status;
+    $dataz->reply = $request->reply;
+    $dataz->save();
+
+Notification::route('mail', $dataz->email)->notify(new TicketResponse($dataz));
+
+    return redirect()->back()->with('message','Message Ticket Sent Successfully');
+}
 
    
 }

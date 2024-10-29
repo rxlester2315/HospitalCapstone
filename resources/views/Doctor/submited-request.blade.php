@@ -162,7 +162,8 @@
 
 
 
-                                <li><a href="{{url('listrecord')}}"><i class="fa fa-commenting-o"></i> <span>Chat with
+                                <li><a href="{{url('chatwith_patients')}}"><i class="fa fa-commenting-o"></i> <span>Chat
+                                            with
                                             Patients</span></a></li>
                                 <li><a href="{{url('doc_sched')}}"><i class="ti-receipt"></i> Submit
                                         Schedule</a></li>

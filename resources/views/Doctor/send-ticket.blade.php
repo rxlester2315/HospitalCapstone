@@ -114,7 +114,8 @@
 
 
 
-                                <li><a href="{{url('listrecord')}}"><i class="fa fa-commenting-o"></i> <span>Chat with
+                                <li><a href="{{url('chatwith_patients')}}"><i class="fa fa-commenting-o"></i> <span>Chat
+                                            with
                                             Patients</span></a></li>
 
 
@@ -152,7 +153,7 @@
 
                                     </div>
                                 </li>
-                               
+
                             </ul>
                         </div>
                     </div>

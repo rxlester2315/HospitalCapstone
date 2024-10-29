@@ -18,27 +18,19 @@
         <link rel="stylesheet" href="nursess/assets/vendors/bootstrap-icons/bootstrap-icons.css">
         <link rel="stylesheet" href="nursess/assets/css/app.css">
         <link rel="shortcut icon" href="nursess/assets/images/favicon.svg" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <style>
         .card-content {
             background: white;
-            color: black;
-
         }
 
         .card {
             background: white;
             padding: 20px;
-
-        }
-
-        .cardss {
-            background: #0ed7b6;
-            padding: 20px;
-            width: 300px;
-            height: 200px;
-            border-radius: 12px;
-
+            color: black;
         }
 
         .card-img-top {
@@ -131,6 +123,11 @@
                             </li>
 
                             <li class="sidebar-item">
+                                <a href="{{url('sendticket_nurse')}}" class='sidebar-link'><i
+                                        class="fa-regular fa-rectangle-list"></i><span>Send Ticket</span></a>
+                            </li>
+
+                            <li class="sidebar-item">
                                 <a href="{{ route('logout') }}" class='sidebar-link'>
                                     <i class="bi bi-box-arrow-right"></i>
                                     <span>Log Out</span>
@@ -169,7 +166,7 @@
                         <div class="col-12 col-lg-9">
                             <div class="row">
                                 <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="cardss">
+                                    <div class="card">
                                         <div class="card-body px-3 py-4-5">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -186,7 +183,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="cardss">
+                                    <div class="card">
                                         <div class="card-body px-3 py-4-5">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -203,7 +200,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="cardss">
+                                    <div class="card">
                                         <div class="card-body px-3 py-4-5">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -220,7 +217,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 col-lg-3 col-md-6">
-                                    <div class="cardss">
+                                    <div class="card">
                                         <div class="card-body px-3 py-4-5">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -240,7 +237,7 @@
 
                         </div>
                         <div class="col-12 col-lg-3">
-                            <div class="cardss">
+                            <div class="card">
                                 <div class="card-body py-4 px-5">
                                     <div class="d-flex align-items-center">
                                         <div class="avatar avatar-xl">

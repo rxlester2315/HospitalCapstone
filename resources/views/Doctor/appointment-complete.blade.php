@@ -111,7 +111,8 @@
 
 
 
-                                <li><a href="{{url('listrecord')}}"><i class="fa fa-commenting-o"></i> <span>Chat with
+                                <li><a href="{{url('chatwith_patients')}}"><i class="fa fa-commenting-o"></i> <span>Chat
+                                            with
                                             Patients</span></a></li>
                                 <li><a href="{{url('send_ticket')}}"><i class="ti-receipt"></i> <span>Send Ticket
                                             Request</span></a>
@@ -191,7 +192,7 @@
                     <div class="col-12 mt-5">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">List of patient</h4>
+                                <h4 class="header-title">Patients with Marked Completed Appointments</h4>
                                 <div class="data-tables datatable-primary">
                                     <table id="dataTable2" class="text-center">
                                         <thead class="text-capitalize">
@@ -201,7 +202,7 @@
                                                 <th>Email Address</th>
                                                 <th>Date</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                <th>Archived</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -214,14 +215,13 @@
                                                 <td>
                                                     @if($suc->completed == 'Completed')
                                                     <span class="status-p bg-success">{{$suc->completed}}</span>
-                                                    @elseif($suc->completed == 'Observation')
-                                                    <span class="status-p bg-warning">{{$suc->completed}}</span>
+                                                    @elseif($suc->completed == 'Discharged')
+                                                    <span class="status-p bg-info">{{$suc->completed}}</span>
                                                     @endif
                                                 </td>
 
                                                 <td>
-                                                    <a href="{{ url('sendmessage/'.$suc->id) }}"
-                                                        class="btn btn-info">Send Message</a>
+
                                                     <a href="{{ route('remove.patientss', $suc->id) }}"
                                                         class="btn btn-danger">Remove</a>
 

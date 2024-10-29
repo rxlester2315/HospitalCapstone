@@ -96,6 +96,13 @@ $data ->description=$request->description;
 $data ->priority=$request->priority;
 $data ->status='open';
 
+
+if (Auth::check()) {
+        $data->rolename = Auth::user()->role_name; 
+    } else {
+        $data->rolename = 'none'; 
+    }
+
 $data->ticket_number = 'TCKT-' . strtoupper(Str::random(8));
 
 $data->save();
@@ -531,7 +538,7 @@ public function recordview() {
 
 
   $completed = Appointments::where('status', 'Approved')
-                         ->whereIn('completed', ['Completed', 'Observation'])
+                         ->whereIn('completed', ['Completed','Discharged'])
                          ->where('employees', $authUserName)  
                          ->with('employee')
                          ->get();
@@ -628,6 +635,24 @@ public function schedule_sub() {
 
     return view('Doctor.submited-request', compact('pending', 'approve', 'rejected'));
 }
+
+
+
+public function patientchatview(){
+
+    $authUserName = Auth::user()->name;
+
+
+  $completed = Appointments::where('status', 'Approved')
+                         ->whereIn('completed', ['Completed','Observation'])
+                         ->where('employees', $authUserName)  
+                         ->with('employee')
+                         ->get();
+
+    return view('Doctor.patient-list-chat',compact('completed'));
+}
+
+
 
 
 

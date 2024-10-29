@@ -117,8 +117,8 @@
     height: 1rem;
 }
 .avatar img {
-    width: 100px;
-    height: 100px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
 }
 .avatar .avatar-status {

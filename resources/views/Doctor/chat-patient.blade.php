@@ -151,7 +151,7 @@
 
 
                                 <li>
-                                    <a href="{{url('listrecord')}}" aria-expanded="true"><i
+                                    <a href="{{url('chatwith_patients')}}" aria-expanded="true"><i
                                             class="ti-palette"></i><span>My
                                             Information</span></a>
 

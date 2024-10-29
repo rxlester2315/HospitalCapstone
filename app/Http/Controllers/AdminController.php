@@ -285,19 +285,25 @@ return redirect()->back()->with('message','Doctor Added Successfully');
 
 
 
-public function ticketing(){
-        $datas = ticket::where('status','open')->get();
+public function ticketing() {
+    // Fetch only tickets that are open and not marked as 'not fixed'
+    $datas = ticket::where('status', 'open')
+                   ->where(function($query) {
+                       $query->where('frmadmin', '!=', 'not fixed')
+                             ->orWhereNull('frmadmin');
+                   })
+                   ->get();
 
- $numopen= ticket::where('status','open')->count();
-  $numclose= ticket::where('status','Close')->count();
-    $numsolved= ticket::where('status','Solved')->count();
+    // Count all tickets regardless of the frmadmin value
+    $numopen = ticket::where('status', 'open')->count();
+    $numclose = ticket::where('status', 'Close')->count();
+    $numsolved = ticket::where('status', 'Solved')->count();
 
-     $activityLogss = DB::table('user_activity_logs')->count();
+    $activityLogss = DB::table('user_activity_logs')->count();
 
-    return view('Admin.list-ticket',compact('datas','numopen','numclose','numsolved','activityLogss'));
-
-
+    return view('Admin.list-ticket', compact('datas', 'numopen', 'numclose', 'numsolved', 'activityLogss'));
 }
+
 
 
 public function numclosetix(){
@@ -645,6 +651,21 @@ public function password_send(Request $request, $id) {
 
     return redirect()->back()->with('message', 'Email sent successfully.');
 }
+
+
+
+public function sendtosuper($id) {
+    $sendtix = ticket::find($id);
+
+    if ($sendtix) {
+        $sendtix->frmadmin = 'not fixed';
+        $sendtix->save();
+    } else {
+        // Handle the case where the ticket is not found, if necessary
+    }
+    return redirect()->back()->with('message','Ticket Has been send to Super Admin');
+}
+
 
 
 
