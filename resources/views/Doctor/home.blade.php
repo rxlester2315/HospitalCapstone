@@ -333,16 +333,19 @@
                                             <td>01976 74 92 00</td>
                                             <td>September 08,2024</td>
                                             <td><span class="pending_dot">Pending</span></td>
-                                            <td><a href="" class="btn btn-warning">View</a></td>
+                                            <td><a href="{{url('chatwith_patients')}}" class="btn btn-warning">View</a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Client godinez</td>
-                                            <td><a href="" class="btn btn-success">View Message</a></td>
+                                            <td><a href="{{url('chatwith_patients')}}" class="btn btn-success">View
+                                                    Message</a></td>
                                             <td>01976 74 92 00</td>
                                             <td>September 08,2024</td>
                                             <td><span class="pending_dot">Pending</span></td>
 
-                                            <td><a href="" class="btn btn-warning">View</a></td>
+                                            <td><a href="{{url('chatwith_patients')}}" class="btn btn-warning">View</a>
+                                            </td>
                                         </tr>
 
                                         <tr>
@@ -352,7 +355,8 @@
                                             <td>September 08,2024</td>
                                             <td><span class="pending_dot">Pending</span></td>
 
-                                            <td><a href="" class="btn btn-warning">View</a></td>
+                                            <td><a href="{{url('chatwith_patients')}}" class="btn btn-warning">View</a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Isaac Canlas</td>
@@ -361,7 +365,8 @@
                                             <td>September 08,2024</td>
                                             <td><span class="pending_dot">Pending</span></td>
 
-                                            <td><a href="" class="btn btn-warning">View</a></td>
+                                            <td><a href="{{url('chatwith_patients')}}" class="btn btn-warning">View</a>
+                                            </td>
                                         </tr>
 
                                         <tr>
@@ -370,7 +375,8 @@
                                             <td>01976 74 92 00</td>
                                             <td>September 08,2024</td>
                                             <td><span class="pending_dot">Pending</span></td>
-                                            <td><a href="" class="btn btn-warning">View</a></td>
+                                            <td><a href="{{url('chatwith_patients')}}" class="btn btn-warning">View</a>
+                                            </td>
                                         </tr>
 
                                     </tbody>

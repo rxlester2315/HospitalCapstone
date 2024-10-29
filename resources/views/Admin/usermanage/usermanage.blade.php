@@ -52,7 +52,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>User Management </h3>
+                    <h3>User Managements </h3>
                 </div>
 
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
@@ -178,7 +178,7 @@
 
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <i class="fa fa-comment-o"></i> <span class="badge badge-pill">8</span>
+                            <i class="fa fa-comment-o"></i> <span class="badge badge-pill"></span>
                         </a>
                         <div class="dropdown-menu notifications">
                             <div class="topnav-dropdown-header">

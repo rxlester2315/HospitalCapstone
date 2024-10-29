@@ -170,7 +170,6 @@
                                     {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></h4>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{url('chat')}}">Message</a>
-                                    <a class="dropdown-item" href="#">Settings</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}">Log Out</a>
                                 </div>
                             </div>

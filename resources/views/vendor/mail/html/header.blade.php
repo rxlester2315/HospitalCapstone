@@ -1,15 +1,18 @@
 @props(['url'])
 <tr>
     <td class="header"
-        style="text-align: center; padding: 30px; background-color: #000000; border-bottom: 1px solid #e8e8e8;">
-        <a href="{{ $url }}" style="display: inline-block; text-decoration: none;">
+        style="text-align: center; padding: 20px; background: linear-gradient(135deg, #6a11cb, #2575fc); border-bottom: 1px solid #ddd;">
+        <a href="{{ $url }}" style="display: inline-block; text-decoration: none; max-width: 100%;">
             @if (trim($slot) === 'Laravel')
-            <!-- Logo with black background -->
-            <img src="{{ asset('imagezz/email_logo.jpg') }}" width="70" height="70" alt="Logo"
-                style="display: block; margin: 0 auto 10px;">
+            <!-- Centered Logo with modern styling and alignment -->
+            <img src="{{ asset('imagezz/email_logo.jpg') }}" width="80" height="80" alt="Logo"
+                style="display: block; margin: 0 auto 10px; border-radius: 10px; max-width: 100%;">
             @else
-            <!-- Custom text with white color on black background -->
-            <span style="font-size: 24px; font-weight: bold; color: #ffffff; display: block;">{{ $slot }}</span>
+            <!-- Custom text with enhanced readability and spacing -->
+            <span
+                style="font-size: 28px; font-weight: bold; color: #ffffff; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); display: block; line-height: 1.2;">
+                {{ $slot }}
+            </span>
             @endif
         </a>
     </td>
