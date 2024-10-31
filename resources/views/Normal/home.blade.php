@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/metisMenu.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         <!-- amchart css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
             media="all" />
@@ -652,6 +654,42 @@
         <script src="main_alls/everythingzz/assets/js/metisMenu.min.js"></script>
         <script src="main_alls/everythingzz/assets/js/jquery.slimscroll.min.js"></script>
         <script src="main_alls/everythingzz/assets/js/jquery.slicknav.min.js"></script>
+
+        @if (session('latestUpdate'))
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const latestUpdate = @json(session('latestUpdate'));
+            Swal.fire({
+                title: 'System Update Available!',
+                icon: 'warning',
+                html: `
+                
+            <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; border-radius: 5px; padding: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+                <div style="background: #007bff; color: white; padding: 10px; border-radius: 5px 5px 0 0;">
+                    <h4 style="margin: 0;">System Updates</h4>
+                </div>
+                <div style="padding: 10px;">
+                    <h5 style="color: #333; margin: 10px 0;">${latestUpdate.descriptions}</h5>
+                    <h6 style="color: #6c757d; margin: 5px 0;">Date: ${latestUpdate.maintenance_date}</h6>
+                    <h6 style="color: #333; margin: 5px 0;">Bugs: ${latestUpdate.bugs}</h6>
+                    <h6 style="color: #333; margin: 5px 0;">Effect: ${latestUpdate.effect}</h6>
+                    <a href="#">
+                        <button style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">More Info</button>
+                    </a>
+                </div>
+            </div>
+        `,
+                showCloseButton: true,
+                focusConfirm: false
+            });
+        });
+        </script>
+        @php
+        session()->forget('latestUpdate'); // Clear the latestUpdate from session
+        @endphp
+        @endif
+
+
 
         <!-- start chart js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>

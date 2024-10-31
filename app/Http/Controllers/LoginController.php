@@ -33,7 +33,8 @@ class LoginController extends Controller
     }
 
 
-    public function authenticate(Request $request)
+
+public function authenticate(Request $request)
 {
     $request->validate([
         'email' => 'required|string|email',
@@ -45,14 +46,27 @@ class LoginController extends Controller
     if (Auth::attempt(array_merge($credentials, ['status' => 'Active']))) {
         $user = Auth::user();
         $dt = Carbon::now('Asia/Manila');
-        
-        // Log activity with sanitized data
+
+        // Log activity
         DB::table('activity_logs')->insert([
             'name'        => $user->name,
             'email'       => $user->email,
             'description' => 'Login',
             'date_time'   => $dt,
         ]);
+
+        // Fetch the latest update
+        $latestUpdate = Maintenance_system::latest()->first();
+
+        // Check if the user has already seen this update
+        if ($latestUpdate && $user->last_seen_update_id !== $latestUpdate->id) {
+            // Store the update in session to display in the view
+            session(['latestUpdate' => $latestUpdate]);
+
+            // Update user's last seen update ID
+            $user->last_seen_update_id = $latestUpdate->id;
+            $user->save();
+        }
 
         // Success notification
         Toastr::success('Login successfully', 'Success');
@@ -69,12 +83,13 @@ class LoginController extends Controller
             'Guests' => 'Guests',
         ];
 
-        return redirect()->intended($redirectRoutes[$user->role_name] ?? 'home');
+        return redirect()->intended($redirectRoutes[$user->role_name] ?? 'home')->with('login_success', 'Welcome back!');
     }
 
     // Handle failed authentication
     return back()->withErrors(['email' => 'Invalid email, password, or inactive status.']);
 }
+
 
 
 

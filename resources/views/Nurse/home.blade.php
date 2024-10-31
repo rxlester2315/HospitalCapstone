@@ -13,6 +13,9 @@
             integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="nursess/assets/vendors/iconly/bold.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         <title>Comcare Nurse</title>
         <link rel="stylesheet" href="nursess/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
         <link rel="stylesheet" href="nursess/assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -360,6 +363,40 @@
 
             </div>
         </div>
+
+        @if (session('latestUpdate'))
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const latestUpdate = @json(session('latestUpdate'));
+            Swal.fire({
+                title: 'System Update Available!',
+                icon: 'warning',
+                html: `
+                
+            <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; border-radius: 5px; padding: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+                <div style="background: #007bff; color: white; padding: 10px; border-radius: 5px 5px 0 0;">
+                    <h4 style="margin: 0;">System Updates</h4>
+                </div>
+                <div style="padding: 10px;">
+                    <h5 style="color: #333; margin: 10px 0;">${latestUpdate.descriptions}</h5>
+                    <h6 style="color: #6c757d; margin: 5px 0;">Date: ${latestUpdate.maintenance_date}</h6>
+                    <h6 style="color: #333; margin: 5px 0;">Bugs: ${latestUpdate.bugs}</h6>
+                    <h6 style="color: #333; margin: 5px 0;">Effect: ${latestUpdate.effect}</h6>
+                    <a href="#">
+                        <button style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">More Info</button>
+                    </a>
+                </div>
+            </div>
+        `,
+                showCloseButton: true,
+                focusConfirm: false
+            });
+        });
+        </script>
+        @php
+        session()->forget('latestUpdate'); // Clear the latestUpdate from session
+        @endphp
+        @endif
         <script src="nursess/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
         <script src="nursess/assets/js/bootstrap.bundle.min.js"></script>
 
