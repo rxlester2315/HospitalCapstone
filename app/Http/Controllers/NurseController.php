@@ -25,7 +25,9 @@ class NurseController extends Controller
 
 public function list_pending(){
 
-$pending = Appointments::where('status','Pending')->get();
+$pending = Appointments::where('status','Pending')
+->orderBy('created_at','desc')
+->get();
 
 
 return view('Nurse.list-pending',compact('pending'));
@@ -36,7 +38,9 @@ return view('Nurse.list-pending',compact('pending'));
 
  public function displaylist()
     {
-        return view('Nurse.Todayappoint', ['appointment' => null]);
+            $appointment = Appointments::all();
+
+        return view('Nurse.Todayappoint', compact('appointment'));
     }
 
 
@@ -61,7 +65,9 @@ public function today_appoint(Request $request)
 
 public function list_approve(){
 
-    $listapprove =Appointments::where('status','Approved')->get();
+    $listapprove =Appointments::where('status','Approved')
+    ->orderBy('created_at','desc')
+    ->get();
 
 return view('Nurse.list-approve-appoint',compact('listapprove'));
 
@@ -143,7 +149,9 @@ public function recordPatientView(){
 
 public function patient_listss(){
 
-    $patient = User::where('role_name','Normal User')->get();
+    $patient = User::where('role_name','Normal User')
+    ->orderBy('created_at','desc')
+    ->get();
 
 
     return view('Nurse.patient-list',compact('patient'));
@@ -151,7 +159,9 @@ public function patient_listss(){
 
 public function appointments_list(){
 
-    $approveapp = Appointments::where('status','Approved')->get();
+    $approveapp = Appointments::where('status','Approved')
+    ->orderBy('created_at','desc')
+    ->get();
 
     return view('Nurse.patient-approve',compact('approveapp'));
 
@@ -213,7 +223,9 @@ public function filterAppointments(Request $request)
 public function assessment(){
 
      
-     $assesment = Appointments::where('arrive_status','Arrived')->get();
+     $assesment = Appointments::where('arrive_status','Arrived')
+     ->orderBy('created_at','desc')
+     ->get();
 
     return view('Nurse.patient-assessment',compact('assesment'));
 
@@ -277,9 +289,12 @@ public function patientassement(Request $request) {
 }
 
 
-public function nurse_ticket(){
-    return view('Nurse.send-ticket-nurse');
+public function nurse_ticket()
+{
+    $nurse = Auth::user(); 
+    return view('Nurse.send-ticket-nurse', compact('nurse'));
 }
+
 
 
 
@@ -293,7 +308,8 @@ public function nurse_ticket(){
     $data->subject = $request->subject;
     $data->description = $request->description;
     $data->priority = $request->priority;
-    $data->status = 'open';
+     $data->status = 'open';
+    $data->submitted_at = now(); 
 
     if (Auth::check()) {
         $data->rolename = Auth::user()->role_name; 

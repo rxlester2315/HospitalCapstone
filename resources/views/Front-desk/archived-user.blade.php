@@ -424,8 +424,9 @@
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar"><img alt=""
-                                                            src="assets/img/profiles/avatar-09.jpg" /></a>
+                                                    <a href="profile.html" class="avatar"> <img alt="Photo error"
+                                                            src="hrs/assets/img/user.jpg" class="rounded-circle"
+                                                            style="width: 40px; height: 40px;"> </a>
                                                     <a href="#">{{$list->name}}
                                                         <span>{{$list->role_name}}</span></a>
                                                 </h2>

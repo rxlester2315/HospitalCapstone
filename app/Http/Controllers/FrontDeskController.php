@@ -9,7 +9,7 @@ use App\Models\ticket;
 use Illuminate\Support\Str;
 use App\Models\Messagess;
 use App\Models\PatientInfo;
-
+use Auth;
 use App\Models\ChatSession;
 use App\Events\MessageSent;
 
@@ -21,59 +21,67 @@ class FrontDeskController extends Controller
 {
     
 
+public function patientview() {
+    $listpatient = Appointments::orderBy('created_at', 'desc')->get();
 
-public function patientview(){
-
-    $listpatient = Appointments::all();
-
-    return view('Front-desk.list-appointment',compact('listpatient'));
+    return view('Front-desk.list-appointment', compact('listpatient'));
 }
+
 
 
 public function patient_record() {
 
-    $patientrecord = User::where('role_name', 'Normal User')->get();
+    $patientrecord = User::where('role_name', 'Normal User')
+    ->orderBy('created_at','desc')
+    ->get();
     return view('Front-desk.list-patient', compact('patientrecord'));
 }
 
 
 
-  public function displayData()
-    {
-        // You can pass an empty collection or null as appointments initially
-        return view('Front-desk.today-schedule', ['appointments' => null]);
-    }
+public function displayData()
+{
+    // Retrieve all appointments by default
+    $appointments = Appointments::all();
+
+    return view('Front-desk.today-schedule', compact('appointments'));
+}
 
 
 
-  public function sendDataDate(Request $request)
-    {
-        // Validate the incoming request data
-        $request->validate([
-            'filter_date' => 'required|date',
-        ]);
+ public function sendDataDate(Request $request)
+{
+    // Validate the incoming request data
+    $request->validate([
+        'filter_date' => 'nullable|date',
+    ]);
 
-        // Get the date from the request
-        $filterDate = $request->input('filter_date');
+    // Check if a date filter is provided
+    $filterDate = $request->input('filter_date');
 
-        // Query appointments based on the date
-        $appointments = Appointments::whereDate('date', $filterDate)->get();
+    // If filter date is provided, filter appointments; otherwise, get all appointments
+    $appointments = $filterDate 
+        ? Appointments::whereDate('date', $filterDate)->get(): Appointments::all();
 
-        // Return the view with the filtered appointments
-        return view('Front-desk.today-schedule', compact('appointments', 'filterDate'));
-    }
+    return view('Front-desk.today-schedule', compact('appointments', 'filterDate'));
+}
 
 
     public function unverified(){
 
-        $guestuser = User::where('role_name','Guests')->get();
+        $guestuser = User::where('role_name','Guests')
+        ->orderBy('created_at','desc')
+        ->get();
+        
 
         return view('Front-desk.unverified-patient',compact('guestuser'));
     }
 
        public function verified(){
 
-        $verifieduser = User::where('role_name','Normal User')->get();
+        $verifieduser = User::where('role_name','Normal User')
+        ->orderBy('created_at','desc')
+        ->get();
 
         return view('Front-desk.verified-user',compact('verifieduser'));
     }
@@ -94,7 +102,8 @@ public function patient_record() {
 
     public function viewticket(){
 
-        return view('Front-desk.send-ticket');
+         $frontdesk = Auth::user();
+        return view('Front-desk.send-ticket',compact('frontdesk'));
 
 
     }
@@ -109,6 +118,9 @@ $data ->email=$request->email;
 $data ->subject=$request->subject;
 $data ->description=$request->description;
 $data ->priority=$request->priority;
+ $data->status = 'open';
+$data->submitted_at = now();  
+
 
 if (Auth::check()) {
         $data->rolename = Auth::user()->role_name; 
@@ -197,7 +209,8 @@ public function req_unverified(){
 
    $unverified = PatientInfo::whereHas('user', function($query) {
         $query->where('role_name', '!=', 'Normal User'); // yung mga hinde user or mga guest andito
-    })->get();
+    })->orderBy('created_at','desc')
+    ->get();
 
      $unverifiedtotal = PatientInfo::whereHas('user', function($query) {
         $query->where('role_name', '!=', 'Normal User'); // yung mga hinde user or mga guest andito
@@ -246,26 +259,37 @@ return view('Front-desk.list-pending-appoint',compact('pending','pendingtotal'))
 }
 
 
-public function display_arrives(){
+public function display_arrives()
+{
+    // Retrieve all appointments by default
+    $appointment = Appointments::all();
 
-    return view('Front-desk.arriving-times',['appointment'=>null]);
-    
+    return view('Front-desk.arriving-times', compact('appointment'));
 }
 
-public function arrive_times_today(Request $request){
- $request->validate([
-        'filter_date' => 'required|date',
+public function arrive_times_today(Request $request)
+{
+    // Validate that 'filter_date' is either provided as a date or can be null
+    $request->validate([
+        'filter_date' => 'nullable|date',
     ]);
- $filterDate = $request->input('filter_date');
 
-    // Query appointments based on the date, approved status, and null time_arrive and ampm
-    $appointment = Appointments::whereDate('date', $filterDate)
-                                ->where('status', 'Approved')
-                                ->whereNull('time_arrive') // Only show those who haven't arrived yet
-                                ->whereNull('ampm')
-                                ->get();
-return view('Front-desk.arriving-times',compact('appointment'));
+    // Get the date from the request (can be null)
+    $filterDate = $request->input('filter_date');
 
+    // If a filter date is provided, apply the filters, otherwise get all approved appointments
+    $appointment = $filterDate 
+        ? Appointments::whereDate('date', $filterDate)
+            ->where('status', 'Approved')
+            ->whereNull('time_arrive')
+            ->whereNull('ampm')
+            ->get()
+        : Appointments::where('status', 'Approved')
+            ->whereNull('time_arrive')
+            ->whereNull('ampm')
+            ->get();
+
+    return view('Front-desk.arriving-times', compact('appointment', 'filterDate'));
 }
 
 
@@ -317,6 +341,7 @@ public function arriveappoint() {
             $query->where('arrive_status', '!=', 'Arrived')
                   ->orWhereNull('arrive_status');
         })
+        ->orderBy('created_at','desc')
         ->get();
 
           $allapprovetotal = Appointments::where('status', 'Approved')

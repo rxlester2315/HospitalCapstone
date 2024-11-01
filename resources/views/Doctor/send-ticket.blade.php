@@ -189,8 +189,8 @@
 
                                 <div class="form-group">
                                     <label for="patientName">Doctor Name</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Enter your name"
-                                        required>
+                                    <input type="text" class="form-control" name="name"
+                                        value="{{ old('name', $doctor->name) }}" required>
 
 
 
@@ -198,7 +198,7 @@
                                 <div class="form-group">
                                     <label for="patientID">Doctor Email</label>
                                     <input type="email" class="form-control" name="email" placeholder="Enter your email"
-                                        required>
+                                        value="{{ old('email', $doctor->email) }}" required>
 
                                 </div>
 
@@ -208,11 +208,11 @@
                                     <select style="width:250px; height:30px;" class="form-select" id="issueSelect"
                                         name="subject" placeholder="Ticket subject" required>
                                         <option value="" disabled selected>Select an issue</option>
-                                        <option value="ui_glitch">UI Glitch (Low Severity)</option>
-                                        <option value="email_failure">Email Notifications Failure (Moderate Severity)
+                                        <option value="ui_glitch">UI Glitch</option>
+                                        <option value="email_failure">Email Notifications Failure
                                         </option>
-                                        <option value="ticket_duplication">Ticket Duplication (High Severity)</option>
-                                        <option value="system_downtime">System Downtime (Critical Severity)</option>
+                                        <option value="ticket_duplication">Ticket Duplication </option>
+                                        <option value="system_downtime">System Downtime</option>
                                     </select>
                                 </div>
 
@@ -225,7 +225,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group" style="display: none;">
                                     <label for="priority" class="form-label">Priority</label>
                                     <div class="form-control-plaintext" id="priorityDisplay">
                                         <select style="width:250px; height:30px;" class="form-select"

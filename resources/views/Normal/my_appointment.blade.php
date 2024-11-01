@@ -7,6 +7,7 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+        <title>My Appointment</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/png" href="main_alls/everythingzz/assets/images/icon/favicon.ico">
@@ -199,8 +200,8 @@
                     <table class="table table-striped table-hover">
                         <thead class="table-primary">
                             <tr>
-                                <th>#</th>
                                 <th>Date</th>
+                                <th>Time</th>
                                 <th>Doctor Name</th>
                                 <th>Specialty</th>
                                 <th>Status</th>
@@ -208,12 +209,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($appoint as $appoints)
+                            @foreach($appointments as $appoints)
 
                             <tr>
-                                <td>{{$appoints->id}}</td>
-
                                 <td>{{$appoints->date}}</td>
+                                <td>{{$appoints->time}}</td>
                                 <td>{{$appoints->employees}}</td>
                                 <td>{{$appoints->departments}}</td>
                                 <td>{{$appoints->status}}</td>

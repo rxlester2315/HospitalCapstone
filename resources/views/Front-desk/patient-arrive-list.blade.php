@@ -406,12 +406,23 @@
 
                     <section class="section">
                         <div class="col-md-3">
+
                             <div class="stats-info">
                                 <h6>Verification Request</h6>
                                 <h4>{{$allapprovetotal}}</h4>
                             </div>
+
+                            <div class="mb-3">
+                                <label for="search">
+                                    <h3>Search Patient</h3>
+                                </label>
+                                <input type="text" id="searchInput" class="form-control short-search"
+                                    placeholder="Search by name" />
+                            </div>
+
                         </div>
                         <div class="row" id="table-striped">
+
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -423,7 +434,7 @@
                                         </div>
                                         <!-- table striped -->
                                         <div class="table-responsive">
-                                            <table class="table table-striped mb-0">
+                                            <table class="table table-striped mb-0 datatable">
                                                 <thead>
                                                     <tr>
                                                         <th>NAME</th>
@@ -474,7 +485,21 @@
         </script>
         @endif
 
+        <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            var searchValue = this.value.toLowerCase();
+            var rows = document.querySelectorAll('.datatable tbody tr');
 
+            rows.forEach(function(row) {
+                var name = row.querySelector('td').innerText.toLowerCase();
+                if (name.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+        </script>
 
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script src="fdesk/assets/js/jquery-3.5.1.min.js"></script>

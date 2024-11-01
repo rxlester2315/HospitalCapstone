@@ -59,7 +59,9 @@ return redirect()->back()->with('message','Doctor Added Successfully');
 
     public function viewappointment(){
 
-    $data = appointments::where('status', '!=', 'Approved')->get();
+    $data = appointments::where('status', '!=', 'Approved')
+    ->orderBy('created_at','desc')
+    ->get();
 
      return view('Hr.viewappointment',compact('data'));
    

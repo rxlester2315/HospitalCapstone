@@ -157,7 +157,7 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="breadcrumbs-area clearfix">
-                                <h4 class="page-title pull-left">Patient Appointments</h4>
+                                <h4 class="page-title pull-left">Patient Appointment</h4>
                                 <ul class="breadcrumbs pull-left">
                                     <li><a href="{{url('Doc')}}">Home</a></li>
                                     <li><span>Doctor Account</span></li>
@@ -189,6 +189,7 @@
                                     <th>Patient Name</th>
                                     <th>Contact No.</th>
                                     <th>Appointment Date</th>
+                                    <th>Time</th>
                                     <th>Status</th>
                                     <th>Status Patient</th>
                                     <th>Action</th>
@@ -199,6 +200,7 @@
                                 <tr>
                                     <td>{{$dats->name}}</td>
                                     <td>{{$dats->phone}}</td>
+                                    <td>{{$dats->time}}</td>
                                     <td>{{$dats->date}}</td>
                                     <td>{{$dats->status}}</td>
                                     <td>

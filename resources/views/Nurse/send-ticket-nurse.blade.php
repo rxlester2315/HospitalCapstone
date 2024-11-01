@@ -180,7 +180,8 @@
                                                     <label for="first-name-icon">Nurse Name</label>
                                                     <div class="position-relative">
                                                         <input type="text" name="name" class="form-control"
-                                                            placeholder="Name" id="first-name-icon">
+                                                            placeholder="Name" id="first-name-icon"
+                                                            value="{{ old('name', $nurse->name) }}" required>
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-person"></i>
                                                         </div>
@@ -193,7 +194,8 @@
                                                     <label for="email-id-icon">Email</label>
                                                     <div class="position-relative">
                                                         <input type="text" name="email" class="form-control"
-                                                            placeholder="Email" id="email-id-icon">
+                                                            placeholder="Email" id="email-id-icon"
+                                                            value="{{ old('email', $nurse->email) }}" required>
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-envelope"></i>
                                                         </div>
@@ -207,14 +209,13 @@
                                                         <select class="form-control" name="subject" id="issueSelect">
                                                             <option value="" disabled selected>Select Issue
                                                             </option>
-                                                            <option value="ui_glitch">UI Glitch (Low Severity)</option>
+                                                            <option value="ui_glitch">UI Glitch</option>
                                                             <option value="email_failure">Email Notifications Failure
-                                                                (Moderate Severity) </option>
+                                                            </option>
 
-                                                            <option value="ticket_duplication">Ticket Duplication (High
-                                                                Severity)</option>
-                                                            <option value="system_downtime">System Downtime (Critical
-                                                                Severity)</option>
+                                                            <option value="ticket_duplication">Ticket Duplication
+                                                            </option>
+                                                            <option value="system_downtime">System Downtime </option>
 
                                                         </select>
                                                         <div class="form-control-icon">
@@ -243,20 +244,17 @@
                                             </div>
 
 
-                                            <div class="col-12">
+                                            <div class="col-12" style="display: none;">
                                                 <div class="form-group has-icon-left">
                                                     <label for="mobile-id-icon">Issue</label>
                                                     <div class="position-relative">
                                                         <select class="form-control" name="priority"
                                                             id="prioritySelect">
-                                                            <option value="" disabled selected>Priority
-                                                            </option>
+                                                            <option value="" disabled selected>Priority</option>
                                                             <option value="Low Severity">Low Severity</option>
                                                             <option value="Moderate Severity">Moderate Severity</option>
                                                             <option value="High Severity">High Severity</option>
                                                             <option value="Critical Severity">Critical Severity</option>
-
-
                                                         </select>
                                                         <div class="form-control-icon">
                                                             <i class="fa-solid fa-circle-exclamation"></i>
@@ -264,6 +262,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
 
 
 

@@ -183,7 +183,9 @@
                                                         <td>{{$appoint->phone}}</td>
                                                         <td>{{$appoint->message}}</td>
                                                         <td>{{$appoint->employees}}</td>
-                                                        <td>{{$appoint->status}}</td>
+                                                        <td>
+                                                            <span class="badge bg-success">{{$appoint->status}}</span>
+                                                        </td>
                                                         <td>{{$appoint->date}}</td>
                                                     </tr>
                                                     @endforeach

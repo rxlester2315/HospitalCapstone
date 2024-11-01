@@ -289,12 +289,12 @@ return redirect()->back()->with('message','Doctor Added Successfully');
 
 
 public function ticketing() {
-    // Fetch only tickets that are open and not marked as 'not fixed'
     $datas = ticket::where('status', 'open')
                    ->where(function($query) {
                        $query->where('frmadmin', '!=', 'not fixed')
                              ->orWhereNull('frmadmin');
                    })
+                   ->orderBy('created_at','desc')
                    ->get();
 
     // Count all tickets regardless of the frmadmin value

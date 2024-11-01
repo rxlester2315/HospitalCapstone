@@ -49,15 +49,16 @@ public function listAppointment()
     $doctor = Employees::find($userId);
     $doctorName = $doctor->name;
 
-    // Get only appointments that are approved and not completed
-    $data = Appointments::where('status', 'Approved') // Filter by approved status if needed
-                        ->where('employees', $doctorName) // Filter by doctor name
+    
+    $data = Appointments::where('status', 'Approved') 
+                        ->where('employees', $doctorName) 
                         ->where('completed', 'Observation') 
+                        ->orderBy('created_at', 'desc') 
                         ->get();
 
-    // Return the view with the filtered appointments
     return view('Doctor.listappoint', compact('data', 'doctor'));
 }
+
 
 
 
@@ -80,39 +81,38 @@ public function completeAppointment($id)
 
 
     public function sendticket(){
+        $doctor = Auth::user();
 
-      return view('Doctor.send-ticket');
+      return view('Doctor.send-ticket',compact('doctor'));
     }
 
 
 
-public function send_ticket (Request $request){
+public function send_ticket(Request $request)
+{
+    $data = new Ticket;
+    $data->name = $request->name;
+    $data->email = $request->email;
+    $data->subject = $request->subject;
+    $data->description = $request->description;
+    $data->priority = $request->priority;
+    $data->status = 'open';
+    $data->submitted_at = now();  // Set the submitted timestamp
 
-$data= new ticket;
-$data ->name=$request->name;
-$data ->email=$request->email;
-$data ->subject=$request->subject;
-$data ->description=$request->description;
-$data ->priority=$request->priority;
-$data ->status='open';
-
-
-if (Auth::check()) {
+    if (Auth::check()) {
         $data->rolename = Auth::user()->role_name; 
     } else {
         $data->rolename = 'none'; 
     }
 
-$data->ticket_number = 'TCKT-' . strtoupper(Str::random(8));
+    $data->ticket_number = 'TCKT-' . strtoupper(Str::random(8));
+    $data->save();
 
-$data->save();
+    Notification::route('mail', $data->email)->notify(new TicketEmail($data));
 
-Notification::route('mail', $data->email)->notify(new TicketEmail($data));
-
-
-return redirect()->back()->with('message','Message Ticket Sent Successfully');
-
+    return redirect()->back()->with('message', 'Message Ticket Sent Successfully');
 }
+
 
 
 public function create_receipt(){

@@ -396,9 +396,8 @@
                     <div class="card-header">
                         <h4 class="card-title">Time in Manila, Philippines</h4>
                         <div class="clock" id="clock"></div>
-
-
                     </div>
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="table-responsive">
@@ -411,52 +410,45 @@
                                             <th>Phone Number</th>
                                             <th>Email</th>
                                             <th>Arrived</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @if($appointment && $appointment->isNotEmpty())
                                         @foreach($appointment as $today)
-
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar"><img alt=""
-                                                            src="assets/img/profiles/avatar-09.jpg" /></a>
-                                                    <a href="#">{{$today->name}}
+                                                    <a href="profile.html" class="avatar"> <img alt="Photo error"
+                                                            src="hrs/assets/img/user.jpg" class="rounded-circle"
+                                                            style="width: 40px; height: 40px;"> </a>
+                                                    <a href="#">{{ $today->name }}</a>
                                                 </h2>
                                             </td>
-                                            <td>{{$today->employees}}</td>
-                                            <td>{{$today->date}}</td>
-                                            <td>{{$today->phone}}</td>
-                                            <td>{{$today->email}}</td>
+                                            <td>{{ $today->employees }}</td>
+                                            <td>{{ $today->date }}</td>
+                                            <td>{{ $today->phone }}</td>
+                                            <td>{{ $today->email }}</td>
                                             <td>
                                                 <a href="{{ url('arrive_setime/'.$today->id) }}" target="_blank">
                                                     <h3 class="btn btn-success">Arrived Time</h3>
                                                 </a>
                                             </td>
-
-
-
                                         </tr>
                                         @endforeach
                                         @else
                                         <tr>
-                                            <td colspan="7" class="text-center">Please select date today to
-                                                see
-                                                available schedule today
-
+                                            <td colspan="6" class="text-center">
+                                                {{ isset($filterDate) ? 'No appointments found for this date.' : 'Please select a date to see available schedules.' }}
+                                            </td>
                                         </tr>
                                         @endif
-
-
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
         </div>

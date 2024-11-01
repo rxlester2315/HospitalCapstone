@@ -400,11 +400,12 @@
                                     <div class="card-body">
                                         <form action="{{ route('today_sched') }}" method="GET">
                                             @csrf
-                                            <input type="date" name="filter_date" required>
+                                            <input type="date" name="filter_date">
                                             <button type="submit" class="btn btn-primary">Filter</button>
                                         </form>
                                         <center>
-                                            <p>List of all Patient Submitted Appointments Today</p>
+                                            <p>List of {{ isset($filterDate) ? 'Filtered' : 'All' }} Patient
+                                                Appointments</p>
                                         </center>
                                     </div>
                                     <thead>
@@ -416,45 +417,35 @@
                                             <th>Status</th>
                                             <th>Doctor</th>
                                             <th>Appointment Date</th>
-
-
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @if($appointments && $appointments->isEmpty())
                                         <tr>
-                                            <td colspan="7" class="text-center">No appointments found for this
-                                                date.</td>
+                                            <td colspan="7" class="text-center">No appointments found.</td>
                                         </tr>
-                                        @elseif($appointments)
+                                        @else
                                         @foreach($appointments as $appointment)
-
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
                                                     <a href="profile.html" class="avatar"><img alt=""
-                                                            src="assets/img/profiles/avatar-09.jpg" /></a>
-                                                    <a href="#">{{ $appointment->name }}
+                                                            src="assets/img/profiles/avatar-09.jpg"></a>
+                                                    <a href="#">{{ $appointment->name }}</a>
                                                 </h2>
                                             </td>
                                             <td>{{ $appointment->email }}</td>
                                             <td>{{ $appointment->phone }}</td>
                                             <td>{{ $appointment->message }}</td>
-                                            <td>
-                                                <span class="badge badge-warning">{{ $appointment->status }}</span>
-                                            </td>
+                                            <td><span class="badge badge-warning">{{ $appointment->status }}</span></td>
                                             <td>{{ $appointment->employees }}</td>
                                             <td>{{ $appointment->date }}</td>
-
-
                                         </tr>
-
                                         @endforeach
                                         @endif
-
-
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>

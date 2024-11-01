@@ -127,30 +127,21 @@ public function getUserAppointments($userId)
 
 
 
-    public function myappointment(){
+   public function myAppointment()
+{
+    if (Auth::check()) {
+        $userId = Auth::id(); 
 
-        if(Auth::id()){
+        $appointments = Appointments::where('userid', $userId)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-            $user_id=Auth::user()->id;
-
-            $appoint=appointments::where('userid',$user_id)->get();
-             return view('Normal.my_appointment',compact('appoint'));
-        }
-
-
-
-
-
-
-        else{
-            return redirect()->back();
-        }
-
-
-
-
-       
+        return view('Normal.my_appointment', compact('appointments'));
     }
+
+    return redirect()->route('login')->with('error', 'You need to log in to view your appointments.');
+}
+
 
 
       public function cancel_appointment($id){

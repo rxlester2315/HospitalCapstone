@@ -414,15 +414,18 @@
                                                 <div class="form-group">
                                                     <label for="first-name-vertical">Name</label>
                                                     <input type="text" id="first-name-vertical" class="form-control"
-                                                        name="name" placeholder="First Name" required>
+                                                        name="name" placeholder="First Name" required
+                                                        value="{{old('name',$frontdesk->name)}}">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email-id-vertical">Email</label>
                                                     <input type="email" id="email-id-vertical" class="form-control"
-                                                        name="email" placeholder="Email" required>
+                                                        name="email" placeholder="Email" required
+                                                        value="{{old('email',$frontdesk->email)}}">
                                                 </div>
+                                                <label for="issue" class="form-label">Select Issue</label>
+
                                                 <div class="form-group">
-                                                    <label for="issue" class="form-label">Select Issue</label>
                                                     <select style="width:300px; height:40px;" class="form-select"
                                                         id="issueSelect" name="subject" required>
                                                         <option value="" disabled selected>Select an issue
@@ -442,7 +445,7 @@
                                                     <textarea class="form-control" name="description" rows="4"
                                                         placeholder="Describe your issue" required></textarea>
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group" style="display: none;">
                                                     <label for="priority" class="form-label">Priority</label>
                                                     <div class="form-control-plaintext" id="priorityDisplay">
                                                         <select style="width:300px; height:40px;" class="form-select"
@@ -457,11 +460,12 @@
                                                             </option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-12 d-flex justify-content-end">
-                                                        <button style="margin-top:30px;" type="submit"
-                                                            class="btn btn-success me-1 mb-1">Submit</button>
+                                                </div>
+                                                <div class="col-12 d-flex justify-content-end">
+                                                    <button style="margin-top:30px;" type="submit"
+                                                        class="btn btn-success me-1 mb-1">Submit</button>
 
-                                                    </div>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>

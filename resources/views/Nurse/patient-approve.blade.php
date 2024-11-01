@@ -115,9 +115,7 @@
                                         <a href="{{route('appoint')}}">Today Appointment</a>
                                     </li>
 
-                                    <li class="submenu-item ">
-                                        <a href="extra-component-toastify.html">Rejected/Deleted Appointment</a>
-                                    </li>
+
 
                                 </ul>
                             </li>

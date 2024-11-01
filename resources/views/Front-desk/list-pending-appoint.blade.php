@@ -397,6 +397,14 @@
                                 <h6>Pending Accounts</h6>
                                 <h4>{{$pendingtotal}}</h4>
                             </div>
+
+                            <div class="mb-3">
+                                <label for="search">
+                                    <h3>Search Patient</h3>
+                                </label>
+                                <input type="text" id="searchInput" class="form-control short-search"
+                                    placeholder="Search by name" />
+                            </div>
                         </div>
 
 
@@ -407,7 +415,6 @@
                                 <table class="table table-striped custom-table mb-0 datatable">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Full Name</th>
                                             <th>Doctor Preffered</th>
                                             <th>Departments</th>
@@ -421,13 +428,13 @@
                                         @foreach($pending as $pend)
 
                                         <tr>
-                                            <td>{{$pend->user_id}}</td>
 
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar"><img alt=""
-                                                            src="assets/img/profiles/avatar-09.jpg" /></a>
-                                                    <a href="#">{{$pend->firstName}}
+                                                    <a href="profile.html" class="avatar"> <img alt="Photo error"
+                                                            src="hrs/assets/img/user.jpg" class="rounded-circle"
+                                                            style="width: 40px; height: 40px;"> </a>
+                                                    <a href="#">{{$pend->name}}
                                                 </h2>
                                             </td>
                                             <td>{{$pend->employees}}</td>
@@ -455,6 +462,22 @@
             </div>
         </div>
         </div>
+
+        <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            var searchValue = this.value.toLowerCase();
+            var rows = document.querySelectorAll('.datatable tbody tr');
+
+            rows.forEach(function(row) {
+                var name = row.querySelector('td').innerText.toLowerCase();
+                if (name.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+        </script>
 
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script src="fdesk/assets/js/jquery-3.5.1.min.js"></script>
