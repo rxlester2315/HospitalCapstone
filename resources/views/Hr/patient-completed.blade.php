@@ -4,16 +4,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <meta name="description" content="Smarthr - Bootstrap Admin Template">
-        <meta name="keywords"
-            content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
-        <meta name="author" content="Dreamguys - Bootstrap Admin Template">
-        <meta name="robots" content="noindex, nofollow">
+
         <title>Human Resources Dashboard</title>
 
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
         <link rel="stylesheet" href="hrs/assets/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
 
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -26,6 +26,29 @@
         <link rel="stylesheet" href="hrs/assets/plugins/morris/morris.css">
 
         <link rel="stylesheet" href="hrs/assets/css/style.css">
+
+        <style>
+        .table-responsive {
+            overflow-x: hidden;
+            /* Prevent horizontal scrolling */
+        }
+
+        .table {
+            width: 100%;
+            /* Full width */
+            table-layout: auto;
+            /* Responsive layout */
+        }
+
+        /* Add your zoom effect styles as well */
+        .zoom-row {
+            transition: transform 0.3s ease;
+        }
+
+        .zoom-row:hover {
+            transform: scale(1.05);
+        }
+        </style>
 
 
         <script>
@@ -162,7 +185,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>List Tickets</h3>
+                    <h3>Patient Completed</h3>
                 </div>
 
                 {{-- message --}}
@@ -377,152 +400,120 @@
 
             <div class="page-wrapper">
                 <div class="content container-fluid">
-                    <div class="page-header">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h3 class="page-title">Tickets</h3>
-                                <ul class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="index.html">Dashboard</a>
-                                    </li>
-                                    <li class="breadcrumb-item active">
-                                        Tickets
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
 
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="card-group m-b-30">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between mb-3">
-                                            <div>
-                                                <span class="d-block">Low Priority</span>
-                                            </div>
-                                            <div>
-                                                <span class="text-success">+10%</span>
-                                            </div>
-                                        </div>
-                                        <h3 class="mb-3">{{$lowtix}}</h3>
-                                        <div class="progress mb-2" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
-                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between mb-3">
-                                            <div>
-                                                <span class="d-block">Moderate Priority</span>
-                                            </div>
-                                            <div>
-                                                <span class="text-success">+12.5%</span>
-                                            </div>
-                                        </div>
-                                        <h3 class="mb-3">{{$medtix}}</h3>
-                                        <div class="progress mb-2" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
-                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between mb-3">
-                                            <div>
-                                                <span class="d-block">High Priority</span>
-                                            </div>
-                                            <div>
-                                                <span class="text-danger">-2.8%</span>
-                                            </div>
-                                        </div>
-                                        <h3 class="mb-3">{{$hightix}}</h3>
-                                        <div class="progress mb-2" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
-                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between mb-3">
-                                            <div>
-                                                <span class="d-block">Critical Priority</span>
-                                            </div>
-                                            <div>
-                                                <span class="text-danger">-75%</span>
-                                            </div>
-                                        </div>
-                                        <h3 class="mb-3">{{$crittix}}</h3>
-                                        <div class="progress mb-2" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
-                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="col-md-3">
+                            <div class="stats-info">
+                                <h6>Total Patients Not Paid</h6>
+                                <h4>{{$not}}</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stats-info">
+                                <h6>Total Patient Paid</h6>
+                                <h4>{{$paid}}</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stats-info">
+                                <h6>Pending Payment</h6>
+                                <h4>0 <span>Today</span></h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stats-info">
+                                <h6>Partial Payments</h6>
+                                <h4>{{$partial}}</h4>
                             </div>
                         </div>
                     </div>
 
 
-                    <div class="row" style="font-size:20px;">
+                    <div class="col-md-3" style="margin:15px;">
+                        <label for=" search">
+                            <h3>Search Patient</h3>
+                        </label>
+                        <input type="text" id="searchInput" class="form-control short-search"
+                            placeholder="Search by name" />
+                    </div>
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="table-responsive">
                                 <table class="table table-striped custom-table mb-0 datatable">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Ticket ID</th>
-                                            <th>Ticket Subject</th>
-                                            <th>Employee Name</th>
-                                            <th>Created Date</th>
-                                            <th>Priority</th>
-                                            <th>Time Remaining</th>
-
+                                            <th>Patient Name</th>
+                                            <th>Date Appointment</th>
+                                            <th>Doctor Name</th>
+                                            <th>Patient Status</th>
+                                            <th>Payment</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($datas as $tix )
-
-                                        <tr>
-                                            <td>{{$tix->id}}</td>
+                                        @foreach($patients as $patient)
+                                        <tr class="zoom-row">
                                             <td>
-                                                <span
-                                                    class="badge badge-pill badge-primary">{{$tix->ticket_number}}</span>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html" class="avatar">
+                                                        <img alt="Photo error" src="hrs/assets/img/user.jpg"
+                                                            class="rounded-circle" style="width: 40px; height: 40px;">
+                                                    </a>{{$patient->name}}
+                                                </h2>
                                             </td>
-                                            <td>{{$tix->subject}}</td>
+                                            <td>{{$patient->date}}</td>
+                                            <td>Dr. {{$patient->employees}}</td>
                                             <td>
-                                                <span style="font-size:15px;"
-                                                    class="badge badge-pill badge-info">{{$tix->name}}</span>
+                                                @if($patient->completed == 'Discharged')
+                                                <span style="font-size:15px; color:white;"
+                                                    class="badge bg-success">{{$patient->completed}}</span>
+                                                @elseif($patient->completed == 'Observation')
+                                                <span style="font-size:15px; color:white;"
+                                                    class="badge bg-warning">{{$patient->completed}}</span>
+                                                @else
+                                                <span style="font-size:15px; color:white;" class="badge bg-danger">Not
+                                                    Marked</span>
+                                                @endif
                                             </td>
-                                            <td>{{$tix->created_at}}</td>
                                             <td>
-                                                <span class="badge badge-pill badge-danger">{{$tix->priority}}</span>
+                                                @if($patient->paymentss == 'Paid Full')
+                                                <span style="font-size:15px; color:white;"
+                                                    class="badge bg-success">Paid</span>
+                                                @elseif($patient->paymentss == 'Not Paid')
+                                                <span style="font-size:15px; color:white;" class="badge bg-danger">Not
+                                                    Paid</span>
+                                                @elseif($patient->paymentss == 'Pending')
+                                                <span style="font-size:15px; color:white;" class="badge bg-info">Not
+                                                    Paid</span>
+                                                @elseif($patient->paymentss == 'Partially Paid')
+                                                <span style="font-size:15px; color:white;"
+                                                    class="badge bg-warning">Partially Paid</span>
+                                                @else
+                                                <span style="font-size:15px; color:white;"
+                                                    class="badge bg-secondary">Unknown Status</span>
+                                                @endif
                                             </td>
-
-                                            <td class="timer" data-submitted-at="{{ $tix->submitted_at }}"
-                                                data-priority="{{ $tix->priority }}" id="timer-{{ $tix->id }}"></td>
-
-
-
-
                                             <td>
-
-
-
+                                                <a href="{{ route('fullpaid.payment', $patient->id) }}"
+                                                    class="btn btn-success">Paid</a>
+                                                <a href="{{ route('partial.payment', $patient->id) }}"
+                                                    class="btn btn-info">Partial</a>
+                                                <a href="{{ route('notpayment.payment', $patient->id) }}"
+                                                    class="btn btn-warning">Not Paid</a>
+                                            </td>
                                         </tr>
                                         @endforeach
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+
+
+
+
+
+
                 </div>
 
 
@@ -532,51 +523,36 @@
 
         </div>
 
+        @if(Session::has('message'))
+        <script>
+        swal("Message", "{{Session::get('message')}}", 'success', {
+            button: true,
+            button: "Okay",
+            timer: 3000,
+
+
+        });
+        </script>
+        @endif
+
+
 
         <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Define countdown durations in milliseconds for each priority level
-            const priorityDurations = {
-                "Critical Severity": 4 * 60 * 60 * 1000,
-                "High Severity": 12 * 60 * 60 * 1000, // 12 hours
-                "Medium Severity": 24 * 60 * 60 * 1000, // 24 hours
-                "Low Severity": 48 * 60 * 60 * 1000 // 48 hours
-            };
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            var searchValue = this.value.toLowerCase();
+            var rows = document.querySelectorAll('.datatable tbody tr');
 
-            // Select all elements with the class 'timer'
-            document.querySelectorAll('.timer').forEach(function(timerElement) {
-                // Get the ticket's submitted time from the data attribute
-                const submittedAt = new Date(timerElement.getAttribute('data-submitted-at')).getTime();
-
-                // Get the priority level and set the corresponding countdown duration
-                const priority = timerElement.getAttribute('data-priority');
-                const timerDuration = priorityDurations[priority] || 24 * 60 * 60 *
-                    1000; // Default to 24 hours if undefined
-
-                // Update the countdown every second
-                const countdownInterval = setInterval(function() {
-                    const now = new Date().getTime();
-                    const timeElapsed = now - submittedAt;
-                    const timeRemaining = timerDuration - timeElapsed;
-
-                    if (timeRemaining <= 0) {
-                        clearInterval(countdownInterval);
-                        timerElement.innerHTML = "Time is up!";
-                    } else {
-                        // Calculate hours, minutes, and seconds
-                        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (
-                            1000 * 60 * 60));
-                        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 *
-                            60));
-                        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-                        // Display the countdown
-                        timerElement.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
-                    }
-                }, 1000);
+            rows.forEach(function(row) {
+                var name = row.querySelector('td').innerText.toLowerCase();
+                if (name.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
             });
         });
         </script>
+
 
 
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

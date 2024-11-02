@@ -338,7 +338,29 @@
                             <center style="color:white; font-size:40px;">Appointment Requests</center>
                         </h3>
                     </div>
+                    <div class="row" style="margin:15px;">
+                        <div class="col-md-3">
+                            <div class="stats-info">
+                                <h6>Total Appointment Pending</h6>
+                                <h4>{{$pendings}}</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stats-info">
+                                <h6>Total Appointment Approve</h6>
+                                <h4>{{$approve}}</h4>
+                            </div>
+                        </div>
 
+
+                    </div>
+                    <div class="col-md-3" style="margin:15px;">
+                        <label for=" search">
+                            <h3>Search Patient</h3>
+                        </label>
+                        <input type="text" id="searchInput" class="form-control short-search"
+                            placeholder="Search by name" />
+                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="table-responsive">
@@ -367,7 +389,7 @@
                                                         <img alt="Photo error" src="hrs/assets/img/user.jpg"
                                                             class="rounded-circle" style="width: 40px; height: 40px;">
                                                     </a>
-                                                    <a href="profile.html">{{$appoint->name}}</a>
+                                                    <a href="#">{{$appoint->name}}</a>
                                                 </h2>
                                             </td>
                                             <td>{{$appoint->departments}}</td>
@@ -467,6 +489,24 @@
                     }
                 });
         }
+        </script>
+
+
+
+        <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            var searchValue = this.value.toLowerCase();
+            var rows = document.querySelectorAll('.datatable tbody tr');
+
+            rows.forEach(function(row) {
+                var name = row.querySelector('td').innerText.toLowerCase();
+                if (name.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
         </script>
 
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

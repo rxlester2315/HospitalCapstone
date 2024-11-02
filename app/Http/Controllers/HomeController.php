@@ -93,6 +93,7 @@ public function appointments(Request $request)
     $data->status = 'Pending';
      $data->arrive_status = 'Not Arrived';
     $data->completed = 'Observation';
+    $data->paymentss = 'Not Paid';
 
     if (Auth::id()) {
         $data->userid = Auth::user()->id;

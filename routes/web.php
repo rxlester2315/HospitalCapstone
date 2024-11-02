@@ -205,6 +205,11 @@ Route::get('/message_patients/{id}', [HrController::class, 'checkmessage']);
 Route::get('/send_tickets_hr', [HrController::class, 'sendtickets']);
 Route::post('/send_tickets_hrs', [HrController::class, 'sendtixss'])->name('hr.ticket.store');
 
+Route::get('/patient_marke_complete', [HrController::class, 'patientcomplete']);
+
+Route::get('/patient_marke_paymentfull/{id}', [HrController::class, 'paidpayment'])->name('fullpaid.payment');
+Route::get('/patient_marke_partials/{id}', [HrController::class, 'partialpayments'])->name('partial.payment');
+Route::get('/patient_marke_notpaid/{id}', [HrController::class, 'notpayment'])->name('notpayment.payment');
 
 
 

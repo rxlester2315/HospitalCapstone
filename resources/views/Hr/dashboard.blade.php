@@ -358,6 +358,12 @@
                                 <a href="{{url('viewappointment')}}"><i class="fa-solid fa-business-time"></i>
                                     <span>Appointment Requests</span></a>
                             </li>
+
+                            <li>
+                                <a href="{{url('patient_marke_complete')}}"><i class="fa-regular fa-square-check"></i>
+                                    <span>Patient Complete</span></a>
+                            </li>
+
                             <li>
                                 <a href="{{url('view_tickets')}}"><i class="fa-solid fa-clipboard-list"></i>
                                     <span>Tickets</span></a>

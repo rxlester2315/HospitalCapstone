@@ -65,7 +65,9 @@ return redirect()->back()->with('message','Doctor Added Successfully');
     ->orderBy('created_at','desc')
     ->get();
 
-     return view('Hr.viewappointment',compact('data'));
+    $pendings = appointments::where('status','Pending')->count();
+  $approve = appointments::where('status','Approved')->count();
+     return view('Hr.viewappointment',compact('data','pendings','approve'));
    
 
 }
@@ -287,23 +289,18 @@ return redirect()->back();
         return view ('Hr.view-tickets');
     }
 
-    public  function list_ticket(){
+   public function list_ticket() {
+    // Retrieve tickets ordered by 'created_at' in descending order (latest first)
+    $datas = ticket::orderBy('created_at', 'desc')->get();
 
-        $datas = ticket::all();
-        $lowtix = ticket::where('priority','Low Severity')->count();
-        $medtix = ticket::where('priority','Moderate Severity')->count();
-       $hightix = ticket::where('priority','High Severity')->count();
-       $crittix = ticket::where('priority','Critical Severity')->count();
+    $lowtix = ticket::where('priority', 'Low Severity')->count();
+    $medtix = ticket::where('priority', 'Moderate Severity')->count();
+    $hightix = ticket::where('priority', 'High Severity')->count();
+    $crittix = ticket::where('priority', 'Critical Severity')->count();
 
+    return view('Hr.ticketss.view-tickets', compact('datas', 'lowtix', 'medtix', 'hightix', 'crittix'));
+}
 
-
-
-
-
-       
-       return view('Hr.ticketss.view-tickets',compact('datas','lowtix','medtix','hightix','crittix'));
-       
-     }
 
      
 
@@ -547,6 +544,56 @@ return redirect()->back()->with('message','Message Ticket Sent Successfully');
 
 
     }
+
+    public function patientcomplete(){
+
+        $patients = Appointments::where('status','Approved')
+        ->where('arrive_status','Arrived')
+        ->orderBy('created_at','desc')
+        ->get();
+
+        $not = Appointments::where('paymentss','Not Paid')->count();
+        $paid = Appointments::where('paymentss','Paid Full')->count();
+        $partial = Appointments::where('paymentss','Partially Paid')->count();
+        return view('Hr.patient-completed',compact('patients','not','paid','partial'));
+    }
+
+    public function partialpayments($id){
+
+        $selectpatient=Appointments::find($id);
+
+
+        $selectpatient->paymentss = 'Partially Paid';
+        $selectpatient->save();
+        return redirect()->back();
+    }
+
+
+    
+    public function notpayment($id){
+
+        $selectpatient=Appointments::find($id);
+
+
+        $selectpatient->paymentss = 'Not Paid';
+        $selectpatient->save();
+        return redirect()->back();
+    }
+
+
+       public function paidpayment($id){
+
+        $selectpatient=Appointments::find($id);
+
+
+        $selectpatient->paymentss = 'Paid Full';
+        $selectpatient->save();
+        return redirect()->back();
+    }
+
+
+
+
 
 
   

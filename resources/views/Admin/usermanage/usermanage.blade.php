@@ -489,11 +489,10 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-5">
-                                                    <div class="dataTables_info" id="DataTables_Table_0_info"
-                                                        role="status" aria-live="polite">Showing 1 to 10 of 30 entries
+                                                    <div class="dataTables_info" id="DataTables_Table_0_info" </div>
                                                     </div>
-                                                </div>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -502,43 +501,42 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+            <script type="text/javascript">
+            function confirmation(ev) {
+                ev.preventDefault();
+                var urlToRedirect = ev.currentTarget.getAttribute('href');
+                console.log(urlToRedirect);
 
-        </div>
-        <script type="text/javascript">
-        function confirmation(ev) {
-            ev.preventDefault();
-            var urlToRedirect = ev.currentTarget.getAttribute('href');
-            console.log(urlToRedirect);
+                swal({
+                        title: "Do you want to Archived this?",
+                        text: "You can still  recover this!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willCancel) => {
+                        if (willCancel) {
+                            window.location.href = urlToRedirect;
+                        }
+                    });
+            }
+            </script>
 
-            swal({
-                    title: "Do you want to Archived this?",
-                    text: "You can still  recover this!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willCancel) => {
-                    if (willCancel) {
-                        window.location.href = urlToRedirect;
-                    }
-                });
-        }
-        </script>
+            <script src="adminz/assets/js/jquery-3.5.1.min.js"></script>
 
-        <script src="adminz/assets/js/jquery-3.5.1.min.js"></script>
+            <script src="adminz/assets/js/popper.min.js"></script>
+            <script src="adminz/assets/js/bootstrap.min.js"></script>
 
-        <script src="adminz/assets/js/popper.min.js"></script>
-        <script src="adminz/assets/js/bootstrap.min.js"></script>
+            <script src="adminz/assets/js/jquery.slimscroll.min.js"></script>
 
-        <script src="adminz/assets/js/jquery.slimscroll.min.js"></script>
+            <script src="adminz/assets/js/jquery.dataTables.min.js"></script>
+            <script src="adminz/assets/js/dataTables.bootstrap4.min.js"></script>
 
-        <script src="adminz/assets/js/jquery.dataTables.min.js"></script>
-        <script src="adminz/assets/js/dataTables.bootstrap4.min.js"></script>
+            <script src="adminz/assets/js/app.js"></script>
 
-        <script src="adminz/assets/js/app.js"></script>
-
-        <div class="sidebar-overlay"></div>
+            <div class="sidebar-overlay"></div>
     </body>
 
 </html>
