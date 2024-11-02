@@ -7,7 +7,6 @@
 
         <meta name="robots" content="noindex, nofollow">
         <title>Human Resources Dashboard</title>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('hrs/assets/img/logo.jpg')}}" />
 
@@ -375,6 +374,13 @@
 
                             </li>
 
+                            <li>
+                                <a href="{{url('send_tickets_hr')}}"> <i class="fa-regular fa-rectangle-list"></i>
+                                    <span> Send Ticket
+                                    </span> <span class="menu-arrow"></span></a>
+
+                            </li>
+
 
 
                     </div>
@@ -601,40 +607,6 @@
 
         </div>
 
-
-        @if (session('latestUpdate'))
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const latestUpdate = @json(session('latestUpdate'));
-            Swal.fire({
-                title: 'System Update Available!',
-                icon: 'warning',
-                html: `
-                
-            <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; border-radius: 5px; padding: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
-                <div style="background: #007bff; color: white; padding: 10px; border-radius: 5px 5px 0 0;">
-                    <h4 style="margin: 0;">System Updates</h4>
-                </div>
-                <div style="padding: 10px;">
-                    <h5 style="color: #333; margin: 10px 0;">${latestUpdate.descriptions}</h5>
-                    <h6 style="color: #6c757d; margin: 5px 0;">Date: ${latestUpdate.maintenance_date}</h6>
-                    <h6 style="color: #333; margin: 5px 0;">Bugs: ${latestUpdate.bugs}</h6>
-                    <h6 style="color: #333; margin: 5px 0;">Effect: ${latestUpdate.effect}</h6>
-                    <a href="#">
-                        <button style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">More Info</button>
-                    </a>
-                </div>
-            </div>
-        `,
-                showCloseButton: true,
-                focusConfirm: false
-            });
-        });
-        </script>
-        @php
-        session()->forget('latestUpdate'); // Clear the latestUpdate from session
-        @endphp
-        @endif
 
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script src="hrs/assets/js/jquery-3.5.1.min.js"></script>

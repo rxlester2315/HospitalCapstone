@@ -118,7 +118,7 @@ $data ->email=$request->email;
 $data ->subject=$request->subject;
 $data ->description=$request->description;
 $data ->priority=$request->priority;
- $data->status = 'open';
+$data->status = 'open';
 $data->submitted_at = now();  
 
 

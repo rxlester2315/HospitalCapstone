@@ -7,10 +7,18 @@
 
         <title>Human Resources Dashboard</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="{{asset('hrs/assets/img/logo.jpg')}}" />
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
         <link rel="stylesheet" href="hrs/assets/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
 
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="hrs/assets/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="hrs/assets/css/line-awesome.min.css">
@@ -154,7 +162,7 @@
                 </a>
 
                 <div class="page-title-box">
-                    <h3>List Schedule of Doctor</h3>
+                    <h3>List Tickets</h3>
                 </div>
 
                 {{-- message --}}
@@ -163,6 +171,7 @@
                 <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
 
                 <ul class="nav user-menu">
+
 
 
 
@@ -277,7 +286,6 @@
                         </div>
                     </li>
 
-
                     <li class="nav-item dropdown">
                         <a href="chat" class="dropdown-toggle nav-link" data-toggle="">
                             <i class="fa fa-comment-o"></i>
@@ -300,6 +308,9 @@
                         </div>
                     </li>
 
+
+
+
                 </ul>
 
 
@@ -312,6 +323,8 @@
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
+
+
                             <li class="menu-title">
                                 <span>Employees</span>
                             </li>
@@ -319,141 +332,110 @@
                                 <a href="#" class="noti-dot"><i class="la la-user"></i> <span> Employees</span> <span
                                         class="menu-arrow"></span></a>
                                 <ul style="display: none;">
-                                    <li><a href="{{url('/leave-list')}}">Leaves <span
-                                                class="badge badge-pill bg-primary float-right">1</span></a></li>
+
+                                    <li><a href="{{url('/leave-list')}}">Doctor/Staff Leaves<span
+                                                class="badge badge-pill bg-primary float-right"></span></a></li>
+
+
+
+
                                     <li><a href="{{url('add_doctor_view')}}">Add Doctors</a></li>
-                                    <li><a href="{{url('attend')}}">Employee Attendance </a></li>
-                                    <li><a href="{{url('docsched')}}">Doctor Shift & Schedule</a></li>
+                                    <li><a href="{{url('attend')}}">Employees Attendance </a></li>
+                                    <li><a href="{{url('docsched')}}">Doctor Shifts & Schedule</a></li>
+
                                 </ul>
                             </li>
+
+
+
                             <li>
-                                <a href="{{url('viewappointment')}}"><i class="la la-bullhorn"></i> <span>Patient
-                                        Request</span></a>
+                                <a href="{{url('viewappointment')}}"><i class="fa-solid fa-business-time"></i>
+                                    <span>Appointment Requests</span></a>
                             </li>
                             <li>
-                                <a href="{{url('view_tickets')}}"><i class="la la-ticket"></i> <span>Tickets</span></a>
+                                <a href="{{url('view_tickets')}}"><i class="fa-solid fa-clipboard-list"></i>
+                                    <span>Tickets</span></a>
                             </li>
                             <li class="menu-title">
                                 <span>HR</span>
                             </li>
-                            <li class="submenu">
-                                <a href="#"><i class="la la-key"></i> <span> Inventory </span> <span
-                                        class="menu-arrow"></span></a>
-                                <ul style="display: none;">
-                                    <li><a href="{{url('products/viewlist')}}">View List</a></li>
-                                </ul>
+
+
+                            <li>
+                                <a href="{{url('products/viewlist')}}"> <i class="fa-solid fa-screwdriver-wrench"></i>
+                                    <span> Inventory
+                                    </span> <span class="menu-arrow"></span></a>
+
                             </li>
-                        </ul>
+
+
+
                     </div>
                 </div>
             </div>
 
 
-
             <div class="page-wrapper">
-
                 <div class="content container-fluid">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title mb-0">Send Ticket</h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="{{route('hr.ticket.store')}}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label>Full Name</label>
+                                        <input type="text" name="name" placeholder="First Name" class="form-control"
+                                            value="{{old('name', $hr->name)}}" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" name="email" placeholder="Email"
+                                            value="{{old('email', $hr->email)}}" required class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Issue</label>
+                                        <select style="background:black;" class="form-control" name="subject"
+                                            id="issueSelect">
+                                            <option value="" disabled selected>Select Issue
+                                            </option>
+                                            <option value="ui_glitch">UI Glitch</option>
+                                            <option value="email_failure">Email Notifications Failure
+                                            </option>
+
+                                            <option value="ticket_duplication">Ticket Duplication
+                                            </option>
+                                            <option value="system_downtime">System Downtime </option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description" class="form-label">Description</label>
+                                        <textarea class="form-control" name="description" rows="4"
+                                            placeholder="Describe your issue" required></textarea>
+                                    </div>
+                                    <div class="form-group" style="display:none;">
+                                        <label>Priority</label>
+                                        <select class="form-control" name="priority" id="prioritySelect">
+                                            <option value="" disabled selected>Priority</option>
+                                            <option value="Low Severity">Low Severity</option>
+                                            <option value="Moderate Severity">Moderate Severity</option>
+                                            <option value="High Severity">High Severity</option>
+                                            <option value="Critical Severity">Critical Severity</option>
+                                        </select>
 
 
 
-                    <div class="container">
+                                    </div>
 
-                        <h2 class="text-center">Doctor Weekly Schedule</h2>
-                        <table class="table table-hover table-custom">
-                            <thead>
-                                <tr>
-                                    <th>Employee Name</th>
-                                    <th>Monday</th>
-                                    <th>Tuesday</th>
-                                    <th>Wednesday</th>
-                                    <th>Thursday</th>
-                                    <th>Friday</th>
-                                    <th>Saturday</th>
-                                    <th>Sunday</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($schedules as $sched)
-                                @php
-                                $presentDays = json_decode($sched->present_days, true) ?? [];
-                                $daysOff = json_decode($sched->dayoff, true) ?? [];
-                                @endphp
-
-                                <tr>
-                                    <td>{{ $sched->name }}</td>
-
-                                    @foreach(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
-                                    'Sunday'] as $day)
-                                    <td data-label="{{ $day }}">
-                                        @if(in_array($day, $presentDays))
-                                        <span class="badge badge-success">
-                                            <p>Shift Time</p> {{ $sched->shift_start_time }} -
-                                            {{ $sched->shift_end_time }}
-                                        </span>
-                                        @elseif(in_array($day, $daysOff))
-                                        <span class="badge badge-danger">Day Off</span>
-                                        @else
-                                        N/A
-                                        @endif
-                                    </td>
-                                    @endforeach
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-
-
-                    <center>
-                        <h1>Doctor Schedule Request</h1>
-                    </center>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="table-responsive">
-                                <table class="table table-striped custom-table mb-0 datatable">
-                                    <thead>
-                                        <tr>
-                                            <th>Doctor Name</th>
-                                            <th>Department</th>
-                                            <th>Present Day</th>
-                                            <th>Day Off</th>
-                                            <th>Shift Start Time</th>
-                                            <th>Shift Time End</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                            <th>Action</th>
-
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($allsched as $pending)
-                                        <tr>
-                                            <td>
-                                                <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar"><img alt=""
-                                                            src="hrs/assets/img/profiles/user.jpg" /></a>
-                                                    <a href="#">{{$pending->name}}
-                                                        <span>{{$pending->specialty}}</span></a>
-                                                </h2>
-                                            </td>
-                                            <td>{{$pending->specialty}}</td>
-                                            <td>{{ implode(', ', json_decode($pending->present_days)) }}</td>
-                                            <td>{{ implode(', ', json_decode($pending->dayoff)) }}</td>
-                                            <td>{{$pending->shift_start_time}}</td>
-                                            <td>{{$pending->shift_end_time}}</td>
-                                            <td><span class="badge badge-warning">{{$pending->sched_status}}</span></td>
-                                            <td><a href="{{url('schedule_approved', $pending->id)}}"
-                                                    class="btn btn-success">Approved</a></td>
-                                            <td><a href="{{url('schedule_rejected', $pending->id)}}"
-                                                    class="btn btn-warning">Rejected</a></td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-
-                                </table>
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-primary">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -462,12 +444,57 @@
 
 
 
-
                 </div>
+
+
+
 
             </div>
 
         </div>
+
+        @if(Session::has('message'))
+        <script>
+        swal("Message", "{{Session::get('message')}}", 'success', {
+            button: true,
+            button: "Okay",
+            timer: 3000,
+
+
+        });
+        </script>
+        @endif
+
+
+
+        <script>
+        document.getElementById('issueSelect').addEventListener('change', function() {
+            const issueValue = this.value;
+            const prioritySelect = document.getElementById('prioritySelect');
+
+            let priorityValue;
+            switch (issueValue) {
+                case 'ui_glitch':
+                    priorityValue = 'Low Severity';
+                    break;
+                case 'email_failure':
+                    priorityValue = 'Moderate Severity';
+                    break;
+                case 'ticket_duplication':
+                    priorityValue = 'High Severity';
+                    break;
+                case 'system_downtime':
+                    priorityValue = 'Critical Severity';
+                    break;
+                default:
+                    priorityValue = '';
+            }
+
+            // Update the priority select box value and disable user interaction
+            prioritySelect.value = priorityValue;
+        });
+        </script>
+
 
 
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

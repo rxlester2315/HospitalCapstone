@@ -487,7 +487,7 @@
 
                                         <!-- Call to Action Text Dropdown -->
                                         <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Call to Action Text</label>
+                                            <label class="col-lg-3 col-form-label">Link to click</label>
                                             <div class="col-lg-9">
                                                 <select id="action_text" name="action_text" class="form-control">
                                                     <option value="click-here">Click Here</option>
@@ -497,8 +497,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="action_url" class="col-lg-3 col-form-label">Call to Action
-                                                URL</label>
+                                            <label for="action_url" class="col-lg-3 col-form-label">Direct Link</label>
                                             <div class="col-lg-9">
                                                 <input type="url" name="action_url" id="action_url"
                                                     class="form-control" />
@@ -509,7 +508,7 @@
 
                                         <!-- Closing Remarks Dropdown -->
                                         <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Closing Remarks</label>
+                                            <label class="col-lg-3 col-form-label">Close Message</label>
                                             <div class="col-lg-9">
                                                 <select name="endline" id="endline" class="form-control">
                                                     <option value="thank-you">Thank you</option>

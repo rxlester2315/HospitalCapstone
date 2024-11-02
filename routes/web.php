@@ -202,6 +202,11 @@ Route::get('/chart-data', [HrController::class, 'charttable']);
 
 Route::get('/message_patients/{id}', [HrController::class, 'checkmessage']);
 
+Route::get('/send_tickets_hr', [HrController::class, 'sendtickets']);
+Route::post('/send_tickets_hrs', [HrController::class, 'sendtixss'])->name('hr.ticket.store');
+
+
+
 
 
 

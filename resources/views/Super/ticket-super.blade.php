@@ -160,9 +160,11 @@
                                 <td>{{$ticket->name}}</td>
                                 <td>{{$ticket->created_at}}</td>
                                 <td>{{$ticket->priority}}</td>
+                                <td class="timer" data-submitted-at="{{ $ticket->submitted_at }}"
+                                    data-priority="{{ $ticket->priority }}" id="timer-{{ $ticket->id }}"></td>
                                 <td>
                                     <a href="{{ url('checking_issue/' . $ticket->id) }}"
-                                        class="btn btn-success">Solve</a>
+                                        class="btn btn-success">View</a>
                                 </td>
 
 
@@ -185,6 +187,51 @@
 
             </div>
         </div>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Define countdown durations in milliseconds for each priority level
+            const priorityDurations = {
+                "Critical Severity": 4 * 60 * 60 * 1000,
+                "High Severity": 12 * 60 * 60 * 1000, // 12 hours
+                "Medium Severity": 24 * 60 * 60 * 1000, // 24 hours
+                "Low Severity": 48 * 60 * 60 * 1000 // 48 hours
+            };
+
+            // Select all elements with the class 'timer'
+            document.querySelectorAll('.timer').forEach(function(timerElement) {
+                // Get the ticket's submitted time from the data attribute
+                const submittedAt = new Date(timerElement.getAttribute('data-submitted-at')).getTime();
+
+                // Get the priority level and set the corresponding countdown duration
+                const priority = timerElement.getAttribute('data-priority');
+                const timerDuration = priorityDurations[priority] || 24 * 60 * 60 *
+                    1000; // Default to 24 hours if undefined
+
+                // Update the countdown every second
+                const countdownInterval = setInterval(function() {
+                    const now = new Date().getTime();
+                    const timeElapsed = now - submittedAt;
+                    const timeRemaining = timerDuration - timeElapsed;
+
+                    if (timeRemaining <= 0) {
+                        clearInterval(countdownInterval);
+                        timerElement.innerHTML = "Time is up!";
+                    } else {
+                        // Calculate hours, minutes, and seconds
+                        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (
+                            1000 * 60 * 60));
+                        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 *
+                            60));
+                        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                        // Display the countdown
+                        timerElement.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+                    }
+                }, 1000);
+            });
+        });
+        </script>
         <script src="admins/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
         <script src="admins/assets/js/bootstrap.bundle.min.js"></script>
 

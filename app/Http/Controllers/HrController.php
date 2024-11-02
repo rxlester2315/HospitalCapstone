@@ -13,10 +13,12 @@ use App\Models\ticket;
 use App\Notifications\TicketResponse;
 use DB;
 use Illuminate\Support\Carbon;
-
+use Auth;
 use App\Models\Attend;
+use App\Notifications\VerifiedNotification;
+use App\Notifications\TicketEmail;
 
-
+use Illuminate\Support\Str;
 
 use Notification;
 
@@ -505,6 +507,44 @@ public function sched_reject($id){
         $selectpatients = Appointments::find($id);
 
         return view('Hr.view-message-patients',compact('selectpatients'));
+
+    }
+
+
+    public function sendtickets(){
+        $hr = Auth::user();
+
+        return view('Hr.send-ticket-hr',compact('hr'));
+    }
+
+    public function sendtixss(Request $request){
+
+         
+       $data= new ticket;
+       $data ->name=$request->name;
+       $data ->email=$request->email;
+       $data ->subject=$request->subject;
+       $data ->description=$request->description;
+       $data ->priority=$request->priority;
+       $data->status = 'open';
+       $data->submitted_at = now();  
+
+       if (Auth::check()) {
+        $data->rolename = Auth::user()->role_name; 
+    } else {
+        $data->rolename = 'none'; 
+    }
+
+$data->ticket_number = 'TCKT-' . strtoupper(Str::random(8));
+
+$data->save();
+
+Notification::route('mail', $data->email)->notify(new TicketEmail($data));
+
+
+return redirect()->back()->with('message','Message Ticket Sent Successfully');
+
+
 
     }
 

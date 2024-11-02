@@ -13,6 +13,9 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/metisMenu.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- amchart css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
             media="all" />
@@ -160,6 +163,13 @@
                                 <li><a href="{{url('chatwith_patients')}}"><i class="fa fa-commenting-o"></i> <span>Chat
                                             with
                                             Patients</span></a></li>
+
+                                <li><a href="{{url('submitted_request')}}"><i class="fa-solid fa-clock"></i>
+                                        <span>Schedule Submitted</span></a></li>
+
+
+
+
 
 
                             </ul>

@@ -210,7 +210,7 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="breadcrumbs-area clearfix">
-                                <h4 class="page-title pull-left">Submitting Schedule</h4>
+                                <h4 class="page-title pull-left">Submitted Schedule</h4>
                                 <ul class="breadcrumbs pull-left">
                                     <li><a href="{{url('Doc')}}">Home</a></li>
                                     <li><span>Doctor Account</span></li>
@@ -244,8 +244,8 @@
                                     <tr>
                                         <td>{{$approve->name}}</td>
                                         <td>{{$approve->specialty}}</td>
-                                        <td>{{$approve->present_days}}</td>
-                                        <td>{{$approve->dayoff}}</td>
+                                        <td>{{ implode(', ', json_decode($approve->present_days)) }}</td>
+                                        <td>{{ implode(', ', json_decode($approve->dayoff)) }}</td>
                                         <td>{{$approve->shift_start_time}}</td>
                                         <td>{{$approve->shift_end_time}}</td>
                                         <td><span class="badge badge-success">Approved</span></td>
