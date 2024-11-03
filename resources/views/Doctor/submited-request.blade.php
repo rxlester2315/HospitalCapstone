@@ -225,7 +225,7 @@
                 <!-- page title area end -->
                 <div class="main-content-inner">
 
-                    <div class="container animate__animated  animate__zoomInUp
+                    <div class="container animate__animated  animate__slideInRight
  ">
                         <h1 class="my-4">Submitted Schedules</h1>
 

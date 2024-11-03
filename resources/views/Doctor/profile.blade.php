@@ -191,7 +191,7 @@
                     </div>
                 </div>
                 <!-- page title area end -->
-                <div class="container animate__animated  animate__zoomInUp
+                <div class="container animate__animated  animate__slideInRight
 
  ">
                     <div class="profile-card">

@@ -184,7 +184,8 @@
                     </div>
                 </div>
                 <!-- page title area end -->
-                <div class="main-content-inner  animate__animated  animate__zoomInUp">
+                <div class="main-content-inner  animate__animated  animate__slideInRight
+">
 
 
 

@@ -190,7 +190,8 @@
 
 
 
-                    <div class="col-12 mt-5 animate__animated  animate__zoomInUp ">
+                    <div class="col-12 mt-5 animate__animated  animate__slideInRight
+ ">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title">Patients with Marked Completed Appointments</h4>

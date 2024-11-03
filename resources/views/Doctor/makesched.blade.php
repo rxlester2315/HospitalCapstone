@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/themify-icons.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/metisMenu.css">
+
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -233,7 +234,7 @@
 
 
 
-                    <div class="container animate__animated  animate__zoomInUp
+                    <div class="container animate__animated  animate__slideInRight
  ">
 
                         <div class="form-container">

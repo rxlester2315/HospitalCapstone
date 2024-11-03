@@ -183,7 +183,7 @@
 
 
 
-                    <div class="container animate__animated  animate__zoomInUp
+                    <div class="container animate__animated  animate__slideInRight
  ">
                         <div class="ticket-form-container">
                             <h2 class="form-title">Comcare Support Ticket</h2>

@@ -165,7 +165,8 @@
                         decision</p>
 
                 </div>
-                <div class="card animate__animated  animate__zoomInUp ">
+                <div class="card animate__animated  animate__slideInRight
+ ">
 
                     <div class="card-header text-center">
                         <h2>User Profile</h2>

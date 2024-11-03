@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ComCare Terms and Conditions</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
         <style>
         body {
@@ -43,7 +45,8 @@
 
     <body>
 
-        <div class="container">
+        <div class="container animate__animated  animate__zoomInUp
+">
             <div class="card shadow-sm">
                 <div class="card-header">
                     <h5 class="mb-0">Terms and Conditions for ComCare Account Creation</h5>

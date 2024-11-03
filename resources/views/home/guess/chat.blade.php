@@ -275,7 +275,8 @@
         <!-- page container area start -->
         <div class="page-container">
             <!-- sidebar menu area start -->
-            <div class="sidebar-menu animate__animated  animate__zoomInUp ">
+            <div class="sidebar-menu animate__animated  animate__slideInRight
+ ">
                 <div class="sidebar-header">
                     <div class="logo">
                         @auth
@@ -433,7 +434,8 @@
 
 
 
-                <div class="main-content-inner animate__animated  animate__zoomInUp ">
+                <div class="main-content-inner animate__animated  animate__slideInRight
+ ">
 
 
                     <div class="chat-wrapper">

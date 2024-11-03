@@ -216,7 +216,8 @@
 
 
 
-                    <div class="container mt-5 animate__animated  animate__zoomInUp
+                    <div class="container mt-5 animate__animated  animate__slideInRight
+
  ">
                         <div class="card">
                             <div class="card-header">

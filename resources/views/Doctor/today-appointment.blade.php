@@ -191,7 +191,7 @@
 
 
 
-                    <div class="col-md-6 mx-auto  animate__animated  animate__zoomInUp ">
+                    <div class="col-md-6 mx-auto  animate__animated  animate__slideInRight ">
                         <!-- Table -->
                         <form action="{{ route('zzzzz') }}" method="GET" class="text-center">
                             @csrf
