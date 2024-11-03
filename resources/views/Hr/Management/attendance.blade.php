@@ -8,6 +8,7 @@
         <title>Comcare Attendance Doctor</title>
 
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('hrs/assets/img/logo.jpg')}}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <link rel="stylesheet" href="hrs/assets/css/bootstrap.min.css">
 
@@ -420,7 +421,8 @@
 
             <div class="page-wrapper">
 
-                <div class="content container-fluid">
+                <div class="content container-fluid  animate__animated animate__slideInRight
+">
 
 
 

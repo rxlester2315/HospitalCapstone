@@ -13,6 +13,8 @@
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('fdesk/assets/img/logo.jpg')}}" />
 
         <link rel="stylesheet" href="fdesk/assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 
         <link rel="stylesheet" href="fdesk/assets/css/font-awesome.min.css" />
 
@@ -332,7 +334,8 @@
                 </div>
             </div>
 
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar animate__animated  animate__zoomInUp
+" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
@@ -391,8 +394,9 @@
             </div>
 
             <div class="page-wrapper">
-                <div class="content container-fluid">
-                    <div class="row">
+                <div class="content container-fluid ">
+                    <div class="row  animate__animated animate__slideInRight
+">
                         <div class="col-md-12">
                             <div class="table-responsive">
 

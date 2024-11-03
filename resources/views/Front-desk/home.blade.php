@@ -18,6 +18,9 @@
         <link rel="stylesheet" href="fdesk/assets/css/font-awesome.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
         <link rel="stylesheet" href="fdesk/assets/css/line-awesome.min.css" />
 
         <link rel="stylesheet" href="fdesk/assets/plugins/morris/morris.css" />
@@ -334,7 +337,8 @@
             @if (session()->has('impersonated_by'))
             <a href="{{ route('logout') }}" class="btn btn-warning">Leave Impersonation</a>
             @endif
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar animate__animated  animate__zoomInUp
+" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
@@ -424,7 +428,8 @@
             </div>
 
             <div class="page-wrapper">
-                <div class="content container-fluid">
+                <div class="content container-fluid  animate__animated animate__slideInRight
+">
                     <div class="page-header">
                         <div class="row">
                             <div class="col-sm-12">

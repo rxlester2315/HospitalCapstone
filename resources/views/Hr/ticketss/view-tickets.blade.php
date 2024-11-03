@@ -4,12 +4,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <meta name="description" content="Smarthr - Bootstrap Admin Template">
-        <meta name="keywords"
-            content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
-        <meta name="author" content="Dreamguys - Bootstrap Admin Template">
-        <meta name="robots" content="noindex, nofollow">
+
         <title>Human Resources Dashboard</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -319,7 +316,8 @@
             </div>
 
 
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar animate__animated  animate__zoomInUp
+" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
@@ -376,7 +374,8 @@
 
 
             <div class="page-wrapper">
-                <div class="content container-fluid">
+                <div class="content container-fluid animate__animated  animate__zoomInUp
+">
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">

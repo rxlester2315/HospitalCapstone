@@ -9,6 +9,7 @@
         <title>Human Resources Dashboard</title>
 
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('hrs/assets/img/logo.jpg')}}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <link rel="stylesheet" href="{{asset('hrs/assets/css/bootstrap.min.css')}}">
 

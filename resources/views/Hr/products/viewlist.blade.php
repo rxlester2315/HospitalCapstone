@@ -11,6 +11,8 @@
             integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('hrs/assets/img/logo.jpg')}}" />
 
         <link rel="stylesheet" href="{{ asset('hrs/assets/css/bootstrap.min.css')}}">
@@ -384,7 +386,8 @@
 
 
             <div class="page-wrapper">
-                <div class="content container-fluid">
+                <div class="content container-fluid  animate__animated animate__slideInRight
+">
                     <div class="row d-flex justify-content-center">
                         @if (Session::has('success'))
                         <div class="col-md-10 mt-4">

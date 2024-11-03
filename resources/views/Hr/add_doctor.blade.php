@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="hrs/assets/css/bootstrap.min.css">
 
         <link rel="stylesheet" href="hrs/assets/css/font-awesome.min.css">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <link rel="stylesheet" href="hrs/assets/css/line-awesome.min.css">
 
         <link rel="stylesheet" href="hrs/assets/plugins/morris/morris.css">
@@ -293,7 +293,8 @@
             </div>
 
 
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar animate__animated  animate__zoomInUp
+" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
@@ -401,7 +402,8 @@
 
             <div class="page-wrapper">
 
-                <div class="content container-fluid">
+                <div class="content container-fluid  animate__animated animate__slideInRight
+">
                     <form action="{{url('/upload_doctor')}}" method="POST" enctype="multipart/form-data">
                         @csrf
 

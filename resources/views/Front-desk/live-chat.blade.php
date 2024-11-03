@@ -12,6 +12,9 @@
         <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.0/purify.min.js"></script>
 
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <link rel="stylesheet" href="main_alls/everythingzz/assets/csss/styles.css">
 
         <style>
@@ -36,7 +39,8 @@
 
             </div>
 
-            <div class="chat-window" id="chatbox">
+            <div class="chat-window  animate__animated animate__slideInRight
+" id="chatbox">
                 <div class="chat-header">
                     <h1>Comcare Front Desk Chat</h1>
 
