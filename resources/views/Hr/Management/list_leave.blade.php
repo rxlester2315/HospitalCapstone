@@ -546,7 +546,8 @@
                                         <td>{{ $data->leave_start_date }}</td>
                                         <td>{{ $data->leave_end_date }}</td>
                                         <td>
-                                            <span class="badge bg-success">{{ $data->status }}</span>
+                                            <span style="color:white; font-size:15px;"
+                                                class="badge bg-success">{{ $data->status }}</span>
                                         </td>
 
                                     </tr>
@@ -588,7 +589,8 @@
                                         <td>{{ $data->leave_start_date }}</td>
                                         <td>{{ $data->leave_end_date }}</td>
                                         <td>
-                                            <span class="badge bg-danger">{{ $data->status }}</span>
+                                            <span style="color:white; font-size:15px;"
+                                                class="badge bg-danger">{{ $data->status }}</span>
                                         </td>
 
                                     </tr>

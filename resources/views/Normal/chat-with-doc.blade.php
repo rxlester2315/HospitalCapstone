@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/metisMenu.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <!-- amchart css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
             media="all" />
@@ -61,7 +63,7 @@
                                 alt="logo"></a>
                     </div>
                 </div>
-                <div class="main-menu">
+                <div class="main-menu animate__animated  animate__slideInRight  ">
                     <div class="menu-inner">
                         <nav>
                             <ul class="metismenu" id="menu">
@@ -161,10 +163,10 @@
 
                     <!-- Lower Section - Doctor Profi
                     les -->
-                    <div class="container">
+                    <div class="container ">
                         <h2 class="text-dark">Meet Your Doctors</h2>
 
-                        <div class="row">
+                        <div class="row animate__animated  animate__slideInRight  ">
                             @foreach($appointments as $appoint)
                             <div class="col-md-3">
                                 <div class="doctor-card">

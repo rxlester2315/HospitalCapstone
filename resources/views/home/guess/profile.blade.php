@@ -16,6 +16,9 @@
         <!-- amchart css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
             media="all" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <!-- others css -->
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/typography.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/default-css.css">
@@ -162,7 +165,7 @@
                         decision</p>
 
                 </div>
-                <div class="card">
+                <div class="card animate__animated  animate__zoomInUp ">
 
                     <div class="card-header text-center">
                         <h2>User Profile</h2>

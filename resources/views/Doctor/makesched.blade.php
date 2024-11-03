@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/metisMenu.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
             integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -232,7 +233,8 @@
 
 
 
-                    <div class="container">
+                    <div class="container animate__animated  animate__zoomInUp
+ ">
 
                         <div class="form-container">
                             <h2 class="form-title">Submit Schedule</h2>

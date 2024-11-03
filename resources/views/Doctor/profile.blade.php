@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="{{ asset('main_alls/everythingzz/assets/css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('main_alls/everythingzz/assets/css/slicknav.min.css') }}">
         <!-- amchart css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
             media="all" />
         <!-- others css -->
@@ -189,7 +191,9 @@
                     </div>
                 </div>
                 <!-- page title area end -->
-                <div class="container">
+                <div class="container animate__animated  animate__zoomInUp
+
+ ">
                     <div class="profile-card">
                         <div class="profile-header">
                             <img src="{{ asset('profiledoc/' . $doctor->avats) }}" class="profile-picture"

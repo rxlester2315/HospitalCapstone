@@ -167,6 +167,9 @@ Route::get('arrive_setime/{id}',[FrontDeskController::class,'arrive_set'])->name
 Route::post('arrive_setimes/{id}',[FrontDeskController::class,'subtime_arrive'])->name('submit.time.arrive');
 
 Route::get('arrive_approve', [FrontDeskController::class, 'arriveappoint']);
+Route::get('not_arrived/{id}', [FrontDeskController::class, 'notarrive'])->name('not.arriveds');
+
+
 
 Route::get('arrive_approves/{id}', [FrontDeskController::class, 'mark_arrive'])->name('arrive.mark');
 
@@ -267,6 +270,7 @@ Route::get('removepatient/{id}', [DoctorController::class, 'remove_appointment']
 
 Route::get('/submitted_request',[DoctorController::class,'schedule_sub'])->name('submitted.sched');
 
+Route::get('/rejectedapp/{id}', [DoctorController::class, 'rejectappoint']);
 
 
 

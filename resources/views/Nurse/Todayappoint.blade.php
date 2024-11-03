@@ -170,6 +170,7 @@
                                                         <th>Employees</th>
                                                         <th>Status</th>
                                                         <th>Appointment Date</th>
+                                                        <th>Time</th>
 
                                                     </tr>
                                                 </thead>
@@ -187,6 +188,7 @@
                                                             <span class="badge bg-success">{{$appoint->status}}</span>
                                                         </td>
                                                         <td>{{$appoint->date}}</td>
+                                                        <td>{{$appoint->time}}</td>
                                                     </tr>
                                                     @endforeach
                                                     @else

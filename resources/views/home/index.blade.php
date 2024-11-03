@@ -29,7 +29,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="landing/css/bootstrap.min.css">
-        <!-- Nice Select CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <link rel="stylesheet" href="landing/css/nice-select.css">
         <!-- Font Awesome CSS -->
         <link rel="stylesheet" href="landing/css/font-awesome.min.css">
@@ -89,7 +89,7 @@
         <!-- Header Area -->
         <header class="header">
             <!-- Topbar -->
-            <div class="topbar">
+            <div class="topbar animate__animated  animate__slideInLeft ">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-5 col-12">
@@ -130,7 +130,7 @@
                                 <!-- End Logo -->
 
                                 <!-- Main Menu -->
-                                <div class="main-menu">
+                                <div class="main-menu animate__animated  animate__slideInLeft ">
                                     <nav class="navigation">
                                         <ul class="nav menu">
                                             <li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
@@ -170,7 +170,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-7">
-                                <div class="text">
+                                <div class="text animate__animated  animate__slideInLeft ">
                                     <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl
                                         pellentesque, faucibus libero eu, gravida quam. </p>
@@ -208,10 +208,10 @@
         <!--/ End Slider Area -->
 
         <!-- Start Schedule Area -->
-        <section class="schedule">
+        <section class="schedule ">
             <div class="container">
                 <div class="schedule-inner">
-                    <div class="row">
+                    <div class="row animate__animated  animate__slideInLeft ">
                         <div class="col-lg-4 col-md-6 col-12 ">
                             <!-- single-schedule -->
                             <div class="single-schedule first">

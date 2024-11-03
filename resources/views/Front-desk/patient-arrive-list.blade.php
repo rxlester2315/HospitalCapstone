@@ -455,6 +455,10 @@
                                                         <td>
                                                             <a href="{{url('arrive_approves/'. $approve->id)}}"
                                                                 class="btn btn-success">Arrive</a>
+
+                                                            <a href="{{url('not_arrived/'. $approve->id)}}"
+                                                                class="btn btn-danger">Not Arrived</a>
+
                                                         </td>
 
                                                     </tr>

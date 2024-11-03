@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/metisMenu.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <!-- amchart css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
             media="all" />
@@ -189,7 +191,7 @@
 
 
 
-                    <div class="col-md-6 mx-auto">
+                    <div class="col-md-6 mx-auto  animate__animated  animate__zoomInUp ">
                         <!-- Table -->
                         <form action="{{ route('zzzzz') }}" method="GET" class="text-center">
                             @csrf

@@ -652,6 +652,14 @@ public function patientchatview(){
     return view('Doctor.patient-list-chat',compact('completed'));
 }
 
+public function rejectappoint($id){
+    $rejectapp = Appointments::find($id);
+    $rejectapp->status ='Rejected';
+    $rejectapp->save();
+
+    return redirect()->back()->with('message','Appointment Has been Reject');
+}
+
 
 
 

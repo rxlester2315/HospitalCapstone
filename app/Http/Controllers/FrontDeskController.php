@@ -339,20 +339,23 @@ public function arriveappoint() {
     $allapprove = Appointments::where('status', 'Approved')
         ->where(function($query) {
             $query->where('arrive_status', '!=', 'Arrived')
+                  ->where('arrive_status', '!=', 'Not Arrived') // Exclude 'Not Arrived'
                   ->orWhereNull('arrive_status');
         })
-        ->orderBy('created_at','desc')
+        ->orderBy('created_at', 'desc')
         ->get();
 
-          $allapprovetotal = Appointments::where('status', 'Approved')
+    $allapprovetotal = Appointments::where('status', 'Approved')
         ->where(function($query) {
             $query->where('arrive_status', '!=', 'Arrived')
+                  ->where('arrive_status', '!=', 'Not Arrived') // Exclude 'Not Arrived'
                   ->orWhereNull('arrive_status');
         })
         ->count();
 
-    return view('Front-desk.patient-arrive-list', compact('allapprove','allapprovetotal'));
+    return view('Front-desk.patient-arrive-list', compact('allapprove', 'allapprovetotal'));
 }
+
 
 
 
@@ -367,6 +370,18 @@ public function mark_arrive($id) {
 
     } 
  return redirect()->back()->with('message','Appointment marked as arrived');
+
+}
+
+public function notarrive($id){
+
+    $notarrive = Appointments::find($id);
+    $notarrive->arrive_status = 'Not Arrived';
+    $notarrive->save();
+
+     return redirect()->back()->with('message','Appointment marked as not Arrived');
+
+
 
 }
 

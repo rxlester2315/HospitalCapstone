@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/metisMenu.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <!-- amchart css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
             media="all" />
@@ -83,12 +85,12 @@
                                 <div class="user-profile m-0">
                                     <img class="avatar user-thumb"
                                         src="main_alls/everythingzz/assets/images/author/avatar.png" alt="avatar">
-                                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Kumkum Rai <i
-                                            class="fa fa-angle-down"></i></h4>
+                                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown"><i
+                                            class="fa fa-angle-down"></i>{{ Auth::user()->name }}</h4>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Message</a>
-                                        <a class="dropdown-item" href="#">Settings</a>
-                                        <a class="dropdown-item" href="#">Log Out</a>
+
+
+                                        <a class="dropdown-item" href="{{url('logout'}}">Log Out</a>
                                     </div>
                                 </div>
                             </div>

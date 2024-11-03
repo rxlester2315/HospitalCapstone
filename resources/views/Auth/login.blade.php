@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="admins/assets/css/pages/auth.css">
         <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.30/build/spline-viewer.js"></script>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     </head>
 
 
@@ -33,8 +35,9 @@
                         </div>
                         {{-- message --}}
                         {!! Toastr::message() !!}
-                        <h1 class="auth-title">Login</h1>
-                        <p class="auth-subtitle mb-5">Welcome! Please Log In to Manage Your Healthcare Needs.
+                        <h1 class="auth-title animate__animated animate__zoomInDown ">Login</h1>
+                        <p class="auth-subtitle mb-5 animate__animated animate__zoomInDown">Welcome! Please Log In to
+                            Manage Your Healthcare Needs.
 
 
                         </p>
@@ -60,7 +63,7 @@
 
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text"
-                                    class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                    class="form-control form-control-lg @error('email') is-invalid @enderror animate__animated animate__zoomInDown "
                                     name="email" value="{{ old('email') }}" placeholder="Enter email">
                                 <div class="form-control-icon">
                                     <i class="bi bi-person"></i>
@@ -74,7 +77,7 @@
 
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="password"
-                                    class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                    class="form-control form-control-lg @error('password') is-invalid @enderror animate__animated animate__zoomInDown"
                                     name="password" placeholder="Enter Password">
                                 <div class="form-control-icon">
                                     <i class="bi bi-shield-lock"></i>
@@ -92,9 +95,10 @@
 
                         <div class="text-center mt-5 text-lg fs-4">
                             <p class="text-gray-600">Don't have an account? <a href="{{url('guessaccount')}}"
-                                    class="font-bold">Sign
+                                    class="font-bold animate__animated animate__zoomInDown ">Sign
                                     up</a>.</p>
-                            <p><a class="font-bold" href="{{url('forgotpassword')}}">Forgot password?</a>.</p>
+                            <p><a class="font-bold animate__animated animate__zoomInDown "
+                                    href="{{url('forgotpassword')}}">Forgot password?</a>.</p>
                         </div>
                     </div>
                 </div>

@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <!-- amchart css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
@@ -50,7 +51,7 @@
                                 alt="logo"></a>
                     </div>
                 </div>
-                <div class="main-menu">
+                <div class="main-menu animate__animated  animate__slideInRight ">
 
 
                     @if (session()->has('impersonated_by'))
@@ -58,9 +59,9 @@
                     @endif
 
 
-                    <div class="menu-inner">
+                    <div class="menu-inner ">
                         <nav>
-                            <ul class="metismenu" id="menu">
+                            <ul class="metismenu animate__animated  animate__slideInRight " id="menu">
 
 
 
@@ -113,12 +114,12 @@
                 <div class="page-title-area">
                     <div class="row align-items-center">
                         <div class="col-sm-6">
-                            <div class="breadcrumbs-area clearfix">
+                            <div class="breadcrumbs-area clearfix  ">
                                 @auth
                                 @if(Auth::user()->role_name !== 'Normal User')
 
                                 <a href="{{route('guest_view')}}">
-                                    <h4 class="page-title pull-left"><span class="unverifieds">Unverified</span> </h4>
+                                    <h4 class="page-title pull-left "><span class="unverifieds">Unverified</span> </h4>
                                 </a>
                                 @endif
 
@@ -128,7 +129,7 @@
                                 </ul>
 
 
-                                <ul class="bread-middle">
+                                <ul class="bread-middle animate__animated  animate__slideInRight ">
                                     <li><a href="{{url('myappointment')}}">View Appointment</a></li>
                                     <li><a href="{{url('mydoctor')}}">Chat with Doctor</a></li>
                                     <li><a href="{{url('view_normal_prof')}}">View Profile</a></li>
@@ -140,7 +141,7 @@
                             @endauth
                         </div>
                         <div class="col-sm-6 clearfix">
-                            <div class="user-profile pull-right">
+                            <div class="user-profile pull-right ">
 
                                 <img class="avatar user-thumb"
                                     src="main_alls/everythingzz/assets/images/author/avatar.png">
@@ -175,9 +176,9 @@
 
 
 
-                <div class="custom-slider">
+                <div class="custom-slider animate__animated  animate__slideInRight ">
 
-                    <div class="custom-slides">
+                    <div class="custom-slides ">
                         <!-- Radio buttons for manual navigation -->
                         <input type="radio" name="radio-btn" id="radio1" checked>
                         <input type="radio" name="radio-btn" id="radio2">
@@ -218,7 +219,7 @@
 
 
 
-                <div class="options">
+                <div class="options animate__animated  animate__slideInRight ">
                     <div class="list-options">
                         <div class="chat">
                             <span class="fa fa-commenting"></span>
@@ -261,7 +262,7 @@
 
 
 
-                <div class="card mt-5">
+                <div class="card mt-5 animate__animated  animate__slideInRight ">
                     <div class="card-body">
                         <h4 class="header-title">Recent Visit List</h4>
                         <div class="table-responsive">

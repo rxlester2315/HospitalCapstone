@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <!-- amchart css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
@@ -53,7 +54,7 @@
                 <div class="main-menu">
                     <div class="menu-inner">
                         <nav>
-                            <ul class="metismenu" id="menu">
+                            <ul class="metismenu animate__animated   animate__slideInRight" id="menu">
 
 
 
@@ -107,7 +108,7 @@
                             </div>
 
                         </div>
-                        <div class="col-sm-6 clearfix">
+                        <div class="col-sm-6 clearfix animate__animated  ">
 
                             <div class="user-profile pull-right">
                                 <img class="avatar user-thumb"
@@ -142,9 +143,9 @@
 
 
 
-                <div class="custom-slider">
+                <div class="custom-slider animate__animated  animate__slideInRight ">
 
-                    <div class="custom-slides">
+                    <div class="custom-slides ">
                         <!-- Radio buttons for manual navigation -->
                         <input type="radio" name="radio-btn" id="radio1" checked>
                         <input type="radio" name="radio-btn" id="radio2">
@@ -185,7 +186,7 @@
 
 
 
-                <div class="options">
+                <div class="options animate__animated  animate__slideInRight ">
                     <div class="list-options">
                         <div class="chat">
                             <span class="fa fa-commenting"></span>
@@ -218,11 +219,11 @@
 
 
 
-                <div class="services-list">
+                <div class="services-list ">
                     <h2>Our Offered Services</h2>
                 </div>
 
-                <div class="main-content-inner">
+                <div class="main-content-inner animate__animated  animate__slideInRight ">
                     <!-- color pricing start -->
                     <div class="row">
                         <div class="col-xl-3 col-ml-6 col-mdl-4 col-sm-6 mt-5">

@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
         <!-- amchart css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
             media="all" />
         <!-- others css -->
@@ -273,7 +275,7 @@
         <!-- page container area start -->
         <div class="page-container">
             <!-- sidebar menu area start -->
-            <div class="sidebar-menu">
+            <div class="sidebar-menu animate__animated  animate__zoomInUp ">
                 <div class="sidebar-header">
                     <div class="logo">
                         @auth
@@ -431,7 +433,7 @@
 
 
 
-                <div class="main-content-inner">
+                <div class="main-content-inner animate__animated  animate__zoomInUp ">
 
 
                     <div class="chat-wrapper">

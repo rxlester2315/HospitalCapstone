@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- amchart css -->
@@ -117,7 +119,7 @@
                         <nav>
 
 
-                            <ul class="metismenu" id="menu">
+                            <ul class="metismenu animate__animated  animate__slideInRight" id="menu">
 
 
                                 <li>
@@ -169,7 +171,7 @@
             </div>
             <!-- sidebar menu area end -->
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="main-content ">
                 <!-- header area start -->
                 <div class="header-area">
                     <div class="row align-items-center">
@@ -203,7 +205,7 @@
                 </div>
                 <!-- header area end -->
                 <!-- page title area start -->
-                <div class="page-title-area">
+                <div class="page-title-area ">
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="breadcrumbs-area clearfix">
@@ -215,7 +217,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6 clearfix">
-                            <div class="user-profile pull-right">
+                            <div class="user-profile pull-right ">
 
                                 @if($doctor && $doctor->avats)
                                 <img class="avatar user-thumb" src="{{ asset('profiledoc/' . $doctor->avats) }}"
@@ -243,7 +245,7 @@
 
 
 
-                    <div class="custom-slider">
+                    <div class="custom-slider animate__animated  animate__slideInRight ">
 
                         <div class="custom-slides">
                             <!-- Radio buttons for manual navigation -->
@@ -295,7 +297,7 @@
 
 
                     <!-- sales report area start -->
-                    <div class="container-ssx">
+                    <div class="container-ssx animate__animated  animate__slideInRight">
                         <div class="box">
                             <i class="fa fa-users"></i>
                             <h3>Total Patients</h3>
@@ -315,8 +317,8 @@
 
                     <!-- visitor graph area end -->
                     <!-- order list area start -->
-                    <div class="card mt-5">
-                        <div class="card-body">
+                    <div class="card mt-5 ">
+                        <div class="card-body animate__animated  animate__slideInRight">
                             <h4 class="header-title">Today's Appointment</h4>
                             <div class="table-responsive">
                                 <table class="dbkit-table">

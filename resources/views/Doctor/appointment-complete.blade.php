@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/owl.carousel.min.css">
         <link rel="stylesheet" href="main_alls/everythingzz/assets/css/slicknav.min.css">
         <!-- amcharts css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
             media="all" />
         <!-- Start datatable css -->
@@ -188,7 +190,7 @@
 
 
 
-                    <div class="col-12 mt-5">
+                    <div class="col-12 mt-5 animate__animated  animate__zoomInUp ">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="header-title">Patients with Marked Completed Appointments</h4>
