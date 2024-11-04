@@ -23,6 +23,8 @@
             crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <style>
         .card-content {
             background: white;
@@ -150,7 +152,9 @@
                                     <center>
                                         <h2>General Patient Assesment</h2>
                                     </center>
-                                    <div class="card-content">
+                                    <div class="card-content animate__animated  animate__zoomIn
+
+ ">
                                         <div class="card-body">
                                             <form action="{{route('asses.store')}}" method="POST" class="form">
                                                 @csrf

@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{asset('adminz/assets/css/font-awesome.min.css')}}">
 
         <link rel="stylesheet" href="{{asset('adminz/assets/css/line-awesome.min.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <link rel="stylesheet" href="{{asset('adminz/assets/css/dataTables.bootstrap4.min.css')}}">
 
@@ -23,7 +24,10 @@
             crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
         <style>
-
+        .custom-width {
+            width: 500px;
+            /* Adjust the width as needed */
+        }
         </style>
 
     </head>
@@ -304,9 +308,8 @@
                             <span>Admin</span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="profile.html">My Profile</a>
-                            <a class="dropdown-item" href="settings.html">Settings</a>
-                            <a class="dropdown-item" href="login.html">Logout</a>
+
+                            <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -316,16 +319,16 @@
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
                             class="fa fa-ellipsis-v"></i></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-                        <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+
+                        <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
                     </div>
                 </div>
 
             </div>
 
 
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar animate__animated  animate__zoomInUp
+" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
@@ -343,7 +346,7 @@
 
 
                             <li>
-                                <a href="{{url('/users_manage')}}"><i class="la la-users"></i> <span>User
+                                <a href="{{url('/userlog')}}"><i class="la la-users"></i> <span>User
                                         Login</span></a>
                             </li>
 
@@ -376,30 +379,30 @@
 
 
             <div class="page-wrapper" style="min-height: 667px;">
-                <div class="content container-fluid">
+                <div class="content container-fluid  animate__animated animate__slideInRight
+">
 
                     <div class="card-body">
                         <form action="{{ route('changepw.posts', $selectuser->id) }}" method="POST">
                             @csrf
-                            <!-- Include CSRF token -->
 
                             <div class="form-group">
                                 <label>Account ID</label>
-                                <input type="text" class="form-control"
+                                <input type="text" class="form-control custom-width"
                                     value="{{ old('account_id', $selectuser->id ?? '') }}" readonly />
                             </div>
 
                             <div class="form-group">
                                 <label>Account Name</label>
-                                <input type="text" class="form-control"
+                                <input type="text" class="form-control custom-width"
                                     value="{{ old('account_name', $selectuser->name ?? '') }}" readonly />
                             </div>
 
                             <div class="form-group">
                                 <label>Change Password</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" name="password" id="password-field"
-                                        required />
+                                <div style="width:500px;" class="input-group">
+                                    <input type="password" class="form-control custom-width" name="password"
+                                        id="password-field" required />
                                     <div class="input-group-append">
                                         <button type="button" class="btn btn-warning"
                                             onclick="generatePassword()">Generate</button>
@@ -413,9 +416,9 @@
 
                             <div class="form-group">
                                 <label>Confirm Password</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" name="password_confirmation"
-                                        id="password-confirmation-field" required />
+                                <div style="width:500px;" class="input-group">
+                                    <input type="password" class="form-control custom-width"
+                                        name="password_confirmation" id="password-confirmation-field" required />
                                     <div class="input-group-append">
                                         <button type="button" class="btn btn-danger"
                                             onclick="togglePassword('password-confirmation-field', this)">
@@ -427,6 +430,7 @@
 
                             <button type="submit" class="btn btn-success">Submit</button>
                         </form>
+
                     </div>
 
                     <script>

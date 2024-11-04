@@ -7,6 +7,7 @@
         <title>User Management</title>
 
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/logo.jpg">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <link rel="stylesheet" href="adminz/assets/css/bootstrap.min.css">
 
@@ -318,7 +319,8 @@
             </div>
 
 
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar animate__animated  animate__zoomInUp
+" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
@@ -373,7 +375,8 @@
 
 
             <div class="page-wrapper" style="min-height: 667px;">
-                <div class="content container-fluid">
+                <div class="content container-fluid  animate__animated  animate__zoomInUp
+">
                     <div class="page-header">
                         <div class="row">
 

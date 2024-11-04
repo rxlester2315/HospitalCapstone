@@ -7,6 +7,7 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
         <title>Admin Edit</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/logo.jpg">
         <link rel="stylesheet" href="adminz/assets/css/bootstrap.min.css">
@@ -68,7 +69,8 @@
                 </ul>
             </div>
             <!-- Sidebar -->
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar animate__animated  animate__zoomInUp
+" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
@@ -84,7 +86,8 @@
 
             <!-- Page Content -->
             <div class="page-wrapper">
-                <div class="content container-fluid">
+                <div class="content container-fluid  animate__animated animate__slideInRight
+">
                     <div class="card borde-0 shadow-lg my-4">
                         <div class="card-header bg-dark">
                             <h3 class="text-white">Products</h3>

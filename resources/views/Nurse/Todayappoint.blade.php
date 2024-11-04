@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="nursess/assets/vendors/bootstrap-icons/bootstrap-icons.css">
         <link rel="stylesheet" href="nursess/assets/css/app.css">
         <link rel="shortcut icon" href="nursess/assets/images/favicon.svg" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <style>
         .card-header {
@@ -137,7 +138,9 @@
                     <!-- Basic Tables end -->
 
                     <!--  Inverse table start -->
-                    <section class="section">
+                    <section class="section  animate__animated animate__zoomIn
+
+ ">
                         <div class="row" id="table-inverse">
                             <div class="col-12">
                                 <div class="card">

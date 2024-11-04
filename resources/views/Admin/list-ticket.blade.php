@@ -12,6 +12,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/logo.jpg">
 
         <link rel="stylesheet" href="adminz/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <link rel="stylesheet" href="adminz/assets/css/font-awesome.min.css">
 
@@ -223,7 +224,8 @@
             </div>
 
 
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar animate__animated  animate__zoomInUp
+" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
@@ -360,7 +362,8 @@
                     </div>
 
 
-                    <div class="row" style="font-size:20px;">
+                    <div class="row  animate__animated animate__slideInRight
+ " style="font-size:20px;">
                         <div class="col-md-12">
                             <div class="table-responsive">
                                 <table class="table table-striped custom-table mb-0 datatable">

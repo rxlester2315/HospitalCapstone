@@ -318,6 +318,8 @@
                             <span>Front Desk</span>
                         </a>
                         <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{url('chat')}}">Message</a>
+
                             <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
                         </div>
                     </li>
@@ -327,8 +329,7 @@
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
                             class="fa fa-ellipsis-v"></i></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-                        <a class="dropdown-item" href="settings.html">Settings</a>
+                        <a class="dropdown-item" href="{{url('chat')}}">Message</a>
                         <a class="dropdown-item" href="{{url('logout')}}">Logout</a>
                     </div>
                 </div>
@@ -337,7 +338,8 @@
             @if (session()->has('impersonated_by'))
             <a href="{{ route('logout') }}" class="btn btn-warning">Leave Impersonation</a>
             @endif
-            <div class="sidebar animate__animated  animate__zoomInUp
+            <div class="sidebar animate__animated  animate__zoomIn
+
 " id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
@@ -428,7 +430,9 @@
             </div>
 
             <div class="page-wrapper">
-                <div class="content container-fluid  animate__animated animate__slideInRight
+                <div class="content container-fluid  animate__animated  animate__zoomIn
+
+
 ">
                     <div class="page-header">
                         <div class="row">

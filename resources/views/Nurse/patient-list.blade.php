@@ -16,6 +16,9 @@
         <link rel="stylesheet" href="nursess/assets/css/app.css">
         <link rel="shortcut icon" href="nursess/assets/images/favicon.svg" type="image/x-icon">
 
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <style>
         .clock {
             font-size: 48px;
@@ -135,7 +138,8 @@
                         </div>
                     </div>
 
-                    <section class="section">
+                    <section class="section  animate__animated animate__slideInRight
+">
                         <div class="row" id="table-striped">
                             <div class="col-12">
                                 <div class="card">

@@ -15,6 +15,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/logo.jpg">
 
         <link rel="stylesheet" href="adminz/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <link rel="stylesheet" href="adminz/assets/css/font-awesome.min.css">
 
@@ -205,7 +206,6 @@
                             <span>Admin</span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="profile.html">My Profile</a>
                             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                         </div>
                     </li>
@@ -216,8 +216,7 @@
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
                             class="fa fa-ellipsis-v"></i></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-                        <a class="dropdown-item" href="settings.html">Settings</a>
+
                         <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                     </div>
                 </div>
@@ -228,7 +227,8 @@
             @if (session()->has('impersonated_by'))
             <a href="{{ route('logout') }}" class="btn btn-warning">Leave Impersonation</a>
             @endif
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar animate__animated  animate__zoomIn
+" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
@@ -285,7 +285,8 @@
 
             <div class="page-wrapper">
 
-                <div class="content container-fluid">
+                <div class="content container-fluid animate__animated  animate__zoomIn
+">
 
                     <div class="page-header">
                         <div class="row">

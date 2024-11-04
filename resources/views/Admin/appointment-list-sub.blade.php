@@ -12,7 +12,7 @@
             integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/logo.jpg">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <link rel="stylesheet" href="adminz/assets/css/bootstrap.min.css">
 
         <link rel="stylesheet" href="adminz/assets/css/font-awesome.min.css">
@@ -306,14 +306,22 @@
 
             <div class="page-wrapper">
 
-                <div class="content container-fluid">
+                <div class="content container-fluid  animate__animated animate__zoomIn
+">
 
 
 
                     <div class="container mt-5">
+                        <div class="col-md-3">
+                            <label for=" search">
+                                <h3>Search Patient</h3>
+                            </label>
+                            <input type="text" id="searchInput" class="form-control short-search"
+                                placeholder="Search by name" />
+                        </div>
                         <h1 class="text-center mb-4" style="color:white;">Approve Appointments</h1>
                         <div class="table-responsive">
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover table-striped datatable">
                                 <thead class="table-light">
                                     <tr>
                                         <th scope="col">#</th>
@@ -356,6 +364,25 @@
             </div>
 
         </div>
+
+
+        <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            var searchValue = this.value.toLowerCase();
+            var rows = document.querySelectorAll('.datatable tbody tr');
+
+            rows.forEach(function(row) {
+                var name = row.querySelector('td:nth-child(2)').innerText
+            .toLowerCase(); // Get the second td (Patient Name)
+                if (name.includes(searchValue)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+        </script>
+
 
 
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

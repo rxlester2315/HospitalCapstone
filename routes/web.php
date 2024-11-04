@@ -170,7 +170,6 @@ Route::get('arrive_approve', [FrontDeskController::class, 'arriveappoint']);
 Route::get('not_arrived/{id}', [FrontDeskController::class, 'notarrive'])->name('not.arriveds');
 
 
-
 Route::get('arrive_approves/{id}', [FrontDeskController::class, 'mark_arrive'])->name('arrive.mark');
 
 //Human Resources 

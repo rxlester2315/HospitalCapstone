@@ -326,7 +326,8 @@
             @if (session()->has('impersonated_by'))
             <a href="{{ route('logout') }}" class="btn btn-warning">Leave Impersonation</a>
             @endif
-            <div class="sidebar animate__animated  animate__zoomInUp
+            <div class="sidebar animate__animated  animate__zoomIn
+
 " id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
@@ -398,7 +399,8 @@
 
             <div class="page-wrapper">
 
-                <div class="content container-fluid animate__animated  animate__zoomInUp
+                <div class="content container-fluid animate__animated  animate__zoomIn
+
 ">
 
                     <div class="page-header">

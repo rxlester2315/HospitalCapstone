@@ -8,7 +8,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap"
             rel="stylesheet">
+
         <link rel="stylesheet" href="nursess/assets/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
             integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -56,8 +59,10 @@
 
     <body>
         <div id="app">
-            <div id="sidebar" class="active">
-                <div class="sidebar-wrapper active">
+            <div id="sidebar" class="active ">
+                <div class="sidebar-wrapper active   animate__animated animate__zoomIn
+
+">
                     <div class="sidebar-header">
                         <div class="d-flex justify-content-between">
                             <div class="logo">
@@ -98,7 +103,7 @@
                                 </ul>
                             </li>
 
-                            <li class="sidebar-item  has-sub">
+                            <li class="sidebar-item  has-sub  ">
                                 <a href="#" class='sidebar-link'>
                                     <i class="bi bi-person-badge-fill"></i>
                                     <span>Patient Information</span>
@@ -164,7 +169,9 @@
                         <h1>Welcome Nurse Dashboard</h1>
                     </center>
                 </div>
-                <div class="page-content">
+                <div class="page-content  animate__animated animate__zoomIn
+
+">
                     <section class="row">
                         <div class="col-12 col-lg-9">
                             <div class="row">

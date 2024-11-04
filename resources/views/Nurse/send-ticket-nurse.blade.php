@@ -14,7 +14,7 @@
             crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <link rel="stylesheet" href="nursess/assets/vendors/iconly/bold.css">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
             integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
             crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -164,7 +164,8 @@
 
 
 
-                <div class="col-md-6 col-12">
+                <div class="col-md-6 col-12  animate__animated animate__slideInRight
+">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Ticketing Support</h4>

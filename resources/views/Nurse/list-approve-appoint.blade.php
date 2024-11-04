@@ -18,6 +18,9 @@
         <link rel="stylesheet" href="nursess/assets/css/app.css">
         <link rel="shortcut icon" href="nursess/assets/images/favicon.svg" type="image/x-icon">
 
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <style>
         .card-body {
             background-color: white;
@@ -131,7 +134,8 @@
                         </div>
                     </div>
 
-                    <section class="section">
+                    <section class="section  animate__animated animate__slideInRight
+">
                         <div class="card">
                             <div class="card-header">
                                 Approve Appointment

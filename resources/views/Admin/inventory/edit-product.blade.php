@@ -13,6 +13,8 @@
         </script>
 
         <link rel="shortcut icon" type="image/x-icon" href="adminz/assets/img/logo.jpg">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 
         <link rel="stylesheet" href="{{asset('adminz/assets/css/bootstrap.min.css')}}">
 
@@ -230,7 +232,8 @@
             </div>
 
 
-            <div class="sidebar" id="sidebar">
+            <div class="sidebar animate__animated  animate__zoomInUp
+" id="sidebar">
                 <div class="sidebar-inner slimscroll">
                     <div id="sidebar-menu" class="sidebar-menu">
                         <ul>
@@ -277,13 +280,14 @@
 
             <div class="page-wrapper">
 
-                <div class="content container-fluid">
+                <div class="content container-fluid animate__animated  animate__zoomInUp
+">
 
 
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title mb-0">Basic Form</h4>
+                                <h4 class="card-title mb-0">Inventory Edit</h4>
                             </div>
                             <div class="card-body">
                                 <form enctype="multipart/form-data" action="{{ route('Product.Update',$product->id) }}"
