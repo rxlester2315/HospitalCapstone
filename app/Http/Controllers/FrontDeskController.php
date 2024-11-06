@@ -336,14 +336,11 @@ public function subtime_arrive(Request $request, $id){
 
 
 public function arriveappoint() {
-    $allapprove = Appointments::where('status', 'Approved')
-        ->where(function($query) {
-            $query->where('arrive_status', '!=', 'Arrived')
-                  ->where('arrive_status', '!=', 'Not Arrived') // Exclude 'Not Arrived'
-                  ->orWhereNull('arrive_status');
-        })
-        ->orderBy('created_at', 'desc')
-        ->get();
+  $allapprove = Appointments::where('status', 'Approved')
+    ->where('arrive_status', 'Not Arrived') // Only include 'Not Arrived'
+    ->orderBy('created_at', 'desc')
+    ->get();
+
 
     $allapprovetotal = Appointments::where('status', 'Approved')
         ->where(function($query) {

@@ -100,26 +100,36 @@ public function send_mail($id) {
 
 
 
-     public function mail(Request $request,$id){
+  public function mail(Request $request, $id) {
+    // Validate the request
+    $request->validate([
+        'body' => 'required|string',
+    ]);
 
-                $data=appointments::find($id);
+    // Find the appointment by ID
+    $data = appointments::find($id);
 
-
-              $details = [
-    'greeting'    => $request->greeting,
-    'body'        => $request->body,
-    'action_text' => $request->action_text,
-    'action_url'  => $request->action_url,
-    'endline'     => $request->endline
-];
-
-
-Notification::send($data,new EmailNotification($details));
-
-
-return redirect()->back();
-
+    // Check if appointment exists
+    if (!$data) {
+        return redirect()->back()->with('error', 'Appointment not found.');
     }
+
+    // Prepare email notification details
+    $details = [
+        'greeting'    => 'Hello',
+        'body'        => $request->body,
+        'action_text' => 'Click Here',
+        'action_url'  => 'https://medimap-comcare.com/',
+        'endline'     => 'Thank You'
+    ];
+
+    // Send the notification
+    Notification::send($data, new EmailNotification($details));
+
+    // Redirect back with a success message
+    return redirect()->back()->with('message', 'Email sent successfully!');
+}
+
 
 
     public function index(){

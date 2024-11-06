@@ -12,6 +12,13 @@
 
         <link rel="stylesheet" href="{{asset('hrs/assets/css/line-awesome.min.css')}}">
 
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+
         <link rel="stylesheet" href="{{asset('hrs/assets/plugins/morris/morris.css')}}">
 
         <link rel="stylesheet" href="{{asset('hrs/assets/css/style.css')}}">
@@ -472,53 +479,6 @@
 
 
 
-                                        <!-- Title Message Dropdown -->
-                                        <!-- Greetings Dropdown -->
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Greetings</label>
-                                            <div class="col-lg-9">
-                                                <select id="greeting" name="greeting" class="form-control">
-                                                    <option value="hello">Hello</option>
-                                                    <option value="dear">Dear</option>
-                                                    <option value="hi">Hi</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <!-- Call to Action Text Dropdown -->
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Link to click</label>
-                                            <div class="col-lg-9">
-                                                <select id="action_text" name="action_text" class="form-control">
-                                                    <option value="click-here">Click Here</option>
-                                                    <option value="visit-now">Visit Now</option>
-                                                    <option value="learn-more">Learn More</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="action_url" class="col-lg-3 col-form-label">Direct Link</label>
-                                            <div class="col-lg-9">
-                                                <input type="url" name="action_url" id="action_url"
-                                                    class="form-control" />
-                                            </div>
-                                        </div>
-
-
-
-                                        <!-- Closing Remarks Dropdown -->
-                                        <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Close Message</label>
-                                            <div class="col-lg-9">
-                                                <select name="endline" id="endline" class="form-control">
-                                                    <option value="thank-you">Thank you</option>
-                                                    <option value="best-regards">Best Regards</option>
-                                                    <option value="kind-regards">Kind Regards</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <!-- Email Content (Leave as textarea) -->
                                         <div class="mb-3">
                                             <label for="body" class="form-label">Email Content</label>
                                             <textarea class="form-control form-control-sm" name="body" id="body"
@@ -545,6 +505,19 @@
             </div>
 
         </div>
+
+        @if(Session::has('message'))
+        <script>
+        swal("Message", "{{Session::get('message')}}", 'success', {
+            button: true,
+            button: "Okay",
+            timer: 3000,
+
+
+        });
+        </script>
+        @endif
+
 
 
         <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">

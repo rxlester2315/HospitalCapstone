@@ -209,7 +209,7 @@ public function filterAppointments(Request $request)
 
     // If a department is selected, filter the appointments by department
     if ($department) {
-        $approveapp = Appointments::where('departments', $department)->get();
+        $approveapp = Appointments::where('departments', $department)->orderBy('created_at','desc')->get();
     } else {
         // Otherwise, show all approved appointments
         $approveapp = Appointments::all();

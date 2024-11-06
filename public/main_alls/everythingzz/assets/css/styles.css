@@ -663,9 +663,9 @@ ul.breadcrumbs {
     color: black;
     border: 3px;
     border-radius: 8px;
-    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
     transition: transform 0.3s ease; /* Transition effect */
 }
 
@@ -758,9 +758,9 @@ ul.breadcrumbs {
     border: 1px;
     border-radius: 3px;
     padding: 17px 38px;
-    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
     position: relative;
 }
 
@@ -2651,16 +2651,16 @@ table.dataTable thead td {
     letter-spacing: 0;
     font-family: "lato", sans-serif;
     font-weight: 500;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .prc-list {
     padding: 30px;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .prc-list li a {
@@ -2683,9 +2683,9 @@ table.dataTable thead td {
     color: #fff;
     padding: 11px 20px;
     border-radius: 40px;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .pricing-list {
@@ -3141,33 +3141,32 @@ table.dataTable thead td {
 .options .list-options .chat {
     background: #0ed7b6;
 
-    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .options .list-options .book {
     background: #0ed7b6;
 
-    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .options .list-options .appoint {
     background: #0ed7b6;
-
-    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .options .list-options .doctor {
     background: #0ed7b6;
 
-    box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 /* Hover effect */

@@ -313,8 +313,8 @@ Route::get('patient_appointments',[NurseController::class,'appointments_list'])-
 
 Route::get('remark_patients/{id}', [NurseController::class, 'remarkpatients']);
 
-Route::post('remark_store', [NurseController::class, 'remark'])->name('remark.store');
 
+Route::post('remark_store', [NurseController::class, 'remark'])->name('remark.store');
 Route::get('filter_appointments', [NurseController::class, 'filterAppointments'])->name('filter_appointments');
 
 

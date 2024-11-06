@@ -81,19 +81,7 @@
 
 
                             </div>
-                            <div class="clearfix d-md-inline-block d-block">
-                                <div class="user-profile m-0">
-                                    <img class="avatar user-thumb"
-                                        src="main_alls/everythingzz/assets/images/author/avatar.png" alt="avatar">
-                                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown"><i
-                                            class="fa fa-angle-down"></i>{{ Auth::user()->name }}</h4>
-                                    <div class="dropdown-menu">
 
-
-                                        <a class="dropdown-item" href="{{url('logout'}}">Log Out</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
